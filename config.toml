@@ -1,60 +1,69 @@
 # file:     config.toml
 # author:   Ryotaro Onuki
-# base:     https://themes.gohugo.io/mainroad/
 # hugo:     v0.59.1 or higher
+# base:     https://themes.gohugo.io/mainroad/
 
 baseurl = "/"
-title = "Mainroad"
-languageCode = "en-us"
-paginate = "10" # Number of posts per page
+title = "KERI's Lab"
+languageCode = "ja-jp"
+paginate = "20" # Number of posts per page
 theme = "mainroad"
-disqusShortname = "" # Enable comments by entering your Disqus shortname
-googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+disqusShortname = "kerikun11+disqus@gmail.com" # Enable comments by entering your Disqus shortname
+googleAnalytics = "UA-103856564-1" # Enable Google Analytics by entering your tracking id
+hasCJKLanguage = true
+rssLimit = 30 # default: 15
 
 [Author] # Used in authorbox
-  name = "John Doe"
-  bio = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
-  avatar = "img/avatar.png"
+    name = "けり"
+    bio = "趣味は電子工作．最近はESP32に夢中．マイクロマウス競技に参加しています．"
+    avatar = "/img/avatar.jpg"
+    email = "kerikun11+web@gmail.com"
+    location = "Earth"
 
 [Params]
-  subtitle = "Just another site" # Subtitle of your site. Used in site header
-  description = "John Doe's Personal blog about everything" # Site description. Used in meta description
-  #copyright = "John Doe" # copyright holder, otherwise will use site title
-  opengraph = true # Enable OpenGraph if true
-  twitter_cards = true # Enable Twitter Cards if true
-  readmore = false # Show "Read more" button in list if true
-  authorbox = true # Show authorbox at bottom of pages if true
-  toc = true # Enable Table of Contents
-  post_navigation = true # Show post navigation at bottom of pages if true
-  post_meta = ["date", "categories", "translations"] # Order of post meta information
-  #mainSections = ["post", "blog", "news"] # specify section pages to show on home page and the "Recent articles" widget
-  #dateformat = "2006-01-02" # change the format of dates
-  #mathjax = true # Enable MathJax
-  #mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
-  #mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
-  #highlightColor = "#e22d30" # Override highlight color
-  customCSS = ["css/custom.css"] # Include custom CSS files
-  customJS = ["js/custom.js"] # Include custom JS files
+    subtitle = "KERI's Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。" # Subtitle of your site. Used in site header
+    description = "KERI's Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。" # Site description. Used in meta description
+    #copyright = "John Doe" # copyright holder, otherwise will use site title
+    opengraph = true # Enable OpenGraph if true
+    twitter_cards = true # Enable Twitter Cards if true
+    readmore = true # Show "Read more" button in list if true
+    authorbox = true # Show authorbox at bottom of pages if true
+    toc = true # Enable Table of Contents
+    post_navigation = true # Show post navigation at bottom of pages if true
+    post_meta = ["date", "categories", "translations"] # Order of post meta information
+    dateformat = "2006-01-02" # change the format of dates
+    mathjax = true # Enable MathJax
+    mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+    mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+    highlightColor = "#e22d30" # Override highlight color
+    # customCSS = ["css/custom.css"] # Include custom CSS files
+    # customJS = ["js/custom.js"] # Include custom JS files
+    thumbnailDefault = "/img/avatar.jpg"
 
 [Params.sidebar]
-  home = "right" # Configure layout for home page
-  list = "left"  # Configure layout for list pages
-  single = false # Configure layout for single pages
-  # Enable widgets in given order
-  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+    home = "right" # Configure layout for home page
+    list = "left"  # Configure layout for list pages
+    single = false # Configure layout for single pages
+    # Enable widgets in given order
+    widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
 
 [Params.widgets]
-  recent_num = 5 # Set the number of articles in the "Recent articles" widget
-  tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+    recent_num = 5 # Set the number of articles in the "Recent articles" widget
+    tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
 
 [Params.widgets.social]
-  # Enable parts of social widget
-  facebook = "username"
-  twitter = "username"
-  instagram = "username"
-  linkedin = "username"
-  telegram = "username"
-  github = "username"
-  gitlab = "username"
-  bitbucket = "username"
-  email = "example@example.com"
+    # facebook = "username"
+    twitter = "kerikun11"
+    # instagram = "username"
+    # linkedin = "username"
+    # telegram = "username"
+    github = "kerikun11"
+    # gitlab = "username"
+    # bitbucket = "username"
+    email = "kerikun11+web@gmail.com"
+
+[blackfriday]
+	hrefTargetBlank = true
+
+[permalinks]
+	post = "/posts/:filename/"
