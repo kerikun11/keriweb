@@ -1,0 +1,166 @@
+body {
+	background: #228;
+	font: inherit;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.wrapper, .header {
+	background-color: rgba(255,255,255,0.9);
+}
+
+.logo__link,
+.tags__item,
+.toc_title,
+.widget__title,
+.menu__btn-title,
+.menu__link,
+.post-nav__caption
+{
+	text-transform: none;
+}
+
+.post:not(.list__item) 
+.post__content h2 {
+	margin-top: 30px;
+	border-left: 10px solid #46A;
+	border-bottom: 2px solid #46A;
+	padding-left: 8px;
+	background: rgba(200,200,200,0.5);
+	box-shadow: 0 3px 6px rgba(0, 0, 0, .15);
+}
+
+.post:not(.list__item) 
+.post__content h3 {
+	margin-top: 20px;
+	padding-left: 5px;
+	background: rgba(180,180,180,0.5);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+.post:not(.list__item) 
+.post__content {
+	clear: both;
+}
+
+.widget-toc li>ul{
+	padding-left: 5px;
+	margin-left: 15px;
+	list-style-type: square;
+}
+
+.widget__title {
+	margin-bottom: 15px;
+}
+
+.toc__menu a {
+	color: #333;
+	font-size: 0.8em;
+}
+
+.toc__menu {
+	background: #ffffff;
+}
+
+.post__thumbnail {
+	max-width: 100px;
+	/* margin-bottom: 20px;
+	margin-bottom: 1.25rem;
+	margin-right: 10px;
+	float: left;
+	padding:1px; */
+	border: #FFF solid 1px;
+}
+
+.post__thumbnail img {
+	width: 100%;
+}
+
+.logo__title {
+	text-shadow: 2px 2px 5px #888;
+}
+
+.logo {
+	padding: 15px 25px;
+}
+
+.meta,
+.meta a {
+	color: #333;
+}
+
+.list__thumbnail img {
+	float: left;
+	max-width: 120px;
+}
+
+.list__item {
+	border-bottom: 2px dotted #AAA;
+	clear: both;
+}
+
+.list__title {
+	font-size: 28px;
+}
+
+.list__excerpt h2{
+	font-size: 20px;
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+.list__excerpt h3,h4{
+	font-size: 18px;
+	font-size: 1.1rem;
+	margin: 0;
+}
+
+.list__excerpt p{
+	margin: 0;
+}
+
+.list__excerpt{
+	overflow: hidden;
+}
+
+.meta__icon {
+	fill: #787878;
+}
+
+/*** Tables ***/
+table {
+	/* width: 100%; */
+	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
+	border-left: 1px solid #ebebeb;
+	border-top: 1px solid #ebebeb;
+}
+
+td, th {
+	padding: 5px 10px;
+	border-right: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
+	min-width: 4em;
+}
+
+th {
+	font-weight: 700;
+	background: rgba(180, 180, 180, 0.7);
+}
+
+tr:nth-child(even) {
+	background: rgba(220, 220, 220, 0.7);
+}
+
+tr:nth-child(odd) {
+	background: rgba(230, 230, 230, 0.7);
+}
+
+.post__thumbnail {
+	max-width: 100px;
+	margin-bottom: 20px;
+	margin-bottom: 1.25rem;
+	margin-right: 10px;
+	float: left;
+	padding:1px;
+	border: #FFF solid 1px;
+}

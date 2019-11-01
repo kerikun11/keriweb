@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ja-jp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>滑らかな加速の設計④ C&#43;&#43;による実装例 - KERI&#39;s Lab</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<meta property="og:title" content="滑らかな加速の設計④ C&#43;&#43;による実装例" />
+<meta property="og:description" content="概要
+
+前回の記事の続きです．
+
+今回の記事では，今までに示した設計法のC&#43;&#43;による実装例を紹介します．" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2018-04-29-accel-designer4/" />
+<meta property="article:published_time" content="2018-04-29T15:35:38+09:00" />
+<meta property="article:modified_time" content="2018-04-29T15:35:38+09:00" />
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="滑らかな加速の設計④ C&#43;&#43;による実装例"/>
+<meta name="twitter:description" content="概要
+
+前回の記事の続きです．
+
+今回の記事では，今までに示した設計法のC&#43;&#43;による実装例を紹介します．"/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/syntax.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-103856564-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="KERI&#39;s Lab" rel="home">
+				<div class="logo__title">KERI&#39;s Lab</div>
+				<div class="logo__tagline">KERI&#39;s Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。</div>
+			</a>
+		</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/">Home</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">About</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/works/">Works</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/categories/">Categories</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/tags/">Tags</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<figure class="post__thumbnail">
+				<img src="icon.png" alt="滑らかな加速の設計④ C&#43;&#43;による実装例">
+			</figure>
+			<h1 class="post__title">滑らかな加速の設計④ C&#43;&#43;による実装例</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
+	<time class="meta__text" datetime="2018-04-29T15:35:38">2018-04-29</time>
+</div>
+
+<div class="meta__item-categories meta__item">
+	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/categories/%e8%aa%ac%e6%98%8e%e8%a8%98%e4%ba%8b" rel="category">説明記事</a></span>
+</div>
+
+<div class="meta__item-tags meta__item">
+	<svg class="meta__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<span class="meta__text"><a class="meta__link" href="/tags/%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%83%9e%e3%82%a6%e3%82%b9" rel="tag">マイクロマウス</a></span>
+</div>
+</div>
+		</header><div class="content post__content clearfix">
+			<h2 id="概要">概要</h2>
+
+<p><a href="/posts/2018-04-29-accel-designer3/">前回の記事</a>の続きです．</p>
+
+<p>今回の記事では，今までに示した設計法のC++による実装例を紹介します．</p>
+
+<h3 id="滑らかな加速の設計-目次">滑らかな加速の設計 目次</h3>
+
+<ul>
+<li><a href="/posts/2018-04-29-accel-designer1/">滑らかな加速の設計① 台形加速と曲線加速</a></li>
+<li><a href="/posts/2018-04-29-accel-designer2/">滑らかな加速の設計② 曲線加速の設計</a></li>
+<li><a href="/posts/2018-04-29-accel-designer3/">滑らかな加速の設計③ 走行距離を考慮した速度設計</a></li>
+<li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C++による実装例</a></li>
+</ul>
+
+<h2 id="ソースコード">ソースコード</h2>
+
+<p>このライブラリに実体はなく，クラスの宣言が書かれたヘッダファイルのみです．</p>
+
+<ul>
+<li>ライブラリ <a href="AccelDesigner.h" target="_blank">AccelDesigner.h</a></li>
+<li>使用例 <a href="main.cpp" target="_blank">main.cpp</a></li>
+<li>CSVをプロットするMATLABコード <a href="plotout.m" target="_blank">plotout.m</a></li>
+</ul>
+
+<p>※使用する際は，これらのファイルはすべて同じディレクトリにおいてください．</p>
+
+<h2 id="設計1-曲線加速">設計1 曲線加速</h2>
+
+<p>以下のコードは，曲線加速クラスの宣言部分です．</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
+</span><span class="cm"> * @class 加速曲線を生成するクラス
+</span><span class="cm"> * @brief 引数に従って加速曲線を生成する
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">AccelCurve</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 初期化付きのコンストラクタ．
+</span><span class="cm">   * @param a_max   最大加速度 [mm/s/s]
+</span><span class="cm">   * @param v_start 始点速度   [mm/s]
+</span><span class="cm">   * @param v_end   終点速度   [mm/s]
+</span><span class="cm">   */</span>
+  <span class="n">AccelCurve</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_end</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 空のコンストラクタ．あとで reset() により初期化すること．
+</span><span class="cm">   */</span>
+  <span class="n">AccelCurve</span><span class="p">();</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 引数の拘束条件から曲線を生成する．
+</span><span class="cm">   * この関数によって，すべての変数が初期化される．(漏れはない)
+</span><span class="cm">   * @param a_max   最大加速度 [mm/s/s]
+</span><span class="cm">   * @param v_start 始点速度 [mm/s]
+</span><span class="cm">   * @param v_end   終点速度 [mm/s]
+</span><span class="cm">   */</span>
+  <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_end</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における躍度$j$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 躍度[mm/s/s/s]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">j</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における加速度$a$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 加速度[mm/s/s]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">a</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における速度$v$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 速度[mm/s]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">v</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における位置$x$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 位置[mm]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">x</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 終端定数
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">t_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">v_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">x_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 曲線加速部分の時間を決定する関数
+</span><span class="cm">   * @param am 最大加速度の大きさ
+</span><span class="cm">   */</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcTimeCurve</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">am</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 走行距離から達しうる終点速度を算出する関数
+</span><span class="cm">   * @param am 最大加速度の大きさ [mm/s/s]
+</span><span class="cm">   * @param vs 始点速度 [mm/s]
+</span><span class="cm">   * @param vt 目標速度 [mm/s]
+</span><span class="cm">   * @param d 走行距離 [mm]
+</span><span class="cm">   * @return ve 終点速度 [mm/s]
+</span><span class="cm">   */</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcVelocityEnd</span><span class="p">(</span><span class="kt">float</span> <span class="n">am</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vt</span><span class="p">,</span>
+                               <span class="k">const</span> <span class="kt">float</span> <span class="n">d</span><span class="p">);</span>
+  <span class="cm">/** @function calcVelocityMax
+</span><span class="cm">   *   @brief 走行距離から最大速度を算出する関数
+</span><span class="cm">   *   @param am 最大加速度の大きさ [mm/s/s]
+</span><span class="cm">   *   @param vs 始点速度 [mm/s]
+</span><span class="cm">   *   @param va 飽和速度 [mm/s]
+</span><span class="cm">   *   @param ve 終点速度 [mm/s]
+</span><span class="cm">   *   @param d 走行距離 [mm]
+</span><span class="cm">   *   @return vm 最大速度 [mm/s]
+</span><span class="cm">   */</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcVelocityMax</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">am</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">ve</span><span class="p">,</span>
+                               <span class="k">const</span> <span class="kt">float</span> <span class="n">d</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 速度差から変位を算出する関数
+</span><span class="cm">   *
+</span><span class="cm">   * @param am 最大加速度の大きさ [mm/s/s]
+</span><span class="cm">   * @param vs 始点速度 [mm/s]
+</span><span class="cm">   * @param vt 目標速度 [mm/s]
+</span><span class="cm">   * @return float d 変位 [mm/s]
+</span><span class="cm">   */</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcMinDistance</span><span class="p">(</span><span class="kt">float</span> <span class="n">am</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vt</span><span class="p">);</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="kt">float</span> <span class="n">am</span><span class="p">;</span>             <span class="c1">//&lt; 最大加速度 [m/s/s]
+</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">;</span> <span class="c1">//&lt; 境界点の時刻 [s]
+</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">;</span> <span class="c1">//&lt; 境界点の速度 [m/s]
+</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">;</span> <span class="c1">//&lt; 境界点の位置 [m]
+</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">tc</span><span class="p">;</span>             <span class="c1">//&lt; 曲線加速の時間 [s]
+</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">tm</span><span class="p">;</span>             <span class="c1">//&lt; 最大加速度の時間 [s]
+</span><span class="c1"></span><span class="p">};</span>
+</code></pre></div>
+<h2 id="設計2-曲線加減速">設計2 曲線加減速</h2>
+
+<p>以下のコードは，走行距離の拘束条件を満たした曲線加減速クラスの宣言部分です．</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
+</span><span class="cm"> * @class 加減速曲線を生成するクラス
+</span><span class="cm"> * @brief 引数に従って速度計画をし，加減速曲線を生成する
+</span><span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">AccelDesigner</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+  <span class="cm">/**
+</span><span class="cm">   * @param a_max 最大加速度 [mm/s/s]
+</span><span class="cm">   * @param v_start 始点速度 [mm/s]
+</span><span class="cm">   * @param v_end 終点速度 [mm/s]
+</span><span class="cm">   */</span>
+  <span class="n">AccelDesigner</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span><span class="p">,</span>
+                <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">distance</span><span class="p">,</span>
+                <span class="k">const</span> <span class="kt">float</span> <span class="n">x_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 空のコンストラクタ．あとで reset() により初期化すること．
+</span><span class="cm">   */</span>
+  <span class="n">AccelDesigner</span><span class="p">();</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 引数の拘束条件から曲線を生成する．
+</span><span class="cm">   * この関数によって，すべての変数が初期化される．(漏れはない)
+</span><span class="cm">   */</span>
+  <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span><span class="p">,</span>
+             <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span><span class="p">,</span> <span class="kt">float</span> <span class="n">distance</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">x_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+             <span class="k">const</span> <span class="kt">float</span> <span class="n">t_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における躍度$j$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 躍度[mm/s/s/s]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">j</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における加速度$a$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 加速度[mm/s/s]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">a</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における速度$v$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 速度[mm/s]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">v</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 時刻$t$における位置$x$
+</span><span class="cm">   * @param t 時刻[s]
+</span><span class="cm">   * @return 位置[mm]
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">x</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 終端xx
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">t_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">v_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">x_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief stdoutに軌道のcsvを出力する関数．
+</span><span class="cm">   */</span>
+  <span class="kt">void</span> <span class="nf">printCsv</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t_interval</span> <span class="o">=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief std::ofstream に軌道のcsvを出力する関数．
+</span><span class="cm">   */</span>
+  <span class="kt">void</span> <span class="nf">printCsv</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="o">&amp;</span><span class="n">of</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_interval</span> <span class="o">=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="kt">float</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">;</span> <span class="cm">/**&lt; 境界点の時刻 [s] */</span>
+  <span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x3</span><span class="p">;</span>         <span class="cm">/**&lt; 境界点の位置 [mm] */</span>
+  <span class="n">AccelCurve</span> <span class="n">ac</span><span class="p">,</span> <span class="n">dc</span><span class="p">;</span>    <span class="cm">/**&lt; 曲線加速，曲線減速オブジェクト */</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="使用例">使用例</h2>
+
+<h3 id="シンプル">シンプル</h3>
+
+<p>一番簡単な例として以下のC++コードをご覧ください．
+実行すると，標準出力にCSVが表示されます．</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">AccelDesigner</span> <span class="n">sd</span><span class="p">;</span>
+
+  <span class="c1">// パラメータを設定
+</span><span class="c1"></span>  <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span> <span class="o">=</span> <span class="mi">2400</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">720</span><span class="p">;</span>
+  <span class="c1">// 曲線を生成
+</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">a_max</span><span class="p">,</span> <span class="n">v_start</span><span class="p">,</span> <span class="n">v_sat</span><span class="p">,</span> <span class="n">v_target</span><span class="p">,</span> <span class="n">distance</span><span class="p">);</span>
+  <span class="c1">// CSV出力
+</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">();</span> <span class="n">t</span> <span class="o">+=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f,%f,%f,%f,%f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">j</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sd</span><span class="p">.</span><span class="n">a</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sd</span><span class="p">.</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sd</span><span class="p">.</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="連続使用">連続使用</h3>
+
+<p>加減速をいくつか繰り返す例です．</p>
+
+<p>前回の終点の速度や位置を，次回の始点速度，位置に使っています．</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">of</span><span class="p">(</span><span class="s">&#34;out.csv&#34;</span><span class="p">);</span> <span class="c1">//&lt; ファイル名
+</span><span class="c1"></span>  <span class="n">AccelDesigner</span> <span class="n">sd</span><span class="p">;</span>
+
+  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span> <span class="c1">//&lt; 曲線の生成
+</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span> <span class="c1">//&lt; CSVファイル出力
+</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span> <span class="c1">//&lt; 曲線の生成
+</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span> <span class="c1">//&lt; CSVファイル出力
+</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span> <span class="c1">//&lt; 曲線の生成
+</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span> <span class="c1">//&lt; CSVファイル出力
+</span><span class="c1"></span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="csvをmatlabでプロット">CSVをMATLABでプロット</h3>
+
+<p>以下のMATLABコードで，出力された<a href="out.csv" target="_blank">out.csv</a>ファイルをプロットできます．</p>
+<div class="highlight"><pre class="chroma"><code class="language-m" data-lang="m"><span class="c">%% cleaning</span>
+<span class="n">clear</span><span class="p">;</span>
+<span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultTextInterpreter&#39;</span><span class="p">,</span> <span class="s">&#39;Latex&#39;</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultLegendInterpreter&#39;</span><span class="p">,</span> <span class="s">&#39;Latex&#39;</span><span class="p">);</span>
+<span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultLineLineWidth&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="c">%% load</span>
+<span class="n">rawdata</span> <span class="p">=</span> <span class="n">csvread</span><span class="p">(</span><span class="s">&#39;out.csv&#39;</span><span class="p">);</span>
+<span class="n">t</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">j</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">a</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">v</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="c">%% plot</span>
+<span class="n">ylabels</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;$j$ [mm/s/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$a$ [mm/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$v$ [mm/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$x$ [mm]&#39;</span><span class="p">};</span>
+<span class="n">titles</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;Jerk&#39;</span><span class="p">,</span> <span class="s">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="s">&#39;Velocity&#39;</span><span class="p">,</span> <span class="s">&#39;Position&#39;</span><span class="p">};</span>
+<span class="n">xlabelstr</span> <span class="p">=</span> <span class="s">&#39;$t$ [s]&#39;</span><span class="p">;</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">data</span> <span class="p">=</span> <span class="p">[</span><span class="nb">j</span> <span class="n">a</span> <span class="n">v</span> <span class="n">x</span><span class="p">];</span>
+<span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">4</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">i</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">off</span><span class="p">;</span> <span class="n">plot</span><span class="p">(</span><span class="nb">nan</span><span class="p">,</span> <span class="nb">nan</span><span class="p">);</span> <span class="c">% clean</span>
+    <span class="n">hold</span> <span class="n">on</span><span class="p">;</span>
+    <span class="n">ax</span> <span class="p">=</span> <span class="n">gca</span><span class="p">;</span> <span class="n">ax</span><span class="p">.</span><span class="n">ColorOrderIndex</span> <span class="p">=</span> <span class="nb">i</span><span class="p">;</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="p">(:,</span> <span class="nb">i</span><span class="p">));</span>
+    <span class="n">grid</span> <span class="n">on</span><span class="p">;</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="n">xlabelstr</span><span class="p">);</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="n">ylabels</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+    <span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">(</span><span class="nb">i</span><span class="p">));</span>
+<span class="k">end</span></code></pre></div>
+<p>上記の連続使用のコード例をプロットしたのが以下の図です．</p>
+
+<figure >
+	
+		
+		<figcaption>
+			<h4>CSVをMATLABでプロット</h4>
+		</figcaption>
+		
+		<img src="out.png" alt="CSVをMATLABでプロット" style="width: 480px;"/>
+	
+</figure>
+
+
+<h2 id="実装上の工夫">実装上の工夫</h2>
+
+<h3 id="使いやすさ">使いやすさ</h3>
+
+<p>今回作ったライブラリでは，コンストラクタや <code>reset()</code> 関数でパラメータを設定してあげれは
+あとは $v(t)$ のように時間の関数として使えるようにしました．</p>
+
+<p>複雑な場合分けは内部で行われていて，使い方はとてもシンプルになっています．</p>
+
+<h3 id="移植性の考慮">移植性の考慮</h3>
+
+<p>今回のクラス設計では，</p>
+
+<ul>
+<li>走行距離$d$を考慮して終点速度$v_e$を求める関数<code>AccelCurve::calcVelocityEnd()</code></li>
+<li>走行距離$d$を考慮して最大速度$v_m$を求める関数<code>AccelCurve::calcVelocityMax()</code></li>
+</ul>
+
+<p>は，設計1の<code>AccelCurve</code>クラスに実装しました．</p>
+
+<p>というのも，曲線生成部分がすべて<code>AccelCurve</code>クラスにまとまっているので，
+今後，曲線部分を2次関数ではない別の関数に変えたくなったら，<code>AccelCurve</code>クラスの中身を変更するだけで済むようになっています．</p>
+
+<h2 id="まとめ">まとめ</h2>
+
+<p>さて，滑らかな加速について考えてきました．</p>
+
+<p>今回の設計によって，拘束条件を満たす走行軌道を生成することができました．</p>
+
+<p>あとは，機体がこれを追従するコードを書くだけですね！</p>
+
+<p>といっても，それもまた難しいですが&hellip;</p>
+
+<h3 id="免責">免責</h3>
+
+<p>設計には欠陥やミスがあるかもしれません．くれぐれも自己責任ご使用ください．</p>
+
+<p>もしミスや改良点を見つけたら教えてください！</p>
+
+<h3 id="追記-2019年1月29日">追記: 2019年1月29日</h3>
+
+<p>ソースコードに飽和速度を超過するバグがあったので修正しました．</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/" rel="tag">マイクロマウス</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+<div class="ads-horizontal">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<ins class="adsbygoogle"
+	     style="display:block; text-align:center;"
+	     data-ad-format="fluid"
+	     data-ad-layout="in-article"
+	     data-ad-client="ca-pub-1668524068659644"
+	     data-ad-slot="3045514441"></ins>
+	<script>
+	     (adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="けり avatar" src="/img/avatar.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About けり</span>
+	</div>
+	<div class="authorbox__description">
+		趣味は電子工作．最近はESP32に夢中．マイクロマウス競技に参加しています．
+	</div>
+</div>
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/posts/2018-04-29-accel-designer3/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">滑らかな加速の設計③ 走行距離を考慮した速度設計</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/posts/2018-05-03-kerise-v4-coming/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">New KERISE v4, 登場</p></a>
+	</div>
+</nav>
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="/" />
+	</form>
+</div>
+<div class="widget-social widget">
+	<h4 class="widget-social__title widget__title">Social</h4>
+	<div class="widget-social__content widget__content">
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Twitter" rel="noopener noreferrer" href="https://twitter.com/kerikun11" target="_blank">
+				<svg class="widget-social__link-icon icon icon-twitter" width="24" height="24" viewBox="0 0 384 312"><path d="m384 36.9c-14.1 6.3-29.3 10.5-45.2 12.4 16.3-9.7 28.8-25.2 34.6-43.6-15.2 9-32.1 15.6-50 19.1-14.4-15.2-34.9-24.8-57.5-24.8-43.5 0-78.8 35.3-78.8 78.8 0 6.2.7 12.2 2 17.9-65.5-3.3-123.5-34.6-162.4-82.3-6.7 11.6-10.6 25.2-10.6 39.6 0 27.3 13.9 51.4 35 65.6-12.9-.4-25.1-4-35.7-9.9v1c0 38.2 27.2 70 63.2 77.2-6.6 1.8-13.6 2.8-20.8 2.8-5.1 0-10-.5-14.8-1.4 10 31.3 39.1 54.1 73.6 54.7-27 21.1-60.9 33.7-97.8 33.7-6.4 0-12.6-.4-18.8-1.1 34.9 22.4 76.3 35.4 120.8 35.4 144.9 0 224.1-120 224.1-224.1 0-3.4-.1-6.8-.2-10.2 15.4-11.1 28.7-25 39.3-40.8z"/></svg>
+				<span>Twitter</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="GitHub" rel="noopener noreferrer" href="https://github.com/kerikun11" target="_blank">
+				<svg class="widget-social__link-icon icon icon-github" width="24" height="24" viewBox="0 0 384 374"><path d="m192 0c-106.1 0-192 85.8-192 191.7 0 84.7 55 156.6 131.3 181.9 9.6 1.8 13.1-4.2 13.1-9.2 0-4.6-.2-16.6-.3-32.6-53.4 11.6-64.7-25.7-64.7-25.7-8.7-22.1-21.3-28-21.3-28-17.4-11.9 1.3-11.6 1.3-11.6 19.3 1.4 29.4 19.8 29.4 19.8 17.1 29.3 44.9 20.8 55.9 15.9 1.7-12.4 6.7-20.8 12.2-25.6-42.6-4.8-87.5-21.3-87.5-94.8 0-20.9 7.5-38 19.8-51.4-2-4.9-8.6-24.3 1.9-50.7 0 0 16.1-5.2 52.8 19.7 15.3-4.2 31.7-6.4 48.1-6.5 16.3.1 32.7 2.2 48.1 6.5 36.7-24.8 52.8-19.7 52.8-19.7 10.5 26.4 3.9 45.9 1.9 50.7 12.3 13.4 19.7 30.5 19.7 51.4 0 73.7-44.9 89.9-87.7 94.6 6.9 5.9 13 17.6 13 35.5 0 25.6-.2 46.3-.2 52.6 0 5.1 3.5 11.1 13.2 9.2 76.2-25.5 131.2-97.3 131.2-182 0-105.9-86-191.7-192-191.7z"/></svg>
+				<span>GitHub</span>
+			</a>
+		</div>
+		<div class="widget-social__item widget__item">
+			<a class="widget-social__link widget__link btn" title="Email" href="mailto:kerikun11&#43;web@gmail.com">
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<span>E-Mail</span>
+			</a>
+		</div>
+	</div>
+</div><div class="widget-categories widget">
+	<h4 class="widget__title">Advertisement</h4>
+	<div class="widget__content">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		
+		<ins class="adsbygoogle"
+			style="display:block"
+			data-ad-client="ca-pub-1668524068659644"
+			data-ad-slot="7974159815"
+			data-ad-format="auto"></ins>
+		<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+
+	</div>
+</div>
+
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/posts/2019-10-12-unknown-accel/">新機能・未知区間加速！</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2019-05-25-kicad-script/">KiCadのフットプリントをPythonで一括編集</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2019-01-14-vscode-latex/">VSCode で TeX を書こう</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-12-22-platformio/">PlatformIOでESP32の開発をしよう</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-11-03-fan-sound/">吸引ファンで音を鳴らす</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/categories/%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88">イベント</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e4%bd%9c%e5%93%81%e7%b4%b9%e4%bb%8b">作品紹介</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e5%82%99%e5%bf%98%e9%8c%b2">備忘録</a></li>
+			<li class="widget__item"><a class="widget__link" href="/categories/%e8%aa%ac%e6%98%8e%e8%a8%98%e4%ba%8b">説明記事</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/tags/active-record" title="Active record">Active record</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/apache2" title="Apache2">Apache2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/arduino" title="Arduino">Arduino</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asciidoc" title="Asciidoc">Asciidoc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bot" title="Bot">Bot</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/charge-station" title="Charge station">Charge station</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crontab" title="Crontab">Crontab</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cygwin" title="Cygwin">Cygwin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ddns" title="Ddns">Ddns</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/e-mail" title="E mail">E mail</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp-wroom-02" title="Esp wroom 02">Esp wroom 02</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp-wroom-32" title="Esp wroom 32">Esp wroom 32</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp32" title="Esp32">Esp32</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp8266" title="Esp8266">Esp8266</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/exiftool" title="Exiftool">Exiftool</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fft" title="Fft">Fft</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/freertos" title="Freertos">Freertos</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ft232rl" title="Ft232rl">Ft232rl</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hugo" title="Hugo">Hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iphone" title="Iphone">Iphone</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ir-station" title="Ir station">Ir station</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/itunes" title="Itunes">Itunes</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jekyll" title="Jekyll">Jekyll</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jquiry" title="Jquiry">Jquiry</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kerise" title="Kerise">Kerise</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kicad" title="Kicad">Kicad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/latex" title="Latex">Latex</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/li-po" title="Li po">Li po</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/maker-faire-tokyo" title="Maker faire tokyo">Maker faire tokyo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/matlab" title="Matlab">Matlab</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mbed" title="Mbed">Mbed</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/micro-sd" title="Micro sd">Micro sd</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nas" title="Nas">Nas</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nextcloud" title="Nextcloud">Nextcloud</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ntp" title="Ntp">Ntp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nucleo" title="Nucleo">Nucleo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pdf" title="Pdf">Pdf</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pic" title="Pic">Pic</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pic18f26k22" title="Pic18f26k22">Pic18f26k22</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pic18f27j53" title="Pic18f27j53">Pic18f27j53</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pine64-a&#43;" title="Pine64 a&#43;">Pine64 a&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/platformio" title="Platformio">Platformio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspberry-pi" title="Raspberry pi">Raspberry pi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/remote-control" title="Remote control">Remote control</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rtcc" title="Rtcc">Rtcc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby" title="Ruby">Ruby</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/samba" title="Samba">Samba</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sinatra" title="Sinatra">Sinatra</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/smtp" title="Smtp">Smtp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sqlite3" title="Sqlite3">Sqlite3</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title="Ssh">Ssh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/stm32" title="Stm32">Stm32</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/surface" title="Surface">Surface</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/thingspeak" title="Thingspeak">Thingspeak</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/twitter" title="Twitter">Twitter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/u-micro" title="U micro">U micro</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntu" title="Ubuntu">Ubuntu</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/uefi" title="Uefi">Uefi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/usb" title="Usb">Usb</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vim" title="Vim">Vim</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/volumio" title="Volumio">Volumio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vscode" title="Vscode">Vscode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wi-fi" title="Wi fi">Wi fi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wifi" title="Wifi">Wifi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/windows" title="Windows">Windows</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yamy" title="Yamy">Yamy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%81%e3%81%a0%e3%81%8b" title="めだか">めだか</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%ad%e3%83%bc%e3%83%9c%e3%83%bc%e3%83%89" title="キーボード">キーボード</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc" title="サーバー">サーバー</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%b7%e3%82%a7%e3%83%ab%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88" title="シェルスクリプト">シェルスクリプト</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%b7%e3%83%aa%e3%82%a2%e3%83%ab%e9%80%9a%e4%bf%a1" title="シリアル通信">シリアル通信</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%bd%e3%83%bc%e3%83%a9%e3%83%bc" title="ソーラー">ソーラー</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%bf%e3%83%bc%e3%83%9f%e3%83%8a%e3%83%ab" title="ターミナル">ターミナル</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%89%e3%83%83%e3%83%88%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" title="ドットインストール">ドットインストール</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%89%e3%83%83%e3%83%88%e3%83%9e%e3%83%88%e3%83%aa%e3%82%af%e3%82%b9led" title="ドットマトリクスled">ドットマトリクスled</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%95%e3%82%a1%e3%82%a4%e3%82%a2%e3%82%a6%e3%82%a9%e3%83%bc%e3%83%ab" title="ファイアウォール">ファイアウォール</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%95%e3%82%a9%e3%83%88%e3%83%aa%e3%83%95%e3%83%ac%e3%82%af%e3%82%bf" title="フォトリフレクタ">フォトリフレクタ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%96%e3%83%ad%e3%82%b0" title="ブログ">ブログ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%96%e3%83%bc%e3%83%88%e3%83%ad%e3%83%bc%e3%83%80" title="ブートローダ">ブートローダ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%97%e3%83%81%e3%82%b3%e3%83%b3" title="プチコン">プチコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9a%e3%83%83%e3%83%88" title="ペット">ペット</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%83%9e%e3%82%a6%e3%82%b9" title="マイクロマウス">マイクロマウス</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9e%e3%82%a4%e3%82%b3%e3%83%b3" title="マイコン">マイコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9f%e3%83%a5%e3%83%bc%e3%82%b8%e3%83%83%e3%82%af%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc" title="ミュージックサーバー">ミュージックサーバー</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%ad%e3%83%9c%e3%82%b3%e3%83%b3" title="ロボコン">ロボコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%ad%e3%83%9c%e3%83%83%e3%83%88" title="ロボット">ロボット</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%ad%e3%83%9c%e3%83%83%e3%83%88%e6%8a%80%e8%a1%93%e7%a0%94%e7%a9%b6%e4%bc%9a" title="ロボット技術研究会">ロボット技術研究会</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%85%85%e9%9b%bb%e5%99%a8" title="充電器">充電器</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%88%86%e8%a7%a3" title="分解">分解</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%9b%9e%e8%b7%af%e8%ac%9b%e7%bf%92%e4%bc%9a" title="回路講習会">回路講習会</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%99%82%e8%a8%88" title="時計">時計</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%b7%b1%e5%9c%b3" title="深圳">深圳</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e7%a7%8b%e6%9c%88" title="秋月">秋月</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%87%aa%e4%bd%9c" title="自作">自作</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%87%aa%e5%8b%95%e9%85%8d%e7%b7%9a" title="自動配線">自動配線</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%b5%a4%e5%a4%96%e7%b7%9a%e5%ad%a6%e7%bf%92%e3%83%aa%e3%83%a2%e3%82%b3%e3%83%b3" title="赤外線学習リモコン">赤外線学習リモコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%bf%b7%e8%b7%af" title="迷路">迷路</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%9b%bb%e5%85%89%e6%8e%b2%e7%a4%ba%e6%9d%bf" title="電光掲示板">電光掲示板</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%9b%bb%e5%8a%9b" title="電力">電力</a>
+	</div>
+</div>
+<div class="widget-toc widget">
+	<h4 class="widget__title">Table of Contents</h4>
+	<div class="widget__content">
+    	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#概要">概要</a>
+<ul>
+<li><a href="#滑らかな加速の設計-目次">滑らかな加速の設計 目次</a></li>
+</ul></li>
+<li><a href="#ソースコード">ソースコード</a></li>
+<li><a href="#設計1-曲線加速">設計1 曲線加速</a></li>
+<li><a href="#設計2-曲線加減速">設計2 曲線加減速</a></li>
+<li><a href="#使用例">使用例</a>
+<ul>
+<li><a href="#シンプル">シンプル</a></li>
+<li><a href="#連続使用">連続使用</a></li>
+<li><a href="#csvをmatlabでプロット">CSVをMATLABでプロット</a></li>
+</ul></li>
+<li><a href="#実装上の工夫">実装上の工夫</a>
+<ul>
+<li><a href="#使いやすさ">使いやすさ</a></li>
+<li><a href="#移植性の考慮">移植性の考慮</a></li>
+</ul></li>
+<li><a href="#まとめ">まとめ</a>
+<ul>
+<li><a href="#免責">免責</a></li>
+<li><a href="#追記-2019年1月29日">追記: 2019年1月29日</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+	</div>
+</div>
+
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 KERI&#39;s Lab.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>
