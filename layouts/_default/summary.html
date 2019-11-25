@@ -24,15 +24,15 @@
 		{{ with partial "post_meta.html" . -}}
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
+		<div class="content list__excerpt post__content clearfix">
+			{{ .Summary }}
+		</div>
+		{{- if .Site.Params.readmore }}
+		{{- if .Truncated }}
+		<div class="list__footer clearfix">
+			<a class="list__footer-readmore btn" href="{{ .RelPermalink }}">{{ T "read_more" }}</a>
+		</div>
+		{{- end }}
+		{{- end }}
 	</header>
-	<div class="content list__excerpt post__content clearfix">
-		{{ .Summary }}
-	</div>
-	{{- if .Site.Params.readmore }}
-	{{- if .Truncated }}
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="{{ .RelPermalink }}">{{ T "read_more" }}</a>
-	</div>
-	{{- end }}
-	{{- end }}
 </article>

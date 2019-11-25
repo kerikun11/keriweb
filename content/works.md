@@ -6,7 +6,6 @@ menu:
     name: "Works"
 weight: 3
 disable_comments: true
-
 ---
 
 今までに私が製作した作品を紹介します．詳しくはそれぞれの記事をご覧ください．

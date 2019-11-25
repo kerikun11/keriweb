@@ -1,11 +1,13 @@
 ---
 title: "About KERI"
+type: "about"
 menu:
   main:
     name: About
 weight: 2
 disable_comments: true
 toc: false
+authorbox: false
 ---
 
 ## Profile
