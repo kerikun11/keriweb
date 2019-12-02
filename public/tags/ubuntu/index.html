@@ -55,19 +55,39 @@ if (!doNotTrack) {
 	</button>
 	<ul class="menu__list">
 		<li class="menu__item">
-			<a class="menu__link" href="/">Home</a>
+			<a class="menu__link" href="/">
+				
+				<span class="menu__text">Home</span>
+				
+			</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/about/">About</a>
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/works/">Works</a>
+			<a class="menu__link" href="/works/">
+				
+				<span class="menu__text">Works</span>
+				
+			</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/categories/">Categories</a>
+			<a class="menu__link" href="/categories/">
+				
+				<span class="menu__text">Categories</span>
+				
+			</a>
 		</li>
 		<li class="menu__item">
-			<a class="menu__link" href="/tags/">Tags</a>
+			<a class="menu__link" href="/tags/">
+				
+				<span class="menu__text">Tags</span>
+				
+			</a>
 		</li>
 	</ul>
 </nav>
@@ -80,46 +100,17 @@ if (!doNotTrack) {
 <main class="main list" role="main">
 	<header class="main__header">
 		<h1 class="main__title">Ubuntu</h1>
-	</header><article class="list__item post">
-	<figure class="list__thumbnail">
-		<a href="/posts/2015-11-03-surface-ubuntu/">
-			<img src="/posts/2015-11-03-surface-ubuntu//icon.jpg" alt="Surface Pro 3 に Ubuntu15.10を入れる(UEFI環境のデュアルブート)" />
-		</a>
-	</figure>
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/2015-11-03-surface-ubuntu/" rel="bookmark">
-			Surface Pro 3 に Ubuntu15.10を入れる(UEFI環境のデュアルブート)
-			</a>
-		</h3>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-11-03T00:00:00">2015-11-03</time>
-</div>
-
-<div class="meta__item-categories meta__item">
-	<svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/categories/%e8%aa%ac%e6%98%8e%e8%a8%98%e4%ba%8b" rel="category">説明記事</a></span>
-</div>
-
-<div class="meta__item-tags meta__item">
-	<svg class="meta__icon icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
-	<span class="meta__text"><a class="meta__link" href="/tags/surface" rel="tag">Surface</a>, <a class="meta__link" href="/tags/windows" rel="tag">Windows</a>, <a class="meta__link" href="/tags/ubuntu" rel="tag">Ubuntu</a>, <a class="meta__link" href="/tags/linux" rel="tag">Linux</a>, <a class="meta__link" href="/tags/uefi" rel="tag">UEFI</a></span>
-</div>
-</div>
 	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="uefiとは">UEFIとは</h2>
-
-<p>　BIOSの代わりに最近のパソコンに導入されたインターフェース。BIOS特有の制約を解消したものと言える。UEFI環境でブートするには、ディスクの先頭にUEFIシステムパティションというものを置かなければならない。</p>
-	</div>
-	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="/posts/2015-11-03-surface-ubuntu/">続きを読む</a>
-	</div>
-</article>
+	<article class="list__item post">
+		<header class="list__header">
+			<h3 class="list__title post__title ">
+				<a href="/posts/2015-11-03-surface-ubuntu/" rel="bookmark">
+				Surface Pro 3 に Ubuntu15.10を入れる(UEFI環境のデュアルブート)
+				</a>
+			</h3>
+		</header>
+	</article>
 </main>
-
 
 			</div>
 			
@@ -171,6 +162,13 @@ if (!doNotTrack) {
 	</div>
 </div>
 
+<div class="widget-toc widget">
+	<h4 class="widget__title">Table of Contents</h4>
+	<div class="widget__content">
+    	
+	</div>
+</div>
+
 <div class="widget-recent widget">
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
@@ -187,127 +185,128 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Categories</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/categories/%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88">イベント</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/%e4%bd%9c%e5%93%81%e7%b4%b9%e4%bb%8b">作品紹介</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/%e5%82%99%e5%bf%98%e9%8c%b2">備忘録</a></li>
-			<li class="widget__item"><a class="widget__link" href="/categories/%e8%aa%ac%e6%98%8e%e8%a8%98%e4%ba%8b">説明記事</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88/">イベント</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/">作品紹介</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E5%82%99%E5%BF%98%E9%8C%B2/">備忘録</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/">説明記事</a>
+			</li>
 		</ul>
 	</div>
 </div>
 <div class="widget-taglist widget">
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
-		<a class="widget-taglist__link widget__link btn" href="/tags/active-record" title="Active record">Active record</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/apache2" title="Apache2">Apache2</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/arduino" title="Arduino">Arduino</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/asciidoc" title="Asciidoc">Asciidoc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/bot" title="Bot">Bot</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/charge-station" title="Charge station">Charge station</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/crontab" title="Crontab">Crontab</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/cygwin" title="Cygwin">Cygwin</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ddns" title="Ddns">Ddns</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/e-mail" title="E mail">E mail</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/esp-wroom-02" title="Esp wroom 02">Esp wroom 02</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/esp-wroom-32" title="Esp wroom 32">Esp wroom 32</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/esp32" title="Esp32">Esp32</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/esp8266" title="Esp8266">Esp8266</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/exiftool" title="Exiftool">Exiftool</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/fft" title="Fft">Fft</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/freertos" title="Freertos">Freertos</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ft232rl" title="Ft232rl">Ft232rl</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/git" title="Git">Git</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/hugo" title="Hugo">Hugo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/iphone" title="Iphone">Iphone</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ir-station" title="Ir station">Ir station</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/itunes" title="Itunes">Itunes</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/jekyll" title="Jekyll">Jekyll</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/jquiry" title="Jquiry">Jquiry</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kerise" title="Kerise">Kerise</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/kicad" title="Kicad">Kicad</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/latex" title="Latex">Latex</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/li-po" title="Li po">Li po</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/linux" title="Linux">Linux</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/maker-faire-tokyo" title="Maker faire tokyo">Maker faire tokyo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/matlab" title="Matlab">Matlab</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/mbed" title="Mbed">Mbed</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/micro-sd" title="Micro sd">Micro sd</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/nas" title="Nas">Nas</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/nextcloud" title="Nextcloud">Nextcloud</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ntp" title="Ntp">Ntp</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/nucleo" title="Nucleo">Nucleo</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pdf" title="Pdf">Pdf</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pic" title="Pic">Pic</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pic18f26k22" title="Pic18f26k22">Pic18f26k22</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pic18f27j53" title="Pic18f27j53">Pic18f27j53</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pine64-a&#43;" title="Pine64 a&#43;">Pine64 a&#43;</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/platformio" title="Platformio">Platformio</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/python" title="Python">Python</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/raspberry-pi" title="Raspberry pi">Raspberry pi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/remote-control" title="Remote control">Remote control</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/rtcc" title="Rtcc">Rtcc</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ruby" title="Ruby">Ruby</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/samba" title="Samba">Samba</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sinatra" title="Sinatra">Sinatra</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/smtp" title="Smtp">Smtp</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sqlite3" title="Sqlite3">Sqlite3</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ssh" title="Ssh">Ssh</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/stm32" title="Stm32">Stm32</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/surface" title="Surface">Surface</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/thingspeak" title="Thingspeak">Thingspeak</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/twitter" title="Twitter">Twitter</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/u-micro" title="U micro">U micro</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntu" title="Ubuntu">Ubuntu</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/uefi" title="Uefi">Uefi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/usb" title="Usb">Usb</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vim" title="Vim">Vim</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/volumio" title="Volumio">Volumio</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/vscode" title="Vscode">Vscode</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/wi-fi" title="Wi fi">Wi fi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/wifi" title="Wifi">Wifi</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/windows" title="Windows">Windows</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/yamy" title="Yamy">Yamy</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%81%e3%81%a0%e3%81%8b" title="めだか">めだか</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%ad%e3%83%bc%e3%83%9c%e3%83%bc%e3%83%89" title="キーボード">キーボード</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc" title="サーバー">サーバー</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%b7%e3%82%a7%e3%83%ab%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88" title="シェルスクリプト">シェルスクリプト</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%b7%e3%83%aa%e3%82%a2%e3%83%ab%e9%80%9a%e4%bf%a1" title="シリアル通信">シリアル通信</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%bd%e3%83%bc%e3%83%a9%e3%83%bc" title="ソーラー">ソーラー</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%82%bf%e3%83%bc%e3%83%9f%e3%83%8a%e3%83%ab" title="ターミナル">ターミナル</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%89%e3%83%83%e3%83%88%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" title="ドットインストール">ドットインストール</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%89%e3%83%83%e3%83%88%e3%83%9e%e3%83%88%e3%83%aa%e3%82%af%e3%82%b9led" title="ドットマトリクスled">ドットマトリクスled</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%95%e3%82%a1%e3%82%a4%e3%82%a2%e3%82%a6%e3%82%a9%e3%83%bc%e3%83%ab" title="ファイアウォール">ファイアウォール</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%95%e3%82%a9%e3%83%88%e3%83%aa%e3%83%95%e3%83%ac%e3%82%af%e3%82%bf" title="フォトリフレクタ">フォトリフレクタ</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%96%e3%83%ad%e3%82%b0" title="ブログ">ブログ</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%96%e3%83%bc%e3%83%88%e3%83%ad%e3%83%bc%e3%83%80" title="ブートローダ">ブートローダ</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%97%e3%83%81%e3%82%b3%e3%83%b3" title="プチコン">プチコン</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9a%e3%83%83%e3%83%88" title="ペット">ペット</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%83%9e%e3%82%a6%e3%82%b9" title="マイクロマウス">マイクロマウス</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9e%e3%82%a4%e3%82%b3%e3%83%b3" title="マイコン">マイコン</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%9f%e3%83%a5%e3%83%bc%e3%82%b8%e3%83%83%e3%82%af%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc" title="ミュージックサーバー">ミュージックサーバー</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%ad%e3%83%9c%e3%82%b3%e3%83%b3" title="ロボコン">ロボコン</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%ad%e3%83%9c%e3%83%83%e3%83%88" title="ロボット">ロボット</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e3%83%ad%e3%83%9c%e3%83%83%e3%83%88%e6%8a%80%e8%a1%93%e7%a0%94%e7%a9%b6%e4%bc%9a" title="ロボット技術研究会">ロボット技術研究会</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%85%85%e9%9b%bb%e5%99%a8" title="充電器">充電器</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%88%86%e8%a7%a3" title="分解">分解</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e5%9b%9e%e8%b7%af%e8%ac%9b%e7%bf%92%e4%bc%9a" title="回路講習会">回路講習会</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%99%82%e8%a8%88" title="時計">時計</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e6%b7%b1%e5%9c%b3" title="深圳">深圳</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e7%a7%8b%e6%9c%88" title="秋月">秋月</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%87%aa%e4%bd%9c" title="自作">自作</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%87%aa%e5%8b%95%e9%85%8d%e7%b7%9a" title="自動配線">自動配線</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%b5%a4%e5%a4%96%e7%b7%9a%e5%ad%a6%e7%bf%92%e3%83%aa%e3%83%a2%e3%82%b3%e3%83%b3" title="赤外線学習リモコン">赤外線学習リモコン</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e8%bf%b7%e8%b7%af" title="迷路">迷路</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%9b%bb%e5%85%89%e6%8e%b2%e7%a4%ba%e6%9d%bf" title="電光掲示板">電光掲示板</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/%e9%9b%bb%e5%8a%9b" title="電力">電力</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/active-record/" title="Active Record">Active Record</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/apache2/" title="Apache2">Apache2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/arduino/" title="Arduino">Arduino</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/asciidoc/" title="Asciidoc">Asciidoc</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/bot/" title="bot">bot</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/charge-station/" title="Charge Station">Charge Station</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/crontab/" title="Crontab">Crontab</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cygwin/" title="Cygwin">Cygwin</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ddns/" title="DDNS">DDNS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/e-mail/" title="E-mail">E-mail</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp-wroom-02/" title="ESP-WROOM-02">ESP-WROOM-02</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp-wroom-32/" title="ESP-WROOM-32">ESP-WROOM-32</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp32/" title="ESP32">ESP32</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/esp8266/" title="ESP8266">ESP8266</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/exiftool/" title="Exiftool">Exiftool</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fft/" title="FFT">FFT</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/freertos/" title="FreeRTOS">FreeRTOS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ft232rl/" title="FT232RL">FT232RL</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/hugo/" title="Hugo">Hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iphone/" title="iPhone">iPhone</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ir-station/" title="IR-Station">IR-Station</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/itunes/" title="iTunes">iTunes</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jekyll/" title="Jekyll">Jekyll</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/jquiry/" title="JQuiry">JQuiry</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kerise/" title="KERISE">KERISE</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kicad/" title="KiCad">KiCad</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/latex/" title="Latex">Latex</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/li-po/" title="Li-Po">Li-Po</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/maker-faire-tokyo/" title="Maker Faire Tokyo">Maker Faire Tokyo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/matlab/" title="MATLAB">MATLAB</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/mbed/" title="mbed">mbed</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/micro-sd/" title="Micro SD">Micro SD</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nas/" title="NAS">NAS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nextcloud/" title="Nextcloud">Nextcloud</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ntp/" title="NTP">NTP</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nucleo/" title="Nucleo">Nucleo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pdf/" title="pdf">pdf</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pic/" title="PIC">PIC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pic18f26k22/" title="PIC18F26K22">PIC18F26K22</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pic18f27j53/" title="PIC18F27J53">PIC18F27J53</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pine64-a&#43;/" title="PINE64 A&#43;">PINE64 A&#43;</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/platformio/" title="PlatformIO">PlatformIO</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/raspberry-pi/" title="Raspberry Pi">Raspberry Pi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/remote-control/" title="Remote Control">Remote Control</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/rtcc/" title="RTCC">RTCC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ruby/" title="Ruby">Ruby</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/samba/" title="Samba">Samba</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sinatra/" title="Sinatra">Sinatra</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/smtp/" title="SMTP">SMTP</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sqlite3/" title="SQLite3">SQLite3</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssh/" title="SSH">SSH</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/stm32/" title="STM32">STM32</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/surface/" title="Surface">Surface</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/thingspeak/" title="ThingSpeak">ThingSpeak</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/twitter/" title="Twitter">Twitter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/u-micro/" title="U-Micro">U-Micro</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ubuntu/" title="Ubuntu">Ubuntu</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/uefi/" title="UEFI">UEFI</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/usb/" title="USB">USB</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vim/" title="vim">vim</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/volumio/" title="Volumio">Volumio</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wi-fi/" title="Wi-Fi">Wi-Fi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/wifi/" title="WiFi">WiFi</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/windows/" title="Windows">Windows</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/yamy/" title="yamy">yamy</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%81%E3%81%A0%E3%81%8B/" title="めだか">めだか</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/" title="キーボード">キーボード</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC/" title="サーバー">サーバー</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%B7%E3%82%A7%E3%83%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88/" title="シェルスクリプト">シェルスクリプト</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%B7%E3%83%AA%E3%82%A2%E3%83%AB%E9%80%9A%E4%BF%A1/" title="シリアル通信">シリアル通信</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%BD%E3%83%BC%E3%83%A9%E3%83%BC/" title="ソーラー">ソーラー</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB/" title="ターミナル">ターミナル</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%89%E3%83%83%E3%83%88%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/" title="ドットインストール">ドットインストール</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%89%E3%83%83%E3%83%88%E3%83%9E%E3%83%88%E3%83%AA%E3%82%AF%E3%82%B9led/" title="ドットマトリクスLED">ドットマトリクスLED</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB/" title="ファイアウォール">ファイアウォール</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%95%E3%82%A9%E3%83%88%E3%83%AA%E3%83%95%E3%83%AC%E3%82%AF%E3%82%BF/" title="フォトリフレクタ">フォトリフレクタ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%96%E3%83%AD%E3%82%B0/" title="ブログ">ブログ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%96%E3%83%BC%E3%83%88%E3%83%AD%E3%83%BC%E3%83%80/" title="ブートローダ">ブートローダ</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%97%E3%83%81%E3%82%B3%E3%83%B3/" title="プチコン">プチコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%9A%E3%83%83%E3%83%88/" title="ペット">ペット</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/" title="マイクロマウス">マイクロマウス</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%9E%E3%82%A4%E3%82%B3%E3%83%B3/" title="マイコン">マイコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%83%83%E3%82%AF%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC/" title="ミュージックサーバー">ミュージックサーバー</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B3/" title="ロボコン">ロボコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88/" title="ロボット">ロボット</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E6%8A%80%E8%A1%93%E7%A0%94%E7%A9%B6%E4%BC%9A/" title="ロボット技術研究会">ロボット技術研究会</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%85%85%E9%9B%BB%E5%99%A8/" title="充電器">充電器</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%88%86%E8%A7%A3/" title="分解">分解</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E5%9B%9E%E8%B7%AF%E8%AC%9B%E7%BF%92%E4%BC%9A/" title="回路講習会">回路講習会</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%99%82%E8%A8%88/" title="時計">時計</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E6%B7%B1%E5%9C%B3/" title="深圳">深圳</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E7%A7%8B%E6%9C%88/" title="秋月">秋月</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%87%AA%E4%BD%9C/" title="自作">自作</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%87%AA%E5%8B%95%E9%85%8D%E7%B7%9A/" title="自動配線">自動配線</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%B5%A4%E5%A4%96%E7%B7%9A%E5%AD%A6%E7%BF%92%E3%83%AA%E3%83%A2%E3%82%B3%E3%83%B3/" title="赤外線学習リモコン">赤外線学習リモコン</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E8%BF%B7%E8%B7%AF/" title="迷路">迷路</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%9B%BB%E5%85%89%E6%8E%B2%E7%A4%BA%E6%9D%BF/" title="電光掲示板">電光掲示板</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%E9%9B%BB%E5%8A%9B/" title="電力">電力</a>
 	</div>
 </div>
-<div class="widget-toc widget">
-	<h4 class="widget__title">Table of Contents</h4>
-	<div class="widget__content">
-    	
-	</div>
-</div>
-
 </aside>
 		</div>
 		<footer class="footer">

@@ -8,6 +8,7 @@ tags:
   - "ロボット"
   - "KERISE"
 thumbnail: "icon.jpg"
+spotlight: "true"
 ---
 
 こんにちは．けりです．

@@ -49,7 +49,7 @@ pygmentsCodefencesGuessSyntax = true
     home = "right" # Configure layout for home page
     list = "right"  # Configure layout for list pages
     single = "right" # Configure layout for single pages
-    widgets = ["search", "social", "ads", "toc", "recent", "categories", "taglist", "languages"]
+    widgets = ["search", "social", "ads", "toc", "spotlight", "recent", "categories", "taglist", "languages"]
 
 [Params.widgets]
     recent_num = 5 # Set the number of articles in the "Recent articles" widget

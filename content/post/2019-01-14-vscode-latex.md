@@ -6,6 +6,7 @@ categories:
 tags:
   - "VSCode"
   - "Latex"
+spotlight: "true"
 ---
 
 ## 概要
@@ -14,27 +15,24 @@ tags:
 
 注目機能は以下の通りです．
 
-- [.latexmk](https://texwiki.texjp.org/?Latexmk)でコンパイル
-- 中間生成物を `build` ディレクトリにまとめる
 - コード補完
 - コード整形
+- 環境に依存しにくい[.latexmk](https://texwiki.texjp.org/?Latexmk)でコンパイル
+- 散らかりがちな生成物を `build` ディレクトリにまとめる
 - TeXコードのとなりにPDFを表示
-- SyncTex: TexファイルとPDFの相互ジャンプ
-- VSCode Vim を使えばvimキーバインドが使える
+- `SyncTex`によりTeXコードとPDFの相互ジャンプ
+- VSCode Vim を使ってvimキーバインド
 
 <!--more-->
 
 ## 環境構築
 
-### TeXのインストール
+### インストール
 
-[TexLive](https://texwiki.texjp.org/?TeX%20Live#w628bee6)がいいでしょう．
+次のリンクにしたがってインストールしてください．
 
-### VSCodeのインストール
-
-[Microsoft Visual Studio Code](https://code.visualstudio.com/)
-
-もうすでに入ってますよね？
+- [TexLive](https://texwiki.texjp.org/?TeX%20Live#w628bee6)
+- [Microsoft Visual Studio Code](https://code.visualstudio.com/)
 
 ### 拡張機能の追加
 
@@ -54,7 +52,7 @@ tags:
 
 ダウンロード: [.vscode/settings.json](settings.json)
 
-```json
+```js
 {
     // 自動保存
     "files.autoSave": "afterDelay",

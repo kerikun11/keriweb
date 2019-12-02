@@ -6,6 +6,7 @@ categories:
 tags:
   - "マイクロマウス"
 thumbnail: "icon.png"
+spotlight: "true"
 ---
 
 ## 概要
