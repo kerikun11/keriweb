@@ -26,13 +26,13 @@
 &lt;p&gt;注目機能は以下の通りです．&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;.latexmk&lt;/a&gt;でコンパイル&lt;/li&gt;
-&lt;li&gt;中間生成物を &lt;code&gt;build&lt;/code&gt; ディレクトリにまとめる&lt;/li&gt;
 &lt;li&gt;コード補完&lt;/li&gt;
 &lt;li&gt;コード整形&lt;/li&gt;
+&lt;li&gt;環境に依存しにくい&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;.latexmk&lt;/a&gt;でコンパイル&lt;/li&gt;
+&lt;li&gt;散らかりがちな生成物を &lt;code&gt;build&lt;/code&gt; ディレクトリにまとめる&lt;/li&gt;
 &lt;li&gt;TeXコードのとなりにPDFを表示&lt;/li&gt;
-&lt;li&gt;SyncTex: TexファイルとPDFの相互ジャンプ&lt;/li&gt;
-&lt;li&gt;VSCode Vim を使えばvimキーバインドが使える&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SyncTex&lt;/code&gt;によりTeXコードとPDFの相互ジャンプ&lt;/li&gt;
+&lt;li&gt;VSCode Vim を使ってvimキーバインド&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     

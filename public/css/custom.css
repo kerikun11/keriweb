@@ -104,6 +104,7 @@ body {
 .list__item {
 	border-bottom: 2px dotted #AAA;
 	clear: both;
+	min-height: 145px;
 }
 .list__item .post__content figure {
 	display: none;
@@ -115,9 +116,6 @@ body {
 	float: left;
 	max-width: 120px;
 }
-/* img:after {  
-  content: "";
-} */
 .list__excerpt h2{
 	font-size: 20px;
 	font-size: 1.25rem;
@@ -154,4 +152,9 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
 	background: rgba(230, 230, 230, 0.7);
+}
+
+/* figure */
+figcaption {
+	color: black;
 }
