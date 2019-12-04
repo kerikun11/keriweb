@@ -8,10 +8,24 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Sat, 12 Oct 2019 01:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 04 Dec 2019 21:01:24 +0900</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>全日本マイクロマウス2019の結果報告</title>
+      <link>/posts/2019-12-04-micromouse2019/</link>
+      <pubDate>Wed, 04 Dec 2019 21:01:24 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>/posts/2019-12-04-micromouse2019/</guid>
+      <description>&lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/4126&#34; target=&#34;_blank&#34;&gt;rogy Advent Calendar 2019&lt;/a&gt; の
+4日目の記事です．&lt;/p&gt;
+
+&lt;p&gt;こんにちは．けりです．&lt;br /&gt;
+今回は，2019年12月1日(日) に行われた，&lt;br /&gt;
+&lt;strong&gt;第40回全日本マイクロマウス大会2019&lt;/strong&gt;の結果報告です．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>新機能・未知区間加速！</title>
@@ -415,21 +429,6 @@
 みなさん，ESP32使ってますか？&lt;/p&gt;
 
 &lt;p&gt;今回はESP32の時刻合わせのArduinoライブラリを作ったので紹介します．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>HPをHugoに移行しました</title>
-      <link>/posts/2017-08-29-hugo-migration/</link>
-      <pubDate>Tue, 29 Aug 2017 09:09:01 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-08-29-hugo-migration/</guid>
-      <description>&lt;h2 id=&#34;以前のkeri-s-lab&#34;&gt;以前のKERI&amp;rsquo;s Lab&lt;/h2&gt;
-
-&lt;h3 id=&#34;jekyllを使っていた&#34;&gt;Jekyllを使っていた&lt;/h3&gt;
-
-&lt;p&gt;以前のKERI&amp;rsquo;s LabのHPは，静的ブログジェネレータである&lt;a href=&#34;https://jekyllrb-ja.github.io://jekyllrb-ja.github.io/&#34; target=&#34;_blank&#34;&gt;Jekyll&lt;/a&gt;で生成されていました．&lt;/p&gt;
-
-&lt;p&gt;Jekyllは，静的ブログジェネレータの中で最も有名なものの1つです．&lt;/p&gt;</description>
     </item>
     
   </channel>

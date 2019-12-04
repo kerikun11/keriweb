@@ -8,7 +8,7 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Sat, 12 Oct 2019 01:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 04 Dec 2019 21:01:24 +0900</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +16,7 @@
     <item>
       <title>KERISE</title>
       <link>/tags/kerise/</link>
-      <pubDate>Sat, 12 Oct 2019 01:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Dec 2019 21:01:24 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/tags/kerise/</guid>
       <description></description>
@@ -25,9 +25,18 @@
     <item>
       <title>マイクロマウス</title>
       <link>/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</link>
-      <pubDate>Sat, 12 Oct 2019 01:00:00 +0900</pubDate>
+      <pubDate>Wed, 04 Dec 2019 21:01:24 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ロボコン</title>
+      <link>/tags/%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B3/</link>
+      <pubDate>Wed, 04 Dec 2019 21:01:24 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>/tags/%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B3/</guid>
       <description></description>
     </item>
     
@@ -154,15 +163,6 @@
       <pubDate>Sun, 24 Dec 2017 15:45:50 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/tags/%E3%83%97%E3%83%81%E3%82%B3%E3%83%B3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ロボコン</title>
-      <link>/tags/%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B3/</link>
-      <pubDate>Sun, 24 Dec 2017 15:45:50 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/tags/%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B3/</guid>
       <description></description>
     </item>
     

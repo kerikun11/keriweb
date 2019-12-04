@@ -10,19 +10,18 @@ disable_comments: true
 
 今までに私が製作した作品を紹介します．詳しくはそれぞれの記事をご覧ください．
 
-## KERISE v3
+## KERISE
 
-2016年からマイクロマウスというロボコンに参加しています．その第3作目です．
+2016年からマイクロマウスというロボコンに参加しています．  
+手のひらサイズのロボットが巨大な迷路を駆け抜けるとても魅力的な競技です．
 
 [マイクロマウスについての記事一覧](/tags/マイクロマウス/)
-{{< postfig src="kerisev3.jpg" title="KERISE v3" width="240px" link="/tags/マイクロマウス/" >}}
+{{< postfig src="kerisev4.jpg" title="KERISE v4" width="240px" link="/tags/マイクロマウス/" >}}
 
 ## IR-Station
 
 IR-Stationとは，WiFi接続の赤外線学習リモコンです．  
 赤外線学習リモコンとは，家電製品などのリモコンの赤外線信号を記憶してそれを送信することで家電製品をコントロールする機器です．「IR-Station」という名称は，私が命名しました．
-
-製品化に向けて頑張って製作しています．
 
 [IR-Stationについての記事一覧](/tags/ir-station/)
 {{< postfig src="ir-station-body.jpg" title="IR-Station" width="240px" link="/tags/ir-station/" >}}
