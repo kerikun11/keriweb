@@ -9,9 +9,7 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ESP32でデュアルコアを使おう！" />
 <meta property="og:description" content="概要
-
 ESP32とは
-
 
 	
 		
@@ -23,9 +21,7 @@ ESP32とは
 	
 
 
-
 ESP32 Overview | Espressif Systems
-
 ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2017-06-24-esp32-dual-core/" />
@@ -35,9 +31,7 @@ ESP32は上海の企業であるEspressif Systemsから発売されているWiFi
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ESP32でデュアルコアを使おう！"/>
 <meta name="twitter:description" content="概要
-
 ESP32とは
-
 
 	
 		
@@ -49,10 +43,9 @@ ESP32とは
 	
 
 
-
 ESP32 Overview | Espressif Systems
-
 ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -156,10 +149,8 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
-<h3 id="esp32とは">ESP32とは</h3>
-
+			<h2 id="heading">概要</h2>
+<h3 id="esp32">ESP32とは</h3>
 <figure >
 	
 		
@@ -171,30 +162,18 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<p><a href="https://www.espressif.com/en/products/hardware/esp32/overview" target="_blank">ESP32 Overview | Espressif Systems</a></p>
-
+<p><a href="https://www.espressif.com/en/products/hardware/esp32/overview">ESP32 Overview | Espressif Systems</a></p>
 <p>ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．</p>
-
 <p>ESP-WROOM-32という700円ほどの無線モジュールの中に入っているマイコンがESP32です．</p>
-
-<h3 id="デュアルコア">デュアルコア</h3>
-
-<p>実はこのマイコン，かなりスペックが高く，CPUがデュアルコアなんです！<br />
+<h3 id="heading1">デュアルコア</h3>
+<p>実はこのマイコン，かなりスペックが高く，CPUがデュアルコアなんです！<br>
 今回はその使い方を簡単に紹介します．</p>
-
-<h2 id="rtos-リアルタイムオペレーティングシステム">RTOS (リアルタイムオペレーティングシステム)</h2>
-
-<h3 id="rtosとは">RTOSとは</h3>
-
-<p><a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0" target="_blank">RTOS-Wikipedia</a></p>
-
+<h2 id="rtos-">RTOS (リアルタイムオペレーティングシステム)</h2>
+<h3 id="rtos">RTOSとは</h3>
+<p><a href="https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%A2%E3%83%AB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%AA%E3%83%9A%E3%83%AC%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0">RTOS-Wikipedia</a></p>
 <p>さまざまな機能を持つアプリケーションを動かそうとするとき，OSを欠かすことはできません．その中でもリアルタイムOSはその名の通りリアルタイム性に優れており，ハードウェアのイベントに従って高速に処理をすることができます．</p>
-
 <p>簡単に言うと，関数を1つのタスクと考え，OSに関数ポインタを渡しておくと，疑似的に同時並行で関数を実行してくれます．</p>
-
 <h3 id="freertos">FreeRTOS</h3>
-
 <figure >
 	<a href="http://www.freertos.org/" target="blank">
 		
@@ -206,18 +185,12 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<p>ESP32の中ではFreeRTOSというリアルタイムOSが動いています．<br />
+<p>ESP32の中ではFreeRTOSというリアルタイムOSが動いています．<br>
 FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキテクチャに対応しています．オープンソースのRTOSの中では最も有名なものと言えるでしょう．</p>
-
-<h3 id="esp32に使われているfreertos">ESP32に使われているFreeRTOS</h3>
-
+<h3 id="esp32freertos">ESP32に使われているFreeRTOS</h3>
 <p>デュアルコアのためかわかりませんが，ESP32に使われているFreeRTOSは，ESP32用にカスタマイズされているみたいです．ただ，使い方はほとんど同じです．</p>
-
-<h2 id="デュアルコアの使い方">デュアルコアの使い方</h2>
-
+<h2 id="heading2">デュアルコアの使い方</h2>
 <p>使い方はとても簡単です．</p>
-
 <p>普段FreeRTOSでタスクを作成するときは</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">BaseType_t</span> <span class="nf">xTaskCreate</span><span class="p">(</span>
 		<span class="n">TaskFunction_t</span> <span class="n">pxTaskCode</span><span class="p">,</span>         	<span class="c1">//&lt; タスクの関数ポインタ
@@ -226,8 +199,8 @@ FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキ�
 </span><span class="c1"></span>		<span class="kt">void</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pvParameters</span><span class="p">,</span>         	<span class="c1">//&lt; タスク関数に渡す引数
 </span><span class="c1"></span>		<span class="n">UBaseType_t</span> <span class="n">uxPriority</span><span class="p">,</span>            	<span class="c1">//&lt; タスクの優先度
 </span><span class="c1"></span>		<span class="n">TaskHandle_t</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pxCreatedTask</span><span class="p">,</span>	<span class="c1">//&lt; タスクのハンドル
-</span><span class="c1"></span><span class="p">);</span></code></pre></div>
-<p>という関数を使いますが，代わりに</p>
+</span><span class="c1"></span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>という関数を使いますが，代わりに</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="n">BaseType_t</span> <span class="nf">xTaskCreatePinnedToCore</span><span class="p">(</span>
 		<span class="n">TaskFunction_t</span> <span class="n">pxTaskCode</span><span class="p">,</span>         	<span class="c1">//&lt; タスクの関数ポインタ
 </span><span class="c1"></span>		<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pcName</span><span class="p">,</span>         	<span class="c1">//&lt; タスク名
@@ -236,93 +209,75 @@ FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキ�
 </span><span class="c1"></span>		<span class="n">UBaseType_t</span> <span class="n">uxPriority</span><span class="p">,</span>            	<span class="c1">//&lt; タスクの優先度
 </span><span class="c1"></span>		<span class="n">TaskHandle_t</span> <span class="o">*</span> <span class="k">const</span> <span class="n">pxCreatedTask</span><span class="p">,</span>	<span class="c1">//&lt; タスクのハンドル
 </span><span class="c1"></span>		<span class="k">const</span> <span class="n">BaseType_t</span> <span class="n">xCoreID</span>           	<span class="c1">//&lt; コア番号
-</span><span class="c1"></span>	<span class="p">);</span>
-</code></pre></div>
-<p>という関数を使い，引数の最後に使用するCPUのコア番号を指定します．</p>
-
+</span><span class="c1"></span>	<span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>という関数を使い，引数の最後に使用するCPUのコア番号を指定します．</p>
 <p>つまり，どのCPUで実行するかというのはユーザーが選択する訳です．</p>
-
 <p>ESP32の場合，コアは2つなので，コア番号は0か1になります．</p>
-
-<h2 id="サンプルコード">サンプルコード</h2>
-
+<h2 id="heading3">サンプルコード</h2>
 <p>Arduino core for ESP32環境でのサンプルコードです．</p>
-
 <p>※Arduino IDEのBoard設定でCore Debug Levelをinfoにしないとログは見えません．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">task0</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;This is Core 0&#34;</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+    <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">This is Core 0</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">task1</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;This is Core 1&#34;</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1500</span><span class="p">);</span>
+    <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">This is Core 1</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Hello, this is ESP32:)&#34;</span><span class="p">);</span>
-  <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">task0</span><span class="p">,</span> <span class="s">&#34;Task0&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-  <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="s">&#34;Task1&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, this is ESP32:)</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">task0</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Task0</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">task1</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Task1</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 <span class="p">}</span>
-</code></pre></div>
-<h2 id="ちなみに">ちなみに</h2>
-
+</code></pre></div><h2 id="heading4">ちなみに</h2>
 <p>ちなみに，Arduino core for ESP32のmain.cppでは，</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#if CONFIG_FREERTOS_UNICORE
-</span><span class="cp">#define ARDUINO_RUNNING_CORE 0
-</span><span class="cp">#else
-</span><span class="cp">#define ARDUINO_RUNNING_CORE 1
-</span><span class="cp">#endif
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">if CONFIG_FREERTOS_UNICORE</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">define ARDUINO_RUNNING_CORE 0</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">else</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">define ARDUINO_RUNNING_CORE 1</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">endif</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">loopTask</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">pvParameters</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">setup</span><span class="p">();</span>
-    <span class="k">for</span><span class="p">(;;)</span> <span class="p">{</span>
-        <span class="n">micros</span><span class="p">();</span> <span class="c1">//update overflow
-</span><span class="c1"></span>        <span class="n">loop</span><span class="p">();</span>
+    <span class="n">setup</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="p">;</span><span class="p">;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">micros</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//update overflow
+</span><span class="c1"></span>        <span class="n">loop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="kt">void</span> <span class="n">app_main</span><span class="p">()</span>
+<span class="k">extern</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">C</span><span class="s">&#34;</span> <span class="kt">void</span> <span class="n">app_main</span><span class="p">(</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">initArduino</span><span class="p">();</span>
-    <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">loopTask</span><span class="p">,</span> <span class="s">&#34;loopTask&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">ARDUINO_RUNNING_CORE</span><span class="p">);</span>
+    <span class="n">initArduino</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">loopTask</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">loopTask</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">ARDUINO_RUNNING_CORE</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>こう書かれているので，いつも使っているsetup()とloop()は優先度が1のタスクであることがわかります．</p>
-
+</code></pre></div><p>こう書かれているので，いつも使っているsetup()とloop()は優先度が1のタスクであることがわかります．</p>
 <p>さらに，CONFIG_FREERTOS_UNICOREはfalseなので，このタスクを実行するコアはCPU1であることがわかります．</p>
-
 <p>おそらくOSなどのシステムタスクはCPU0で行っていて，ユーザーアプリケーションタスクをCPU1で行うという位置づけなのでしょう．実際に各CPUには名前がついていて，Process CPUとApplication CPUとなっています．</p>
-
-<h2 id="まとめ">まとめ</h2>
-
-<p>ついに電子工作の世界にデュアルコアがやって参りましたね！<br />
+<h2 id="heading5">まとめ</h2>
+<p>ついに電子工作の世界にデュアルコアがやって参りましたね！<br>
 デュアルコアを使うためにはRTOSは必須だと思うのでしっかり勉強していきたいです．</p>
-
 <p>一度デュアルコア用のコードを書けるようになっておけば，将来クアッドコアやオタクコアのマイコンが登場してもすぐに適応することができます．</p>
-
 <p>実は，ESP32にはUltra Low Power Coprocessorという8MHzで動くCPUがもう一つ入っています．そちらもこれから使い方を勉強していきたいと思うので，収穫があったら紹介したいと思います．</p>
-
-<p>こんなにすごいマイコンですが，ESP-WROOM-32はたった700円です．<br />
+<p>こんなにすごいマイコンですが，ESP-WROOM-32はたった700円です．<br>
 ESP32の性能を最大限に使っていきましょう！</p>
-
-<h2 id="参考リンク">参考リンク</h2>
-
+<h2 id="heading6">参考リンク</h2>
 <ul>
-<li><a href="https://www.espressif.com/en/products/hardware/esp32/resources" target="_blank">www.espressif.com Resources</a></li>
-<li><a href="https://github.com/espressif/esp-idf" target="_blank">Espressif IoT Development Framework</a></li>
-<li><a href="https://github.com/espressif/arduino-esp32" target="_blank">Arduino core for ESP32 WiFi chip</a></li>
+<li><a href="https://www.espressif.com/en/products/hardware/esp32/resources"><a href="http://www.espressif.com">www.espressif.com</a> Resources</a></li>
+<li><a href="https://github.com/espressif/esp-idf">Espressif IoT Development Framework</a></li>
+<li><a href="https://github.com/espressif/arduino-esp32">Arduino core for ESP32 WiFi chip</a></li>
 </ul>
 		</div>
 		<footer class="post__footer">
@@ -450,27 +405,26 @@ ESP32の性能を最大限に使っていきましょう！</p>
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a>
-<ul>
-<li><a href="#esp32とは">ESP32とは</a></li>
-<li><a href="#デュアルコア">デュアルコア</a></li>
-</ul></li>
-<li><a href="#rtos-リアルタイムオペレーティングシステム">RTOS (リアルタイムオペレーティングシステム)</a>
-<ul>
-<li><a href="#rtosとは">RTOSとは</a></li>
-<li><a href="#freertos">FreeRTOS</a></li>
-<li><a href="#esp32に使われているfreertos">ESP32に使われているFreeRTOS</a></li>
-</ul></li>
-<li><a href="#デュアルコアの使い方">デュアルコアの使い方</a></li>
-<li><a href="#サンプルコード">サンプルコード</a></li>
-<li><a href="#ちなみに">ちなみに</a></li>
-<li><a href="#まとめ">まとめ</a></li>
-<li><a href="#参考リンク">参考リンク</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a>
+      <ul>
+        <li><a href="#esp32">ESP32とは</a></li>
+        <li><a href="#heading1">デュアルコア</a></li>
+      </ul>
+    </li>
+    <li><a href="#rtos-">RTOS (リアルタイムオペレーティングシステム)</a>
+      <ul>
+        <li><a href="#rtos">RTOSとは</a></li>
+        <li><a href="#freertos">FreeRTOS</a></li>
+        <li><a href="#esp32freertos">ESP32に使われているFreeRTOS</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">デュアルコアの使い方</a></li>
+    <li><a href="#heading3">サンプルコード</a></li>
+    <li><a href="#heading4">ちなみに</a></li>
+    <li><a href="#heading5">まとめ</a></li>
+    <li><a href="#heading6">参考リンク</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

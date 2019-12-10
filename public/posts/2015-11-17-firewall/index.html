@@ -9,9 +9,7 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ファイアウォールの設定" />
 <meta property="og:description" content="概要
-
 ufw
-
 iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2015-11-17-firewall/" />
@@ -21,10 +19,9 @@ iptablesという有名なファイアウォールソフトウェアがあるが
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ファイアウォールの設定"/>
 <meta name="twitter:description" content="概要
-
 ufw
-
 iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,38 +122,33 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
+			<h2 id="heading">概要</h2>
 <h3 id="ufw">ufw</h3>
-
 <p>iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．</p>
-
-<h2 id="ファイアウォールの設定">ファイアウォールの設定</h2>
-
-<h3 id="インストール-初期設定">インストール&amp;初期設定</h3>
-<div class="highlight"><pre class="chroma">$ sudo apt-get install ufw
+<h2 id="heading1">ファイアウォールの設定</h2>
+<h3 id="heading2">インストール&amp;初期設定</h3>
+<pre><code>$ sudo apt-get install ufw
 
 $ sudo ufw status
-Status: inactive</pre></div>
-<h3 id="ipv6サポートをoff">IPv6サポートをOFF</h3>
+Status: inactive
+</code></pre><h3 id="ipv6off">IPv6サポートをOFF</h3>
 <div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">/etc/default/ufw
 
 <span class="gd">-IPV6=yes
 </span><span class="gd"></span><span class="gi">+IPV6=no
-</span></code></pre></div>
-<h3 id="必要があれば初期化">必要があれば初期化</h3>
+</span></code></pre></div><h3 id="heading3">必要があれば初期化</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw reset
 Resetting all rules to installed defaults. This may disrupt existing ssh connections. Proceed with operation <span class="o">(</span>y<span class="p">|</span>n<span class="o">)</span>?
-y</code></pre></div>
-<h3 id="基本ポリシーを設定">基本ポリシーを設定</h3>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw default deny</code></pre></div>
-<h3 id="使用するサービスのポートを開く">使用するサービスのポートを開く</h3>
-<div class="highlight"><pre class="chroma">$ sudo ufw allow 80
+y
+</code></pre></div><h3 id="heading4">基本ポリシーを設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw default deny
+</code></pre></div><h3 id="heading5">使用するサービスのポートを開く</h3>
+<pre><code>$ sudo ufw allow 80
 Rules updated
 $ sudo ufw allow 22
-Rules updated</pre></div>
-<h3 id="ufwの有効化">ufwの有効化</h3>
-<div class="highlight"><pre class="chroma">$ sudo ufw enable
+Rules updated
+</code></pre><h3 id="ufw1">ufwの有効化</h3>
+<pre><code>$ sudo ufw enable
 sudo uFirewall is active and enabled on system startup
 
 $ sudo ufw status
@@ -165,7 +157,8 @@ Status: active
  To                         Action      From
  --                         ------      ----
  22                         ALLOW       Anywhere
- 80                         ALLOW       Anywhere</pre></div>
+ 80                         ALLOW       Anywhere
+</code></pre>
 		</div>
 		<footer class="post__footer">
 			
@@ -293,24 +286,23 @@ Status: active
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a>
-<ul>
-<li><a href="#ufw">ufw</a></li>
-</ul></li>
-<li><a href="#ファイアウォールの設定">ファイアウォールの設定</a>
-<ul>
-<li><a href="#インストール-初期設定">インストール&amp;初期設定</a></li>
-<li><a href="#ipv6サポートをoff">IPv6サポートをOFF</a></li>
-<li><a href="#必要があれば初期化">必要があれば初期化</a></li>
-<li><a href="#基本ポリシーを設定">基本ポリシーを設定</a></li>
-<li><a href="#使用するサービスのポートを開く">使用するサービスのポートを開く</a></li>
-<li><a href="#ufwの有効化">ufwの有効化</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a>
+      <ul>
+        <li><a href="#ufw">ufw</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">ファイアウォールの設定</a>
+      <ul>
+        <li><a href="#heading2">インストール&初期設定</a></li>
+        <li><a href="#ipv6off">IPv6サポートをOFF</a></li>
+        <li><a href="#heading3">必要があれば初期化</a></li>
+        <li><a href="#heading4">基本ポリシーを設定</a></li>
+        <li><a href="#heading5">使用するサービスのポートを開く</a></li>
+        <li><a href="#ufw1">ufwの有効化</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	</div>
 </div>

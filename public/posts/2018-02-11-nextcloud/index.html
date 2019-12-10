@@ -10,7 +10,6 @@
 	<meta property="og:title" content="自宅サーバーにNextcloudを導入した" />
 <meta property="og:description" content="こんにちは．
 今回は久しぶりにサーバーの話題です．
-
 自宅のサーバーにNextcloudを導入したので，それを紹介します．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2018-02-11-nextcloud/" />
@@ -21,8 +20,8 @@
 <meta name="twitter:title" content="自宅サーバーにNextcloudを導入した"/>
 <meta name="twitter:description" content="こんにちは．
 今回は久しぶりにサーバーの話題です．
-
 自宅のサーバーにNextcloudを導入したので，それを紹介します．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -128,11 +127,8 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<p>こんにちは．
 今回は久しぶりにサーバーの話題です．</p>
-
 <p>自宅のサーバーにNextcloudを導入したので，それを紹介します．</p>
-
-<h2 id="nextcloudとは">Nextcloudとは</h2>
-
+<h2 id="nextcloud">Nextcloudとは</h2>
 <figure >
 	<a href="https://nextcloud.com/" target="blank">
 		
@@ -144,19 +140,12 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<p><a href="https://nextcloud.com/" target="_blank">Nextcloud</a>とは，自前のサーバーにDropboxやGoogeDriveのようなクラウドストレージを構築するためのオープンソースソフトウェアです．</p>
-
+<p><a href="https://nextcloud.com/">Nextcloud</a>とは，自前のサーバーにDropboxやGoogeDriveのようなクラウドストレージを構築するためのオープンソースソフトウェアです．</p>
 <p>Windows, IOS, Androidなどのクライアントアプリも用意されており，DropboxやGoogeDriveのような使い方ができます．</p>
-
-<h2 id="nasをクラウドストレージに">NASをクラウドストレージに</h2>
-
-<p>僕の家には<a href="https://www.netgear.jp/products/details/RN10400.html" target="_blank">ReadyNAS 104</a>という，HDDを4つまで搭載できるNAS(Network Attached Storage)があります．</p>
-
+<h2 id="nas">NASをクラウドストレージに</h2>
+<p>僕の家には<a href="https://www.netgear.jp/products/details/RN10400.html">ReadyNAS 104</a>という，HDDを4つまで搭載できるNAS(Network Attached Storage)があります．</p>
 <p>RAID6のダブルパリティに設定してあり，合計8TBの容量を持ちます．</p>
-
 <p>このNASは基本的にLAN内からしかアクセスできないので，NextcloudによってこのNASをクラウドストレージとしました．</p>
-
 <figure >
 	<a href="https://www.netgear.jp/products/details/RN10400.html" target="blank">
 		
@@ -168,13 +157,9 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
 <p>このようなNASがなくても，ラズパイに直接HDDを繋ぐことでストレージを確保できます．</p>
-
-<h2 id="サーバーはラズパイ3">サーバーはラズパイ3</h2>
-
+<h2 id="3">サーバーはラズパイ3</h2>
 <p>現在，僕の自宅サーバーは，<strong>Raspberry 3 Model B</strong>によって運用されています．このサーバーにNextcloudをインストールしました．</p>
-
 <figure >
 	
 		
@@ -186,27 +171,16 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<h2 id="気を付けること">気を付けること</h2>
-
+<h2 id="heading">気を付けること</h2>
 <p>サーバーを外部に公開するときは，セキュリティ対策を万全にしましょう．</p>
-
 <p>ファイアウォールの設定や，HTTPS対応をお忘れなく．</p>
-
-<h2 id="使用感">使用感</h2>
-
+<h2 id="heading1">使用感</h2>
 <p>とりあえず，所望のクラウドストレージを構築することができました．</p>
-
 <p>Nextcloudの設定はすべてブラウザでできるのでとても簡単です．</p>
-
 <p>しかし，ラズパイでは読み込み時間がいちいち長く，少しストレスがあります．</p>
-
 <p>もっと強いPCを使いたいものですが，そのときはVPSを契約すべきだと思い，当面はこのまま運用する予定です．</p>
-
-<h2 id="まとめ">まとめ</h2>
-
+<h2 id="heading2">まとめ</h2>
 <p>今まではLAN内からしかアクセスできなかったNASが，Nextcloudの導入により，どこからでもアクセスできるようになりました．</p>
-
 <p>既にサーバーをお持ちの方ならすぐに導入できると思います．ぜひ試してみてください！</p>
 		</div>
 		<footer class="post__footer">
@@ -334,17 +308,14 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#nextcloudとは">Nextcloudとは</a></li>
-<li><a href="#nasをクラウドストレージに">NASをクラウドストレージに</a></li>
-<li><a href="#サーバーはラズパイ3">サーバーはラズパイ3</a></li>
-<li><a href="#気を付けること">気を付けること</a></li>
-<li><a href="#使用感">使用感</a></li>
-<li><a href="#まとめ">まとめ</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#nextcloud">Nextcloudとは</a></li>
+    <li><a href="#nas">NASをクラウドストレージに</a></li>
+    <li><a href="#3">サーバーはラズパイ3</a></li>
+    <li><a href="#heading">気を付けること</a></li>
+    <li><a href="#heading1">使用感</a></li>
+    <li><a href="#heading2">まとめ</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

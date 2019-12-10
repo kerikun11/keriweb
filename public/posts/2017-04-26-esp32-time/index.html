@@ -9,9 +9,7 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ESP32で時間取得" />
 <meta property="og:description" content="概要
-
 今回はESP32で現在時刻を取得するサンプルコードの紹介です．
-
 今回のコードではC&#43;&#43;標準の時刻を合わせるので，std::time()関数で時刻を取得することができるようになります．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2017-04-26-esp32-time/" />
@@ -21,10 +19,9 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ESP32で時間取得"/>
 <meta name="twitter:description" content="概要
-
 今回はESP32で現在時刻を取得するサンプルコードの紹介です．
-
 今回のコードではC&#43;&#43;標準の時刻を合わせるので，std::time()関数で時刻を取得することができるようになります．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,31 +122,24 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
+			<h2 id="heading">概要</h2>
 <p>今回はESP32で現在時刻を取得するサンプルコードの紹介です．</p>
-
 <p>今回のコードではC++標準の時刻を合わせるので，std::time()関数で時刻を取得することができるようになります．</p>
-
 <p>具体的には，</p>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c">  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c">  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
   <span class="k">struct</span> <span class="n">tm</span> <span class="o">*</span><span class="n">t_st</span><span class="p">;</span>
-  <span class="n">t_st</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;月: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;日: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_mday</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;時: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;分: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_min</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;秒: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_sec</span><span class="p">);</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">&#34;Time: %s&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">));</span></code></pre></div>
-<p>のように時刻を扱えます．</p>
-
-<!--more-->
-
-<h2 id="ソースコード">ソースコード</h2>
-
-<p>Arduino IDE上で動作します．<a href="time.zip" target="_blank">ここ</a>からダウンロードできます．</p>
-
-<h3 id="time-ino">time.ino</h3>
+  <span class="n">t_st</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">月: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_mon</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">日: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_mday</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">時: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_hour</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">分: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_min</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">秒: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_sec</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Time: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>のように時刻を扱えます．</p>
+<!-- raw HTML omitted -->
+<h2 id="heading1">ソースコード</h2>
+<p>Arduino IDE上で動作します．<a href="time.zip">ここ</a>からダウンロードできます．</p>
+<h3 id="timeino">time.ino</h3>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
 </span><span class="cm">
 </span><span class="cm">   ESP32 Time Example
@@ -159,34 +149,34 @@ if (!doNotTrack) {
 </span><span class="cm">
 </span><span class="cm">*/</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;config.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;Time.h&#34;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;config.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Time.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_ssid</span> <span class="o">=</span> <span class="s">&#34;wifi_ssid&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_pass</span> <span class="o">=</span> <span class="s">&#34;wifi_pass&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_ssid</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">wifi_ssid</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_pass</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">wifi_pass</span><span class="s">&#34;</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Hello, this is ESP32.&#34;</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, this is ESP32.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Connecting to %s&#34;</span><span class="p">,</span> <span class="n">wifi_ssid</span><span class="p">);</span>
-  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">wifi_ssid</span><span class="p">,</span> <span class="n">wifi_pass</span><span class="p">);</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;wait...&#34;</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Connecting to %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">wifi_ssid</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">wifi_ssid</span><span class="p">,</span> <span class="n">wifi_pass</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">wait...</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;WiFi connected&#34;</span><span class="p">);</span>
-  <span class="n">Time</span><span class="p">.</span><span class="n">set_time</span><span class="p">();</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi connected</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Time</span><span class="p">.</span><span class="n">set_time</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;Time: %s&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">));</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
-<h3 id="time-h">Time.h</h3>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Time: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="timeh">Time.h</h3>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
 </span><span class="cm">  The MIT License (MIT)
 </span><span class="cm">  Copyright (c)  2017  kerikun11
@@ -196,27 +186,27 @@ if (!doNotTrack) {
 </span><span class="cm">  THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </span><span class="cm">*/</span>
 
-<span class="cp">#pragma once
+<span class="cp">#</span><span class="cp">pragma once</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;WiFiUdp.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFiUdp.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;ctime&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="n">Time</span><span class="p">;</span>
 <span class="k">extern</span> <span class="n">Time</span> <span class="n">Time</span><span class="p">;</span>
 
 <span class="n">class</span> <span class="n">Time</span> <span class="p">{</span>
   <span class="nl">public</span><span class="p">:</span>
-    <span class="n">Time</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">time_zone</span> <span class="o">=</span> <span class="s">&#34;JST-9&#34;</span><span class="p">)</span><span class="o">:</span> <span class="n">time_zone</span><span class="p">(</span><span class="n">time_zone</span><span class="p">)</span> <span class="p">{}</span>
-    <span class="kt">bool</span> <span class="n">set_time</span><span class="p">();</span>
+    <span class="n">Time</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">time_zone</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">JST-9</span><span class="s">&#34;</span><span class="p">)</span><span class="o">:</span> <span class="n">time_zone</span><span class="p">(</span><span class="n">time_zone</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">set_time</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="nl">private</span><span class="p">:</span>
     <span class="n">WiFiUDP</span> <span class="n">udp</span><span class="p">;</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">time_zone</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="nf">getNtpTime</span><span class="p">(</span><span class="k">struct</span> <span class="n">timeval</span><span class="o">*</span> <span class="n">tvp</span><span class="p">);</span>
-<span class="p">};</span></code></pre></div>
-<h3 id="time-cpp">Time.cpp</h3>
+    <span class="kt">bool</span> <span class="nf">getNtpTime</span><span class="p">(</span><span class="k">struct</span> <span class="n">timeval</span><span class="o">*</span> <span class="n">tvp</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><h3 id="timecpp">Time.cpp</h3>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/**
 </span><span class="cm">  The MIT License (MIT)
 </span><span class="cm">  Copyright (c)  2017  kerikun11
@@ -226,38 +216,38 @@ if (!doNotTrack) {
 </span><span class="cm">  THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </span><span class="cm">*/</span>
 
-<span class="cp">#include</span> <span class="cpf">&#34;Time.h&#34;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Time.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#define NTP_SERVER_IPADDRESS  IPAddress(133, 243, 238, 164)
-</span><span class="cp">#define NTP_LOCAL_PORT        2390
-</span><span class="cp">#define NTP_PACKET_SIZE       48
+<span class="cp">#</span><span class="cp">define NTP_SERVER_IPADDRESS  IPAddress(133, 243, 238, 164)</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">define NTP_LOCAL_PORT        2390</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">define NTP_PACKET_SIZE       48</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="n">Time</span> <span class="n">Time</span><span class="p">;</span>
 
-<span class="kt">bool</span> <span class="n">Time</span><span class="o">::</span><span class="n">set_time</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">udp</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">NTP_LOCAL_PORT</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="n">Time</span><span class="o">:</span><span class="o">:</span><span class="n">set_time</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">udp</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">NTP_LOCAL_PORT</span><span class="p">)</span><span class="p">;</span>
   <span class="k">struct</span> <span class="n">timeval</span> <span class="n">tv</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">getNtpTime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">))</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">getNtpTime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">struct</span> <span class="n">timezone</span> <span class="n">tz</span><span class="p">;</span>
-  <span class="n">setenv</span><span class="p">(</span><span class="s">&#34;TZ&#34;</span><span class="p">,</span> <span class="n">time_zone</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="n">tzset</span><span class="p">();</span>
+  <span class="n">setenv</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">TZ</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">time_zone</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">tzset</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="n">tz</span><span class="p">.</span><span class="n">tz_minuteswest</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="n">tz</span><span class="p">.</span><span class="n">tz_dsttime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="n">settimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tz</span><span class="p">);</span>
-  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;Time: %s&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">));</span>
+  <span class="n">settimeofday</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tv</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">tz</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Time: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
   <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">bool</span> <span class="n">Time</span><span class="o">::</span><span class="n">getNtpTime</span><span class="p">(</span><span class="k">struct</span> <span class="n">timeval</span><span class="o">*</span> <span class="n">tvp</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">udp</span><span class="p">.</span><span class="n">parsePacket</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="n">Time</span><span class="o">:</span><span class="o">:</span><span class="n">getNtpTime</span><span class="p">(</span><span class="k">struct</span> <span class="n">timeval</span><span class="o">*</span> <span class="n">tvp</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">udp</span><span class="p">.</span><span class="n">parsePacket</span><span class="p">(</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Transmiting NTP Request...&#34;</span><span class="p">);</span>
-  <span class="n">byte</span> <span class="n">packetBuffer</span><span class="p">[</span><span class="n">NTP_PACKET_SIZE</span><span class="p">];</span>
-  <span class="n">memset</span><span class="p">(</span><span class="n">packetBuffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">);</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Transmiting NTP Request...</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">byte</span> <span class="n">packetBuffer</span><span class="p">[</span><span class="n">NTP_PACKET_SIZE</span><span class="p">]</span><span class="p">;</span>
+  <span class="n">memset</span><span class="p">(</span><span class="n">packetBuffer</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">)</span><span class="p">;</span>
   <span class="n">packetBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b11100011</span><span class="p">;</span>   <span class="c1">// LI, Version, Mode
 </span><span class="c1"></span>  <span class="n">packetBuffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// Stratum, or type of clock
 </span><span class="c1"></span>  <span class="n">packetBuffer</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>     <span class="c1">// Polling Interval
@@ -267,47 +257,44 @@ if (!doNotTrack) {
   <span class="n">packetBuffer</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>  <span class="o">=</span> <span class="mh">0x4E</span><span class="p">;</span>
   <span class="n">packetBuffer</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">49</span><span class="p">;</span>
   <span class="n">packetBuffer</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span>  <span class="o">=</span> <span class="mi">52</span><span class="p">;</span>
-  <span class="n">udp</span><span class="p">.</span><span class="n">beginPacket</span><span class="p">(</span><span class="n">NTP_SERVER_IPADDRESS</span><span class="p">,</span> <span class="mi">123</span><span class="p">);</span> <span class="c1">//NTP requests are to port 123
-</span><span class="c1"></span>  <span class="n">udp</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">packetBuffer</span><span class="p">,</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">);</span>
-  <span class="n">udp</span><span class="p">.</span><span class="n">endPacket</span><span class="p">();</span>
-  <span class="n">uint32_t</span> <span class="n">time_stamp</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_stamp</span> <span class="o">&lt;</span> <span class="mi">1500</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">udp</span><span class="p">.</span><span class="n">parsePacket</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;=</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Received NTP Response&#34;</span><span class="p">);</span>
-      <span class="n">udp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">packetBuffer</span><span class="p">,</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">);</span>
+  <span class="n">udp</span><span class="p">.</span><span class="n">beginPacket</span><span class="p">(</span><span class="n">NTP_SERVER_IPADDRESS</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span><span class="p">;</span> <span class="c1">//NTP requests are to port 123
+</span><span class="c1"></span>  <span class="n">udp</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">packetBuffer</span><span class="p">,</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">udp</span><span class="p">.</span><span class="n">endPacket</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">uint32_t</span> <span class="n">time_stamp</span> <span class="o">=</span> <span class="n">millis</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">millis</span><span class="p">(</span><span class="p">)</span> <span class="o">-</span> <span class="n">time_stamp</span> <span class="o">&lt;</span> <span class="mi">1500</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">udp</span><span class="p">.</span><span class="n">parsePacket</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">size</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Received NTP Response</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">udp</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">packetBuffer</span><span class="p">,</span> <span class="n">NTP_PACKET_SIZE</span><span class="p">)</span><span class="p">;</span>
       <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">secsSince1900</span><span class="p">,</span> <span class="n">afterTheDecimalPoint</span><span class="p">;</span>
-      <span class="n">secsSince1900</span>  <span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">;</span>
-      <span class="n">secsSince1900</span> <span class="o">|=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">41</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">;</span>
-      <span class="n">secsSince1900</span> <span class="o">|=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span> <span class="o">&lt;&lt;</span>  <span class="mi">8</span><span class="p">;</span>
-      <span class="n">secsSince1900</span> <span class="o">|=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">43</span><span class="p">]</span> <span class="o">&lt;&lt;</span>  <span class="mi">0</span><span class="p">;</span>
-      <span class="n">afterTheDecimalPoint</span>  <span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">44</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">;</span>
-      <span class="n">afterTheDecimalPoint</span> <span class="o">|=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">45</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">;</span>
-      <span class="n">afterTheDecimalPoint</span> <span class="o">|=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">46</span><span class="p">]</span> <span class="o">&lt;&lt;</span>  <span class="mi">8</span><span class="p">;</span>
-      <span class="n">afterTheDecimalPoint</span> <span class="o">|=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">47</span><span class="p">]</span> <span class="o">&lt;&lt;</span>  <span class="mi">0</span><span class="p">;</span>
-      <span class="n">tvp</span><span class="o">-&gt;</span><span class="n">tv_sec</span> <span class="o">=</span> <span class="n">secsSince1900</span> <span class="o">-</span> <span class="mi">2208988800UL</span><span class="p">;</span>
-      <span class="n">tvp</span><span class="o">-&gt;</span><span class="n">tv_usec</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">afterTheDecimalPoint</span> <span class="o">*</span> <span class="mi">1000000</span> <span class="o">/</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)</span><span class="mh">0x100000000</span><span class="p">;</span>
-      <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;%d,%d&#34;</span><span class="p">,</span> <span class="n">tvp</span><span class="o">-&gt;</span><span class="n">tv_sec</span><span class="p">,</span> <span class="n">tvp</span><span class="o">-&gt;</span><span class="n">tv_usec</span><span class="p">);</span>
+      <span class="n">secsSince1900</span>  <span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">40</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="mi">24</span><span class="p">;</span>
+      <span class="n">secsSince1900</span> <span class="o">|</span><span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">41</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="mi">16</span><span class="p">;</span>
+      <span class="n">secsSince1900</span> <span class="o">|</span><span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span>  <span class="mi">8</span><span class="p">;</span>
+      <span class="n">secsSince1900</span> <span class="o">|</span><span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">43</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span>  <span class="mi">0</span><span class="p">;</span>
+      <span class="n">afterTheDecimalPoint</span>  <span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">44</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="mi">24</span><span class="p">;</span>
+      <span class="n">afterTheDecimalPoint</span> <span class="o">|</span><span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">45</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="mi">16</span><span class="p">;</span>
+      <span class="n">afterTheDecimalPoint</span> <span class="o">|</span><span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">46</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span>  <span class="mi">8</span><span class="p">;</span>
+      <span class="n">afterTheDecimalPoint</span> <span class="o">|</span><span class="o">=</span>  <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">)</span><span class="n">packetBuffer</span><span class="p">[</span><span class="mi">47</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span>  <span class="mi">0</span><span class="p">;</span>
+      <span class="n">tvp</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tv_sec</span> <span class="o">=</span> <span class="n">secsSince1900</span> <span class="o">-</span> <span class="mi">2208988800UL</span><span class="p">;</span>
+      <span class="n">tvp</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tv_usec</span> <span class="o">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">afterTheDecimalPoint</span> <span class="o">*</span> <span class="mi">1000000</span> <span class="o">/</span> <span class="p">(</span><span class="n">uint64_t</span><span class="p">)</span><span class="mh">0x100000000</span><span class="p">;</span>
+      <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%d,%d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">tvp</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tv_sec</span><span class="p">,</span> <span class="n">tvp</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tv_usec</span><span class="p">)</span><span class="p">;</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;No NTP Response :-(&#34;</span><span class="p">);</span>
+  <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">No NTP Response :-(</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
   <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="シリアル出力の設定">シリアル出力の設定</h2>
-
+<span class="p">}</span>
+</code></pre></div><h2 id="heading2">シリアル出力の設定</h2>
 <p>ESP32にはログ出力用のライブラリが用意してあります．今回のログ出力にはそれを使いました．</p>
-
 <p>printfの代わりに以下を使います．</p>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="kt">void</span> <span class="nf">log_v</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span> <span class="c1">// verbose
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_d</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span> <span class="c1">// debug
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_i</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span> <span class="c1">// info
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_w</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span> <span class="c1">// warning
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_e</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span> <span class="o">//</span> <span class="n">error</span></code></pre></div>
-<p>そのログを出力するにはArduino IDEのボード設定から出力を有効にしてください．</p>
-
+<span class="kt">void</span> <span class="nf">log_v</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span> <span class="c1">// verbose
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_d</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span> <span class="c1">// debug
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_i</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span> <span class="c1">// info
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_w</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span> <span class="c1">// warning
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">log_e</span><span class="p">(</span><span class="n">format</span><span class="p">,</span> <span class="p">.</span><span class="p">.</span><span class="p">.</span><span class="p">)</span><span class="p">;</span> <span class="c1">// error
+</span></code></pre></div><p>そのログを出力するにはArduino IDEのボード設定から出力を有効にしてください．</p>
 <figure >
 	
 		
@@ -443,19 +430,17 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a></li>
-<li><a href="#ソースコード">ソースコード</a>
-<ul>
-<li><a href="#time-ino">time.ino</a></li>
-<li><a href="#time-h">Time.h</a></li>
-<li><a href="#time-cpp">Time.cpp</a></li>
-</ul></li>
-<li><a href="#シリアル出力の設定">シリアル出力の設定</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a></li>
+    <li><a href="#heading1">ソースコード</a>
+      <ul>
+        <li><a href="#timeino">time.ino</a></li>
+        <li><a href="#timeh">Time.h</a></li>
+        <li><a href="#timecpp">Time.cpp</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">シリアル出力の設定</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

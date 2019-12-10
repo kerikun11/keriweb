@@ -9,7 +9,6 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="Gitの使い方" />
 <meta property="og:description" content="ここではGithubを使ったGitの使い方を説明する。
-
 主なコマンド" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2015-10-21-git/" />
@@ -19,8 +18,8 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gitの使い方"/>
 <meta name="twitter:description" content="ここではGithubを使ったGitの使い方を説明する。
-
 主なコマンド"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -122,122 +121,113 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>ここではGithubを使ったGitの使い方を説明する。</p>
-
-<h2 id="主なコマンド">主なコマンド</h2>
-
+<h2 id="heading">主なコマンド</h2>
 <h3 id="clone">clone</h3>
-
 <p>　Git上にあるファイルをローカルにクローンする。</p>
-<div class="highlight"><pre class="chroma">$ git clone https://github.com/your_username/your_repository.git
-$ git clone git@github.com:your_username/your_password/your_repository.git</pre></div>
+<pre><code>$ git clone https://github.com/your_username/your_repository.git
+$ git clone git@github.com:your_username/your_password/your_repository.git
+</code></pre>
 <p>　cloneを置きたいディレクトリで上のコマンドを実行すると、新たにリポジトリ名のディレクトリが生成される。</p>
-
 <h3 id="add">add</h3>
-
 <p>　新規作成したファイルをGitにあげるにはcloneしているディレクトリに入って、以下のコマンドを実行する。
 　設定ファイルやソースファイルなどはGitにおいて管理するよ良い。その際、設定ファイルのあった場所にはcloneしたディレクトリへのショートカットを置いておく。設定ファイルにはユーザー名とパスワードが記述されているものが多いので、それらをアップロードしないように細心の注意を払うこと。Gitは履歴が残るので、たとえファイルを削除しても簡単には消えてくれない。</p>
-<div class="highlight"><pre class="chroma">$ git add filename</pre></div>
+<pre><code>$ git add filename
+</code></pre>
 <h3 id="commit">commit</h3>
-
 <p>ファイルを追加または変更したら、以下のコマンドによりファイルの変更を確定する。commitすると、変更履歴が更新される。ローカルリポジトリでの変更が記録される。</p>
-<div class="highlight"><pre class="chroma">$ git commit filename -m &#39;message&#39;</pre></div>
+<pre><code>$ git commit filename -m 'message'
+</code></pre>
 <h3 id="push">push</h3>
-
 <p>　commitしたら、cloneしているディレクトリに入って、</p>
-<div class="highlight"><pre class="chroma">$ git push -u origin master</pre></div>
+<pre><code>$ git push -u origin master
+</code></pre>
 <p>を実行すると、Git上のファイルが更新される。</p>
-
 <h3 id="pull">pull</h3>
-
 <p>　ほかの場所で更新した内容をこのPCにも反映させるには、cloneしているディレクトリに入って、以下のコマンドを実行する。</p>
-<div class="highlight"><pre class="chroma">$ git pull</pre></div>
+<pre><code>$ git pull
+</code></pre>
 <h3 id="diff">diff</h3>
-
 <p>変更の差分を表示する。</p>
-<div class="highlight"><pre class="chroma">$ git diff filename</pre></div>
-<h2 id="sshの設定">SSHの設定</h2>
-
+<pre><code>$ git diff filename
+</code></pre>
+<h2 id="ssh">SSHの設定</h2>
 <p>Githubに繋ぐには、httpsとsshの２通りある。httpsの場合、UserIDとPasswordを入力する必要があるため、セキュリティに不安がある。そこでSSHを使って接続してみる。この場合、SSH鍵のPasswordのみで通信できる。SSH鍵にパスワードをかけなければ、passwordなしで、公開鍵認証の安全な通信ができる。</p>
-
-<h3 id="設定の手順">設定の手順</h3>
-
-<h4 id="鍵の作成">鍵の作成</h4>
-
+<h3 id="heading1">設定の手順</h3>
+<h4 id="heading2">鍵の作成</h4>
 <p>ホームディレクトリに.sshディレクトリがない場合</p>
-<div class="highlight"><pre class="chroma">$ mkdir ~/.ssh</pre></div>
+<pre><code>$ mkdir ~/.ssh
+</code></pre>
 <p>共通</p>
-<div class="highlight"><pre class="chroma">$ cd ~/.ssh
-$ ssh-keygen -t ecdsa -C &#34;for github&#34;</pre></div>
+<pre><code>$ cd ~/.ssh
+$ ssh-keygen -t ecdsa -C &quot;for github&quot;
+</code></pre>
 <p>この時ファイル名とパスワードを求められるが、ファイル名は空欄で良い。パスワードは任意。なくても大丈夫。</p>
-
 <p>次に以下のファイルを開く。</p>
-<div class="highlight"><pre class="chroma">$ sudo vim config</pre></div>
+<pre><code>$ sudo vim config
+</code></pre>
 <p>ここで、以下を記述または追記</p>
-<div class="highlight"><pre class="chroma">Host github
-    User            git
-    HostName        github.com
-    Port            22
-    IdentityFile    ~/.ssh/id_ecdsa</pre></div>
-<h4 id="鍵の登録">鍵の登録</h4>
-
+<pre><code>Host github
+    User			git
+    HostName		github.com
+    Port			22
+    IdentityFile	~/.ssh/id_ecdsa
+</code></pre>
+<h4 id="heading3">鍵の登録</h4>
 <p>次に、ブラウザからGithubにログインして、画面右上のアイコン→Settings→SSH keys→Add SSH keyってところで先ほどの<code>~/.ssh/id_ecdsa.pub</code>の内容を貼り付ける。</p>
-
-<h4 id="新たにcloneするときは">新たにcloneするときは</h4>
-<div class="highlight"><pre class="chroma">$ git clone https://your_usermame/your_repository.git</pre></div>
+<h4 id="clone1">新たにcloneするときは</h4>
+<pre><code>$ git clone https://your_usermame/your_repository.git
+</code></pre>
 <p>の代わりに</p>
-<div class="highlight"><pre class="chroma">$ git clone github:your_username/your_repository.git</pre></div>
+<pre><code>$ git clone github:your_username/your_repository.git
+</code></pre>
 <p>でcloneすればよい。</p>
-
-<h4 id="すでにcloneしているまたは-新しくinitしたときは">すでにcloneしているまたは、新しくinitしたときは</h4>
-
+<h4 id="cloneinit">すでにcloneしているまたは、新しくinitしたときは</h4>
 <p>すでにcloneしているリポジトリや、新たなリポジトリでさっき設定したSSHを使うには、リポジトリの設定を変更すればよい。</p>
-<div class="highlight"><pre class="chroma">$ git remote set-url origin github:your_username/your_repository.git</pre></div>
-<h2 id="gitを使う手順">Gitを使う手順</h2>
-
-<h3 id="初期設定">初期設定</h3>
-
+<pre><code>$ git remote set-url origin github:your_username/your_repository.git
+</code></pre>
+<h2 id="git">Gitを使う手順</h2>
+<h3 id="heading4">初期設定</h3>
 <p>自分の情報を登録する</p>
-<div class="highlight"><pre class="chroma">$ git config --global user.name &#34;Your Name&#34;
-$ git config --global user.email &#34;your_email@smaple.com&#34;
-$ git config --global core.editor vim (or emacs)</pre></div>
+<pre><code>$ git config --global user.name &quot;Your Name&quot;
+$ git config --global user.email &quot;your_email@smaple.com&quot;
+$ git config --global core.editor vim (or emacs)
+</code></pre>
 <p>設定の確認</p>
-<div class="highlight"><pre class="chroma">$ git config --list</pre></div>
-<h3 id="他人のリポジトリをclone">他人のリポジトリをclone</h3>
-
+<pre><code>$ git config --list
+</code></pre>
+<h3 id="clone2">他人のリポジトリをclone</h3>
 <ol>
-<li><p>cloneしたいリポジトリに入って、</p>
-
-<p>$ git clone github:username/repository.git</p></li>
+<li>cloneしたいリポジトリに入って、</li>
 </ol>
-
-<h3 id="自分のレポジトリを使う">自分のレポジトリを使う</h3>
-
-<h4 id="もともとあるリポジトリをclone">もともとあるリポジトリをclone</h4>
-
+<pre><code>$ git clone github:username/repository.git
+</code></pre>
+<h3 id="heading5">自分のレポジトリを使う</h3>
+<h4 id="clone3">もともとあるリポジトリをclone</h4>
 <ol>
-<li><p>cloneしたいリポジトリに入って、</p>
-
-<p>$ git clone github:my_username/my_repository.git</p></li>
-
-<li><p>ファイルを編集する</p></li>
-
-<li><p>変更を追加</p>
-
-<p>$ git add .</p></li>
-
-<li><p>変更をコミット</p>
-
-<p>$ git commit -m &ldquo;any comment&rdquo;</p></li>
-
-<li><p>変更をプッシュ</p>
-
-<p>$ git push -u origin master</p></li>
+<li>cloneしたいリポジトリに入って、</li>
 </ol>
-
-<h4 id="新たにリポジトリを作る">新たにリポジトリを作る</h4>
-
+<pre><code>$ git clone github:my_username/my_repository.git
+</code></pre>
+<ol>
+<li>ファイルを編集する</li>
+<li>変更を追加</li>
+</ol>
+<pre><code>$ git add .
+</code></pre>
+<ol>
+<li>変更をコミット</li>
+</ol>
+<pre><code>$ git commit -m &quot;any comment&quot;
+</code></pre>
+<ol>
+<li>変更をプッシュ</li>
+</ol>
+<pre><code>$ git push -u origin master
+</code></pre>
+<h4 id="heading6">新たにリポジトリを作る</h4>
 <p>1.新しくリポジトリにするディレクトリ内に入って、</p>
-<div class="highlight"><pre class="chroma">$ git init </pre></div>
+<pre><code>$ git init 
+</code></pre>
 		</div>
 		<footer class="post__footer">
 			
@@ -364,40 +354,30 @@ $ git config --global core.editor vim (or emacs)</pre></div>
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#主なコマンド">主なコマンド</a>
-<ul>
-<li><a href="#clone">clone</a></li>
-<li><a href="#add">add</a></li>
-<li><a href="#commit">commit</a></li>
-<li><a href="#push">push</a></li>
-<li><a href="#pull">pull</a></li>
-<li><a href="#diff">diff</a></li>
-</ul></li>
-<li><a href="#sshの設定">SSHの設定</a>
-<ul>
-<li><a href="#設定の手順">設定の手順</a>
-<ul>
-<li><a href="#鍵の作成">鍵の作成</a></li>
-<li><a href="#鍵の登録">鍵の登録</a></li>
-<li><a href="#新たにcloneするときは">新たにcloneするときは</a></li>
-<li><a href="#すでにcloneしているまたは-新しくinitしたときは">すでにcloneしているまたは、新しくinitしたときは</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#gitを使う手順">Gitを使う手順</a>
-<ul>
-<li><a href="#初期設定">初期設定</a></li>
-<li><a href="#他人のリポジトリをclone">他人のリポジトリをclone</a></li>
-<li><a href="#自分のレポジトリを使う">自分のレポジトリを使う</a>
-<ul>
-<li><a href="#もともとあるリポジトリをclone">もともとあるリポジトリをclone</a></li>
-<li><a href="#新たにリポジトリを作る">新たにリポジトリを作る</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">主なコマンド</a>
+      <ul>
+        <li><a href="#clone">clone</a></li>
+        <li><a href="#add">add</a></li>
+        <li><a href="#commit">commit</a></li>
+        <li><a href="#push">push</a></li>
+        <li><a href="#pull">pull</a></li>
+        <li><a href="#diff">diff</a></li>
+      </ul>
+    </li>
+    <li><a href="#ssh">SSHの設定</a>
+      <ul>
+        <li><a href="#heading1">設定の手順</a></li>
+      </ul>
+    </li>
+    <li><a href="#git">Gitを使う手順</a>
+      <ul>
+        <li><a href="#heading4">初期設定</a></li>
+        <li><a href="#clone2">他人のリポジトリをclone</a></li>
+        <li><a href="#heading5">自分のレポジトリを使う</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	</div>
 </div>

@@ -9,7 +9,6 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="KERIESP32 Trapezoid" />
 <meta property="og:description" content="ESP-WROOM-32のブレークアウトボード
-
 WiFiとBluetoothが載ったデュアルコアなマイコンESP32のピッチ変換基板を新たに作ったので紹介します．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2017-07-23-keriesp32-trapezoid/" />
@@ -19,8 +18,8 @@ WiFiとBluetoothが載ったデュアルコアなマイコンESP32のピッチ�
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="KERIESP32 Trapezoid"/>
 <meta name="twitter:description" content="ESP-WROOM-32のブレークアウトボード
-
 WiFiとBluetoothが載ったデュアルコアなマイコンESP32のピッチ変換基板を新たに作ったので紹介します．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -124,10 +123,8 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="esp-wroom-32のブレークアウトボード">ESP-WROOM-32のブレークアウトボード</h2>
-
+			<h2 id="espwroom32">ESP-WROOM-32のブレークアウトボード</h2>
 <p>WiFiとBluetoothが載ったデュアルコアなマイコン<strong>ESP32</strong>のピッチ変換基板を新たに作ったので紹介します．</p>
-
 <figure >
 	<a href="http://akizukidenshi.com/catalog/g/gM-11647/" target="blank">
 		
@@ -139,11 +136,8 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h2 id="基板名-keriesp32-trapezoid">基板名: KERIESP32 Trapezoid</h2>
-
+<h2 id="-keriesp32-trapezoid">基板名: KERIESP32 Trapezoid</h2>
 <p>Trapezoidとは英語で台形のことです．見てのとおり，基板の形が由来です．</p>
-
 <p><figure >
 	
 		
@@ -166,32 +160,20 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-
-<h2 id="他社の基板との違い">他社の基板との違い</h2>
-
-<h3 id="1-i-oピンが順に並んだsip基板">1. I/Oピンが順に並んだSIP基板</h3>
-
+<h2 id="heading">他社の基板との違い</h2>
+<h3 id="1-iosip">1. I/Oピンが順に並んだSIP基板</h3>
 <p>ESP-WROOM-32はI/Oピンが謎の順番に配置されており，はっきり言って使いにくいです．</p>
-
-<p>KERIESP32の基板は，I/Oピンが順番に並び変えてあります．<br />
+<p>KERIESP32の基板は，I/Oピンが順番に並び変えてあります．<br>
 さらに基板上にI/O番号が書いてあるので，作業が捗ること間違いなし！</p>
-
 <p>SIP (Single Inline Package) ⇔ DIP (Dual Inline Package)</p>
-
-<h3 id="2-あえて乗せなかったシリアル変換ic">2. あえて乗せなかったシリアル変換IC</h3>
-
-<p>ESP32のブレークアウト基板のほとんどはUSB-UART変換ICが載っています．<br />
+<h3 id="2-ic">2. あえて乗せなかったシリアル変換IC</h3>
+<p>ESP32のブレークアウト基板のほとんどはUSB-UART変換ICが載っています．<br>
 しかし，今回のKERIESP32 Trapezoidには，シリアル変換ICは載せませんでした．</p>
-
-<p>この基板は，試作用だけでなくいろいろな作品中に組み込みたいと思ったからです．<br />
+<p>この基板は，試作用だけでなくいろいろな作品中に組み込みたいと思ったからです．<br>
 バッテリーで動かそうとするとき，シリアル変換ICが載っているとそちら側に電流が流れてしまいます．</p>
-
-<h3 id="3-内蔵spi-flashのピンは封印">3. 内蔵SPI-Flashのピンは封印</h3>
-
+<h3 id="3-spiflash">3. 内蔵SPI-Flashのピンは封印</h3>
 <p>IO6-IO11はモジュール内部にあるSPI-Flashメモリと接続されていて，一般には使えません．間違えて使ってしまうと，壊してしまう恐れもありますし，そもそも正常に動作しません．使わないピンが出ていても仕方がないので，カットしました．</p>
-
 <p>そのおかげでSIPの30pinに収めることができ，ブレッドボードにさすことができます．</p>
-
 <figure >
 	
 		
@@ -203,13 +185,9 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<h3 id="4-裏側にはmicro-sdカードスロットがある">4. 裏側にはMicro-SDカードスロットがある</h3>
-
+<h3 id="4-microsd">4. 裏側にはMicro-SDカードスロットがある</h3>
 <p>ESP32はSDIOを持っており，SDカードと高速に通信することができます．</p>
-
 <p>Micro SDカードを使わない場合はSDスロットをはんだ付けしなければ，SDカード用のI/Oピンは自由に使うことができます．</p>
-
 <figure >
 	
 		
@@ -221,11 +199,8 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<h2 id="回路図">回路図</h2>
-
+<h2 id="heading1">回路図</h2>
 <p>とてもシンプルです．</p>
-
 <figure >
 	<a href="sketch.png" target="blank">
 		
@@ -237,9 +212,7 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h2 id="まとめ">まとめ</h2>
-
+<h2 id="heading2">まとめ</h2>
 <p>ESP32の開発環境がかなり整ってきました．デュアルコアな電子工作を満喫しましょう！</p>
 		</div>
 		<footer class="post__footer">
@@ -366,22 +339,20 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#esp-wroom-32のブレークアウトボード">ESP-WROOM-32のブレークアウトボード</a></li>
-<li><a href="#基板名-keriesp32-trapezoid">基板名: KERIESP32 Trapezoid</a></li>
-<li><a href="#他社の基板との違い">他社の基板との違い</a>
-<ul>
-<li><a href="#1-i-oピンが順に並んだsip基板">1. I/Oピンが順に並んだSIP基板</a></li>
-<li><a href="#2-あえて乗せなかったシリアル変換ic">2. あえて乗せなかったシリアル変換IC</a></li>
-<li><a href="#3-内蔵spi-flashのピンは封印">3. 内蔵SPI-Flashのピンは封印</a></li>
-<li><a href="#4-裏側にはmicro-sdカードスロットがある">4. 裏側にはMicro-SDカードスロットがある</a></li>
-</ul></li>
-<li><a href="#回路図">回路図</a></li>
-<li><a href="#まとめ">まとめ</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#espwroom32">ESP-WROOM-32のブレークアウトボード</a></li>
+    <li><a href="#-keriesp32-trapezoid">基板名: KERIESP32 Trapezoid</a></li>
+    <li><a href="#heading">他社の基板との違い</a>
+      <ul>
+        <li><a href="#1-iosip">1. I/Oピンが順に並んだSIP基板</a></li>
+        <li><a href="#2-ic">2. あえて乗せなかったシリアル変換IC</a></li>
+        <li><a href="#3-spiflash">3. 内蔵SPI-Flashのピンは封印</a></li>
+        <li><a href="#4-microsd">4. 裏側にはMicro-SDカードスロットがある</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">回路図</a></li>
+    <li><a href="#heading2">まとめ</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

@@ -9,9 +9,7 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ESP32からメールを送る" />
 <meta property="og:description" content="概要
-
 ESP32にはHTTPSクライアントライブラリがあるので，SMTPプロトコルを使ってGmailを送信してみました．意外にもうまくいってしまったので，共有します．
-
 Arduino上で動くコードです．esp32-arduino-coreは最新のものを使用してください．古いものだと，SSLまわりでエラーが発生します．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2017-04-08-esp32-mail/" />
@@ -21,10 +19,9 @@ Arduino上で動くコードです．esp32-arduino-coreは最新のものを使�
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ESP32からメールを送る"/>
 <meta name="twitter:description" content="概要
-
 ESP32にはHTTPSクライアントライブラリがあるので，SMTPプロトコルを使ってGmailを送信してみました．意外にもうまくいってしまったので，共有します．
-
 Arduino上で動くコードです．esp32-arduino-coreは最新のものを使用してください．古いものだと，SSLまわりでエラーが発生します．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,107 +122,100 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
+			<h2 id="heading">概要</h2>
 <p>ESP32にはHTTPSクライアントライブラリがあるので，SMTPプロトコルを使ってGmailを送信してみました．意外にもうまくいってしまったので，共有します．</p>
-
 <p>Arduino上で動くコードです．esp32-arduino-coreは最新のものを使用してください．古いものだと，SSLまわりでエラーが発生します．</p>
-
-<h2 id="ソースコード">ソースコード</h2>
-
-<p><a href="mail.zip" target="_blank">ここ</a>からダウンロードできます．</p>
-
-<h3 id="mailer-h">Mailer.h</h3>
-
+<h2 id="heading1">ソースコード</h2>
+<p><a href="mail.zip">ここ</a>からダウンロードできます．</p>
+<h3 id="mailerh">Mailer.h</h3>
 <p>本当はあまりよくないのですが，ヘッダーファイルにコードを全部書いてしまったので，<code>Mailer.cpp</code>ファイルはありません．</p>
-
 <p>SMTPプロトコルに従ってリクエストを送っています．</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
 </span><span class="cm">    ESP32 E-mail Library
 </span><span class="cm">    Author:  kerikun11 (Github: kerikun11)
 </span><span class="cm">    Date:    2017.04.08
 </span><span class="cm">*/</span>
-<span class="cp">#pragma once
+<span class="cp">#</span><span class="cp">pragma once</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;WiFiClientSecure.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;base64.h&gt;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFiClientSecure.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;base64.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="n">Mailer</span> <span class="p">{</span>
   <span class="nl">public</span><span class="p">:</span>
-    <span class="n">Mailer</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">username</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">password</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">from_address</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">smtp_port</span> <span class="o">=</span> <span class="mi">465</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_hostname</span> <span class="o">=</span> <span class="s">&#34;smtp.gmail.com&#34;</span><span class="p">)</span><span class="o">:</span>
-      <span class="n">username</span><span class="p">(</span><span class="n">username</span><span class="p">),</span> <span class="n">password</span><span class="p">(</span><span class="n">password</span><span class="p">),</span> <span class="n">from_address</span><span class="p">(</span><span class="n">from_address</span><span class="p">),</span> <span class="n">smtp_port</span><span class="p">(</span><span class="n">smtp_port</span><span class="p">),</span> <span class="n">smtp_hostname</span><span class="p">(</span><span class="n">smtp_hostname</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="n">Mailer</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">username</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">password</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">from_address</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">smtp_port</span> <span class="o">=</span> <span class="mi">465</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_hostname</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">smtp.gmail.com</span><span class="s">&#34;</span><span class="p">)</span><span class="o">:</span>
+      <span class="n">username</span><span class="p">(</span><span class="n">username</span><span class="p">)</span><span class="p">,</span> <span class="n">password</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="p">,</span> <span class="n">from_address</span><span class="p">(</span><span class="n">from_address</span><span class="p">)</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">(</span><span class="n">smtp_port</span><span class="p">)</span><span class="p">,</span> <span class="n">smtp_hostname</span><span class="p">(</span><span class="n">smtp_hostname</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
 
     <span class="kt">bool</span> <span class="n">send</span><span class="p">(</span><span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">to_address</span><span class="p">,</span> <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">subject</span><span class="p">,</span> <span class="k">const</span> <span class="n">String</span><span class="o">&amp;</span> <span class="n">content</span><span class="p">)</span> <span class="p">{</span>
       <span class="n">WiFiClientSecure</span> <span class="n">client</span><span class="p">;</span>
-      <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;Connecting to %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">smtp_hostname</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">smtp_hostname</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;Could not connect to mail server&#34;</span><span class="p">);</span>
+      <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Connecting to %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">smtp_hostname</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">smtp_hostname</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Could not connect to mail server</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;220&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;Connection Error&#34;</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">220</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Connection Error</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;HELO friend&#34;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;250&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;identification error&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">HELO friend</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">250</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">identification error</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;AUTH LOGIN&#34;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;334&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;AUTH LOGIN failed&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">AUTH LOGIN</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">334</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">AUTH LOGIN failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">base64</span><span class="o">::</span><span class="n">encode</span><span class="p">(</span><span class="n">username</span><span class="p">));</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;334&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;AUTH LOGIN failed&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">base64</span><span class="o">:</span><span class="o">:</span><span class="n">encode</span><span class="p">(</span><span class="n">username</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">334</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">AUTH LOGIN failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">base64</span><span class="o">::</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span><span class="p">));</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;235&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;SMTP AUTH error&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">base64</span><span class="o">:</span><span class="o">:</span><span class="n">encode</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">235</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">SMTP AUTH error</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;MAIL FROM: &lt;&#34;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">from_address</span><span class="p">)</span> <span class="o">+</span> <span class="sc">&#39;&gt;&#39;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;250&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;MAIL FROM failed&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">MAIL FROM: &lt;</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">from_address</span><span class="p">)</span> <span class="o">+</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">&gt;</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">250</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">MAIL FROM failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;RCPT TO: &lt;&#34;</span> <span class="o">+</span> <span class="n">to_address</span> <span class="o">+</span> <span class="sc">&#39;&gt;&#39;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;250&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;RCPT TO failed&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">RCPT TO: &lt;</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">to_address</span> <span class="o">+</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">&gt;</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">250</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">RCPT TO failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;DATA&#34;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;354&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;SMTP DATA error&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">DATA</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">354</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">SMTP DATA error</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;From: &lt;&#34;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">from_address</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#34;&gt;&#34;</span><span class="p">);</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;To: &lt;&#34;</span> <span class="o">+</span> <span class="n">to_address</span> <span class="o">+</span> <span class="s">&#34;&gt;&#34;</span><span class="p">);</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Subject: &#34;</span> <span class="o">+</span> <span class="n">subject</span><span class="p">);</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Mime-Version: 1.0&#34;</span><span class="p">);</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Content-Type: text/html&#34;</span><span class="p">);</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;250&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;Sending message error&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">From: &lt;</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">from_address</span><span class="p">)</span> <span class="o">+</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&gt;</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">To: &lt;</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">to_address</span> <span class="o">+</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&gt;</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Subject: </span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">subject</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Mime-Version: 1.0</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Content-Type: text/html</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">250</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Sending message error</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;QUIT&#34;</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="s">&#34;221&#34;</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;QUIT failed&#34;</span><span class="p">);</span>
+      <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">QUIT</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">readResponse</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">221</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">QUIT failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Sending E-mail Successful&#34;</span><span class="p">);</span>
+      <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Sending E-mail Successful</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -237,24 +227,23 @@ if (!doNotTrack) {
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_hostname</span><span class="p">;</span>
 
     <span class="kt">bool</span> <span class="nf">readResponse</span><span class="p">(</span><span class="n">WiFiClientSecure</span> <span class="o">&amp;</span><span class="n">client</span><span class="p">,</span> <span class="k">const</span> <span class="n">String</span> <span class="o">&amp;</span><span class="n">target</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">timeout_ms</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">uint32_t</span> <span class="n">timeStamp</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+      <span class="n">uint32_t</span> <span class="n">timeStamp</span> <span class="o">=</span> <span class="n">millis</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
       <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="k">break</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">timeStamp</span> <span class="o">+</span> <span class="n">timeout_ms</span><span class="p">)</span> <span class="p">{</span>
-          <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;SMTP Response TIMEOUT!&#34;</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">(</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeStamp</span> <span class="o">+</span> <span class="n">timeout_ms</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">SMTP Response TIMEOUT!</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
           <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
         <span class="p">}</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">String</span> <span class="n">res</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
-      <span class="n">res</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
-      <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;Response: %s&#34;</span><span class="p">,</span> <span class="n">res</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="o">!=</span> <span class="s">&#34;&#34;</span> <span class="o">&amp;&amp;</span> <span class="n">res</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+      <span class="n">String</span> <span class="n">res</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc">\n</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">res</span><span class="p">.</span><span class="n">trim</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Response: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">res</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">target</span> <span class="o">!</span><span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span> <span class="o">&amp;</span><span class="o">&amp;</span> <span class="n">res</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="o">=</span><span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">};</span></code></pre></div>
-<h3 id="mail-ino">mail.ino</h3>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><h3 id="mailino">mail.ino</h3>
 <p>最初に定義してある定数は適当に埋めてください．</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
 </span><span class="cm">    ESP32 E-mail sample
@@ -262,46 +251,44 @@ if (!doNotTrack) {
 </span><span class="cm">    Date:    2017.04.08
 </span><span class="cm">*/</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;Mailer.h&#34;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Mailer.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_ssid</span> <span class="o">=</span> <span class="s">&#34;wifi_ssid&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_pass</span> <span class="o">=</span> <span class="s">&#34;wifi_pass&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_username</span> <span class="o">=</span> <span class="s">&#34;username&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_password</span> <span class="o">=</span> <span class="s">&#34;password&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_from_address</span> <span class="o">=</span> <span class="s">&#34;username@gmail.com&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_ssid</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">wifi_ssid</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">wifi_pass</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">wifi_pass</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_username</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">username</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_password</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">password</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_from_address</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">username@gmail.com</span><span class="s">&#34;</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">smtp_port</span> <span class="o">=</span> <span class="mi">465</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_hostname</span> <span class="o">=</span> <span class="s">&#34;smtp.gmail.com&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">smtp_hostname</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">smtp.gmail.com</span><span class="s">&#34;</span><span class="p">;</span>
 
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">to_address</span> <span class="o">=</span> <span class="s">&#34;hoge@sample.com&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">subject</span> <span class="o">=</span> <span class="s">&#34;From ESP32&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">content</span> <span class="o">=</span> <span class="s">&#34;Hello, this is ESP32.&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">to_address</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">hoge@sample.com</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">subject</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">From ESP32</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">content</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, this is ESP32.</span><span class="s">&#34;</span><span class="p">;</span>
 
-<span class="n">Mailer</span> <span class="nf">mail</span><span class="p">(</span><span class="n">smtp_username</span><span class="p">,</span> <span class="n">smtp_password</span><span class="p">,</span> <span class="n">smtp_from_address</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">,</span> <span class="n">smtp_hostname</span><span class="p">);</span>
+<span class="n">Mailer</span> <span class="nf">mail</span><span class="p">(</span><span class="n">smtp_username</span><span class="p">,</span> <span class="n">smtp_password</span><span class="p">,</span> <span class="n">smtp_from_address</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">,</span> <span class="n">smtp_hostname</span><span class="p">)</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Hello, this is ESP32.&#34;</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, this is ESP32.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Connecting to %s&#34;</span><span class="p">,</span> <span class="n">wifi_ssid</span><span class="p">);</span>
-  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">wifi_ssid</span><span class="p">,</span> <span class="n">wifi_pass</span><span class="p">);</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;wait...&#34;</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Connecting to %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">wifi_ssid</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">wifi_ssid</span><span class="p">,</span> <span class="n">wifi_pass</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">wait...</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;WiFi connected&#34;</span><span class="p">);</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;IP Address: %s&#34;</span><span class="p">,</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">().</span><span class="n">toString</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi connected</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">IP Address: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">mail</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">to_address</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">content</span><span class="p">);</span>
+  <span class="n">mail</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">to_address</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="gmailで送信するときの注意">Gmailで送信するときの注意</h2>
-
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="gmail">Gmailで送信するときの注意</h2>
 <p>Gmailは他のメールよりセキュリティが強いのかわかりませんが，Googleのアカウント設定からセキュリティの低いアプリを許可する必要があります．</p>
-
 <figure >
 	
 		
@@ -313,11 +300,8 @@ if (!doNotTrack) {
 	
 </figure>
 
-
 <p>↓</p>
-
 <p>一番下の方にある安全性の低いアプリを許可する．</p>
-
 <figure >
 	
 		
@@ -455,18 +439,16 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a></li>
-<li><a href="#ソースコード">ソースコード</a>
-<ul>
-<li><a href="#mailer-h">Mailer.h</a></li>
-<li><a href="#mail-ino">mail.ino</a></li>
-</ul></li>
-<li><a href="#gmailで送信するときの注意">Gmailで送信するときの注意</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a></li>
+    <li><a href="#heading1">ソースコード</a>
+      <ul>
+        <li><a href="#mailerh">Mailer.h</a></li>
+        <li><a href="#mailino">mail.ino</a></li>
+      </ul>
+    </li>
+    <li><a href="#gmail">Gmailで送信するときの注意</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

@@ -9,10 +9,8 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="Raspberry Pi で NAS 作り" />
 <meta property="og:description" content="概要
-
 NASがほしい！
 じゃあ作ろう。
-
 スペック
 サーバ：Raspberrypi 2 Type B
 HDD：Western Digital 2TB 3.5 inch
@@ -25,14 +23,13 @@ HDD：Western Digital 2TB 3.5 inch
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Raspberry Pi で NAS 作り"/>
 <meta name="twitter:description" content="概要
-
 NASがほしい！
 じゃあ作ろう。
-
 スペック
 サーバ：Raspberrypi 2 Type B
 HDD：Western Digital 2TB 3.5 inch
 転送速度：10MB/s（ラズパイのイーサーネットが100Baseなので仕方ない&hellip;）"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -133,94 +130,98 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
-<p>NASがほしい！<br />
+			<h2 id="heading">概要</h2>
+<p>NASがほしい！<br>
 じゃあ作ろう。</p>
-
-<p>スペック<br />
-サーバ：Raspberrypi 2 Type B<br />
-HDD：Western Digital 2TB 3.5 inch<br />
+<p>スペック<br>
+サーバ：Raspberrypi 2 Type B<br>
+HDD：Western Digital 2TB 3.5 inch<br>
 転送速度：10MB/s（ラズパイのイーサーネットが100Baseなので仕方ない&hellip;）</p>
-
-<h2 id="sambaをインストール">Sambaをインストール</h2>
-<div class="highlight"><pre class="chroma">$ sudo apt-get install samba</pre></div>
-<h2 id="hddを設定する">HDDを設定する</h2>
-
-<h3 id="hddをラズパイに繋ぐ">HDDをラズパイに繋ぐ。</h3>
-
+<h2 id="samba">Sambaをインストール</h2>
+<pre><code>$ sudo apt-get install samba
+</code></pre>
+<h2 id="hdd">HDDを設定する</h2>
+<h3 id="hdd1">HDDをラズパイに繋ぐ。</h3>
 <p>ポータブルHDDだと電力が足りなくなるかもしれないので、3.5inchのHDDを使用した。</p>
-
-<h3 id="hddをフォーマット-マウント">HDDをフォーマット＆マウント</h3>
-
+<h3 id="hdd2">HDDをフォーマット＆マウント</h3>
 <p>HDDをラズパイに繋ぐ</p>
-<div class="highlight"><pre class="chroma">$ lsblk
+<pre><code>$ lsblk
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda           8:0    0  1.8T  0 disk 
-└─sda1            8:1    0  1.8T  0 part 
-mmcblk0         179:0    0 58.2G  0 disk 
-├─mmcblk0p1 179:1    0    1G  0 part 
-├─mmcblk0p2 179:2    0    1K  0 part 
-├─mmcblk0p3 179:3    0   32M  0 part 
-├─mmcblk0p5 179:5    0   60M  0 part /boot
-└─mmcblk0p6 179:6    0 57.1G  0 part /</pre></div>
-<p>HDDが<code>/dev/sda</code>につながれていることがわかる。<br />
+sda    		  8:0    0  1.8T  0 disk 
+└─sda1      	  8:1    0  1.8T  0 part 
+mmcblk0     	179:0    0 58.2G  0 disk 
+├─mmcblk0p1	179:1    0    1G  0 part 
+├─mmcblk0p2	179:2    0    1K  0 part 
+├─mmcblk0p3	179:3    0   32M  0 part 
+├─mmcblk0p5	179:5    0   60M  0 part /boot
+└─mmcblk0p6	179:6    0 57.1G  0 part /
+</code></pre>
+<p>HDDが<code>/dev/sda</code>につながれていることがわかる。<br>
 今までのパーティションを消して、新たに作る。</p>
-<div class="highlight"><pre class="chroma">$ sudo fdisk /dev/sda
+<pre><code>$ sudo fdisk /dev/sda
 Command (m for help): d
 Command (m for help): n
 Enter を 連打
-Command (m for help): w</pre></div>
+Command (m for help): w
+</code></pre>
 <p>HDDをフォーマット</p>
-<div class="highlight"><pre class="chroma">$ sudo mkfs.ext4 /dev/sda1</pre></div>
-<p>フォーマットが完了したらマウント<br />
+<pre><code>$ sudo mkfs.ext4 /dev/sda1
+</code></pre>
+<p>フォーマットが完了したらマウント<br>
 毎回同じ所にマウントされるように設定する。</p>
-<div class="highlight"><pre class="chroma">$ sudo mkdir /media/hdd-2tb
+<pre><code>$ sudo mkdir /media/hdd-2tb
 $ sudo blkid /dev/sda1
-/dev/sda1: UUID=&#34;21600e41-2f5a-4954-8575-5e89f0e11560&#34; TYPE=&#34;ext4&#34; PARTUUID=&#34;983fd59f-2b2b-41a4-b409-acac2fa62f5c&#34; </pre></div>
+/dev/sda1: UUID=&quot;21600e41-2f5a-4954-8575-5e89f0e11560&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;983fd59f-2b2b-41a4-b409-acac2fa62f5c&quot; 
+</code></pre>
 <p>ここで表示されるUUIDをコピーしておく。</p>
-<div class="highlight"><pre class="chroma">$ sudo vim /etc/fstab</pre></div>
+<pre><code>$ sudo vim /etc/fstab
+</code></pre>
 <p>ここの最下部に以下を追記(UUIDはさっきコピーしたもの)</p>
-<div class="highlight"><pre class="chroma">UUID=*************  /media/hdd-2tb  ext4    defaults    0   0</pre></div>
-<p>ラズパイを再起動<br />
+<pre><code>UUID=*************	/media/hdd-2tb	ext4	defaults	0	0
+</code></pre>
+<p>ラズパイを再起動<br>
 これでしっかりマウントされているはず。</p>
-<div class="highlight"><pre class="chroma">$ lsblk
+<pre><code>$ lsblk
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda           8:0    0  1.8T  0 disk 
-└─sda1        8:1    0  1.8T  0 part /hdd-2tb
-mmcblk0     179:0    0 58.2G  0 disk 
-├─mmcblk0p1 179:1    0    1G  0 part 
-├─mmcblk0p2 179:2    0    1K  0 part 
-├─mmcblk0p3 179:3    0   32M  0 part 
-├─mmcblk0p5 179:5    0   60M  0 part /boot
-└─mmcblk0p6 179:6    0 57.1G  0 part /</pre></div>
+sda 		  8:0    0  1.8T  0 disk 
+└─sda1		  8:1    0  1.8T  0 part /hdd-2tb
+mmcblk0		179:0    0 58.2G  0 disk 
+├─mmcblk0p1	179:1    0    1G  0 part 
+├─mmcblk0p2	179:2    0    1K  0 part 
+├─mmcblk0p3	179:3    0   32M  0 part 
+├─mmcblk0p5	179:5    0   60M  0 part /boot
+└─mmcblk0p6	179:6    0 57.1G  0 part /
+</code></pre>
 <p>共有フォルダの作成と所有権の変更</p>
-<div class="highlight"><pre class="chroma">$ cd /media/hdd-2tb
+<pre><code>$ cd /media/hdd-2tb
 $ sudo mkdir share
 $ sudo chown *myuser* share
-$ sudo chgrp *myuser* share</pre></div>
-<h2 id="sambaの設定">Sambaの設定</h2>
-<div class="highlight"><pre class="chroma">$ sudo vim /etc/samba/smb.conf</pre></div>
+$ sudo chgrp *myuser* share
+</code></pre>
+<h2 id="samba1">Sambaの設定</h2>
+<pre><code>$ sudo vim /etc/samba/smb.conf
+</code></pre>
 <p>ここにの最下部に以下を追記</p>
-<div class="highlight"><pre class="chroma">[share]
+<pre><code>[share]
    path = /media/hdd-2tb
    read only = no
    browsable = yes
    guest ok = yes
-   force user = kerikun11</pre></div>
+   force user = kerikun11
+</code></pre>
 <p>ファイアウォールを設定している場合はSamba用にポートを開放</p>
-<div class="highlight"><pre class="chroma">$ sudo ufw allow 137/udp
+<pre><code>$ sudo ufw allow 137/udp
 $ sudo ufw allow 138/udp
 $ sudo ufw allow 139/tcp
 $ sudo ufw allow 445/tcp
 
-$ sudo service ufw restart</pre></div>
+$ sudo service ufw restart
+</code></pre>
 <p>Sambaを起動</p>
-<div class="highlight"><pre class="chroma">$ sudo service samba-ad-bc start</pre></div>
+<pre><code>$ sudo service samba-ad-bc start
+</code></pre>
 <p>これでつながるはず。</p>
-
-<h2 id="windowsからアクセス">Windowsからアクセス</h2>
-
+<h2 id="windows">Windowsからアクセス</h2>
 <ol>
 <li>エクスプローラーの左側のナビゲーションウィンドウのネットワークを開く。</li>
 <li>RASPBERRYPIがあるのでそれを開く。</li>
@@ -354,20 +355,18 @@ $ sudo service ufw restart</pre></div>
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a></li>
-<li><a href="#sambaをインストール">Sambaをインストール</a></li>
-<li><a href="#hddを設定する">HDDを設定する</a>
-<ul>
-<li><a href="#hddをラズパイに繋ぐ">HDDをラズパイに繋ぐ。</a></li>
-<li><a href="#hddをフォーマット-マウント">HDDをフォーマット＆マウント</a></li>
-</ul></li>
-<li><a href="#sambaの設定">Sambaの設定</a></li>
-<li><a href="#windowsからアクセス">Windowsからアクセス</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a></li>
+    <li><a href="#samba">Sambaをインストール</a></li>
+    <li><a href="#hdd">HDDを設定する</a>
+      <ul>
+        <li><a href="#hdd1">HDDをラズパイに繋ぐ。</a></li>
+        <li><a href="#hdd2">HDDをフォーマット＆マウント</a></li>
+      </ul>
+    </li>
+    <li><a href="#samba1">Sambaの設定</a></li>
+    <li><a href="#windows">Windowsからアクセス</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

@@ -17,6 +17,7 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ESP32 の Power Management 機能"/>
 <meta name="twitter:description" content="この記事では，ESP32をバッテリー駆動するためのヒントをお届けします．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -118,135 +119,92 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>この記事では，ESP32をバッテリー駆動するためのヒントをお届けします．</p>
-
-<h2 id="はじめに">はじめに</h2>
-
-<h3 id="esp32とは">ESP32とは？</h3>
-
+<h2 id="heading">はじめに</h2>
+<h3 id="esp32">ESP32とは？</h3>
 <p>ESP32とは，WiFi/BLEを搭載したIoTマイコンです．</p>
-
 <p>CPUが240MHzのデュアルコアで，RAMも520kBと，
 マイコンにしてはスペックが高いところが魅力です．</p>
-
 <p>シリアル通信などのペリフェラルも充実していて，
 UART, I2C, SPIなどのピンを好きなGPIOピンに割り当てることができて超便利です！！</p>
-
 <p>また，公式のSDKにFreeRTOSというRTOSが組み込まれていて，
 容易にマルチタスクのアプリケーションを動作させることができます．</p>
-
 <p>ESP32についての記事一覧は<a href="/tags/esp32">こちら</a></p>
-
-<h3 id="電流消費ハンパないって">電流消費ハンパないって！！</h3>
-
+<h3 id="heading1">電流消費ハンパないって！！</h3>
 <p>そんなESP32は，省エネ仕様を謳っています．</p>
-
 <p>バッテリー駆動も普通にできるのかと思いきや，
 スリープなどを考えずに使用すると，
 CPUだけでも常時50mA程度消費し，
 WiFiと同時に起動すると100mAを超えるほどになります．</p>
-
 <p>これでは，どんなに大きなバッテリーを用意しても数日しか持ちません．</p>
-
 <p>そこで今回は，ESP32をバッテリー駆動させるため，Power Management 機能について紹介します．</p>
-
 <h2 id="power-management">Power Management</h2>
-
-<h3 id="概要">概要</h3>
-
+<h3 id="heading2">概要</h3>
 <p>ESP32 の Power Management は，ESP32公式でサポートされている機能です．</p>
-
 <p>以下の3つを制御して，省エネを図ります．</p>
-
 <ul>
 <li>CPUの周波数</li>
 <li>APB (ペリフェラルのクロック) の周波数</li>
 <li>Light-Sleep</li>
 </ul>
-
 <p>実際には，Power Management 機能を有効化した状態で，</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp">  <span class="c1">// FreeRTOS の delay 関数
 </span><span class="c1"></span>  <span class="c1">// 1000 [ms]
-</span><span class="c1"></span>  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
-</code></pre></div>
-<p>などを実行すると，その間はCPUのクロックを止めてくれるというものです．</p>
-
-<h3 id="参考">参考</h3>
-
+</span><span class="c1"></span>  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>などを実行すると，その間はCPUのクロックを止めてくれるというものです．</p>
+<h3 id="heading3">参考</h3>
 <ul>
-<li>ESP-IDF Programming Guide - <a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html" target="_blank">Power Management</a></li>
+<li>ESP-IDF Programming Guide - <a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html">Power Management</a></li>
 </ul>
-
-<h3 id="動作環境は-esp-idf">動作環境は ESP-IDF</h3>
-
+<h3 id="-espidf">動作環境は ESP-IDF</h3>
 <p>PowerManagementのLight-Sleepを使用するためには，
 <code>make menuconfig</code> を編集する必要があるので，
 ESP-IDF環境で実行する必要があります．</p>
-
-<p>ESP-IDFの導入は<a href="http://esp-idf.readthedocs.io/en/latest/get-started/index.html" target="_blank">こちら</a></p>
-
-<h2 id="power-management-機能の使い方">Power Management 機能の使い方</h2>
-
-<h3 id="make-menuconfig-の設定"><code>make menuconfig</code>の設定</h3>
-
+<p>ESP-IDFの導入は<a href="http://esp-idf.readthedocs.io/en/latest/get-started/index.html">こちら</a></p>
+<h2 id="power-management-">Power Management 機能の使い方</h2>
+<h3 id="make-menuconfig"><code>make menuconfig</code>の設定</h3>
 <p>Power Management における Light-Sleep を有効化するためには，
 <code>make menuconfig</code> の</p>
-
 <ul>
 <li><code>Component config/FreeRTOS/Tickless idle support</code></li>
 </ul>
-
 <p>にチェックを入れます．</p>
-
 <p>これで，FreeRTOSのdelay中にクロックを止めることができます．(FreeRTOSにそういう機能がちゃんとある)</p>
-
 <p>Light-Sleepを使用しない場合，Arduino環境でも一応動作するようですが，240MHzが40MHzに落ちるだけなので，あまり効果がないかもしれません．</p>
-
-<h3 id="インクルードファイル">インクルードファイル</h3>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
-</span></code></pre></div>
-<h3 id="初期化">初期化</h3>
-
+<h3 id="heading4">インクルードファイル</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
+</span></code></pre></div><h3 id="heading5">初期化</h3>
 <p>以下のコードを実行すると，PowerManagement機能がスタートします．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="kt">void</span> <span class="nf">pm_init</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">pm_init</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">esp_pm_config_esp32_t</span> <span class="n">esp_pm_config_esp32</span><span class="p">;</span>
 	<span class="n">esp_pm_config_esp32</span><span class="p">.</span><span class="n">max_cpu_freq</span> <span class="o">=</span> <span class="n">RTC_CPU_FREQ_240M</span><span class="p">;</span> <span class="c1">//&lt; make menuconfigで設定したCPU周波数
 </span><span class="c1"></span>	<span class="n">esp_pm_config_esp32</span><span class="p">.</span><span class="n">min_cpu_freq</span> <span class="o">=</span> <span class="n">RTC_CPU_FREQ_XTAL</span><span class="p">;</span>
 	<span class="n">esp_pm_config_esp32</span><span class="p">.</span><span class="n">light_sleep_enable</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-	<span class="n">esp_pm_configure</span><span class="p">(</span><span class="o">&amp;</span><span class="n">esp_pm_config_esp32</span><span class="p">);</span>
+	<span class="n">esp_pm_configure</span><span class="p">(</span><span class="o">&amp;</span><span class="n">esp_pm_config_esp32</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<h3 id="省エネ動作">省エネ動作</h3>
-
+</code></pre></div><h3 id="heading6">省エネ動作</h3>
 <p>例えば，以下のような関数を呼べば，その間スリープとなります．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">sleep_ms</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">ms</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">ms</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
+  <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">ms</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<h3 id="スリープの禁止">スリープの禁止</h3>
-
+</code></pre></div><h3 id="heading7">スリープの禁止</h3>
 <p>シリアル通信をするときや，何かを駆動するときなど，
 delayはするけどCPUのクロックを変えたくない場合があります．</p>
-
-<p>そんなときは，<a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html#power-management-locks" target="_blank">Power Management Locks</a>を使います．</p>
-
+<p>そんなときは，<a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html#power-management-locks">Power Management Locks</a>を使います．</p>
 <p>PowerManagementの各機能</p>
-
 <ul>
 <li>CPUの周波数</li>
 <li>APB (ペリフェラルのクロック) の周波数</li>
 <li>Light-Sleep</li>
 </ul>
-
 <p>に対して，ロックハンドルを生成し，
 ロックの獲得，解放を行います．</p>
-
 <p>実行例は以下の通りです．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="c1">// CPU の周波数固定ハンドル
 </span><span class="c1"></span><span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle_cpu</span><span class="p">;</span>
@@ -256,155 +214,131 @@ delayはするけどCPUのクロックを変えたくない場合があります
 </span><span class="c1"></span><span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle_light</span><span class="p">;</span>
 
 <span class="c1">// ハンドルの初期化
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">pm_lock_init</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">pm_lock_init</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// CPU の周波数固定ハンドル
-</span><span class="c1"></span>	<span class="n">esp_pm_lock_create</span><span class="p">(</span><span class="n">ESP_PM_CPU_FREQ_MAX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;cpu&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock_handle_cpu</span><span class="p">);</span>
+</span><span class="c1"></span>	<span class="n">esp_pm_lock_create</span><span class="p">(</span><span class="n">ESP_PM_CPU_FREQ_MAX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">cpu</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock_handle_cpu</span><span class="p">)</span><span class="p">;</span>
   <span class="c1">// APB の周波数固定ハンドル
-</span><span class="c1"></span>	<span class="n">esp_pm_lock_create</span><span class="p">(</span><span class="n">ESP_PM_APB_FREQ_MAX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;apb&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock_handle_apb</span><span class="p">);</span>
+</span><span class="c1"></span>	<span class="n">esp_pm_lock_create</span><span class="p">(</span><span class="n">ESP_PM_APB_FREQ_MAX</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">apb</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock_handle_apb</span><span class="p">)</span><span class="p">;</span>
   <span class="c1">// Light-Sleepの禁止ハンドル
-</span><span class="c1"></span>	<span class="n">esp_pm_lock_create</span><span class="p">(</span><span class="n">ESP_PM_NO_LIGHT_SLEEP</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;light&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock_handle_light</span><span class="p">);</span>
+</span><span class="c1"></span>	<span class="n">esp_pm_lock_create</span><span class="p">(</span><span class="n">ESP_PM_NO_LIGHT_SLEEP</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">light</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lock_handle_light</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// ロックの獲得
 </span><span class="c1"></span><span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">esp_pm_lock_acquire</span><span class="p">(</span><span class="n">lock_handle</span><span class="p">);</span>
+  <span class="n">esp_pm_lock_acquire</span><span class="p">(</span><span class="n">lock_handle</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// ロックの解放
 </span><span class="c1"></span><span class="kt">void</span> <span class="nf">release</span><span class="p">(</span><span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">esp_pm_lock_release</span><span class="p">(</span><span class="n">out_handle</span><span class="p">);</span>
+	<span class="n">esp_pm_lock_release</span><span class="p">(</span><span class="n">out_handle</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="c1">// 実行例
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">pm_lock_example</span><span class="p">(){</span>
-  <span class="n">pm_lock_init</span><span class="p">();</span> <span class="c1">//&lt; ロックハンドルを初期化
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">pm_lock_example</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+  <span class="n">pm_lock_init</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; ロックハンドルを初期化
 </span><span class="c1"></span>
-  <span class="n">acquire</span><span class="p">(</span><span class="n">lock_handle_apb</span><span class="p">);</span> <span class="c1">//&lt; APB周波数を固定
+  <span class="n">acquire</span><span class="p">(</span><span class="n">lock_handle_apb</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; APB周波数を固定
 </span><span class="c1"></span>  <span class="c1">// シリアル通信などを行う
-</span><span class="c1"></span>  <span class="n">release</span><span class="p">(</span><span class="n">lock_handle_apb</span><span class="p">);</span> <span class="c1">//&lt; 解放
+</span><span class="c1"></span>  <span class="n">release</span><span class="p">(</span><span class="n">lock_handle_apb</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 解放
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div>
-<h2 id="c-ラッパ">C++ ラッパ</h2>
-
+</code></pre></div><h2 id="c-">C++ ラッパ</h2>
 <p>C言語はわかりづらいので，C++のラッパを作ってみました．</p>
-
 <ul>
-<li><a href="https://github.com/kerikun11/ESP32_PowerManagement" target="_blank">ESP32_PowerManagement</a></li>
+<li><a href="https://github.com/kerikun11/ESP32_PowerManagement">ESP32_PowerManagement</a></li>
 </ul>
-
 <p>Github上のコードが最新です．以下の説明は古い可能性があります．</p>
-
-<h3 id="powermanagement-クラス">PowerManagement クラス</h3>
-
+<h3 id="powermanagement-">PowerManagement クラス</h3>
 <p>直観的に使えるようになっています．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="k">class</span> <span class="nc">PowerManagement</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-  <span class="k">static</span> <span class="kt">void</span> <span class="n">init</span><span class="p">();</span>
-  <span class="k">static</span> <span class="kt">void</span> <span class="nf">printLockStatus</span><span class="p">();</span>
+  <span class="k">static</span> <span class="kt">void</span> <span class="n">init</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">static</span> <span class="kt">void</span> <span class="nf">printLockStatus</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
   <span class="k">class</span> <span class="nc">Lock</span> <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
-    <span class="n">Lock</span><span class="p">(</span><span class="n">esp_pm_lock_type_t</span> <span class="n">lock_type</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
-    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">();</span>
-    <span class="kt">void</span> <span class="nf">release</span><span class="p">();</span>
+    <span class="n">Lock</span><span class="p">(</span><span class="n">esp_pm_lock_type_t</span> <span class="n">lock_type</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">)</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">acquire</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">release</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
   <span class="k">private</span><span class="o">:</span>
     <span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle</span><span class="p">;</span>
-  <span class="p">};</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="実行例">実行例</h3>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_log.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><h3 id="heading8">実行例</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_log.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&#34;PowerManagement.h&#34;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;PowerManagement.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="kt">void</span> <span class="n">app_main</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">extern</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">C</span><span class="s">&#34;</span> <span class="kt">void</span> <span class="n">app_main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// PowerManagement機能の有効化
-</span><span class="c1"></span>  <span class="n">PowerManagement</span><span class="o">::</span><span class="n">init</span><span class="p">();</span>
+</span><span class="c1"></span>  <span class="n">PowerManagement</span><span class="o">:</span><span class="o">:</span><span class="n">init</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="c1">// ロックハンドルの生成
-</span><span class="c1"></span>  <span class="n">PowerManagement</span><span class="o">::</span><span class="n">Lock</span> <span class="n">cpu_clock_lock</span><span class="p">(</span><span class="n">ESP_PM_CPU_FREQ_MAX</span><span class="p">,</span> <span class="s">&#34;my cpu lock&#34;</span><span class="p">);</span>
-  <span class="n">PowerManagement</span><span class="o">::</span><span class="n">Lock</span> <span class="n">apb_clock_lock</span><span class="p">(</span><span class="n">ESP_PM_APB_FREQ_MAX</span><span class="p">,</span> <span class="s">&#34;my apb lock&#34;</span><span class="p">);</span>
-  <span class="n">PowerManagement</span><span class="o">::</span><span class="n">Lock</span> <span class="n">light_sleep_lock</span><span class="p">(</span><span class="n">ESP_PM_NO_LIGHT_SLEEP</span><span class="p">,</span> <span class="s">&#34;my light-sleep lock&#34;</span><span class="p">);</span>
+</span><span class="c1"></span>  <span class="n">PowerManagement</span><span class="o">:</span><span class="o">:</span><span class="n">Lock</span> <span class="n">cpu_clock_lock</span><span class="p">(</span><span class="n">ESP_PM_CPU_FREQ_MAX</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">my cpu lock</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">PowerManagement</span><span class="o">:</span><span class="o">:</span><span class="n">Lock</span> <span class="n">apb_clock_lock</span><span class="p">(</span><span class="n">ESP_PM_APB_FREQ_MAX</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">my apb lock</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">PowerManagement</span><span class="o">:</span><span class="o">:</span><span class="n">Lock</span> <span class="n">light_sleep_lock</span><span class="p">(</span><span class="n">ESP_PM_NO_LIGHT_SLEEP</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">my light-sleep lock</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">cpu_clock_lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span> <span class="c1">//&lt; ロック
+  <span class="n">cpu_clock_lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; ロック
 </span><span class="c1"></span>  <span class="c1">// write tasks under normal CPU clock frequency
-</span><span class="c1"></span>  <span class="n">cpu_clock_lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span> <span class="c1">//&lt; 解放
+</span><span class="c1"></span>  <span class="n">cpu_clock_lock</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 解放
 </span><span class="c1"></span>
-  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">3000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span> <span class="c1">//&lt; Sleep
+  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">3000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; Sleep
 </span><span class="c1"></span>
-  <span class="n">apb_clock_lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span> <span class="c1">//&lt; ロック
+  <span class="n">apb_clock_lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; ロック
 </span><span class="c1"></span>  <span class="c1">// write tasks under normal ABP clock frequency
-</span><span class="c1"></span>  <span class="n">apb_clock_lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span> <span class="c1">//&lt; 解放
+</span><span class="c1"></span>  <span class="n">apb_clock_lock</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 解放
 </span><span class="c1"></span>
-  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">3000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span> <span class="c1">//&lt; Sleep
+  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">3000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; Sleep
 </span><span class="c1"></span>
-  <span class="n">light_sleep_lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span> <span class="c1">//&lt; ロック
+  <span class="n">light_sleep_lock</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; ロック
 </span><span class="c1"></span>  <span class="c1">// write tasks under no light-sleep
-</span><span class="c1"></span>  <span class="n">light_sleep_lock</span><span class="p">.</span><span class="n">release</span><span class="p">();</span> <span class="c1">//&lt; 解放
+</span><span class="c1"></span>  <span class="n">light_sleep_lock</span><span class="p">.</span><span class="n">release</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 解放
 </span><span class="c1"></span>
-  <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">portMAX_DELAY</span><span class="p">);</span>  <span class="c1">//&lt; eternal sleep
+  <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">portMAX_DELAY</span><span class="p">)</span><span class="p">;</span>  <span class="c1">//&lt; eternal sleep
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div>
-<h2 id="サンプルプロジェクト">サンプルプロジェクト</h2>
-
+</code></pre></div><h2 id="heading9">サンプルプロジェクト</h2>
 <ul>
-<li><a href="PowerManagement.zip" target="_blank">PowerManagement.zip</a></li>
+<li><a href="PowerManagement.zip">PowerManagement.zip</a></li>
 </ul>
-
 <p>上記のサンプルコードにログ出力のコードを追加したものです．</p>
-
 <p>一応，そのまま動くはずです．</p>
-
 <p>実行例</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">  unzip PowerManagement.zip
   <span class="nb">cd</span> PowerManagement
   make menuconfig <span class="c1"># シリアルポートの設定</span>
-  make flash monitor</code></pre></div>
-<h2 id="注意">注意</h2>
-
-<h3 id="light-sleepの注意">Light-Sleepの注意</h3>
-
+  make flash monitor
+</code></pre></div><h2 id="heading10">注意</h2>
+<h3 id="lightsleep">Light-Sleepの注意</h3>
 <p>Light-Sleepの間は，普通のGPIOはオープン状態になります．</p>
-
 <p>例えば，LEDを繋いでいた場合は，消えてしまいます．</p>
-
 <p>代わりに，RTC_GPIOを使うことで，Light-Sleep中もキープさせることができます．</p>
-
 <p>例えば，Light-Sleep中でもLEDを光らせたければ，以下のようにします．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;driver/rtc_io.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;driver/rtc_io.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="kt">void</span> <span class="nf">rtc_gpio_test</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">rtc_gpio_test</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// rtc_gpio init
 </span><span class="c1"></span>  <span class="n">gpio_num_t</span> <span class="n">pin_led</span> <span class="o">=</span> <span class="n">GPIO_NUM_27</span><span class="p">;</span> <span class="c1">//&lt; LEDをつけたピン
-</span><span class="c1"></span>  <span class="n">rtc_gpio_init</span><span class="p">(</span><span class="n">pin_led</span><span class="p">);</span> <span class="c1">//&lt; 初期化
-</span><span class="c1"></span>  <span class="n">rtc_gpio_set_direction</span><span class="p">(</span><span class="n">pin_led</span><span class="p">,</span> <span class="n">RTC_GPIO_MODE_OUTPUT_ONLY</span><span class="p">);</span> <span class="c1">//&lt; 出力に設定
+</span><span class="c1"></span>  <span class="n">rtc_gpio_init</span><span class="p">(</span><span class="n">pin_led</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 初期化
+</span><span class="c1"></span>  <span class="n">rtc_gpio_set_direction</span><span class="p">(</span><span class="n">pin_led</span><span class="p">,</span> <span class="n">RTC_GPIO_MODE_OUTPUT_ONLY</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 出力に設定
 </span><span class="c1"></span>  
   <span class="c1">// Light-Sleep中でも持続するLED
-</span><span class="c1"></span>  <span class="n">rtc_gpio_set_level</span><span class="p">(</span><span class="n">pin_led</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">//&lt; LED点灯
-</span><span class="c1"></span>  <span class="n">rtc_gpio_hold_en</span><span class="p">(</span><span class="n">pin_led</span><span class="p">);</span> <span class="c1">//&lt; 持続を有効化
-</span><span class="c1"></span>  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span> <span class="c1">//&lt; Light-Sleep
-</span><span class="c1"></span>  <span class="n">rtc_gpio_hold_dis</span><span class="p">(</span><span class="n">pin_led</span><span class="p">);</span> <span class="c1">//&lt; 持続を無効化
+</span><span class="c1"></span>  <span class="n">rtc_gpio_set_level</span><span class="p">(</span><span class="n">pin_led</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; LED点灯
+</span><span class="c1"></span>  <span class="n">rtc_gpio_hold_en</span><span class="p">(</span><span class="n">pin_led</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 持続を有効化
+</span><span class="c1"></span>  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; Light-Sleep
+</span><span class="c1"></span>  <span class="n">rtc_gpio_hold_dis</span><span class="p">(</span><span class="n">pin_led</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 持続を無効化
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div>
-<p>詳しくは，<a href="http://esp-idf.readthedocs.io/en/latest/api-reference/peripherals/gpio.html#api-reference-rtc-gpio" target="_blank">公式リファレンス - GPIO</a>
+</code></pre></div><p>詳しくは，<a href="http://esp-idf.readthedocs.io/en/latest/api-reference/peripherals/gpio.html#api-reference-rtc-gpio">公式リファレンス - GPIO</a>
 をご覧ください．</p>
-
-<h2 id="まとめ">まとめ</h2>
-
+<h2 id="heading11">まとめ</h2>
 <p>今回の内容でESP32のバッテリー駆動への足掛かりになりました．</p>
-
 <p>さらに，Modem-Sleepという，Wi-Fiの省エネを図るスリープもあるので，後日紹介したいと思います．</p>
-
 <p>では，みなさんも良きESP32ライフを！</p>
-
-<h2 id="参考-1">参考</h2>
-
+<h2 id="heading12">参考</h2>
 <ul>
-<li><a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html" target="_blank">Power Management</a></li>
-<li><a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/sleep_modes.html" target="_blank">Sleep Modes</a></li>
-<li><a href="http://esp-idf.readthedocs.io/en/latest/api-guides/wifi.html#esp32-wi-fi-power-saving-mode" target="_blank">Wi-Fi Power-saving Mode</a></li>
+<li><a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html">Power Management</a></li>
+<li><a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/sleep_modes.html">Sleep Modes</a></li>
+<li><a href="http://esp-idf.readthedocs.io/en/latest/api-guides/wifi.html#esp32-wi-fi-power-saving-mode">Wi-Fi Power-saving Mode</a></li>
 </ul>
 		</div>
 		<footer class="post__footer">
@@ -530,42 +464,44 @@ delayはするけどCPUのクロックを変えたくない場合があります
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#はじめに">はじめに</a>
-<ul>
-<li><a href="#esp32とは">ESP32とは？</a></li>
-<li><a href="#電流消費ハンパないって">電流消費ハンパないって！！</a></li>
-</ul></li>
-<li><a href="#power-management">Power Management</a>
-<ul>
-<li><a href="#概要">概要</a></li>
-<li><a href="#参考">参考</a></li>
-<li><a href="#動作環境は-esp-idf">動作環境は ESP-IDF</a></li>
-</ul></li>
-<li><a href="#power-management-機能の使い方">Power Management 機能の使い方</a>
-<ul>
-<li><a href="#make-menuconfig-の設定"><code>make menuconfig</code>の設定</a></li>
-<li><a href="#インクルードファイル">インクルードファイル</a></li>
-<li><a href="#初期化">初期化</a></li>
-<li><a href="#省エネ動作">省エネ動作</a></li>
-<li><a href="#スリープの禁止">スリープの禁止</a></li>
-</ul></li>
-<li><a href="#c-ラッパ">C++ ラッパ</a>
-<ul>
-<li><a href="#powermanagement-クラス">PowerManagement クラス</a></li>
-<li><a href="#実行例">実行例</a></li>
-</ul></li>
-<li><a href="#サンプルプロジェクト">サンプルプロジェクト</a></li>
-<li><a href="#注意">注意</a>
-<ul>
-<li><a href="#light-sleepの注意">Light-Sleepの注意</a></li>
-</ul></li>
-<li><a href="#まとめ">まとめ</a></li>
-<li><a href="#参考-1">参考</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">はじめに</a>
+      <ul>
+        <li><a href="#esp32">ESP32とは？</a></li>
+        <li><a href="#heading1">電流消費ハンパないって！！</a></li>
+      </ul>
+    </li>
+    <li><a href="#power-management">Power Management</a>
+      <ul>
+        <li><a href="#heading2">概要</a></li>
+        <li><a href="#heading3">参考</a></li>
+        <li><a href="#-espidf">動作環境は ESP-IDF</a></li>
+      </ul>
+    </li>
+    <li><a href="#power-management-">Power Management 機能の使い方</a>
+      <ul>
+        <li><a href="#make-menuconfig">make menuconfigの設定</a></li>
+        <li><a href="#heading4">インクルードファイル</a></li>
+        <li><a href="#heading5">初期化</a></li>
+        <li><a href="#heading6">省エネ動作</a></li>
+        <li><a href="#heading7">スリープの禁止</a></li>
+      </ul>
+    </li>
+    <li><a href="#c-">C++ ラッパ</a>
+      <ul>
+        <li><a href="#powermanagement-">PowerManagement クラス</a></li>
+        <li><a href="#heading8">実行例</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading9">サンプルプロジェクト</a></li>
+    <li><a href="#heading10">注意</a>
+      <ul>
+        <li><a href="#lightsleep">Light-Sleepの注意</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading11">まとめ</a></li>
+    <li><a href="#heading12">参考</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

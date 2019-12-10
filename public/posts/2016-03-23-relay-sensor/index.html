@@ -9,13 +9,9 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ESP-WROOM-02による中継型電力計" />
 <meta property="og:description" content="概要
-
 話題のESP-WROOM-02
-
 ESP8266という高性能マイコンを積んだ話題のESP-WROOM-02モジュール。
-
 今回はこれを使って中継型電力計を作りました。
-
 
 	
 		
@@ -27,13 +23,9 @@ ESP8266という高性能マイコンを積んだ話題のESP-WROOM-02モジュ�
 	
 
 
-
 中継型とは
-
 電源端子としてよく使われてるDCジャックに中継するだけで、そこから電力をもらいつつ電力を計測します。
-
 WiFi経由でサーバーへ
-
 測定した電力データはWiFiを使って任意のサーバーに送ることができます。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2016-03-23-relay-sensor/" />
@@ -43,13 +35,9 @@ WiFi経由でサーバーへ
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ESP-WROOM-02による中継型電力計"/>
 <meta name="twitter:description" content="概要
-
 話題のESP-WROOM-02
-
 ESP8266という高性能マイコンを積んだ話題のESP-WROOM-02モジュール。
-
 今回はこれを使って中継型電力計を作りました。
-
 
 	
 		
@@ -61,14 +49,11 @@ ESP8266という高性能マイコンを積んだ話題のESP-WROOM-02モジュ�
 	
 
 
-
 中継型とは
-
 電源端子としてよく使われてるDCジャックに中継するだけで、そこから電力をもらいつつ電力を計測します。
-
 WiFi経由でサーバーへ
-
 測定した電力データはWiFiを使って任意のサーバーに送ることができます。"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -172,14 +157,10 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
-<h3 id="話題のesp-wroom-02">話題のESP-WROOM-02</h3>
-
+			<h2 id="heading">概要</h2>
+<h3 id="espwroom02">話題のESP-WROOM-02</h3>
 <p>ESP8266という高性能マイコンを積んだ話題のESP-WROOM-02モジュール。</p>
-
 <p>今回はこれを使って中継型電力計を作りました。</p>
-
 <figure >
 	<a href="http://akizukidenshi.com/catalog/g/gM-09607/" target="blank">
 		
@@ -191,17 +172,11 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h3 id="中継型とは">中継型とは</h3>
-
+<h3 id="heading1">中継型とは</h3>
 <p>電源端子としてよく使われてるDCジャックに中継するだけで、そこから電力をもらいつつ電力を計測します。</p>
-
-<h3 id="wifi経由でサーバーへ">WiFi経由でサーバーへ</h3>
-
+<h3 id="wifi">WiFi経由でサーバーへ</h3>
 <p>測定した電力データはWiFiを使って任意のサーバーに送ることができます。</p>
-
-<h2 id="ギャラリー">ギャラリー</h2>
-
+<h2 id="heading2">ギャラリー</h2>
 <p><figure >
 	
 		
@@ -235,21 +210,13 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-
-<h2 id="電力の計測方法">電力の計測方法</h2>
-
-<h3 id="電圧の計測">電圧の計測</h3>
-
+<h2 id="heading3">電力の計測方法</h2>
+<h3 id="heading4">電圧の計測</h3>
 <p>電圧の測定には、ESP8266内蔵のADCを使います。精度はあまり期待できませんが十分使えます。</p>
-
-<h3 id="電流の計測">電流の計測</h3>
-
+<h3 id="heading5">電流の計測</h3>
 <p>電流の計測には、精密抵抗とオペアンプ、シリアルADCを使用します。</p>
-
-<h4 id="精密抵抗">精密抵抗</h4>
-
+<h4 id="heading6">精密抵抗</h4>
 <p>内部抵抗を小さくするため、10mΩの精密抵抗を使います。精度は1%です。</p>
-
 <figure >
 	<a href="http://akizukidenshi.com/catalog/g/gP-01886/" target="blank">
 		
@@ -261,11 +228,8 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h4 id="ハイサイド電流計測用オペアンプ-lt6106">ハイサイド電流計測用オペアンプ LT6106</h4>
-
+<h4 id="-lt6106">ハイサイド電流計測用オペアンプ LT6106</h4>
 <p>電流を計る対象の＋側で電流を計ることができるので、GNDを共通にすることができます。精度もかなり高いオペアンプです。</p>
-
 <figure >
 	<a href="http://akizukidenshi.com/catalog/g/gI-07300/" target="blank">
 		
@@ -277,11 +241,8 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h4 id="超高精度adコンバータ-mcp3425">超高精度ADコンバータ MCP3425</h4>
-
+<h4 id="ad-mcp3425">超高精度ADコンバータ MCP3425</h4>
 <p>16bitの分解能があります。さらに内蔵の基準電圧2.048Vは精度0.05%です！</p>
-
 <figure >
 	<a href="http://akizukidenshi.com/catalog/g/gI-07638/" target="blank">
 		
@@ -293,9 +254,7 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h2 id="回路図">回路図</h2>
-
+<h2 id="heading7">回路図</h2>
 <figure >
 	<a href="sketch.png" target="blank">
 		
@@ -307,113 +266,109 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-
-<h2 id="ソースファイル">ソースファイル</h2>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;Wire.h&gt;</span><span class="cp">
+<h2 id="heading8">ソースファイル</h2>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;Wire.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#define MCP3245_ADDRESS 0b1101000
+<span class="cp">#</span><span class="cp">define MCP3245_ADDRESS 0b1101000</span><span class="cp">
 </span><span class="cp"></span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ssid</span>      <span class="o">=</span> <span class="s">&#34;your_ssid&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">password</span>  <span class="o">=</span> <span class="s">&#34;your_password&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ssid</span>      <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">your_ssid</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">password</span>  <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">your_password</span><span class="s">&#34;</span><span class="p">;</span>
 
 <span class="c1">// server detail
-</span><span class="c1"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">host</span> <span class="o">=</span> <span class="s">&#34;192.168.11.13&#34;</span><span class="p">;</span>
+</span><span class="c1"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">host</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">192.168.11.13</span><span class="s">&#34;</span><span class="p">;</span>
 <span class="k">const</span> <span class="kt">int</span> <span class="n">port</span> <span class="o">=</span> <span class="mi">4567</span><span class="p">;</span>
 
-<span class="k">const</span> <span class="n">String</span> <span class="n">deviceName</span> <span class="o">=</span> <span class="s">&#34;Killifish-Light&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="n">String</span> <span class="n">deviceName</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">Killifish-Light</span><span class="s">&#34;</span><span class="p">;</span>
 
 <span class="n">WiFiClient</span> <span class="n">client</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">ESP</span><span class="p">.</span><span class="n">wdtFeed</span><span class="p">();</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Hello, I&#39;m ESP8266.&#34;</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">ESP</span><span class="p">.</span><span class="n">wdtFeed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, I&#39;m ESP8266.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 
   <span class="c1">// We start by connecting to a WiFi network
-</span><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Connecting to &#34;</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">ssid</span><span class="p">);</span>
-  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+</span><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Connecting to </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">ssid</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;WiFi connected&#34;</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;IP address: &#34;</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi connected</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">IP address: </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">);</span>
-  <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">MCP3245_ADDRESS</span><span class="p">);</span>
-  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mb">0b00011010</span><span class="p">);</span>
-  <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">();</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">MCP3245_ADDRESS</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mb">0b00011010</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;connecting to &#34;</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">host</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;connection failed&#34;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">connecting to </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">connection failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
     <span class="k">return</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Ready&#34;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Ready</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">ESP</span><span class="p">.</span><span class="n">wdtFeed</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">ESP</span><span class="p">.</span><span class="n">wdtFeed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
   <span class="k">static</span> <span class="kt">uint32_t</span> <span class="n">prev_ms</span><span class="p">;</span>
-  <span class="kt">uint32_t</span> <span class="n">ms</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+  <span class="kt">uint32_t</span> <span class="n">ms</span> <span class="o">=</span> <span class="n">millis</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">ms</span> <span class="o">&gt;</span> <span class="n">prev_ms</span> <span class="o">+</span> <span class="mi">12000</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">prev_ms</span> <span class="o">=</span> <span class="n">ms</span><span class="p">;</span>
 
     <span class="n">String</span> <span class="n">currentValue</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">voltageValue</span><span class="p">;</span>
 
-    <span class="n">Wire</span><span class="p">.</span><span class="n">requestFrom</span><span class="p">(</span><span class="n">MCP3245_ADDRESS</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">Wire</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">ESP</span><span class="p">.</span><span class="n">wdtFeed</span><span class="p">();</span>
-      <span class="n">byte</span> <span class="n">higher</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
-      <span class="n">byte</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
-      <span class="n">byte</span> <span class="n">conf</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
-      <span class="kt">uint16_t</span> <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)((</span><span class="n">higher</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">lower</span><span class="p">);</span>
-      <span class="n">currentValue</span> <span class="o">=</span> <span class="n">String</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">data</span> <span class="o">*</span> <span class="mi">2048</span> <span class="o">/</span> <span class="mi">32768</span> <span class="o">/</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="n">Wire</span><span class="p">.</span><span class="n">requestFrom</span><span class="p">(</span><span class="n">MCP3245_ADDRESS</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Wire</span><span class="p">.</span><span class="n">available</span><span class="p">(</span><span class="p">)</span> <span class="o">&gt;</span><span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">ESP</span><span class="p">.</span><span class="n">wdtFeed</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">byte</span> <span class="n">higher</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">byte</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">byte</span> <span class="n">conf</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="kt">uint16_t</span> <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)</span><span class="p">(</span><span class="p">(</span><span class="n">higher</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">lower</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">currentValue</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">data</span> <span class="o">*</span> <span class="mi">2048</span> <span class="o">/</span> <span class="mi">32768</span> <span class="o">/</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">A0</span><span class="p">);</span>
-    <span class="n">voltageValue</span> <span class="o">=</span> <span class="n">String</span><span class="p">((</span><span class="kt">double</span><span class="p">)</span><span class="n">v</span> <span class="o">*</span> <span class="mf">104.7</span> <span class="o">/</span> <span class="mf">4.7</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">v</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">A0</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">voltageValue</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">v</span> <span class="o">*</span> <span class="mf">104.7</span> <span class="o">/</span> <span class="mf">4.7</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="p">;</span>
 
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;MCP3245: &#34;</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">currentValue</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34; A</span><span class="se">\t</span><span class="s">&#34;</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;Config-ADC: &#34;</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">HEX</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;ESP8266: &#34;</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">voltageValue</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34; V&#34;</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">MCP3245: </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">currentValue</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s"> A</span><span class="se">\t</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Config-ADC: </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">HEX</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">ESP8266: </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">voltageValue</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s"> V</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;connecting to &#34;</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">host</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span> <span class="p">{</span>
-      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;connection failed&#34;</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">connecting to </span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">host</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">connection failed</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
       <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;GET /new?deviceName=&#34;</span> <span class="o">+</span> <span class="n">deviceName</span> <span class="o">+</span> <span class="s">&#34;&amp;currentValue=&#34;</span> <span class="o">+</span> <span class="n">currentValue</span> <span class="o">+</span> <span class="s">&#34;&amp;voltageValue=&#34;</span> <span class="o">+</span> <span class="n">voltageValue</span> <span class="o">+</span> <span class="s">&#34; HTTP/1.1&#34;</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
-      <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">&#39;\r&#39;</span><span class="p">);</span>
-      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">GET /new?deviceName=</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">deviceName</span> <span class="o">+</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&amp;currentValue=</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">currentValue</span> <span class="o">+</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&amp;voltageValue=</span><span class="s">&#34;</span> <span class="o">+</span> <span class="n">voltageValue</span> <span class="o">+</span> <span class="sa"></span><span class="s">&#34;</span><span class="s"> HTTP/1.1</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc">\r</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="n">client</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+    <span class="n">client</span><span class="p">.</span><span class="n">stop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<h2 id="サーバーでの表示">サーバーでの表示</h2>
-
+</code></pre></div><h2 id="heading9">サーバーでの表示</h2>
 <p>このサーバーについては<a href="/posts/2016-03-12-sinatra/">この記事</a>で紹介しています。</p>
-
 <figure >
 	
 		
@@ -425,11 +380,8 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<h2 id="まとめ">まとめ</h2>
-
+<h2 id="heading10">まとめ</h2>
 <p>最近はサーバーのことばかりやっていたので、久々にクライアントを作りました。</p>
-
 <p>ESP8266はなんでもできる素晴らしいマイコンだと思います！どんどん使っていきましょう。</p>
 		</div>
 		<footer class="post__footer">
@@ -557,32 +509,26 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a>
-<ul>
-<li><a href="#話題のesp-wroom-02">話題のESP-WROOM-02</a></li>
-<li><a href="#中継型とは">中継型とは</a></li>
-<li><a href="#wifi経由でサーバーへ">WiFi経由でサーバーへ</a></li>
-</ul></li>
-<li><a href="#ギャラリー">ギャラリー</a></li>
-<li><a href="#電力の計測方法">電力の計測方法</a>
-<ul>
-<li><a href="#電圧の計測">電圧の計測</a></li>
-<li><a href="#電流の計測">電流の計測</a>
-<ul>
-<li><a href="#精密抵抗">精密抵抗</a></li>
-<li><a href="#ハイサイド電流計測用オペアンプ-lt6106">ハイサイド電流計測用オペアンプ LT6106</a></li>
-<li><a href="#超高精度adコンバータ-mcp3425">超高精度ADコンバータ MCP3425</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#回路図">回路図</a></li>
-<li><a href="#ソースファイル">ソースファイル</a></li>
-<li><a href="#サーバーでの表示">サーバーでの表示</a></li>
-<li><a href="#まとめ">まとめ</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a>
+      <ul>
+        <li><a href="#espwroom02">話題のESP-WROOM-02</a></li>
+        <li><a href="#heading1">中継型とは</a></li>
+        <li><a href="#wifi">WiFi経由でサーバーへ</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">ギャラリー</a></li>
+    <li><a href="#heading3">電力の計測方法</a>
+      <ul>
+        <li><a href="#heading4">電圧の計測</a></li>
+        <li><a href="#heading5">電流の計測</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading7">回路図</a></li>
+    <li><a href="#heading8">ソースファイル</a></li>
+    <li><a href="#heading9">サーバーでの表示</a></li>
+    <li><a href="#heading10">まとめ</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

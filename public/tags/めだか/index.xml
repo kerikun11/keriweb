@@ -19,12 +19,9 @@
       <pubDate>Wed, 13 Jul 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2016-07-13-new-fish/</guid>
-      <description>&lt;h2 id=&#34;卵がいっぱい-7-5&#34;&gt;卵がいっぱい！！ &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;5&lt;/sub&gt;&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;-75&#34;&gt;卵がいっぱい！！ 7/5&lt;/h2&gt;
 &lt;p&gt;暖かくなってきたこの時期，ペットのメダカにたくさんの卵ができました．すでに卵の中から目が透けていて今にも孵化しそうです！&lt;/p&gt;
-
 &lt;p&gt;毎日水替えをしないとカビが生えてしまうので，目が離せません！&lt;/p&gt;
-
 &lt;p&gt;ちなみに，カビ防止のために，卵の段階では水道水の方がいいらしいです．&lt;/p&gt;</description>
     </item>
     
@@ -34,12 +31,9 @@
       <pubDate>Mon, 14 Mar 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2016-03-14-killifish-light-2/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-
-&lt;h3 id=&#34;メダカの水槽の照明&#34;&gt;メダカの水槽の照明&lt;/h3&gt;
-
+      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;heading1&#34;&gt;メダカの水槽の照明&lt;/h3&gt;
 &lt;p&gt;以前、PICで作った&lt;a href=&#34;/posts/2015-06-04-killifish-light/&#34;&gt;メダカの水槽の照明&lt;/a&gt;(←リンク)を紹介しましたが、今回はこれをバージョンアップしました。めだかの照明がどのようなものかは以前の記事を参考にしてください。&lt;/p&gt;
-
 &lt;figure &gt;
 	
 		
@@ -51,20 +45,14 @@
 	
 &lt;/figure&gt;
 
-
-&lt;h3 id=&#34;格安wifiモジュール&#34;&gt;格安WiFiモジュール&lt;/h3&gt;
-
+&lt;h3 id=&#34;wifi&#34;&gt;格安WiFiモジュール&lt;/h3&gt;
 &lt;p&gt;今注目のWiFiモジュールであるESP-WROOM-02を使ってWiFiに対応しました。これにより、スマートフォンなどからブラウザ経由で操作できます。&lt;/p&gt;
-
 &lt;p&gt;このWiFiモジュールを使った赤外線学習リモコンの記事も書きましたので合わせてご覧ください。&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;/posts/2015-12-30-ir-station/&#34;&gt;赤外線学習リモコン（日本語による紹介記事）&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;/posts/2016-03-11-ir-station-reference/&#34;&gt;赤外線学習リモコン（英語によるリファレンス）&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34; target=&#34;_blank&#34;&gt;ESP-WROOM-02 WiFiモジュール　秋月電子にて550円(2016/3/14現在)&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34;&gt;ESP-WROOM-02 WiFiモジュール　秋月電子にて550円(2016/3/14現在)&lt;/a&gt;&lt;/p&gt;
 &lt;figure &gt;
 	
 		

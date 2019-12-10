@@ -19,10 +19,8 @@
       <pubDate>Mon, 27 Nov 2017 12:39:52 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2017-11-27-result-of-hx2017-maze/</guid>
-      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34; target=&#34;_blank&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;が開催されました．結果報告の記事は&lt;a href=&#34;/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;が開催されました．結果報告の記事は&lt;a href=&#34;/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．&lt;/p&gt;
-
 &lt;p&gt;今回はその迷路の探索結果についてお話しします．&lt;/p&gt;</description>
     </item>
     
@@ -33,9 +31,7 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2017-11-05-small-maze/</guid>
       <description>&lt;p&gt;こんにちは．&lt;/p&gt;
-
 &lt;p&gt;エクストリーム新作のKERISEv3-2を諦めてKERISEv3-1を必死に調整している，けりです．&lt;/p&gt;
-
 &lt;p&gt;今回は自作の調整用迷路の紹介です．&lt;/p&gt;</description>
     </item>
     
@@ -46,7 +42,6 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2017-11-01-maze-class/</guid>
       <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
-
 &lt;p&gt;今回もマイクロマウスの話題です．僕が使っている迷路クラスを紹介します．&lt;/p&gt;</description>
     </item>
     
@@ -56,10 +51,9 @@
       <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2017-01-13-half-maze/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-
-&lt;p&gt;昨年夏に始めたマイクロマウス．&lt;br /&gt;
-&lt;a href=&#34;/tags/kerisev2&#34;&gt;KERISEv2&lt;/a&gt;ができてついにハーフにデビューしました！&lt;br /&gt;
+      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;昨年夏に始めたマイクロマウス．&lt;br&gt;
+&lt;a href=&#34;/tags/kerisev2&#34;&gt;KERISEv2&lt;/a&gt;ができてついにハーフにデビューしました！&lt;br&gt;
 しかし，自宅には迷路がないので試しに自分で作ってみることにしました．&lt;/p&gt;</description>
     </item>
     
@@ -69,10 +63,9 @@
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2017-01-12-1st-half/</guid>
-      <description>&lt;h2 id=&#34;ハーフサイズの迷路を走ってみました&#34;&gt;ハーフサイズの迷路を走ってみました&lt;/h2&gt;
-
-&lt;p&gt;こんにちは，けりです．&lt;br /&gt;
-KERSEv2の制御が落ち着てきたので，ついにハーフサイズの迷路で走らせてみることにしました！&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;ハーフサイズの迷路を走ってみました&lt;/h2&gt;
+&lt;p&gt;こんにちは，けりです．&lt;br&gt;
+KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷路で走らせてみることにしました！&lt;/p&gt;</description>
     </item>
     
   </channel>

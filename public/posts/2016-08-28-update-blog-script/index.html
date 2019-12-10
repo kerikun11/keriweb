@@ -9,7 +9,6 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ブログを更新するスクリプト" />
 <meta property="og:description" content="github上にあるブログを同期するシェルスクリプト
-
 自分用のメモ" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2016-08-28-update-blog-script/" />
@@ -19,8 +18,8 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ブログを更新するスクリプト"/>
 <meta name="twitter:description" content="github上にあるブログを同期するシェルスクリプト
-
 自分用のメモ"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -124,32 +123,28 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="github上にあるブログを同期するシェルスクリプト">github上にあるブログを同期するシェルスクリプト</h2>
-
+			<h2 id="github">github上にあるブログを同期するシェルスクリプト</h2>
 <p>自分用のメモ</p>
-
-<h2 id="前提">前提</h2>
-
-<h3 id="ssh-config">~/.ssh/config</h3>
-<div class="highlight"><pre class="chroma"><code class="language-kconfig" data-lang="kconfig">Host github
+<h2 id="heading">前提</h2>
+<h3 id="sshconfig">~/.ssh/config</h3>
+<pre><code class="language-kconfig" data-lang="kconfig">Host github
 	HostName github.com
 	User git
 	Port 22
-	IdentityFile ~/.ssh/id_ecdsa</code></pre></div>
-<h2 id="apache2の設定">Apache2の設定</h2>
-
-<h3 id="etc-apache2-sites-available-myconf-conf">/etc/apache2/sites-available/myconf.conf</h3>
-<div class="highlight"><pre class="chroma"><code class="language-kconfig" data-lang="kconfig">&lt;VirtualHost *:80&gt;
+	IdentityFile ~/.ssh/id_ecdsa
+</code></pre><h2 id="apache2">Apache2の設定</h2>
+<h3 id="etcapache2sitesavailablemyconfconf">/etc/apache2/sites-available/myconf.conf</h3>
+<pre><code class="language-kconfig" data-lang="kconfig">&lt;VirtualHost *:80&gt;
 	# The ServerName directive sets the request scheme, hostname and port that
 	# the server uses to identify itself. This is used when creating
 	# redirection URLs. In the context of virtual hosts, the ServerName
-	# specifies what hostname must appear in the request&#39;s Host: header to
+	# specifies what hostname must appear in the request's Host: header to
 	# match this virtual host. For the default virtual host (this file) this
 	# value is not decisive as it is used as a last resort host regardless.
 	# However, you must set it for any further virtual host explicitly.
-	ServerName &#34;kerikeri.top&#34;
-	ServerAdmin &#34;kerikun11@gmail.com&#34;
-	DocumentRoot &#34;/var/keriweb&#34;
+	ServerName &quot;kerikeri.top&quot;
+	ServerAdmin &quot;kerikun11@gmail.com&quot;
+	DocumentRoot &quot;/var/keriweb&quot;
 	
 	&lt;Directory /&gt;
 		Options FollowSymLinks
@@ -177,21 +172,22 @@ if (!doNotTrack) {
 	# enabled or disabled at a global level, it is possible to
 	# include a line for only one particular virtual host. For example the
 	# following line enables the CGI configuration for this host only
-	# after it has been globally disabled with &#34;a2disconf&#34;.
+	# after it has been globally disabled with &quot;a2disconf&quot;.
 	#Include conf-available/serve-cgi-bin.conf
 	ErrorDocument 404 /error/404/
 &lt;/VirtualHost&gt;
 
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet</code></pre></div><div class="highlight"><pre class="chroma">$ sudo a2ensite myconf
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+</code></pre><pre><code>$ sudo a2ensite myconf
 $ sudo a2dissite default-000
 $ sudo service apache2 restart
 
 $ sudo mkdir /var/keriweb
 $ sudo chown kerikun11 /var/keriweb
-$ sudo chgrp kerikun11 /var/keriweb</pre></div>
-<h2 id="スクリプト">スクリプト</h2>
-
-<h3 id="update-keriweb-sh">update-keriweb.sh</h3>
+$ sudo chgrp kerikun11 /var/keriweb
+</code></pre>
+<h2 id="heading1">スクリプト</h2>
+<h3 id="updatekeriwebsh">update-keriweb.sh</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="nv">tmpdir</span><span class="o">=</span>/home/kerikun11/keriweb
 <span class="nv">repo</span><span class="o">=</span>github:kerikun11/keriweb.git
@@ -212,7 +208,7 @@ $ sudo chgrp kerikun11 /var/keriweb</pre></div>
 	<span class="k">fi</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span> <span class="s2">&#34;not found </span><span class="nv">$basename</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">not found </span><span class="nv">$basename</span><span class="s2">&#34;</span>
 
 mkdir -p <span class="s2">&#34;</span><span class="nv">$dirname</span><span class="s2">&#34;</span>
 <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$dirname</span><span class="s2">&#34;</span>
@@ -223,7 +219,8 @@ rm -rf <span class="s2">&#34;</span><span class="nv">$basename</span><span class
 	<span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$basename</span><span class="s2">&#34;</span>
 	<span class="nb">echo</span> <span class="s2">&#34;start rsync&#34;</span>
 	<span class="nv">$rsync</span> <span class="s2">&#34;</span><span class="nv">$rsyncfrom</span><span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$rsyncto</span><span class="s2">&#34;</span>
-<span class="k">fi</span></code></pre></div>
+<span class="k">fi</span>
+</code></pre></div>
 		</div>
 		<footer class="post__footer">
 			
@@ -350,24 +347,24 @@ rm -rf <span class="s2">&#34;</span><span class="nv">$basename</span><span class
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#github上にあるブログを同期するシェルスクリプト">github上にあるブログを同期するシェルスクリプト</a></li>
-<li><a href="#前提">前提</a>
-<ul>
-<li><a href="#ssh-config">~/.ssh/config</a></li>
-</ul></li>
-<li><a href="#apache2の設定">Apache2の設定</a>
-<ul>
-<li><a href="#etc-apache2-sites-available-myconf-conf">/etc/apache2/sites-available/myconf.conf</a></li>
-</ul></li>
-<li><a href="#スクリプト">スクリプト</a>
-<ul>
-<li><a href="#update-keriweb-sh">update-keriweb.sh</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#github">github上にあるブログを同期するシェルスクリプト</a></li>
+    <li><a href="#heading">前提</a>
+      <ul>
+        <li><a href="#sshconfig">~/.ssh/config</a></li>
+      </ul>
+    </li>
+    <li><a href="#apache2">Apache2の設定</a>
+      <ul>
+        <li><a href="#etcapache2sitesavailablemyconfconf">/etc/apache2/sites-available/myconf.conf</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">スクリプト</a>
+      <ul>
+        <li><a href="#updatekeriwebsh">update-keriweb.sh</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	</div>
 </div>

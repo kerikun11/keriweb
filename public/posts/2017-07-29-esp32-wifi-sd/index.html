@@ -9,7 +9,6 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="ESP32とMicro SDカード" />
 <meta property="og:description" content="概要
-
 今回は，ESP32で何か作るときはとりあえず一緒にMicro SDスロットも載せましょうという話です．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2017-07-29-esp32-wifi-sd/" />
@@ -19,8 +18,8 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ESP32とMicro SDカード"/>
 <meta name="twitter:description" content="概要
-
 今回は，ESP32で何か作るときはとりあえず一緒にMicro SDスロットも載せましょうという話です．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -121,45 +120,29 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
+			<h2 id="heading">概要</h2>
 <p>今回は，ESP32で何か作るときはとりあえず一緒にMicro SDスロットも載せましょうという話です．</p>
-
-<h3 id="ssidをどう伝えるのか問題">SSIDをどう伝えるのか問題</h3>
-
+<h3 id="ssid">SSIDをどう伝えるのか問題</h3>
 <p>ESP32をWi-Fiに接続させたいとき，SSIDとパスワードをどうやってESP32に伝えるのかというのがしばしば問題になります．</p>
-
 <p>ソースコード中に書いてしまうのは，運用上さまざまな問題を引き起こすでしょう．</p>
-
-<h3 id="sdカードにwifiのssidとパスワードを書く">SDカードにWiFIのSSIDとパスワードを書く</h3>
-
+<h3 id="sdwifissid">SDカードにWiFIのSSIDとパスワードを書く</h3>
 <p>そこで僕はいつも，SDカードにWiFiのSSIDとパスワードが書かれたファイルを保存しておき，ESP32から読み取るようにしています．</p>
-
 <p>これならば，PCさえあれば，SSIDとパスワードをESP32に伝えることができます．</p>
-
-<h3 id="sdカードがたくさん必要">SDカードがたくさん必要？</h3>
-
+<h3 id="sd">SDカードがたくさん必要？</h3>
 <p>各ESP32に対してSDカードを用意するのはけっこう高価です．しかし，ESP32は内部にファイルシステムを持っているので，SDカードから読んだファイルをそこにコピーしてしまえば，2回目からはSDカードなしでWiFiに接続することができます．</p>
-
 <p>つまり，SDカードが1枚あれば，使いまわしてすべてのESP32のWiFi設定をすることができるのです．</p>
-
-<h2 id="実際にやってみた">実際にやってみた</h2>
-
-<p>SDからファイルを読み取り，WiFiに接続するプログラムをArduinoで書いてみました．<br />
+<h2 id="heading1">実際にやってみた</h2>
+<p>SDからファイルを読み取り，WiFiに接続するプログラムをArduinoで書いてみました．<br>
 (今回は内部のファイルシステムに保存するところまではやっていません)</p>
-
-<h3 id="設定ファイルのフォーマット">設定ファイルのフォーマット</h3>
-
+<h3 id="heading2">設定ファイルのフォーマット</h3>
 <p>SSIDとパスワードは以下のようなフォーマットで保存しました．</p>
-
 <ul>
 <li>SSIDとPasswordはスペースで区切って記述</li>
 <li>#から行末まではコメントとみなす</li>
-<li>SSIDとパスワードを複数個書けば，上から順に接続を試みる(<a href="https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/WiFiMulti/WiFiMulti.ino" target="_blank">WiFiMulti</a>)</li>
+<li>SSIDとパスワードを複数個書けば，上から順に接続を試みる(<a href="https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/WiFiMulti/WiFiMulti.ino">WiFiMulti</a>)</li>
 </ul>
-
 <p>wifi.txt</p>
-<div class="highlight"><pre class="chroma"><code class="language-kconfig" data-lang="kconfig"># This is treated as a comment.
+<pre><code class="language-kconfig" data-lang="kconfig"># This is treated as a comment.
 # Please enter SSID and password separated by space
 
 # Home WiFi
@@ -168,74 +151,69 @@ your_SSID your_password
 # Office WiFi
 SSID1 password1 # 1st
 SSID2 password2 # 2nd
-SSID3 password3 # 3rd</code></pre></div>
-<h3 id="サンプルコード">サンプルコード</h3>
-
-<p><a href="https://github.com/espressif/arduino-esp32" target="_blank">Arduino Core for ESP32</a> で動くコードです．バージョンはなるべく新しいものがいいと思います．</p>
-
-<p>SSIDとパスワードが書かれた*wifi.txt*はSDカードのルートディレクトリに置いておいてください．</p>
+SSID3 password3 # 3rd
+</code></pre><h3 id="heading3">サンプルコード</h3>
+<p><a href="https://github.com/espressif/arduino-esp32">Arduino Core for ESP32</a> で動くコードです．バージョンはなるべく新しいものがいいと思います．</p>
+<p>SSIDとパスワードが書かれた<em>wifi.txt</em>はSDカードのルートディレクトリに置いておいてください．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/*
 </span><span class="cm">   File:    WiFiConfigWithSD.ino
 </span><span class="cm">   Author:  KERI
 </span><span class="cm">   Date:    2017.07.29
 </span><span class="cm">*/</span>
 
-<span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;WiFiMulti.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;SD_MMC.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;esp32-hal-log.h&gt;</span><span class="cp">
+<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFiMulti.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;SD_MMC.h&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;esp32-hal-log.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">WiFiMulti</span> <span class="n">wifiMulti</span><span class="p">;</span>
 
-<span class="kt">bool</span> <span class="nf">sdInit</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span> <span class="n">pinMode</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span> <span class="n">pinMode</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span> <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">SD_MMC</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;SD_MMC.begin() Failed :(&#34;</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="nf">sdInit</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">)</span><span class="p">;</span> <span class="n">pinMode</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">)</span><span class="p">;</span> <span class="n">pinMode</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">)</span><span class="p">;</span> <span class="n">pinMode</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">SD_MMC</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">SD_MMC.begin() Failed :(</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">bool</span> <span class="nf">wifiConfigWithSD</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">SD_MMC</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+  <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="n">SD_MMC</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">r</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">file</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;Can&#39;t Open File %s&#34;</span><span class="p">,</span> <span class="n">path</span><span class="p">);</span>
+    <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Can&#39;t Open File %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span><span class="p">;</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="k">while</span> <span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>
-    <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">&#39;\n&#39;</span><span class="p">);</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sc">&#39;#&#39;</span><span class="p">));</span>
-    <span class="n">String</span> <span class="n">ssid</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">));</span> <span class="n">ssid</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
-    <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">));</span> <span class="n">password</span><span class="p">.</span><span class="n">trim</span><span class="p">();</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">ssid</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;WiFiMulti += SSID: %s&#34;</span><span class="p">,</span> <span class="n">ssid</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
-      <span class="n">wifiMulti</span><span class="p">.</span><span class="n">addAP</span><span class="p">(</span><span class="n">ssid</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">password</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="n">available</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc">\n</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc">#</span><span class="sc">&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">ssid</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">line</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc"> </span><span class="sc">&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="n">ssid</span><span class="p">.</span><span class="n">trim</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">line</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc"> </span><span class="sc">&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="n">password</span><span class="p">.</span><span class="n">trim</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ssid</span><span class="p">.</span><span class="n">length</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFiMulti += SSID: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ssid</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">wifiMulti</span><span class="p">.</span><span class="n">addAP</span><span class="p">(</span><span class="n">ssid</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">password</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  <span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_STA</span><span class="p">);</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;WiFiMulti Connecting...&#34;</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">wifiMulti</span><span class="p">.</span><span class="n">run</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;WiFi Connection Failed :(&#34;</span><span class="p">);</span>
+  <span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_STA</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFiMulti Connecting...</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">wifiMulti</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi Connection Failed :(</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
     <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
   <span class="p">}</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;WiFi Connected :)&#34;</span><span class="p">);</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;SSID: %s</span><span class="se">\t</span><span class="s">Local IP: %s&#34;</span><span class="p">,</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">SSID</span><span class="p">().</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">().</span><span class="n">toString</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi Connected :)</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">SSID: %s</span><span class="se">\t</span><span class="s">Local IP: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">SSID</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">localIP</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
   <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Hello, I&#39;m ESP32 :D&#34;</span><span class="p">);</span>
-  <span class="n">sdInit</span><span class="p">();</span>
-  <span class="n">wifiConfigWithSD</span><span class="p">(</span><span class="s">&#34;/wifi.txt&#34;</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, I&#39;m ESP32 :D</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">sdInit</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">wifiConfigWithSD</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">/wifi.txt</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 <span class="p">}</span>
-</code></pre></div>
-<h2 id="まとめ">まとめ</h2>
-
+</code></pre></div><h2 id="heading4">まとめ</h2>
 <p>この方法を使えば，ソースコードを公開リポジトリなどで管理する場合でもいちいちSSIDとパスワードの流出を気にしなくていいので，その点においても安全です．</p>
-
 <p>ESP32でWiFiに接続する際にはぜひ試してみてください！</p>
 		</div>
 		<footer class="post__footer">
@@ -363,23 +341,22 @@ SSID3 password3 # 3rd</code></pre></div>
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a>
-<ul>
-<li><a href="#ssidをどう伝えるのか問題">SSIDをどう伝えるのか問題</a></li>
-<li><a href="#sdカードにwifiのssidとパスワードを書く">SDカードにWiFIのSSIDとパスワードを書く</a></li>
-<li><a href="#sdカードがたくさん必要">SDカードがたくさん必要？</a></li>
-</ul></li>
-<li><a href="#実際にやってみた">実際にやってみた</a>
-<ul>
-<li><a href="#設定ファイルのフォーマット">設定ファイルのフォーマット</a></li>
-<li><a href="#サンプルコード">サンプルコード</a></li>
-</ul></li>
-<li><a href="#まとめ">まとめ</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a>
+      <ul>
+        <li><a href="#ssid">SSIDをどう伝えるのか問題</a></li>
+        <li><a href="#sdwifissid">SDカードにWiFIのSSIDとパスワードを書く</a></li>
+        <li><a href="#sd">SDカードがたくさん必要？</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">実際にやってみた</a>
+      <ul>
+        <li><a href="#heading2">設定ファイルのフォーマット</a></li>
+        <li><a href="#heading3">サンプルコード</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading4">まとめ</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

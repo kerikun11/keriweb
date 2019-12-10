@@ -9,7 +9,6 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="Cygwinの使い方" />
 <meta property="og:description" content="概要
-
 Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2015-12-04-cygwin/" />
@@ -19,8 +18,8 @@ Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベ�
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cygwinの使い方"/>
 <meta name="twitter:description" content="概要
-
 Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -124,22 +123,18 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="概要">概要</h2>
-
+			<h2 id="heading">概要</h2>
 <p>Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。</p>
-
-<h2 id="cygwinのインストール手順">Cygwinのインストール手順</h2>
-
+<h2 id="cygwin">Cygwinのインストール手順</h2>
 <ol>
-<li><a href="https://www.cygwin.com/" target="_blank">Cygwin.com</a>からCygwinのインストーラをダウンロードする。32bitマシン用と64bitマシン用があるので適当なほうを選ぶ。</li>
+<li><a href="https://www.cygwin.com/">Cygwin.com</a>からCygwinのインストーラをダウンロードする。32bitマシン用と64bitマシン用があるので適当なほうを選ぶ。</li>
 <li>DLしたインストーラを起動する。</li>
 <li>デフォルトの設定で次へを押す。</li>
 <li>URLを選択するところでは<code>~~~.jp</code>など、日本のURLを選ぶとダウンロードが早く終わる。</li>
 <li>インストールするファイルを選ぶところでは、一番上で<code>wget</code>と検索して、<code>Web</code>の中の<code>wget: Utility to ~</code>の回転矢印アイコンをクリックして次へを押し、インストールする。他のソフトは後で<code>apt-cyg</code>でインストールするので、今はこれだけでいい。</li>
 <li>インストールしたらcygwinを開く。</li>
 </ol>
-
-<p>インストール画像<br />
+<p>インストール画像<br>
 <figure >
 	
 		
@@ -261,29 +256,20 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-
-<h2 id="apt-cygを使う">apt-cygを使う</h2>
-
-<h3 id="apt-cygとは">apt-cygとは</h3>
-
+<h2 id="aptcyg">apt-cygを使う</h2>
+<h3 id="aptcyg1">apt-cygとは</h3>
 <p>apt-cygとは普通のシェルスクリプトで、新しくソフトウェアをインストールするときに使う。Macintoshのyumやlinuxのapt-getとほぼ同じ使い方ができる。</p>
-
-<h3 id="apt-cygを使う理由">apt-cygを使う理由</h3>
-
+<h3 id="aptcyg2">apt-cygを使う理由</h3>
 <p>cygwinでは、新たにソフトをインストールする際には、cygwinインストール時に使ったsetup.exeを使うのが一般的である。</p>
-
 <p>しかし、setup.exeで欲しいソフトをインストールするとき、そのソフトが他のソフトに依存していることがある。それなのに欲しいソフトだけインストールしても、エラーになってしまう。これを解決するには、Googleでそのソフトの依存関係を調べて、必要なソフトをすべてsetup.exeで選んでインストールしなければならない。はっきり言ってめんどくさい。</p>
-
 <p>めんどくさいので、setup.exeに表示された<strong>すべてのソフト</strong>をインストールしてみたことがある。これなら依存関係があっても全部あるんだから大丈夫！と思った。</p>
-
 <p>が、なんど１晩かかってもDLが終わらず、インストールが終わった後にサイズを確認したら<strong>60GB</strong>も容量を取られてしまった。もう絶対にやらない。</p>
-
-<h3 id="apt-cygをインストール">apt-cygをインストール</h3>
-
+<h3 id="aptcyg3">apt-cygをインストール</h3>
 <p>Cygwinを起動したら、以下のコマンドを実行する。</p>
-<div class="highlight"><pre class="chroma">$ wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
+<pre><code>$ wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
 $ chmod 755 apt-cyg
-$ mv apt-cyg /usr/local/bin/</pre></div>
+$ mv apt-cyg /usr/local/bin/
+</code></pre>
 <p>インストール画面
 <figure >
 	
@@ -296,25 +282,20 @@ $ mv apt-cyg /usr/local/bin/</pre></div>
 	
 </figure>
 </p>
-
 <p>これでインストールは完了。</p>
-
 <p>あとは、欲しいソフトをインストールする</p>
-<div class="highlight"><pre class="chroma">$ apt-cyg install vim
+<pre><code>$ apt-cyg install vim
 $ apt-cyg install make
 $ apt-cyg install gcc-core
 $ apt-cyg install gcc-g++
 $ apt-cyg install zsh
 $ apt-cyg install tmux
-$ apt-cyg install git</pre></div>
+$ apt-cyg install git
+</code></pre>
 <p>などなど</p>
-
-<h2 id="おまけ-各種設定">おまけ（各種設定）</h2>
-
-<h3 id="windowsのコピペを使う">Windowsのコピペを使う</h3>
-
+<h2 id="heading1">おまけ（各種設定）</h2>
+<h3 id="windows">Windowsのコピペを使う</h3>
 <p>Cygwinのデフォルトの設定ではWindowsのCtrl+C,Ctrl+Vが使えない。これでは不便なので使えるようにする。</p>
-
 <ol>
 <li>Cygwinのウィンドウの左上のCygwinアイコンを右クリックする。</li>
 <li>optionを開く</li>
@@ -323,10 +304,8 @@ $ apt-cyg install git</pre></div>
 <li>さらに<code>Looks</code>のなかの<code>Transparency</code>を<code>Medium</code>か<code>High</code>にするとブラウザなどを下に置いたときに透かして見れるので便利。</li>
 <li>saveで終了。</li>
 </ol>
-
 <p>Shiftキー＋いつものコピペキーでコピペができる。</p>
-
-<p>設定画像<br />
+<p>設定画像<br>
 <figure >
 	
 		
@@ -360,21 +339,20 @@ $ apt-cyg install git</pre></div>
 	
 </figure>
 </p>
-
-<h3 id="デフォルトのシェルをzshにする">デフォルトのシェルをzshにする</h3>
-<div class="highlight"><pre class="chroma">$ apt-cyg install zsh
-$ ls /etc/passwd</pre></div>
+<h3 id="zsh">デフォルトのシェルをzshにする</h3>
+<pre><code>$ apt-cyg install zsh
+$ ls /etc/passwd
+</code></pre>
 <p>ここで<code>/etc/passwd</code>が存在しないときは以下のコマンドを打ち作る。</p>
-<div class="highlight"><pre class="chroma">$ mkpasswd &gt; /etc/passwd</pre></div>
+<pre><code>$ mkpasswd &gt; /etc/passwd
+</code></pre>
 <p>作ったら開く</p>
-<div class="highlight"><pre class="chroma">$ vim /etc/passwd</pre></div>
-<p>一番下のほうの自分のユーザー名のところで、<code>/bin/bash</code>を<code>/bin/zsh</code>に変更する。<br />
+<pre><code>$ vim /etc/passwd
+</code></pre>
+<p>一番下のほうの自分のユーザー名のところで、<code>/bin/bash</code>を<code>/bin/zsh</code>に変更する。<br>
 あとはCygwinを再起動すればデフォルトがzshellになっている。</p>
-
 <p>ついでに僕の<code>.zshrc</code>を書いておく。</p>
-
-<p><a href="https://github.com/kerikun11/dotfiles/blob/master/.zshrc" target="_blank">.zshrc</a></p>
-
+<p><a href="https://github.com/kerikun11/dotfiles/blob/master/.zshrc">.zshrc</a></p>
 <p>シェルを起動するとsshのkeyを求められるので入力すると、2回目からは自動で入力してくれるようになってる。</p>
 		</div>
 		<footer class="post__footer">
@@ -501,24 +479,23 @@ $ ls /etc/passwd</pre></div>
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#概要">概要</a></li>
-<li><a href="#cygwinのインストール手順">Cygwinのインストール手順</a></li>
-<li><a href="#apt-cygを使う">apt-cygを使う</a>
-<ul>
-<li><a href="#apt-cygとは">apt-cygとは</a></li>
-<li><a href="#apt-cygを使う理由">apt-cygを使う理由</a></li>
-<li><a href="#apt-cygをインストール">apt-cygをインストール</a></li>
-</ul></li>
-<li><a href="#おまけ-各種設定">おまけ（各種設定）</a>
-<ul>
-<li><a href="#windowsのコピペを使う">Windowsのコピペを使う</a></li>
-<li><a href="#デフォルトのシェルをzshにする">デフォルトのシェルをzshにする</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">概要</a></li>
+    <li><a href="#cygwin">Cygwinのインストール手順</a></li>
+    <li><a href="#aptcyg">apt-cygを使う</a>
+      <ul>
+        <li><a href="#aptcyg1">apt-cygとは</a></li>
+        <li><a href="#aptcyg2">apt-cygを使う理由</a></li>
+        <li><a href="#aptcyg3">apt-cygをインストール</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">おまけ（各種設定）</a>
+      <ul>
+        <li><a href="#windows">Windowsのコピペを使う</a></li>
+        <li><a href="#zsh">デフォルトのシェルをzshにする</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 	</div>
 </div>

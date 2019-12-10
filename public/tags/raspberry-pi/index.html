@@ -11,12 +11,12 @@
 <meta property="og:description" content="KERI&#39;s Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/raspberry-pi/" />
-
 <meta property="og:updated_time" content="2018-02-11T14:58:18+09:00" />
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Raspberry Pi"/>
 <meta name="twitter:description" content="KERI&#39;s Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -132,7 +132,6 @@ if (!doNotTrack) {
 	<div class="content list__excerpt post__content clearfix">
 		<p>こんにちは．
 今回は久しぶりにサーバーの話題です．</p>
-
 <p>自宅のサーバーにNextcloudを導入したので，それを紹介します．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -168,12 +167,9 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="新登場のpine64を購入">新登場のPINE64を購入</h2>
-
+		<h2 id="pine64">新登場のPINE64を購入</h2>
 <p>秋月電子の新商品で，「PINE64」というボードが登場しました．CPUのスペックはほぼラズパイ3と同等ですが，Ethernetが1000BASE-Tと高速なのです！！これは完全にサーバー向きですね！</p>
-
 <p>さらに，ラズパイ3の価格が$35なのに対して，PINE64は$19です．半額近いです．</p>
-
 <p>そのかわり，WiFiやBluetoothが技適の関係かわかりませんが今は載っていません．ただ，ブログなどのWebサーバー用途なら無線は使わないので特に問題ありません．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -209,11 +205,9 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <p>ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．</p>
-
-<p>この記事は，デモサイトを作るときのメモ．<br />
+<p>この記事は，デモサイトを作るときのメモ．<br>
 デモサイト紹介記事は<a href="/posts/2016-10-20-ir-station-demo/">こちら</a></p>
 	</div>
 	<div class="list__footer clearfix">
@@ -249,12 +243,9 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="作ったもの">作ったもの</h2>
-
-<h3 id="ラズパイミュージックサーバー">ラズパイミュージックサーバー</h3>
-
+		<h2 id="heading">作ったもの</h2>
+<h3 id="heading1">ラズパイミュージックサーバー</h3>
 <p>スマートフォンでコントロールできるステレオコンポです．</p>
-
 <figure >
 	
 		
@@ -299,20 +290,13 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <h3 id="volumio">Volumio</h3>
-
 <p><strong>Volumio</strong>というミュージックサーバーソフトウェアがある．</p>
-
 <p>ラズベリーパイにVolumioのOSを書き込むだけで，ミュージックサーバーが出来上がるし，Air Playや，SMBにも対応していて，素晴らしいものだ．</p>
-
-<h3 id="プレイリスト問題">プレイリスト問題</h3>
-
+<h3 id="heading1">プレイリスト問題</h3>
 <p>しかし，そのプレイリストは独自の形式で，iTunesなどのプレイリストを読み込むことができず，新たに作らなくてはならない．</p>
-
 <p><strong>めんどくさい！</strong></p>
-
 <p>ということで，今回は，iTunesのプレイリストをvolumioのプレイリストに変換するスクリプトを紹介する．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -348,8 +332,7 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="github上にあるブログを同期するシェルスクリプト">github上にあるブログを同期するシェルスクリプト</h2>
-
+		<h2 id="github">github上にあるブログを同期するシェルスクリプト</h2>
 <p>自分用のメモ</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -385,10 +368,10 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="はじめに">はじめに</h2>
-
+		<h2 id="heading">はじめに</h2>
 <p>これらの作業はすべてSSHで行う．fingなどを使ってIPアドレスを調べる．</p>
-<div class="highlight"><pre class="chroma">$ ssh pi@192.168.11.13</pre></div>
+<pre><code>$ ssh pi@192.168.11.13
+</code></pre>
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/posts/2016-08-28-raspi-setup/">続きを読む</a>
@@ -423,16 +406,11 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="ラズパイ3を購入">ラズパイ3を購入</h2>
-
-<h3 id="ハイスペックなラズパイ3">ハイスペックなラズパイ3</h3>
-
+		<h2 id="3">ラズパイ3を購入</h2>
+<h3 id="31">ハイスペックなラズパイ3</h3>
 <p>64bitのARM-CPUが搭載されたラズパイ3が話題になったのは記憶に新しいですが，ラズパイ3は，秋月では6,200円ですし，公式でも5,000円ほどします．</p>
-
-<h3 id="税込4-000円かつカード払いok">税込4,000円かつカード払いOK！</h3>
-
+<h3 id="4000ok">税込4,000円かつカード払いOK！</h3>
 <p>そんなラズパイ3が，Maker Faire Tokyo 2016 で税込4,000円かつカード払いOKで販売しているではありませんか！！</p>
-
 <p>これは安い！と思い，使う予定もないのに衝動買いしちゃいました&hellip;(汗</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -468,8 +446,7 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <p>ラズパイのシリアルを使うときや、ラズパイにFT232などをつないだ時にターミナルをシリアルモニタにする。</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -505,14 +482,12 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
-<p>NASがほしい！<br />
+		<h2 id="heading">概要</h2>
+<p>NASがほしい！<br>
 じゃあ作ろう。</p>
-
-<p>スペック<br />
-サーバ：Raspberrypi 2 Type B<br />
-HDD：Western Digital 2TB 3.5 inch<br />
+<p>スペック<br>
+サーバ：Raspberrypi 2 Type B<br>
+HDD：Western Digital 2TB 3.5 inch<br>
 転送速度：10MB/s（ラズパイのイーサーネットが100Baseなので仕方ない&hellip;）</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -548,10 +523,8 @@ HDD：Western Digital 2TB 3.5 inch<br />
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <h3 id="ufw">ufw</h3>
-
 <p>iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -587,13 +560,12 @@ HDD：Western Digital 2TB 3.5 inch<br />
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="ラズパイの用意">ラズパイの用意</h2>
-
+		<h2 id="heading">ラズパイの用意</h2>
 <ol>
-<li>ラズパイ用のOS「NOOBS」を<a href="http://raspberrypi.org/downloads/" target="_blank">raspberrypi.org</a>からDLして解凍する。<br /></li>
-<li>microSDカードをFAT32でフォーマットする。<br /></li>
-<li>解凍したファイルをSDカードにコピーする。<br /></li>
-<li>ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。<br /></li>
+<li>ラズパイ用のOS「NOOBS」を<a href="http://raspberrypi.org/downloads/">raspberrypi.org</a>からDLして解凍する。</li>
+<li>microSDカードをFAT32でフォーマットする。</li>
+<li>解凍したファイルをSDカードにコピーする。</li>
+<li>ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。</li>
 </ol>
 	</div>
 	<div class="list__footer clearfix">

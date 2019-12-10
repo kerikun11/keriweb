@@ -9,7 +9,6 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="New KERISE v4, 登場" />
 <meta property="og:description" content="こんにちは．けりです．
-
 ようやく形になった今年の新作「KERISEv4」を紹介します．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2018-05-03-kerise-v4-coming/" />
@@ -19,8 +18,8 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="New KERISE v4, 登場"/>
 <meta name="twitter:description" content="こんにちは．けりです．
-
 ようやく形になった今年の新作「KERISEv4」を紹介します．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -125,9 +124,7 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<p>こんにちは．けりです．</p>
-
 <p>ようやく形になった今年の新作「KERISEv4」を紹介します．</p>
-
 <figure >
 	
 		
@@ -139,11 +136,8 @@ if (!doNotTrack) {
 	
 </figure>
 
-
 <h2 id="kerisev4">KERISEv4</h2>
-
 <p>見た目はKERISEv3とそっくりですが，中身はいろいろ変わったKERISEv4です．</p>
-
 <p><figure >
 	
 		
@@ -210,24 +204,10 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-
-<!-- ## スペック
-
-|項目|型番|
-|:--|:--|
-|マイコン|ESP32|
-|動作周波数|240MHz|
-|RAM|520kB|
-|Flash Memory|4MB|
-|バッテリ|ノーブランド 100mAh|
-|モータ|ノーブランド 0610サイズ|
-|モータードライバ|DRV8835|
-|6軸センサ|ICM-20602| -->
-
-<h2 id="kerisev3-との比較">KERISEv3 との比較</h2>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="kerisev3-">KERISEv3 との比較</h2>
 <p>KERISEv3と比較すると，一回り小さくなったことが分かります．</p>
-
 <p><figure >
 	
 		
@@ -250,7 +230,6 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-
 <table>
 <thead>
 <tr>
@@ -259,26 +238,22 @@ if (!doNotTrack) {
 <th align="left">KERISEv4</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="left">縦 [mm]</td>
 <td align="left">46</td>
 <td align="left">43</td>
 </tr>
-
 <tr>
 <td align="left">横 [mm]</td>
 <td align="left">37</td>
 <td align="left">33</td>
 </tr>
-
 <tr>
 <td align="left">高さ [mm]</td>
 <td align="left">22</td>
 <td align="left">22</td>
 </tr>
-
 <tr>
 <td align="left">重さ [g]</td>
 <td align="left">15.91</td>
@@ -286,15 +261,10 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
-<h2 id="特徴">特徴</h2>
-
-<h3 id="6軸センサを2つ搭載">6軸センサを2つ搭載</h3>
-
+<h2 id="heading">特徴</h2>
+<h3 id="62">6軸センサを2つ搭載</h3>
 <p>今回のマウスには，6軸モーションセンサを2つ搭載しました．</p>
-
 <p>これは，角加速度を測定するためです．PID制御のD成分を計算する際に役立つと思います．</p>
-
 <figure >
 	
 		
@@ -306,17 +276,11 @@ if (!doNotTrack) {
 	
 </figure>
 
-
 <p>細い部分の両サイドについている正方形の黒いICが6軸センサです．</p>
-
 <p>LGAというパッドが裏側にしかない部品なので，ちゃんとついているのかよくわかりません&hellip;(汗</p>
-
-<h3 id="フォトリフレクタの改良">フォトリフレクタの改良</h3>
-
+<h3 id="heading1">フォトリフレクタの改良</h3>
 <p>今までのフォトリフレクタは電源のノイズに弱く，モーターのノイズの影響を受けていました．</p>
-
 <p>そこで，回路を改良してノイズ対策をしました．</p>
-
 <figure >
 	
 		
@@ -328,15 +292,10 @@ if (!doNotTrack) {
 	
 </figure>
 
-
 <p>変わった部分は発光回路です．森永式発光回路を拡張して，充電と放電をFETによって分離しました．</p>
-
 <p>この発光回路は，電源ノイズの影響を受けづらくなっています．</p>
-
-<h3 id="遮光基板">遮光基板</h3>
-
+<h3 id="heading2">遮光基板</h3>
 <p>遮光板は基板を使っており，はんだ付けで固定してあるので外れることはありません．</p>
-
 <figure >
 	
 		
@@ -348,13 +307,9 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<h3 id="車輪の軸受けの改良">車輪の軸受けの改良</h3>
-
+<h3 id="heading3">車輪の軸受けの改良</h3>
 <p>今までは，1つの車輪に対し，ベアリングは1つだったので，軸が少しぐらぐらしていました．</p>
-
 <p>そこで，マウンタの中にベアリングを2枚置いて，安定させました．</p>
-
 <figure >
 	
 		
@@ -366,15 +321,10 @@ if (!doNotTrack) {
 	
 </figure>
 
-
 <p>内径1mm 外形3mm 厚み1mmのかなり小さいベアリングです．</p>
-
-<h2 id="まとめ">まとめ</h2>
-
+<h2 id="heading4">まとめ</h2>
 <p>昨年末から設計を続けてきた新しいKERISEですが，やっと形になってきました．</p>
-
 <p>これが上手く動いてくれると嬉しいのですが，さあどうでしょうか&hellip;</p>
-
 <p>ではまた！</p>
 		</div>
 		<footer class="post__footer">
@@ -502,21 +452,19 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#kerisev4">KERISEv4</a></li>
-<li><a href="#kerisev3-との比較">KERISEv3 との比較</a></li>
-<li><a href="#特徴">特徴</a>
-<ul>
-<li><a href="#6軸センサを2つ搭載">6軸センサを2つ搭載</a></li>
-<li><a href="#フォトリフレクタの改良">フォトリフレクタの改良</a></li>
-<li><a href="#遮光基板">遮光基板</a></li>
-<li><a href="#車輪の軸受けの改良">車輪の軸受けの改良</a></li>
-</ul></li>
-<li><a href="#まとめ">まとめ</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#kerisev4">KERISEv4</a></li>
+    <li><a href="#kerisev3-">KERISEv3 との比較</a></li>
+    <li><a href="#heading">特徴</a>
+      <ul>
+        <li><a href="#62">6軸センサを2つ搭載</a></li>
+        <li><a href="#heading1">フォトリフレクタの改良</a></li>
+        <li><a href="#heading2">遮光基板</a></li>
+        <li><a href="#heading3">車輪の軸受けの改良</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading4">まとめ</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

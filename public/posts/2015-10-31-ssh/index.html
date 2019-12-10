@@ -9,9 +9,7 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="SSHの使い方" />
 <meta property="og:description" content="SSH
-
 SSHとは
-
 　Secure Shell。暗号や認証の技術を利用して、安全にリモートコンピュータと通信するためのプロトコル。 パスワードなどの認証部分を含むすべてのネットワーク上の通信が暗号化される。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2015-10-31-ssh/" />
@@ -21,10 +19,9 @@ SSHとは
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SSHの使い方"/>
 <meta name="twitter:description" content="SSH
-
 SSHとは
-
 　Secure Shell。暗号や認証の技術を利用して、安全にリモートコンピュータと通信するためのプロトコル。 パスワードなどの認証部分を含むすべてのネットワーク上の通信が暗号化される。"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -126,59 +123,59 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<h2 id="ssh">SSH</h2>
-
-<h3 id="sshとは">SSHとは</h3>
-
+<h3 id="ssh1">SSHとは</h3>
 <p>　Secure Shell。暗号や認証の技術を利用して、安全にリモートコンピュータと通信するためのプロトコル。 パスワードなどの認証部分を含むすべてのネットワーク上の通信が暗号化される。</p>
-
-<h3 id="ホスト側設定">ホスト側設定</h3>
-
+<h3 id="heading">ホスト側設定</h3>
 <p>openssh-serverをインストールしておく必要がある。これをインストールする前に、パスワードなどがしっかり設定されているかなどを確認しておくこと。</p>
-<div class="highlight"><pre class="chroma">$sudo apt-get install openssh-server</pre></div>
+<pre><code>$sudo apt-get install openssh-server
+</code></pre>
 <p>を実行すると外部からアクセスできるようになる。</p>
-<div class="highlight"><pre class="chroma">$ sudo vim /etc/ssh/sshd_config</pre></div>
+<pre><code>$ sudo vim /etc/ssh/sshd_config
+</code></pre>
 <p>　ここで各種設定をする。</p>
-<div class="highlight"><pre class="chroma">Port 22</pre></div>
-<h3 id="鍵の生成">鍵の生成</h3>
-
+<pre><code>Port 22
+</code></pre>
+<h3 id="heading1">鍵の生成</h3>
 <p>　鍵はクライアント側で生成することが多い。</p>
-<div class="highlight"><pre class="chroma">$ssh-keygen -t ecdsa -C &#34;comment&#34;</pre></div>
+<pre><code>$ssh-keygen -t ecdsa -C &quot;comment&quot;
+</code></pre>
 <p>を実行するとファイル名とパスワード作成を求められるが空欄でもENTERを押せば良い。すると、カレントディレクトリに「id_ecdsa」「id_ecdsa.pub」の２つのファイルが生成される。この内、「id_ecdsa.pub」を適当な手段でsshで繋ぎたい相手（ホスト側）に渡す。これは公開鍵なので、誰かに見られても大丈夫である。むしろ、どこからでもアクセスできる場所においておくのが便利である。逆に「id_ecdsa」は、秘密鍵なので、厳重に保管する。
 　公開鍵をホスト側のPCに移動したら、鍵リストに追加する。ホームディレクトリに.sshディレクトリがなければ作る。</p>
-<div class="highlight"><pre class="chroma">$ mkdir ~/.ssh</pre></div>
+<pre><code>$ mkdir ~/.ssh
+</code></pre>
 <p>　ここに「authorized_keys」というファイルがあれば、以下のように追加する。</p>
-<div class="highlight"><pre class="chroma">$ cat id_ecdsa.pub &gt;&gt; authorized_keys</pre></div>
+<pre><code>$ cat id_ecdsa.pub &gt;&gt; authorized_keys
+</code></pre>
 <p>なければ、新規作成してから、鍵を追加する。</p>
-
-<h3 id="sshの接続">SSHの接続</h3>
-
+<h3 id="ssh2">SSHの接続</h3>
 <p>　接続コマンドは以下の通り。ログインユーザー名と、ホストアドレスを書く。</p>
-<div class="highlight"><pre class="chroma">$ssh your_username@your_domain.com</pre></div>
+<pre><code>$ssh your_username@your_domain.com
+</code></pre>
 <p>　公開鍵認証がうまく設定できていれば、これで接続ができる。失敗していると、パスワードを求められて、パスワード認証となってしまう。(sshd_confでパスワード認証が許可されている場合)
 　公開鍵認証を使わなくても、パスワード認証でも接続することができる。しかしこれはあまり使われない（使わないほうが良い）。</p>
-
-<h3 id="ssh-config">.ssh/config</h3>
-
+<h3 id="sshconfig">.ssh/config</h3>
 <p>　sshにつなぐときに毎回アドレスを入力するのは面倒なので、よく使うものはconfigに登録しておくと良い。</p>
-<div class="highlight"><pre class="chroma">$vim ~/.ssh/config
+<pre><code>$vim ~/.ssh/config
 
 Host local_raspi
-    HostName    192.168.11.2 ←ラズパイのIP
-    IdentityFile    ~/.ssh/id_ecdsa
-    User        kerikun11
-    Port        22
+    HostName	192.168.11.2 ←ラズパイのIP
+    IdentityFile	~/.ssh/id_ecdsa
+    User		kerikun11
+    Port		22
 
 Host global_raspi
-    HostName    kerikeri.top ←ドメイン
-    IdentityFile    ~/.ssh/id_ecdsa
-    User        kerikun11
-    Port        22</pre></div>
+    HostName	kerikeri.top ←ドメイン
+    IdentityFile	~/.ssh/id_ecdsa
+    User		kerikun11
+    Port		22
+</code></pre>
 <p>　接続の仕方は、以下の通り。とても簡単。</p>
-<div class="highlight"><pre class="chroma">$ssh global_raspi</pre></div>
-<h2 id="ローカルのポートをリモートのポートにつなげる">ローカルのポートをリモートのポートにつなげる</h2>
-
+<pre><code>$ssh global_raspi
+</code></pre>
+<h2 id="heading2">ローカルのポートをリモートのポートにつなげる</h2>
 <p>IP制限されているホストやLAN内の機器に外からつなぐ方法</p>
-<div class="highlight"><pre class="chroma">$ ssh -L 8000:target_hostname:80 ssh_hostname</pre></div>
+<pre><code>$ ssh -L 8000:target_hostname:80 ssh_hostname
+</code></pre>
 <p>これを実行した状態で<code>localhost:8000</code>につなぐと、ssh_hostnameから<code>target_hostname:80</code>につないだのと同じになる。</p>
 		</div>
 		<footer class="post__footer">
@@ -305,20 +302,18 @@ Host global_raspi
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#ssh">SSH</a>
-<ul>
-<li><a href="#sshとは">SSHとは</a></li>
-<li><a href="#ホスト側設定">ホスト側設定</a></li>
-<li><a href="#鍵の生成">鍵の生成</a></li>
-<li><a href="#sshの接続">SSHの接続</a></li>
-<li><a href="#ssh-config">.ssh/config</a></li>
-</ul></li>
-<li><a href="#ローカルのポートをリモートのポートにつなげる">ローカルのポートをリモートのポートにつなげる</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#ssh">SSH</a>
+      <ul>
+        <li><a href="#ssh1">SSHとは</a></li>
+        <li><a href="#heading">ホスト側設定</a></li>
+        <li><a href="#heading1">鍵の生成</a></li>
+        <li><a href="#ssh2">SSHの接続</a></li>
+        <li><a href="#sshconfig">.ssh/config</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading2">ローカルのポートをリモートのポートにつなげる</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

@@ -9,9 +9,7 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="マイクロマウス2017HX決勝迷路の探索結果" />
 <meta property="og:description" content="先日，全日本マイクロマウス大会2017が開催されました．結果報告の記事はこちら
-
 ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．
-
 今回はその迷路の探索結果についてお話しします．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/2017-11-27-result-of-hx2017-maze/" />
@@ -21,10 +19,9 @@
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="マイクロマウス2017HX決勝迷路の探索結果"/>
 <meta name="twitter:description" content="先日，全日本マイクロマウス大会2017が開催されました．結果報告の記事はこちら
-
 ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．
-
 今回はその迷路の探索結果についてお話しします．"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -128,16 +125,11 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<p>先日，<a href="http://www.ntf.or.jp/mouse/micromouse2017/" target="_blank">全日本マイクロマウス大会2017</a>が開催されました．結果報告の記事は<a href="/posts/2017-11-22-micromouse2017/">こちら</a></p>
-
+			<p>先日，<a href="http://www.ntf.or.jp/mouse/micromouse2017/">全日本マイクロマウス大会2017</a>が開催されました．結果報告の記事は<a href="/posts/2017-11-22-micromouse2017/">こちら</a></p>
 <p>ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．</p>
-
 <p>今回はその迷路の探索結果についてお話しします．</p>
-
-<h2 id="kerise-v3-2の探索アルゴリズム">KERISE v3-2の探索アルゴリズム</h2>
-
+<h2 id="kerise-v32">KERISE v3-2の探索アルゴリズム</h2>
 <p>KERISE v3-2 の迷路探索アルゴリズムの特徴は以下の通りです．</p>
-
 <ul>
 <li>足立法を基にゴールを目指す</li>
 <li>ゴールについた後の追加探索ではステップマップ上の最短になり得る未知壁を潰していく</li>
@@ -145,19 +137,12 @@ if (!doNotTrack) {
 <li>どんな迷路に対しても必ず歩数最短経路を導出することができる</li>
 <li>直線加速やターンの曲がりやすさなどは考慮されておらず，あくまで歩数ベースなので，あまりよい最短経路は導出できない</li>
 </ul>
-
 <p>今後ターンにコストを振った経路導出を実装したいと思っています．</p>
-
-<h2 id="課題迷路と探索結果">課題迷路と探索結果</h2>
-
+<h2 id="heading">課題迷路と探索結果</h2>
 <p>赤の点線で表された壁は，見切り壁で，最短になりえないと判断した壁です．</p>
-
-<p>※迷路画像は<a href="http://www.ntf.or.jp/mouse/" target="_blank">マイクロマウス運営ページ</a>から引用しました．</p>
-
-<h3 id="全日本2017ハーフサイズエキスパート決勝">全日本2017ハーフサイズエキスパート決勝</h3>
-
+<p>※迷路画像は<a href="http://www.ntf.or.jp/mouse/">マイクロマウス運営ページ</a>から引用しました．</p>
+<h3 id="2017">全日本2017ハーフサイズエキスパート決勝</h3>
 <p>小さくて見ずらいので，画像をクリックしてご覧ください．</p>
-
 <p><figure >
 	<a href="MM2017HX.png" target="blank">
 		
@@ -180,41 +165,35 @@ if (!doNotTrack) {
 	</a>
 </figure>
 </p>
-
-<h2 id="近年のhx迷路の探索結果比較表">近年のHX迷路の探索結果比較表</h2>
-
+<h2 id="hx">近年のHX迷路の探索結果比較表</h2>
 <table>
 <thead>
 <tr>
 <th align="left">迷路</th>
-<th align="left"><a href="MM2017HX.png" target="_blank">MM2017HX</a></th>
-<th align="left"><a href="MM2016HX.jpg" target="_blank">MM2016HX</a></th>
-<th align="left"><a href="MM2015HX.png" target="_blank">MM2015HX</a></th>
+<th align="left"><a href="MM2017HX.png">MM2017HX</a></th>
+<th align="left"><a href="MM2016HX.jpg">MM2016HX</a></th>
+<th align="left"><a href="MM2015HX.png">MM2015HX</a></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="left">探索結果</td>
-<td align="left"><a href="result-2017.png" target="_blank">MM2017HX</a></td>
-<td align="left"><a href="result-2016.png" target="_blank">MM2016HX</a></td>
-<td align="left"><a href="result-2015.png" target="_blank">MM2015HX</a></td>
+<td align="left"><a href="result-2017.png">MM2017HX</a></td>
+<td align="left"><a href="result-2016.png">MM2016HX</a></td>
+<td align="left"><a href="result-2015.png">MM2015HX</a></td>
 </tr>
-
 <tr>
 <td align="left">探索歩数</td>
 <td align="left">982</td>
 <td align="left">1506</td>
 <td align="left">1040</td>
 </tr>
-
 <tr>
 <td align="left">見切壁数</td>
 <td align="left">686</td>
 <td align="left">166</td>
 <td align="left">613</td>
 </tr>
-
 <tr>
 <td align="left">最短歩数</td>
 <td align="left">160</td>
@@ -223,15 +202,10 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <p>去年(2016年)の迷路は，ゴール区画がスタートに近いせいでほぼ全面探索になってしまい，探索歩数が明らかに多いですね．厳しいです．</p>
-
-<h2 id="まとめ">まとめ</h2>
-
+<h2 id="heading1">まとめ</h2>
 <p>今年はハーフサイズ初挑戦ということもあり，時間超過にならないように，なるべく短時間で探索を終えるアルゴリズムにしました．</p>
-
 <p>なので，未探索の壁が結構多くありますが，歩数最短のコースはしっかり導出できました．</p>
-
 <p>来年は，歩数ベースではなく時間ベースの最短経路導出ができるアルゴリズムで臨みたいです．</p>
 		</div>
 		<footer class="post__footer">
@@ -358,18 +332,16 @@ if (!doNotTrack) {
 	<h4 class="widget__title">Table of Contents</h4>
 	<div class="widget__content">
     	<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#kerise-v3-2の探索アルゴリズム">KERISE v3-2の探索アルゴリズム</a></li>
-<li><a href="#課題迷路と探索結果">課題迷路と探索結果</a>
-<ul>
-<li><a href="#全日本2017ハーフサイズエキスパート決勝">全日本2017ハーフサイズエキスパート決勝</a></li>
-</ul></li>
-<li><a href="#近年のhx迷路の探索結果比較表">近年のHX迷路の探索結果比較表</a></li>
-<li><a href="#まとめ">まとめ</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#kerise-v32">KERISE v3-2の探索アルゴリズム</a></li>
+    <li><a href="#heading">課題迷路と探索結果</a>
+      <ul>
+        <li><a href="#2017">全日本2017ハーフサイズエキスパート決勝</a></li>
+      </ul>
+    </li>
+    <li><a href="#hx">近年のHX迷路の探索結果比較表</a></li>
+    <li><a href="#heading1">まとめ</a></li>
+  </ul>
 </nav>
 	</div>
 </div>

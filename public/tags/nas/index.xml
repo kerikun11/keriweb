@@ -19,14 +19,12 @@
       <pubDate>Mon, 23 Nov 2015 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2015-11-23-samba/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-
-&lt;p&gt;NASがほしい！&lt;br /&gt;
+      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;NASがほしい！&lt;br&gt;
 じゃあ作ろう。&lt;/p&gt;
-
-&lt;p&gt;スペック&lt;br /&gt;
-サーバ：Raspberrypi 2 Type B&lt;br /&gt;
-HDD：Western Digital 2TB 3.5 inch&lt;br /&gt;
+&lt;p&gt;スペック&lt;br&gt;
+サーバ：Raspberrypi 2 Type B&lt;br&gt;
+HDD：Western Digital 2TB 3.5 inch&lt;br&gt;
 転送速度：10MB/s（ラズパイのイーサーネットが100Baseなので仕方ない&amp;hellip;）&lt;/p&gt;</description>
     </item>
     

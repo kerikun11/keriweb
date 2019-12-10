@@ -11,12 +11,12 @@
 <meta property="og:description" content="KERI&#39;s Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/tags/%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC/" />
-
 <meta property="og:updated_time" content="2018-02-11T14:58:18+09:00" />
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="サーバー"/>
 <meta name="twitter:description" content="KERI&#39;s Lab へようこそ。ここでは趣味の電子工作や日々の活動を紹介しています。"/>
+<meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -132,7 +132,6 @@ if (!doNotTrack) {
 	<div class="content list__excerpt post__content clearfix">
 		<p>こんにちは．
 今回は久しぶりにサーバーの話題です．</p>
-
 <p>自宅のサーバーにNextcloudを導入したので，それを紹介します．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -168,12 +167,9 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="新登場のpine64を購入">新登場のPINE64を購入</h2>
-
+		<h2 id="pine64">新登場のPINE64を購入</h2>
 <p>秋月電子の新商品で，「PINE64」というボードが登場しました．CPUのスペックはほぼラズパイ3と同等ですが，Ethernetが1000BASE-Tと高速なのです！！これは完全にサーバー向きですね！</p>
-
 <p>さらに，ラズパイ3の価格が$35なのに対して，PINE64は$19です．半額近いです．</p>
-
 <p>そのかわり，WiFiやBluetoothが技適の関係かわかりませんが今は載っていません．ただ，ブログなどのWebサーバー用途なら無線は使わないので特に問題ありません．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -209,11 +205,9 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <p>ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．</p>
-
-<p>この記事は，デモサイトを作るときのメモ．<br />
+<p>この記事は，デモサイトを作るときのメモ．<br>
 デモサイト紹介記事は<a href="/posts/2016-10-20-ir-station-demo/">こちら</a></p>
 	</div>
 	<div class="list__footer clearfix">
@@ -249,8 +243,7 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <p>家のIPアドレスは固定ではないのでDDNSで追いかける．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -286,10 +279,10 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="はじめに">はじめに</h2>
-
+		<h2 id="heading">はじめに</h2>
 <p>これらの作業はすべてSSHで行う．fingなどを使ってIPアドレスを調べる．</p>
-<div class="highlight"><pre class="chroma">$ ssh pi@192.168.11.13</pre></div>
+<pre><code>$ ssh pi@192.168.11.13
+</code></pre>
 	</div>
 	<div class="list__footer clearfix">
 		<a class="list__footer-readmore btn" href="/posts/2016-08-28-raspi-setup/">続きを読む</a>
@@ -324,12 +317,9 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
-<h3 id="メダカの水槽の照明">メダカの水槽の照明</h3>
-
+		<h2 id="heading">概要</h2>
+<h3 id="heading1">メダカの水槽の照明</h3>
 <p>以前、PICで作った<a href="/posts/2015-06-04-killifish-light/">メダカの水槽の照明</a>(←リンク)を紹介しましたが、今回はこれをバージョンアップしました。めだかの照明がどのようなものかは以前の記事を参考にしてください。</p>
-
 <figure >
 	
 		
@@ -341,20 +331,14 @@ if (!doNotTrack) {
 	
 </figure>
 
-
-<h3 id="格安wifiモジュール">格安WiFiモジュール</h3>
-
+<h3 id="wifi">格安WiFiモジュール</h3>
 <p>今注目のWiFiモジュールであるESP-WROOM-02を使ってWiFiに対応しました。これにより、スマートフォンなどからブラウザ経由で操作できます。</p>
-
 <p>このWiFiモジュールを使った赤外線学習リモコンの記事も書きましたので合わせてご覧ください。</p>
-
 <ul>
 <li><a href="/posts/2015-12-30-ir-station/">赤外線学習リモコン（日本語による紹介記事）</a></li>
 <li><a href="/posts/2016-03-11-ir-station-reference/">赤外線学習リモコン（英語によるリファレンス）</a></li>
 </ul>
-
-<p><a href="http://akizukidenshi.com/catalog/g/gM-09607/" target="_blank">ESP-WROOM-02 WiFiモジュール　秋月電子にて550円(2016/3/14現在)</a></p>
-
+<p><a href="http://akizukidenshi.com/catalog/g/gM-09607/">ESP-WROOM-02 WiFiモジュール　秋月電子にて550円(2016/3/14現在)</a></p>
 <figure >
 	
 		
@@ -399,8 +383,7 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <p>格安WiFiモジュールESP-WROOM-02を使って電流を計測してそれを受信し表示するアプリケーションを作りました。</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -436,14 +419,12 @@ if (!doNotTrack) {
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
-<p>NASがほしい！<br />
+		<h2 id="heading">概要</h2>
+<p>NASがほしい！<br>
 じゃあ作ろう。</p>
-
-<p>スペック<br />
-サーバ：Raspberrypi 2 Type B<br />
-HDD：Western Digital 2TB 3.5 inch<br />
+<p>スペック<br>
+サーバ：Raspberrypi 2 Type B<br>
+HDD：Western Digital 2TB 3.5 inch<br>
 転送速度：10MB/s（ラズパイのイーサーネットが100Baseなので仕方ない&hellip;）</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -479,10 +460,8 @@ HDD：Western Digital 2TB 3.5 inch<br />
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="概要">概要</h2>
-
+		<h2 id="heading">概要</h2>
 <h3 id="ufw">ufw</h3>
-
 <p>iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -519,9 +498,7 @@ HDD：Western Digital 2TB 3.5 inch<br />
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		<h2 id="ssh">SSH</h2>
-
-<h3 id="sshとは">SSHとは</h3>
-
+<h3 id="ssh1">SSHとは</h3>
 <p>　Secure Shell。暗号や認証の技術を利用して、安全にリモートコンピュータと通信するためのプロトコル。 パスワードなどの認証部分を含むすべてのネットワーク上の通信が暗号化される。</p>
 	</div>
 	<div class="list__footer clearfix">
@@ -557,13 +534,12 @@ HDD：Western Digital 2TB 3.5 inch<br />
 </div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<h2 id="ラズパイの用意">ラズパイの用意</h2>
-
+		<h2 id="heading">ラズパイの用意</h2>
 <ol>
-<li>ラズパイ用のOS「NOOBS」を<a href="http://raspberrypi.org/downloads/" target="_blank">raspberrypi.org</a>からDLして解凍する。<br /></li>
-<li>microSDカードをFAT32でフォーマットする。<br /></li>
-<li>解凍したファイルをSDカードにコピーする。<br /></li>
-<li>ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。<br /></li>
+<li>ラズパイ用のOS「NOOBS」を<a href="http://raspberrypi.org/downloads/">raspberrypi.org</a>からDLして解凍する。</li>
+<li>microSDカードをFAT32でフォーマットする。</li>
+<li>解凍したファイルをSDカードにコピーする。</li>
+<li>ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。</li>
 </ol>
 	</div>
 	<div class="list__footer clearfix">

@@ -66,6 +66,9 @@ pygmentsCodefencesGuessSyntax = true
     # bitbucket = "username"
     email = "kerikun11+web@gmail.com"
 
+[Social]
+    twitter = "kerikun11"
+
 [blackfriday]
     hrefTargetBlank = true
 

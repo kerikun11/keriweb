@@ -19,10 +19,8 @@
       <pubDate>Sat, 25 May 2019 13:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>/posts/2019-05-25-kicad-script/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;KiCad の基板エディタ Pcbnew では，デフォルトでPythonスクリプトエディタが付属していて，すでにフットプリントがオブジェクトとして定義されています．&lt;/p&gt;
-
 &lt;p&gt;今回は私がよく使う一括変更を紹介します．&lt;/p&gt;</description>
     </item>
     
