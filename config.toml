@@ -18,6 +18,10 @@ pygmentsUseClasses = true
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 
+# allow raw html in markdown
+[markup.goldmark.renderer]
+  unsafe = true
+
 [Author] # Used in authorbox
     name = "けり"
     bio = "趣味は電子工作．最近はマイクロマウス競技に参加しています．"
