@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ロボット技術研究会 on KERI&#39;s Lab</title>
-    <link>/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E6%8A%80%E8%A1%93%E7%A0%94%E7%A9%B6%E4%BC%9A/</link>
+    <link>https://kerikeri.top/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E6%8A%80%E8%A1%93%E7%A0%94%E7%A9%B6%E4%BC%9A/</link>
     <description>Recent content in ロボット技術研究会 on KERI&#39;s Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
@@ -10,15 +10,15 @@
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
     <lastBuildDate>Wed, 18 May 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E6%8A%80%E8%A1%93%E7%A0%94%E7%A9%B6%E4%BC%9A/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kerikeri.top/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88%E6%8A%80%E8%A1%93%E7%A0%94%E7%A9%B6%E4%BC%9A/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>回路講習会2015</title>
-      <link>/posts/2016-05-18-circuit-lecture/</link>
+      <link>https://kerikeri.top/posts/2016-05-18-circuit-lecture/</link>
       <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2016-05-18-circuit-lecture/</guid>
+      <guid>https://kerikeri.top/posts/2016-05-18-circuit-lecture/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;回路講習会&lt;/h2&gt;
 &lt;p&gt;東京工業大学ロボット技術研究会の平成27年度回路講習会の資料です．&lt;br&gt;
 講習会は90分の講義を4回行いました．&lt;br&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PlatformIO on KERI&#39;s Lab</title>
-    <link>/tags/platformio/</link>
+    <link>https://kerikeri.top/tags/platformio/</link>
     <description>Recent content in PlatformIO on KERI&#39;s Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
@@ -10,15 +10,15 @@
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
     <lastBuildDate>Sat, 22 Dec 2018 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="/tags/platformio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kerikeri.top/tags/platformio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PlatformIOでESP32の開発をしよう</title>
-      <link>/posts/2018-12-22-platformio/</link>
+      <link>https://kerikeri.top/posts/2018-12-22-platformio/</link>
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2018-12-22-platformio/</guid>
+      <guid>https://kerikeri.top/posts/2018-12-22-platformio/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/3279&#34;&gt;rogy Advent Calendar 2018&lt;/a&gt; の
 22日目の記事です．&lt;/p&gt;

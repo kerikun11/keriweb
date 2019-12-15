@@ -11,7 +11,7 @@
 <meta property="og:description" content="こんにちは．けりです．
 今回は，マイクロマウスに使っているフォトリフレクタのお話です．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-10-20-2range-reflector/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2017-10-20-2range-reflector/" />
 <meta property="article:published_time" content="2017-10-20T12:15:04+09:00" />
 <meta property="article:modified_time" content="2017-10-20T12:15:04+09:00" />
 
@@ -127,19 +127,19 @@ if (!doNotTrack) {
 今回は，マイクロマウスに使っているフォトリフレクタのお話です．</p>
 <h2 id="heading">フォトリフレクタの感度は悩みの種</h2>
 <p>僕自身，フォトリフレクタの感度にはかなり悩まされました．</p>
-<h3 id="heading1">探索で前壁を判定するにはある程度の輝度が必要</h3>
+<h3 id="heading-1">探索で前壁を判定するにはある程度の輝度が必要</h3>
 <p>マウスを小型化すると，壁からの距離が遠くなります．特に探索走行中の前壁は結構遠く，赤外線LEDを強めに光らせないと届きません．</p>
 <h3 id="led">LEDを強く光らせると問題が発生</h3>
 <p>光を強くすると，近くで飽和してしまったり，光が散乱して異なる方向からやってきたりします．</p>
 <p>また，LEDに大電流を流すと，電源に負担がかかり，様々な部分に影響を及ぼします．</p>
 <p>ハーフサイズのマウスではバッテリーの持ち時間にも大きな影響を与えるでしょう．</p>
-<h3 id="led1">LEDの明るさを変えるのは大変</h3>
+<h3 id="led-1">LEDの明るさを変えるのは大変</h3>
 <p>一般的な発光回路では，抵抗や定電流回路を使うので，明るさは固定になります．しかも，ハードウェアなので，パラメータチューニングは大変です．</p>
-<h2 id="heading2">今回考えること</h2>
-<h3 id="led2">ソフトウェアで赤外線LEDの明るさを調整する方法</h3>
+<h2 id="heading-2">今回考えること</h2>
+<h3 id="led-2">ソフトウェアで赤外線LEDの明るさを調整する方法</h3>
 <p>ハードウェアは固定でも，ソフトウェアでLEDの明るさを調整できれば，これらの問題を解決することができます．</p>
-<h2 id="heading3">ソリューション</h2>
-<h3 id="heading4">森永式発光回路を使う</h3>
+<h2 id="heading-3">ソリューション</h2>
+<h3 id="heading-4">森永式発光回路を使う</h3>
 <p>まずはこちらの回路図をご覧ください．</p>
 <figure >
 	
@@ -155,9 +155,9 @@ if (!doNotTrack) {
 <p>こちらは森永式と呼ばれる発光回路で，電源Vから直接LEDを光らせるのではく，少し大きめのコンデンサに充電して，その電気でLEDを発光させるというものです．</p>
 <p>FETがオフのとき，LEDは消灯しコンデンサが充電されます．</p>
 <p>FETがオンになると，コンデンサからLEDに一気に電流が流れ，一瞬だけLEDが明るく光ります．</p>
-<h3 id="heading5">ソフトウェアでの調光</h3>
+<h3 id="heading-5">ソフトウェアでの調光</h3>
 <p>森永式発光方法では，充電時間によりLEDの明るさが決まります．充電時間はソフトウェアで設定できるので，調光可能というわけです．</p>
-<h2 id="heading6">サンプルコード</h2>
+<h2 id="heading-6">サンプルコード</h2>
 <p>こんな感じで充電時間を引数に取る関数で計測すればできます．</p>
 <p>delayの部分は適宜タイマー割り込みなどを使用するとよいでしょう．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/** フォトリフレクタのサンプリング関数. 
@@ -171,7 +171,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>	<span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">;</span>	<span class="c1">//&lt; 波形がピークになるまで待つ
 </span><span class="c1"></span>	<span class="k">return</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">rx_pins</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; ADC結果を返す
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><h2 id="heading7">まとめ</h2>
+</code></pre></div><h2 id="heading-7">まとめ</h2>
 <p>この発光方法を考えた森永さんはすごいですね．</p>
 <p>僕は2つのレンジを用意して，壁検出用と壁制御用に使い分けています．</p>
 		</div>
@@ -236,7 +236,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -253,7 +253,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -302,24 +302,24 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#heading">フォトリフレクタの感度は悩みの種</a>
       <ul>
-        <li><a href="#heading1">探索で前壁を判定するにはある程度の輝度が必要</a></li>
+        <li><a href="#heading-1">探索で前壁を判定するにはある程度の輝度が必要</a></li>
         <li><a href="#led">LEDを強く光らせると問題が発生</a></li>
-        <li><a href="#led1">LEDの明るさを変えるのは大変</a></li>
+        <li><a href="#led-1">LEDの明るさを変えるのは大変</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">今回考えること</a>
+    <li><a href="#heading-2">今回考えること</a>
       <ul>
-        <li><a href="#led2">ソフトウェアで赤外線LEDの明るさを調整する方法</a></li>
+        <li><a href="#led-2">ソフトウェアで赤外線LEDの明るさを調整する方法</a></li>
       </ul>
     </li>
-    <li><a href="#heading3">ソリューション</a>
+    <li><a href="#heading-3">ソリューション</a>
       <ul>
-        <li><a href="#heading4">森永式発光回路を使う</a></li>
-        <li><a href="#heading5">ソフトウェアでの調光</a></li>
+        <li><a href="#heading-4">森永式発光回路を使う</a></li>
+        <li><a href="#heading-5">ソフトウェアでの調光</a></li>
       </ul>
     </li>
-    <li><a href="#heading6">サンプルコード</a></li>
-    <li><a href="#heading7">まとめ</a></li>
+    <li><a href="#heading-6">サンプルコード</a></li>
+    <li><a href="#heading-7">まとめ</a></li>
   </ul>
 </nav>
 	</div>

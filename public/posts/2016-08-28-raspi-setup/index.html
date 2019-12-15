@@ -13,7 +13,7 @@
 $ ssh pi@192.168.11.13
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-08-28-raspi-setup/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-08-28-raspi-setup/" />
 <meta property="article:published_time" content="2016-08-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-08-28T00:00:00+00:00" />
 
@@ -131,7 +131,7 @@ if (!doNotTrack) {
 <p>これらの作業はすべてSSHで行う．fingなどを使ってIPアドレスを調べる．</p>
 <pre><code>$ ssh pi@192.168.11.13
 </code></pre>
-<h2 id="heading1">更新</h2>
+<h2 id="heading-1">更新</h2>
 <pre><code>$ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -155,21 +155,21 @@ $ sudo raspi-config
 </ul>
 </li>
 </ul>
-<h2 id="heading2">必要なパッケージのインストール</h2>
+<h2 id="heading-2">必要なパッケージのインストール</h2>
 <pre><code>$ sudo apt-get install -y vim tmux zsh git
 </code></pre>
-<h2 id="heading3">ルートパスワードの変更</h2>
+<h2 id="heading-3">ルートパスワードの変更</h2>
 <pre><code>$ sudo passwd root
 </code></pre>
 <h2 id="ip">IPアドレスの固定化</h2>
-<h3 id="ip1">静的IPの設定</h3>
+<h3 id="ip-1">静的IPの設定</h3>
 <p>あらかじめルーターの管理画面で，192.168.11.2をDHCPの割り当て範囲から外しておく．</p>
 <pre><code>$ sudo vim /etc/network/interfaces
 </code></pre>
-<pre><code class="language-kconfig" data-lang="kconfig"># interfaces(5) file used by ifup(8) and ifdown(8)
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># interfaces(5) file used by ifup(8) and ifdown(8)
 
 # Please note that this file is written to be used with dhcpcd
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+# For static IP, consult /etc/dhcpcd.conf and &#39;man dhcpcd.conf&#39;
 
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
@@ -193,46 +193,46 @@ iface wlan0 inet manual
 allow-hotplug wlan1
 iface wlan1 inet manual
 	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre><h3 id="heading4">再起動</h3>
+</code></pre></div><h3 id="heading-4">再起動</h3>
 <pre><code>$ sudo reboot
 </code></pre>
-<h2 id="heading5">使用ユーザーの作成</h2>
-<h3 id="heading6">ユーザーを新規作成</h3>
+<h2 id="heading-5">使用ユーザーの作成</h2>
+<h3 id="heading-6">ユーザーを新規作成</h3>
 <pre><code>$ sudo adduser hoge
 $ sudo gpasswd -a hoge sudo
 </code></pre>
-<h3 id="heading7">ホームディレクトリがなければ作る</h3>
+<h3 id="heading-7">ホームディレクトリがなければ作る</h3>
 <pre><code>$ sudo ls -l /home
 $ sudo mkdir /home/hoge
 $ sudo chown hoge /home/hoge
 $ sudo chgrp hoge /home/hoge
 </code></pre>
-<h3 id="heading8">デフォルトシェルの変更</h3>
+<h3 id="heading-8">デフォルトシェルの変更</h3>
 <pre><code>$ sudo vim /etc/passwd
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">- hoge:x:1001:1001:,,,:/home/hoge:/bin/bash
 </span><span class="gd"></span><span class="gi">+ hoge:x:1001:1001:,,,:/home/hoge:/bin/zsh
-</span></code></pre></div><h3 id="heading9">ログイン</h3>
+</span></code></pre></div><h3 id="heading-9">ログイン</h3>
 <pre><code>$ su hoge
 </code></pre>
 <h2 id="pi">ユーザーpiの削除</h2>
 <pre><code>$ sudo userdel -r pi
 </code></pre>
-<h2 id="heading10">公開鍵認証</h2>
-<h3 id="heading11">クライアント上</h3>
-<h4 id="heading12">必要があれば鍵の作成</h4>
+<h2 id="heading-10">公開鍵認証</h2>
+<h3 id="heading-11">クライアント上</h3>
+<h4 id="heading-12">必要があれば鍵の作成</h4>
 <pre><code>$ cd .ssh
 $ ssh-keygen -t ecdsa -C &quot;foo&quot;
 </code></pre>
-<h4 id="heading13">公開鍵の送信</h4>
+<h4 id="heading-13">公開鍵の送信</h4>
 <pre><code>$ scp ~/.ssh/id_ecdsa.pub hoge@192.168.11.2:
 </code></pre>
-<h3 id="heading14">ホスト上</h3>
-<h4 id="heading15">受け取った公開鍵の登録</h4>
+<h3 id="heading-14">ホスト上</h3>
+<h4 id="heading-15">受け取った公開鍵の登録</h4>
 <pre><code>$ mkdir ~/.ssh
 $ cat ~/id_ecdsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </code></pre>
-<h3 id="heading16">接続方法</h3>
+<h3 id="heading-16">接続方法</h3>
 <pre><code>$ ssh hoge@192.168.11.2 -p 22 -i ~/.ssh/id_ecdsa
 </code></pre>
 <h2 id="ssh">SSHポートの変更，パスワード認証の禁止</h2>
@@ -306,7 +306,7 @@ $ cat ~/id_ecdsa.pub &gt;&gt; ~/.ssh/authorized_keys
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -323,7 +323,7 @@ $ cat ~/id_ecdsa.pub &gt;&gt; ~/.ssh/authorized_keys
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -371,29 +371,29 @@ $ cat ~/id_ecdsa.pub &gt;&gt; ~/.ssh/authorized_keys
     	<nav id="TableOfContents">
   <ul>
     <li><a href="#heading">はじめに</a></li>
-    <li><a href="#heading1">更新</a></li>
-    <li><a href="#heading2">必要なパッケージのインストール</a></li>
-    <li><a href="#heading3">ルートパスワードの変更</a></li>
+    <li><a href="#heading-1">更新</a></li>
+    <li><a href="#heading-2">必要なパッケージのインストール</a></li>
+    <li><a href="#heading-3">ルートパスワードの変更</a></li>
     <li><a href="#ip">IPアドレスの固定化</a>
       <ul>
-        <li><a href="#ip1">静的IPの設定</a></li>
-        <li><a href="#heading4">再起動</a></li>
+        <li><a href="#ip-1">静的IPの設定</a></li>
+        <li><a href="#heading-4">再起動</a></li>
       </ul>
     </li>
-    <li><a href="#heading5">使用ユーザーの作成</a>
+    <li><a href="#heading-5">使用ユーザーの作成</a>
       <ul>
-        <li><a href="#heading6">ユーザーを新規作成</a></li>
-        <li><a href="#heading7">ホームディレクトリがなければ作る</a></li>
-        <li><a href="#heading8">デフォルトシェルの変更</a></li>
-        <li><a href="#heading9">ログイン</a></li>
+        <li><a href="#heading-6">ユーザーを新規作成</a></li>
+        <li><a href="#heading-7">ホームディレクトリがなければ作る</a></li>
+        <li><a href="#heading-8">デフォルトシェルの変更</a></li>
+        <li><a href="#heading-9">ログイン</a></li>
       </ul>
     </li>
     <li><a href="#pi">ユーザーpiの削除</a></li>
-    <li><a href="#heading10">公開鍵認証</a>
+    <li><a href="#heading-10">公開鍵認証</a>
       <ul>
-        <li><a href="#heading11">クライアント上</a></li>
-        <li><a href="#heading14">ホスト上</a></li>
-        <li><a href="#heading16">接続方法</a></li>
+        <li><a href="#heading-11">クライアント上</a></li>
+        <li><a href="#heading-14">ホスト上</a></li>
+        <li><a href="#heading-16">接続方法</a></li>
       </ul>
     </li>
     <li><a href="#ssh">SSHポートの変更，パスワード認証の禁止</a></li>

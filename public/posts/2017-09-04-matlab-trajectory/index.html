@@ -11,7 +11,7 @@
 <meta property="og:description" content="概要
 前回の記事ではマイクロマウスのターンの紹介をしました．今回は，そのカーブの軌道の生成方法を紹介したいと思います．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-09-04-matlab-trajectory/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2017-09-04-matlab-trajectory/" />
 <meta property="article:published_time" content="2017-09-04T14:55:01+09:00" />
 <meta property="article:modified_time" content="2017-09-04T14:55:01+09:00" />
 
@@ -125,8 +125,8 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<h2 id="heading">概要</h2>
 <p><a href="/posts/2017-09-03-pattern-of-turn/">前回</a>の記事ではマイクロマウスのターンの紹介をしました．今回は，そのカーブの軌道の生成方法を紹介したいと思います．</p>
-<h2 id="heading1">生成される軌道</h2>
-<h3 id="heading2">角速度はサインカーブで変化</h3>
+<h2 id="heading-1">生成される軌道</h2>
+<h3 id="heading-2">角速度はサインカーブで変化</h3>
 <p>台形加速でも十分ですが，よりよいカーブを求めてサイン加速に挑戦しました．</p>
 <p>台形加速の1次関数は，傾きが変化したときに加速度がステップ状に変化します．しかし，三角関数ならば無限回微分可能なので，ステップ変化は一切ありません．</p>
 <figure >
@@ -140,7 +140,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading3">カーブ前後の直線</h3>
+<h3 id="heading-3">カーブ前後の直線</h3>
 <p>僕が採用しているパターンの区切りは区画の中央または，壁の中央です．パターンによっては前後対称になっておらず，カーブだけで軌道を埋めることができないので，前後に調整用の直線を入れています．</p>
 <p>また，柱にぶつからないように，前後の直線でカーブの位置を調整しています．</p>
 <p>下の図では青線がパターンの区切りからカーブ開始位置までの直線，赤線がカーブ，黄線がカーブ終了位置からパターンの区切りまでの直線です．</p>
@@ -484,7 +484,7 @@ if (!doNotTrack) {
 <span class="nb">length</span>
 <span class="n">velocity</span>
 <span class="n">extra_straight</span>
-</code></pre></div><h2 id="heading4">まとめ</h2>
+</code></pre></div><h2 id="heading-4">まとめ</h2>
 <p>マウスの制御方法は人によってかなり違うので，この方法が役に立つかわかりませんが，参考にどうぞ．</p>
 <p>もっといい方法を知っている方がいましたら，是非教えてくださいね！</p>
 		</div>
@@ -549,7 +549,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -566,7 +566,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -614,10 +614,10 @@ if (!doNotTrack) {
     	<nav id="TableOfContents">
   <ul>
     <li><a href="#heading">概要</a></li>
-    <li><a href="#heading1">生成される軌道</a>
+    <li><a href="#heading-1">生成される軌道</a>
       <ul>
-        <li><a href="#heading2">角速度はサインカーブで変化</a></li>
-        <li><a href="#heading3">カーブ前後の直線</a></li>
+        <li><a href="#heading-2">角速度はサインカーブで変化</a></li>
+        <li><a href="#heading-3">カーブ前後の直線</a></li>
         <li><a href="#0-90">#0 探索90°</a></li>
         <li><a href="#1-45">#1 最短45°</a></li>
         <li><a href="#2-90">#2 最短90°</a></li>
@@ -632,7 +632,7 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#matlab">MATLABコード</a></li>
-    <li><a href="#heading4">まとめ</a></li>
+    <li><a href="#heading-4">まとめ</a></li>
   </ul>
 </nav>
 	</div>

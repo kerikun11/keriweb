@@ -35,7 +35,7 @@
 
 　この本の中で設計しているCPUを実際に作りました。TD4とはTada Dousa-suru-dakei-no 4-bit CPU という意味です。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2015-11-04-create-cpu/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2015-11-04-create-cpu/" />
 <meta property="article:published_time" content="2015-11-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-11-04T00:00:00+00:00" />
 
@@ -217,9 +217,9 @@ if (!doNotTrack) {
 <h2 id="heading">入出力</h2>
 <p>　入力は4bitで、写真中央最下部の４つのスライドスイッチです。これらのHigh/Lowをレジスタに取り込むことができます。<br>
 　出力も4bitで、それぞれに黄色のLEDがつながっています。</p>
-<h2 id="heading1">動作</h2>
+<h2 id="heading-1">動作</h2>
 <p>　TD4にプログラミングするには、まずはアセンブリ言語を書きます。それをハンドアセンブル（アセンブリ言語を、２進法に変えること）をして、TD4のDIPスイッチにプログラムを書き込みます。</p>
-<h3 id="heading2">アセンブリ言語命令一覧</h3>
+<h3 id="heading-2">アセンブリ言語命令一覧</h3>
 <p>　プログラムメモリは8bitで1かたまりです。8bitのうち、左4bitがオペレーションコード、右4bitがデータになっています。</p>
 <figure >
 	
@@ -232,7 +232,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading3">動作周波数</h3>
+<h3 id="heading-3">動作周波数</h3>
 <p>　本の中ではハンドクロック（ボタンを押すたびにクロックが進む）と1HzのRCクロックが用意されていました。これに加えて、可変抵抗による可変クロックをつけました。<br>
 　クロックの最速は、344Hzでした。オシロスコープでクロックを見てみるっと、波が少し汚いです。これはRC発振を標準ロジックICのシュミットトリガで行ってるためだと思われます。</p>
 <figure >
@@ -247,7 +247,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>　そこで、クロックのソースをファンクション・ジェネレータに変えてみました。すると、約1MHzくらいまで動作しました。しかし、クロックが動くのが確認できても、プログラムを正常に実行しているのかは早すぎてわかりませんでした。</p>
-<h2 id="heading4">まとめ</h2>
+<h2 id="heading-4">まとめ</h2>
 <p>　この本を読むと、CPUの構造が本当によくわかります。実在するCPUもこれの拡張にすぎません。 マイコンなどを使う時も内部の構造を知っていて使うのと知らずに使うのでは、生産性がかなり違うと思います。ブラックボックスと思い込んでしまうのはだめです。<br>
 　TD4を作るとハンダ付けの技術が上がります。本を読むだけでなく、実際に作ってみましょう。作り終わったら、<strong>楽しい楽しいデバック作業</strong>が待ってますよ(^^)</p>
 <figure >
@@ -312,7 +312,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -329,7 +329,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -388,13 +388,13 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#heading">入出力</a></li>
-    <li><a href="#heading1">動作</a>
+    <li><a href="#heading-1">動作</a>
       <ul>
-        <li><a href="#heading2">アセンブリ言語命令一覧</a></li>
-        <li><a href="#heading3">動作周波数</a></li>
+        <li><a href="#heading-2">アセンブリ言語命令一覧</a></li>
+        <li><a href="#heading-3">動作周波数</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">まとめ</a></li>
+    <li><a href="#heading-4">まとめ</a></li>
   </ul>
 </nav>
 	</div>

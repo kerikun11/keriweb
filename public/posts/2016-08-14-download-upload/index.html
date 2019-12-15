@@ -14,7 +14,7 @@
 IR-Stationの新機能
 夏休みになり，IR-Stationを本格的に開発しています．今回は，いくつかの新機能を紹介します．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-08-14-download-upload/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-08-14-download-upload/" />
 <meta property="article:published_time" content="2016-08-14T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-08-14T00:00:00+00:00" />
 
@@ -129,12 +129,12 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="irstation">IR-Stationとは</h2>
+			<h2 id="ir-station">IR-Stationとは</h2>
 <p>自作のWiFi接続の赤外線学習リモコンです．IR-Stationを使えば，スマホやPCから家電製品をコントロールすることができます．</p>
 <p>詳しくは，<a href="/tags/ir-station">IR-Stationについての記事一覧</a>をご覧ください．</p>
-<h2 id="irstation1">IR-Stationの新機能</h2>
+<h2 id="ir-station-1">IR-Stationの新機能</h2>
 <p>夏休みになり，IR-Stationを本格的に開発しています．今回は，いくつかの新機能を紹介します．</p>
-<h3 id="irstation2">IR-Stationの操作画面</h3>
+<h3 id="ir-station-2">IR-Stationの操作画面</h3>
 <p>画面下方の設定やInfoの配置が少し変わり，見やすくなりました．</p>
 <figure >
 	
@@ -169,7 +169,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading1">赤外線データファイルのダウンロード機能</h3>
+<h3 id="heading-1">赤外線データファイルのダウンロード機能</h3>
 <p>赤外線信号を選んで<code>Submit</code>ボタンを押せばダウンロードできます．ダウンロードされるのはJSONファイルです．</p>
 <figure >
 	
@@ -182,7 +182,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading2">赤外線データファイルのアップロード機能</h3>
+<h3 id="heading-2">赤外線データファイルのアップロード機能</h3>
 <p>信号を割り当てたいチャンネルを選び，上でダウンロードした赤外線データファイルを選択します．任意で名前を入力して，<code>Submit</code>ボタンを押すと，赤外線が登録されます．</p>
 <figure >
 	
@@ -197,22 +197,22 @@ if (!doNotTrack) {
 
 <h2 id="json">赤外線データファイルはJSONファイル</h2>
 <p>赤外線データファイルはJSON形式に従っており，以下のフォーマットになっています．</p>
-<h3 id="json1">JSONフォーマット</h3>
+<h3 id="json-1">JSONフォーマット</h3>
 <p>赤外線データは，単位がマイクロ秒の生データです．</p>
 <p>0,2,4,6,&hellip;番目の数値が，38kHzの赤外線が存在する(High状態の)マイクロ秒時間<br>
 1,3,5,7,&hellip;番目の数値が，赤外線が存在しない(Low状態の)マイクロ秒時間</p>
 <p>です．</p>
-<pre><code>[
-	&quot;赤外線のHigh,Lowをマイクロ秒で表したuint16_tのリスト&quot;
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[
+	&#34;赤外線のHigh,Lowをマイクロ秒で表したuint16_tのリスト&#34;
 ]
-</code></pre><h3 id="json2">JSONファイルの例</h3>
+</code></pre></div><h3 id="json-2">JSONファイルの例</h3>
 <p>これに従った形式なら，自分で作ったファイルでもアップロード可能です．</p>
-<pre><code>[
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[
 	3300,1786,363,1305,390,473,364,476,317,548,289,577,288,501,364,474,390,475,290,550,289,1403,290,551,314,1377,290,552,313,502,362,1379,289,1378,289,1378,314,1377,389,1304,364,476,312,552,290,553,312,474,391,1305,362,501,364,474,361,504,289,553,312,477,363,500,364,476,287,578,289,1377,314,551,290,502,363,476,388,474,391,451,313,551,313,553,288,500,363,1304,385,1362,310,475,389,475,364,477,313,552,288,1380,317,50215,3305,3489,314
 ]
-</code></pre><h3 id="heading3">注意</h3>
+</code></pre></div><h3 id="heading-3">注意</h3>
 <p>JSONデータのフォーマットは，今後のアップデートで変更される可能性があります．最新情報は，<a href="http://github.com/kerikun11/IR-station.git">Githab/kerikun11/IR-Station</a>にあるのでそちらをご覧下さい．</p>
-<h2 id="heading4">まとめ</h2>
+<h2 id="heading-4">まとめ</h2>
 <p>IR-Stationは，日々進化しています．今後のアップデートにもご期待を！</p>
 		</div>
 		<footer class="post__footer">
@@ -278,7 +278,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -295,7 +295,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -342,23 +342,23 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#irstation">IR-Stationとは</a></li>
-    <li><a href="#irstation1">IR-Stationの新機能</a>
+    <li><a href="#ir-station">IR-Stationとは</a></li>
+    <li><a href="#ir-station-1">IR-Stationの新機能</a>
       <ul>
-        <li><a href="#irstation2">IR-Stationの操作画面</a></li>
+        <li><a href="#ir-station-2">IR-Stationの操作画面</a></li>
         <li><a href="#heading">設定画面</a></li>
-        <li><a href="#heading1">赤外線データファイルのダウンロード機能</a></li>
-        <li><a href="#heading2">赤外線データファイルのアップロード機能</a></li>
+        <li><a href="#heading-1">赤外線データファイルのダウンロード機能</a></li>
+        <li><a href="#heading-2">赤外線データファイルのアップロード機能</a></li>
       </ul>
     </li>
     <li><a href="#json">赤外線データファイルはJSONファイル</a>
       <ul>
-        <li><a href="#json1">JSONフォーマット</a></li>
-        <li><a href="#json2">JSONファイルの例</a></li>
-        <li><a href="#heading3">注意</a></li>
+        <li><a href="#json-1">JSONフォーマット</a></li>
+        <li><a href="#json-2">JSONファイルの例</a></li>
+        <li><a href="#heading-3">注意</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">まとめ</a></li>
+    <li><a href="#heading-4">まとめ</a></li>
   </ul>
 </nav>
 	</div>

@@ -10,7 +10,7 @@
 	<meta property="og:title" content="ESP32 の Power Management 機能" />
 <meta property="og:description" content="この記事では，ESP32をバッテリー駆動するためのヒントをお届けします．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2018-06-28-esp32-power-management/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2018-06-28-esp32-power-management/" />
 <meta property="article:published_time" content="2018-06-28T08:50:59+09:00" />
 <meta property="article:modified_time" content="2018-06-28T08:50:59+09:00" />
 
@@ -129,7 +129,7 @@ UART, I2C, SPIなどのピンを好きなGPIOピンに割り当てることが�
 <p>また，公式のSDKにFreeRTOSというRTOSが組み込まれていて，
 容易にマルチタスクのアプリケーションを動作させることができます．</p>
 <p>ESP32についての記事一覧は<a href="/tags/esp32">こちら</a></p>
-<h3 id="heading1">電流消費ハンパないって！！</h3>
+<h3 id="heading-1">電流消費ハンパないって！！</h3>
 <p>そんなESP32は，省エネ仕様を謳っています．</p>
 <p>バッテリー駆動も普通にできるのかと思いきや，
 スリープなどを考えずに使用すると，
@@ -138,7 +138,7 @@ WiFiと同時に起動すると100mAを超えるほどになります．</p>
 <p>これでは，どんなに大きなバッテリーを用意しても数日しか持ちません．</p>
 <p>そこで今回は，ESP32をバッテリー駆動させるため，Power Management 機能について紹介します．</p>
 <h2 id="power-management">Power Management</h2>
-<h3 id="heading2">概要</h3>
+<h3 id="heading-2">概要</h3>
 <p>ESP32 の Power Management は，ESP32公式でサポートされている機能です．</p>
 <p>以下の3つを制御して，省エネを図ります．</p>
 <ul>
@@ -151,11 +151,11 @@ WiFiと同時に起動すると100mAを超えるほどになります．</p>
 </span><span class="c1"></span>  <span class="c1">// 1000 [ms]
 </span><span class="c1"></span>  <span class="n">vTaskDelay</span><span class="p">(</span><span class="mi">1000</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span>
 </code></pre></div><p>などを実行すると，その間はCPUのクロックを止めてくれるというものです．</p>
-<h3 id="heading3">参考</h3>
+<h3 id="heading-3">参考</h3>
 <ul>
 <li>ESP-IDF Programming Guide - <a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html">Power Management</a></li>
 </ul>
-<h3 id="-espidf">動作環境は ESP-IDF</h3>
+<h3 id="-esp-idf">動作環境は ESP-IDF</h3>
 <p>PowerManagementのLight-Sleepを使用するためには，
 <code>make menuconfig</code> を編集する必要があるので，
 ESP-IDF環境で実行する必要があります．</p>
@@ -170,9 +170,9 @@ ESP-IDF環境で実行する必要があります．</p>
 <p>にチェックを入れます．</p>
 <p>これで，FreeRTOSのdelay中にクロックを止めることができます．(FreeRTOSにそういう機能がちゃんとある)</p>
 <p>Light-Sleepを使用しない場合，Arduino環境でも一応動作するようですが，240MHzが40MHzに落ちるだけなので，あまり効果がないかもしれません．</p>
-<h3 id="heading4">インクルードファイル</h3>
+<h3 id="heading-4">インクルードファイル</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
-</span></code></pre></div><h3 id="heading5">初期化</h3>
+</span></code></pre></div><h3 id="heading-5">初期化</h3>
 <p>以下のコードを実行すると，PowerManagement機能がスタートします．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
@@ -183,7 +183,7 @@ ESP-IDF環境で実行する必要があります．</p>
 	<span class="n">esp_pm_config_esp32</span><span class="p">.</span><span class="n">light_sleep_enable</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 	<span class="n">esp_pm_configure</span><span class="p">(</span><span class="o">&amp;</span><span class="n">esp_pm_config_esp32</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="heading6">省エネ動作</h3>
+</code></pre></div><h3 id="heading-6">省エネ動作</h3>
 <p>例えば，以下のような関数を呼べば，その間スリープとなります．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
 </span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
@@ -191,7 +191,7 @@ ESP-IDF環境で実行する必要があります．</p>
 <span class="kt">void</span> <span class="nf">sleep_ms</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">ms</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">ms</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="heading7">スリープの禁止</h3>
+</code></pre></div><h3 id="heading-7">スリープの禁止</h3>
 <p>シリアル通信をするときや，何かを駆動するときなど，
 delayはするけどCPUのクロックを変えたくない場合があります．</p>
 <p>そんなときは，<a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html#power-management-locks">Power Management Locks</a>を使います．</p>
@@ -264,7 +264,7 @@ delayはするけどCPUのクロックを変えたくない場合があります
     <span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle</span><span class="p">;</span>
   <span class="p">}</span><span class="p">;</span>
 <span class="p">}</span><span class="p">;</span>
-</code></pre></div><h3 id="heading8">実行例</h3>
+</code></pre></div><h3 id="heading-8">実行例</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp_log.h&#34;</span><span class="cp">
 </span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
 </span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
@@ -297,7 +297,7 @@ delayはするけどCPUのクロックを変えたくない場合があります
 </span><span class="c1"></span>
   <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">portMAX_DELAY</span><span class="p">)</span><span class="p">;</span>  <span class="c1">//&lt; eternal sleep
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div><h2 id="heading9">サンプルプロジェクト</h2>
+</code></pre></div><h2 id="heading-9">サンプルプロジェクト</h2>
 <ul>
 <li><a href="PowerManagement.zip">PowerManagement.zip</a></li>
 </ul>
@@ -308,8 +308,8 @@ delayはするけどCPUのクロックを変えたくない場合があります
   <span class="nb">cd</span> PowerManagement
   make menuconfig <span class="c1"># シリアルポートの設定</span>
   make flash monitor
-</code></pre></div><h2 id="heading10">注意</h2>
-<h3 id="lightsleep">Light-Sleepの注意</h3>
+</code></pre></div><h2 id="heading-10">注意</h2>
+<h3 id="light-sleep">Light-Sleepの注意</h3>
 <p>Light-Sleepの間は，普通のGPIOはオープン状態になります．</p>
 <p>例えば，LEDを繋いでいた場合は，消えてしまいます．</p>
 <p>代わりに，RTC_GPIOを使うことで，Light-Sleep中もキープさせることができます．</p>
@@ -330,11 +330,11 @@ delayはするけどCPUのクロックを変えたくない場合があります
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><p>詳しくは，<a href="http://esp-idf.readthedocs.io/en/latest/api-reference/peripherals/gpio.html#api-reference-rtc-gpio">公式リファレンス - GPIO</a>
 をご覧ください．</p>
-<h2 id="heading11">まとめ</h2>
+<h2 id="heading-11">まとめ</h2>
 <p>今回の内容でESP32のバッテリー駆動への足掛かりになりました．</p>
 <p>さらに，Modem-Sleepという，Wi-Fiの省エネを図るスリープもあるので，後日紹介したいと思います．</p>
 <p>では，みなさんも良きESP32ライフを！</p>
-<h2 id="heading12">参考</h2>
+<h2 id="heading-12">参考</h2>
 <ul>
 <li><a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/power_management.html">Power Management</a></li>
 <li><a href="http://esp-idf.readthedocs.io/en/latest/api-reference/system/sleep_modes.html">Sleep Modes</a></li>
@@ -401,7 +401,7 @@ delayはするけどCPUのクロックを変えたくない場合があります
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -418,7 +418,7 @@ delayはするけどCPUのクロックを変えたくない場合があります
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -468,39 +468,39 @@ delayはするけどCPUのクロックを変えたくない場合があります
     <li><a href="#heading">はじめに</a>
       <ul>
         <li><a href="#esp32">ESP32とは？</a></li>
-        <li><a href="#heading1">電流消費ハンパないって！！</a></li>
+        <li><a href="#heading-1">電流消費ハンパないって！！</a></li>
       </ul>
     </li>
     <li><a href="#power-management">Power Management</a>
       <ul>
-        <li><a href="#heading2">概要</a></li>
-        <li><a href="#heading3">参考</a></li>
-        <li><a href="#-espidf">動作環境は ESP-IDF</a></li>
+        <li><a href="#heading-2">概要</a></li>
+        <li><a href="#heading-3">参考</a></li>
+        <li><a href="#-esp-idf">動作環境は ESP-IDF</a></li>
       </ul>
     </li>
     <li><a href="#power-management-">Power Management 機能の使い方</a>
       <ul>
         <li><a href="#make-menuconfig">make menuconfigの設定</a></li>
-        <li><a href="#heading4">インクルードファイル</a></li>
-        <li><a href="#heading5">初期化</a></li>
-        <li><a href="#heading6">省エネ動作</a></li>
-        <li><a href="#heading7">スリープの禁止</a></li>
+        <li><a href="#heading-4">インクルードファイル</a></li>
+        <li><a href="#heading-5">初期化</a></li>
+        <li><a href="#heading-6">省エネ動作</a></li>
+        <li><a href="#heading-7">スリープの禁止</a></li>
       </ul>
     </li>
     <li><a href="#c-">C++ ラッパ</a>
       <ul>
         <li><a href="#powermanagement-">PowerManagement クラス</a></li>
-        <li><a href="#heading8">実行例</a></li>
+        <li><a href="#heading-8">実行例</a></li>
       </ul>
     </li>
-    <li><a href="#heading9">サンプルプロジェクト</a></li>
-    <li><a href="#heading10">注意</a>
+    <li><a href="#heading-9">サンプルプロジェクト</a></li>
+    <li><a href="#heading-10">注意</a>
       <ul>
-        <li><a href="#lightsleep">Light-Sleepの注意</a></li>
+        <li><a href="#light-sleep">Light-Sleepの注意</a></li>
       </ul>
     </li>
-    <li><a href="#heading11">まとめ</a></li>
-    <li><a href="#heading12">参考</a></li>
+    <li><a href="#heading-11">まとめ</a></li>
+    <li><a href="#heading-12">参考</a></li>
   </ul>
 </nav>
 	</div>

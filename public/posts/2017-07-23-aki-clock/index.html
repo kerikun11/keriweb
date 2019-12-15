@@ -13,7 +13,7 @@
 数字が大きく，遠くからでもよく見えるので自宅の玄関で地味に役立っていました．
 しかし，水晶の精度がいまいちでよくズレるので，7セグの表示部だけを残してESP32によるNTP時計にアップデートしました．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-07-23-aki-clock/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2017-07-23-aki-clock/" />
 <meta property="article:published_time" content="2017-07-23T00:00:00+00:00" />
 <meta property="article:modified_time" content="2017-07-23T00:00:00+00:00" />
 
@@ -142,7 +142,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading1">作った基板</h2>
+<h2 id="heading-1">作った基板</h2>
 <p>今回は久々にユニバーサル基板で製作しました．最近はプリント基板ばかり使っていたので，部品の配置の吟味に苦労しました．ユニバーサル基板で作るときも基板CADで設計してから作った方がキレイにできそうです．</p>
 <p>上が秋月のキットの基板，下が今回作ったESP32-NTP時計基板<br>
 <figure >
@@ -156,7 +156,7 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="heading2">ソースコード</h2>
+<h2 id="heading-2">ソースコード</h2>
 <p><a href="https://github.com/espressif/arduino-esp32">Arduino core for the ESP32</a> 環境で動作するコードです．</p>
 <p><a href="aki-clock.zip">ここ</a>からダウンロードできます．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
@@ -395,7 +395,7 @@ if (!doNotTrack) {
 	<span class="n">dynamic_counter</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
 <span class="p">}</span>
 
-</code></pre></div><h2 id="heading3">これからもよろしく</h2>
+</code></pre></div><h2 id="heading-3">これからもよろしく</h2>
 <p>1日に1回，NTPサーバーから時刻を取得するようにしたので，ほとんど時間がズレることはないでしょう．地味に役に立っていた玄関の時計，これからも安定動作でよろしくお願いします．</p>
 <figure >
 	
@@ -472,7 +472,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -489,7 +489,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -537,9 +537,9 @@ if (!doNotTrack) {
     	<nav id="TableOfContents">
   <ul>
     <li><a href="#heading">家の玄関で地味に役に立っていた時計</a></li>
-    <li><a href="#heading1">作った基板</a></li>
-    <li><a href="#heading2">ソースコード</a></li>
-    <li><a href="#heading3">これからもよろしく</a></li>
+    <li><a href="#heading-1">作った基板</a></li>
+    <li><a href="#heading-2">ソースコード</a></li>
+    <li><a href="#heading-3">これからもよろしく</a></li>
   </ul>
 </nav>
 	</div>

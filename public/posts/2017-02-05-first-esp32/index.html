@@ -22,7 +22,7 @@
 	
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-02-05-first-esp32/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2017-02-05-first-esp32/" />
 <meta property="article:published_time" content="2017-02-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2017-02-05T00:00:00+00:00" />
 
@@ -142,7 +142,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="wifibleespwroom32">格安WiFi+BLEモジュール「ESP-WROOM-32」</h2>
+			<h2 id="wifibleesp-wroom-32">格安WiFi+BLEモジュール「ESP-WROOM-32」</h2>
 <p>ついにESP32が日本にやってまいりました．海外では既に話題になっていたのですが，日本では技適を取得するまで使うことができなかったのであまり知っている人はいないかもしれません．これから話題になるでしょう．</p>
 <p>秋月電子で買うことができます→<a href="http://akizukidenshi.com/catalog/g/gM-11647/">リンク</a></p>
 <figure >
@@ -156,7 +156,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="espwroom32">ESP-WROOM-32のスペック</h2>
+<h2 id="esp-wroom-32">ESP-WROOM-32のスペック</h2>
 <h3 id="cpu">CPU</h3>
 <p>なんと動作周波数が240MHzで，しかもデュアルコア！！！！開いた口が塞がりません&hellip;</p>
 <table>
@@ -205,7 +205,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<h3 id="heading1">ペリフェラル</h3>
+<h3 id="heading-1">ペリフェラル</h3>
 <p>十分すぎて使い切れません．ADCは2台同時に変換できそうですね．<br>
 PWMがすべてのGPIOについているのはソフトウェアPWMだからだそうです．</p>
 <table>
@@ -250,7 +250,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 </tr>
 </tbody>
 </table>
-<h3 id="heading2">その他機能</h3>
+<h3 id="heading-2">その他機能</h3>
 <p>タッチセンサがあるので，UIとかも充実にできそうですね！</p>
 <table>
 <thead>
@@ -279,7 +279,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 </tbody>
 </table>
 <p>詳細は<a href="https://espressif.com/en/products/hardware/esp32/overview">公式サイト</a>をご覧ください．</p>
-<h2 id="heading3">ピッチ変換</h2>
+<h2 id="heading-3">ピッチ変換</h2>
 <p>ESP-WROOM-32は1.27mmピッチの表面実装なので，そのままでは使えません．</p>
 <p>そこで，1列のピンソケットをずらして2列にして，ESP-WROOM-32を挟む形でピッチ変換をしました．</p>
 <p>基板も導線も使わない画期的な方法です！</p>
@@ -294,8 +294,8 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 
-<h2 id="heading4">作り方</h2>
-<h3 id="heading5">部品の用意</h3>
+<h2 id="heading-4">作り方</h2>
+<h3 id="heading-5">部品の用意</h3>
 <ul>
 <li>ESP-WROOM-32</li>
 <li>5ピンのピンソケット2つ</li>
@@ -312,7 +312,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 
-<h3 id="heading6">ピンソケットのピンを半分ずらした状態で，両面テープで固定する．</h3>
+<h3 id="heading-6">ピンソケットのピンを半分ずらした状態で，両面テープで固定する．</h3>
 <p>半分ずらせば1.27mmピッチになりますね！</p>
 <figure >
 	
@@ -325,7 +325,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 
-<h3 id="heading7">机にピンを押し付けて両側から中央に寄せる</h3>
+<h3 id="heading-7">机にピンを押し付けて両側から中央に寄せる</h3>
 <p>ピンで基板を挟めるくらいまで曲げます．</p>
 <p><figure >
 	
@@ -349,7 +349,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 </p>
-<h3 id="heading8">上からスライドして基板を挟む</h3>
+<h3 id="heading-8">上からスライドして基板を挟む</h3>
 <p><figure >
 	
 		
@@ -372,7 +372,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 </p>
-<h3 id="heading9">半田付けをしたら完成！</h3>
+<h3 id="heading-9">半田付けをしたら完成！</h3>
 <p>表と裏の両面からはんだ付けをします．フラックスを塗るとスムーズです．</p>
 <p><figure >
 	
@@ -407,7 +407,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 </p>
-<h2 id="heading10">ブレッドボードで使用</h2>
+<h2 id="heading-10">ブレッドボードで使用</h2>
 <p>ピンソケットがついたので，あとはジャンパワイヤで配線できて，ブレッドボードで使えるようになりました．これは便利です～</p>
 <p>裏側にピン名が書いてあるのもありがたいですね．</p>
 <figure >
@@ -421,7 +421,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	
 </figure>
 
-<h2 id="heading11">まとめ</h2>
+<h2 id="heading-11">まとめ</h2>
 <p>今回の記事はここまでです．今後このモジュールを使っていろいろ作ってみたいと思います！お楽しみに！</p>
 		</div>
 		<footer class="post__footer">
@@ -484,7 +484,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -501,7 +501,7 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -548,27 +548,27 @@ PWMがすべてのGPIOについているのはソフトウェアPWMだからだ�
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#wifibleespwroom32">格安WiFi+BLEモジュール「ESP-WROOM-32」</a></li>
-    <li><a href="#espwroom32">ESP-WROOM-32のスペック</a>
+    <li><a href="#wifibleesp-wroom-32">格安WiFi+BLEモジュール「ESP-WROOM-32」</a></li>
+    <li><a href="#esp-wroom-32">ESP-WROOM-32のスペック</a>
       <ul>
         <li><a href="#cpu">CPU</a></li>
         <li><a href="#heading">無線</a></li>
-        <li><a href="#heading1">ペリフェラル</a></li>
-        <li><a href="#heading2">その他機能</a></li>
+        <li><a href="#heading-1">ペリフェラル</a></li>
+        <li><a href="#heading-2">その他機能</a></li>
       </ul>
     </li>
-    <li><a href="#heading3">ピッチ変換</a></li>
-    <li><a href="#heading4">作り方</a>
+    <li><a href="#heading-3">ピッチ変換</a></li>
+    <li><a href="#heading-4">作り方</a>
       <ul>
-        <li><a href="#heading5">部品の用意</a></li>
-        <li><a href="#heading6">ピンソケットのピンを半分ずらした状態で，両面テープで固定する．</a></li>
-        <li><a href="#heading7">机にピンを押し付けて両側から中央に寄せる</a></li>
-        <li><a href="#heading8">上からスライドして基板を挟む</a></li>
-        <li><a href="#heading9">半田付けをしたら完成！</a></li>
+        <li><a href="#heading-5">部品の用意</a></li>
+        <li><a href="#heading-6">ピンソケットのピンを半分ずらした状態で，両面テープで固定する．</a></li>
+        <li><a href="#heading-7">机にピンを押し付けて両側から中央に寄せる</a></li>
+        <li><a href="#heading-8">上からスライドして基板を挟む</a></li>
+        <li><a href="#heading-9">半田付けをしたら完成！</a></li>
       </ul>
     </li>
-    <li><a href="#heading10">ブレッドボードで使用</a></li>
-    <li><a href="#heading11">まとめ</a></li>
+    <li><a href="#heading-10">ブレッドボードで使用</a></li>
+    <li><a href="#heading-11">まとめ</a></li>
   </ul>
 </nav>
 	</div>

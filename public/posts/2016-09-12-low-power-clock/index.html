@@ -13,7 +13,7 @@ PICで時計
 久しぶりにPICの話題です．しばらくESP8266やARMマイコンなど，上級のマイコンを使っていましたが，またPICを使ってみたくなりました．
 他のマイコンには真似できないような超低消費電力の時計を作ってみました．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-09-12-low-power-clock/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-09-12-low-power-clock/" />
 <meta property="article:published_time" content="2016-09-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-09-12T00:00:00+00:00" />
 
@@ -133,15 +133,15 @@ if (!doNotTrack) {
 <p>他のマイコンには真似できないような超低消費電力の時計を作ってみました．</p>
 <h2 id="pic18f27j53">PIC18F27J53の機能</h2>
 <p>今回用いるPICマイコンは，以前このブログでも紹介した<a href="/posts/2016-01-08-pic18f27j53/">PIC18F27J53</a>です．</p>
-<h3 id="heading1">リアルタイムクロック内蔵</h3>
+<h3 id="heading-1">リアルタイムクロック内蔵</h3>
 <p>32.768kHzの水晶発振子をつなぐだけで時計をカウントしてくれるのがリアルタイムクロックモジュールです．</p>
 <p>時計なんてソフトウェアでカウントしても数行のコードで作ることができますが，リアルタイムクロックモジュールはスリープ中やリセット中でも動作を続けるという魅力的な特徴があります．</p>
 <p>そんなリアルタイムクロックがハードウェアで内蔵されているのです．</p>
-<h3 id="heading2">ディープスリープ機能</h3>
+<h3 id="heading-2">ディープスリープ機能</h3>
 <p>PIC18F27J53には，超低消費電力のディープスリープモードがあります．</p>
 <p>PICの電源を完全に切って，消費電力を極限まで抑えます．しかし，リアルタイムクロックは動作を続けます．</p>
-<h2 id="heading3">できたもの</h2>
-<h3 id="heading4">写真</h3>
+<h2 id="heading-3">できたもの</h2>
+<h3 id="heading-4">写真</h3>
 <p>今回は，とりあえずブレッドボードで作りました．</p>
 <p>ブレッドボードでの製作ですが，見た目の美しさにこだわりました．</p>
 <figure >
@@ -155,13 +155,13 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading5">表示をオンオフ</h3>
+<h3 id="heading-5">表示をオンオフ</h3>
 <p>写真の中の赤いタクトスイッチを押すと表示/非表示を切り替えることができます．</p>
 <p>非表示中は，ディープスリープモードになっており，電力をほとんど消費しません．</p>
-<h3 id="heading6">時計の精度</h3>
+<h3 id="heading-6">時計の精度</h3>
 <p>この時計の精度は，水晶発振子に依存するので，いい水晶発振子を使えば，精度は高くなります．</p>
 <p>さらに，ソフトウェアで微調整をすることができます．</p>
-<h2 id="heading7">実際に電力を測ってみる</h2>
+<h2 id="heading-7">実際に電力を測ってみる</h2>
 <p><a href="http://akizukidenshi.com/catalog/g/gM-07738/">Analog Discovery</a>でどのくらい電流を消費しているのかを調べてみます．</p>
 <h3 id="7led">7セグLEDのダイナミック点灯の様子</h3>
 <p>7セグLED表示中が2.5mA程で，スリープ中はほぼ0mAです．</p>
@@ -176,7 +176,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading8">ディープスリープの様子</h3>
+<h3 id="heading-8">ディープスリープの様子</h3>
 <p>平均1.5uA程であることがわかります．</p>
 <figure >
 	
@@ -189,14 +189,14 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading9">バッテリーの持ち時間の概算</h2>
+<h2 id="heading-9">バッテリーの持ち時間の概算</h2>
 <p>CR2032(容量:220mAh3.0V)を用いて考えます．</p>
 <h3 id="led">常にLEDを表示した場合</h3>
 <p>平均電流は，1mAなので，約220時間つまり，9日程度．</p>
 <p>この場合，ディープスリープを使えないので，あまり持たないですね&hellip;</p>
-<h3 id="heading10">表示をオフにした場合</h3>
+<h3 id="heading-10">表示をオフにした場合</h3>
 <p>平均電流は，1.5uAなので，約146,000時間=6,100日間，つまり16年ほど持つ計算になります．すごいですね！！！</p>
-<h2 id="heading11">ソフトウェア</h2>
+<h2 id="heading-11">ソフトウェア</h2>
 <p>最新のプログラムは<a href="https://github.com/kerikun11/Low-Power-Clock">こちら</a>にあります．</p>
 <h3 id="mainc">main.c</h3>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
@@ -468,7 +468,7 @@ if (!doNotTrack) {
     <span class="n">print_pattern</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span><span class="p">;</span>
     <span class="n">print_column</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h2 id="heading12">回路図</h2>
+</code></pre></div><h2 id="heading-12">回路図</h2>
 <p>7セグLEDは<a href="http://akizukidenshi.com/catalog/g/gI-09964/">こちら</a>を使いました．</p>
 <figure >
 	<a href="circuit-diagram.png" target="blank">
@@ -481,7 +481,7 @@ if (!doNotTrack) {
 	</a>
 </figure>
 
-<h2 id="heading13">まとめ</h2>
+<h2 id="heading-13">まとめ</h2>
 <p>久々にPICを触りましたが，素直でいいやつですね～</p>
 <p>PICのいいところは，内部の構造をかなり理解して使えるとことろ．ブラックボックスなんていやだ！</p>
 <p>さてさて，次は何を作りましょうかね．PICは魅力的なマイコンです．</p>
@@ -548,7 +548,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -565,7 +565,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -619,38 +619,38 @@ if (!doNotTrack) {
     </li>
     <li><a href="#pic18f27j53">PIC18F27J53の機能</a>
       <ul>
-        <li><a href="#heading1">リアルタイムクロック内蔵</a></li>
-        <li><a href="#heading2">ディープスリープ機能</a></li>
+        <li><a href="#heading-1">リアルタイムクロック内蔵</a></li>
+        <li><a href="#heading-2">ディープスリープ機能</a></li>
       </ul>
     </li>
-    <li><a href="#heading3">できたもの</a>
+    <li><a href="#heading-3">できたもの</a>
       <ul>
-        <li><a href="#heading4">写真</a></li>
-        <li><a href="#heading5">表示をオンオフ</a></li>
-        <li><a href="#heading6">時計の精度</a></li>
+        <li><a href="#heading-4">写真</a></li>
+        <li><a href="#heading-5">表示をオンオフ</a></li>
+        <li><a href="#heading-6">時計の精度</a></li>
       </ul>
     </li>
-    <li><a href="#heading7">実際に電力を測ってみる</a>
+    <li><a href="#heading-7">実際に電力を測ってみる</a>
       <ul>
         <li><a href="#7led">7セグLEDのダイナミック点灯の様子</a></li>
-        <li><a href="#heading8">ディープスリープの様子</a></li>
+        <li><a href="#heading-8">ディープスリープの様子</a></li>
       </ul>
     </li>
-    <li><a href="#heading9">バッテリーの持ち時間の概算</a>
+    <li><a href="#heading-9">バッテリーの持ち時間の概算</a>
       <ul>
         <li><a href="#led">常にLEDを表示した場合</a></li>
-        <li><a href="#heading10">表示をオフにした場合</a></li>
+        <li><a href="#heading-10">表示をオフにした場合</a></li>
       </ul>
     </li>
-    <li><a href="#heading11">ソフトウェア</a>
+    <li><a href="#heading-11">ソフトウェア</a>
       <ul>
         <li><a href="#mainc">main.c</a></li>
         <li><a href="#7segh">7seg.h</a></li>
         <li><a href="#7segc">7seg.c</a></li>
       </ul>
     </li>
-    <li><a href="#heading12">回路図</a></li>
-    <li><a href="#heading13">まとめ</a></li>
+    <li><a href="#heading-12">回路図</a></li>
+    <li><a href="#heading-13">まとめ</a></li>
   </ul>
 </nav>
 	</div>

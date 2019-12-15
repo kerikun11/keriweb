@@ -11,7 +11,7 @@
 <meta property="og:description" content="github上にあるブログを同期するシェルスクリプト
 自分用のメモ" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-08-28-update-blog-script/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-08-28-update-blog-script/" />
 <meta property="article:published_time" content="2016-08-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-08-28T00:00:00+00:00" />
 
@@ -127,24 +127,24 @@ if (!doNotTrack) {
 <p>自分用のメモ</p>
 <h2 id="heading">前提</h2>
 <h3 id="sshconfig">~/.ssh/config</h3>
-<pre><code class="language-kconfig" data-lang="kconfig">Host github
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Host github
 	HostName github.com
 	User git
 	Port 22
 	IdentityFile ~/.ssh/id_ecdsa
-</code></pre><h2 id="apache2">Apache2の設定</h2>
-<h3 id="etcapache2sitesavailablemyconfconf">/etc/apache2/sites-available/myconf.conf</h3>
-<pre><code class="language-kconfig" data-lang="kconfig">&lt;VirtualHost *:80&gt;
+</code></pre></div><h2 id="apache2">Apache2の設定</h2>
+<h3 id="etcapache2sites-availablemyconfconf">/etc/apache2/sites-available/myconf.conf</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;VirtualHost *:80&gt;
 	# The ServerName directive sets the request scheme, hostname and port that
 	# the server uses to identify itself. This is used when creating
 	# redirection URLs. In the context of virtual hosts, the ServerName
-	# specifies what hostname must appear in the request's Host: header to
+	# specifies what hostname must appear in the request&#39;s Host: header to
 	# match this virtual host. For the default virtual host (this file) this
 	# value is not decisive as it is used as a last resort host regardless.
 	# However, you must set it for any further virtual host explicitly.
-	ServerName &quot;kerikeri.top&quot;
-	ServerAdmin &quot;kerikun11@gmail.com&quot;
-	DocumentRoot &quot;/var/keriweb&quot;
+	ServerName &#34;kerikeri.top&#34;
+	ServerAdmin &#34;kerikun11@gmail.com&#34;
+	DocumentRoot &#34;/var/keriweb&#34;
 	
 	&lt;Directory /&gt;
 		Options FollowSymLinks
@@ -172,13 +172,13 @@ if (!doNotTrack) {
 	# enabled or disabled at a global level, it is possible to
 	# include a line for only one particular virtual host. For example the
 	# following line enables the CGI configuration for this host only
-	# after it has been globally disabled with &quot;a2disconf&quot;.
+	# after it has been globally disabled with &#34;a2disconf&#34;.
 	#Include conf-available/serve-cgi-bin.conf
 	ErrorDocument 404 /error/404/
 &lt;/VirtualHost&gt;
 
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
-</code></pre><pre><code>$ sudo a2ensite myconf
+</code></pre></div><pre><code>$ sudo a2ensite myconf
 $ sudo a2dissite default-000
 $ sudo service apache2 restart
 
@@ -186,8 +186,8 @@ $ sudo mkdir /var/keriweb
 $ sudo chown kerikun11 /var/keriweb
 $ sudo chgrp kerikun11 /var/keriweb
 </code></pre>
-<h2 id="heading1">スクリプト</h2>
-<h3 id="updatekeriwebsh">update-keriweb.sh</h3>
+<h2 id="heading-1">スクリプト</h2>
+<h3 id="update-keriwebsh">update-keriweb.sh</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="nv">tmpdir</span><span class="o">=</span>/home/kerikun11/keriweb
 <span class="nv">repo</span><span class="o">=</span>github:kerikun11/keriweb.git
@@ -284,7 +284,7 @@ rm -rf <span class="s2">&#34;</span><span class="nv">$basename</span><span class
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -301,7 +301,7 @@ rm -rf <span class="s2">&#34;</span><span class="nv">$basename</span><span class
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -356,12 +356,12 @@ rm -rf <span class="s2">&#34;</span><span class="nv">$basename</span><span class
     </li>
     <li><a href="#apache2">Apache2の設定</a>
       <ul>
-        <li><a href="#etcapache2sitesavailablemyconfconf">/etc/apache2/sites-available/myconf.conf</a></li>
+        <li><a href="#etcapache2sites-availablemyconfconf">/etc/apache2/sites-available/myconf.conf</a></li>
       </ul>
     </li>
-    <li><a href="#heading1">スクリプト</a>
+    <li><a href="#heading-1">スクリプト</a>
       <ul>
-        <li><a href="#updatekeriwebsh">update-keriweb.sh</a></li>
+        <li><a href="#update-keriwebsh">update-keriweb.sh</a></li>
       </ul>
     </li>
   </ul>

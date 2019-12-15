@@ -13,7 +13,7 @@
 この記事は，デモサイトを作るときのメモ．
 デモサイト紹介記事はこちら" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-12-04-ir-station-demo-apache2/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-12-04-ir-station-demo-apache2/" />
 <meta property="article:published_time" content="2016-12-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-12-04T00:00:00+00:00" />
 
@@ -128,7 +128,7 @@ if (!doNotTrack) {
 <p>ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．</p>
 <p>この記事は，デモサイトを作るときのメモ．<br>
 デモサイト紹介記事は<a href="/posts/2016-10-20-ir-station-demo/">こちら</a></p>
-<h2 id="heading1">環境作り</h2>
+<h2 id="heading-1">環境作り</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get install rubygems
 $ sudo apt-get install libapache2-mod-passenger
 $ sudo gem install sinatra
@@ -137,7 +137,7 @@ $ sudo gem install passenger
 $ sudo apt-get install -y libcurl4-openssl-dev apache2-threaded-dev ruby-dev libapr1-dev libaprutil1-dev
 $ sudo passenger-install-apache2-module
 いろいろ聞いてくるのでEnterを押しまくる．エラーがなければOK
-</code></pre></div><h2 id="heading2">アプリケーションの用意</h2>
+</code></pre></div><h2 id="heading-2">アプリケーションの用意</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/kerikun11/IR-station.git
 $ sudo mkdir /var/ir-station
 $ sudo chown kerikun11 /var/ir-station
@@ -146,17 +146,17 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
 </code></pre></div><h2 id="apache2">Apache2の設定</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo vim /etc/apache2/sites-available/myconf.conf
 </code></pre></div><p>以下を追記</p>
-<pre><code class="language-kconfig" data-lang="kconfig">&lt;VirtualHost *:80&gt;
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;VirtualHost *:80&gt;
         # The ServerName directive sets the request scheme, hostname and port that
         # the server uses to identify itself. This is used when creating
         # redirection URLs. In the context of virtual hosts, the ServerName
-        # specifies what hostname must appear in the request's Host: header to
+        # specifies what hostname must appear in the request&#39;s Host: header to
         # match this virtual host. For the default virtual host (this file) this
         # value is not decisive as it is used as a last resort host regardless.
         # However, you must set it for any further virtual host explicitly.
-        ServerName &quot;ir-station.kerikeri.top&quot;
-        ServerAdmin &quot;kerikun11@gmail.com&quot;
-        DocumentRoot &quot;/var/ir-station/main/public&quot;
+        ServerName &#34;ir-station.kerikeri.top&#34;
+        ServerAdmin &#34;kerikun11@gmail.com&#34;
+        DocumentRoot &#34;/var/ir-station/main/public&#34;
 
         &lt;Directory /&gt;
                 Options FollowSymLinks
@@ -187,12 +187,12 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
         # enabled or disabled at a global level, it is possible to
         # include a line for only one particular virtual host. For example the
         # following line enables the CGI configuration for this host only
-        # after it has been globally disabled with &quot;a2disconf&quot;.
+        # after it has been globally disabled with &#34;a2disconf&#34;.
         #Include conf-available/serve-cgi-bin.conf
 &lt;/VirtualHost&gt;
 
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
-</code></pre><h3 id="heading3">設定を反映</h3>
+</code></pre></div><h3 id="heading-3">設定を反映</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo service apache2 restart
 </code></pre></div>
 		</div>
@@ -260,7 +260,7 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -277,7 +277,7 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -325,11 +325,11 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
     	<nav id="TableOfContents">
   <ul>
     <li><a href="#heading">概要</a></li>
-    <li><a href="#heading1">環境作り</a></li>
-    <li><a href="#heading2">アプリケーションの用意</a></li>
+    <li><a href="#heading-1">環境作り</a></li>
+    <li><a href="#heading-2">アプリケーションの用意</a></li>
     <li><a href="#apache2">Apache2の設定</a>
       <ul>
-        <li><a href="#heading3">設定を反映</a></li>
+        <li><a href="#heading-3">設定を反映</a></li>
       </ul>
     </li>
   </ul>

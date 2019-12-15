@@ -16,7 +16,7 @@ microSDカードをFAT32でフォーマットする。
 ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2015-10-05-raspi-server/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2015-10-05-raspi-server/" />
 <meta property="article:published_time" content="2015-10-05T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-10-05T00:00:00+00:00" />
 
@@ -149,7 +149,7 @@ if (!doNotTrack) {
 </code></pre>
 <p>このコマンドでWiFi情報を確認できる。<br>
 　次のファイルを編集して、ハードウェアインターフェースの設定をする。</p>
-<pre><code>$sudo vim /etc/network/interfaces
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$sudo vim /etc/network/interfaces
 
 auto lo
 iface lo inet loopback
@@ -176,22 +176,22 @@ auto wlan1
 allow-hotplug wlan1
 iface wlan0 inet manual
 wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre><p>次のコマンド
+</code></pre></div><p>次のコマンド
 $wpa_passphrase &ldquo;your SSID&rdquo; &ldquo;Password&rdquo;
 で表示された内容をもとに次のファイルの下に追加で記述する。</p>
-<pre><code>$sudo vim /etc/wpa_supplicant/wpa_supplicant.conf
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$sudo vim /etc/wpa_supplicant/wpa_supplicant.conf
 
 ~~~
 network={
-	ssid=&quot;your SSID&quot;
-#psk=&quot;Password&quot;
-		psk=&quot;.......&quot;
+	ssid=&#34;your SSID&#34;
+#psk=&#34;Password&#34;
+		psk=&#34;.......&#34;
 		key_mgmt=WPA-PSK
 		proto=WPA WPA2
 		pairwise=CCMP TKIP
 		group=CCMP TKIP WEP104 WEP40
 }
-</code></pre><p>　これでラズパイを再起動すればつながるはず。</p>
+</code></pre></div><p>　これでラズパイを再起動すればつながるはず。</p>
 <h2 id="web">Webサーバー作り</h2>
 <p>まずは、ラズパイのローカルIPを固定にする。</p>
 <p>ラズパイ上でラズパイ自身のローカルIPアドレスを確認しておく。</p>
@@ -202,7 +202,7 @@ network={
 <pre><code>$sudo apt-get install apache2
 </code></pre>
 <p>　これで、とりあえずはローカルでサーバーとして使うことができる。ローカルネットワークの端末のブラウザでラズパイのローカルIPアドレスを入力すれば、アクセスできる。</p>
-<h2 id="heading1">サーバーを外部へ公開する</h2>
+<h2 id="heading-1">サーバーを外部へ公開する</h2>
 <p>　今の状態では、LANからしかサーバーにアクセスできない。これを外のネットワークからでもアクセスできるようにする。</p>
 <p>　まず、家のルーターから外への接続用のポートを開放する。</p>
 <ol>
@@ -217,7 +217,7 @@ network={
 </code></pre>
 <p>　次に、<a href="http://www.ugtop.com/spill.shtml">確認くん</a>により自分の家のグローバルIPアドレスを確認する。家のネットワークからアクセスしましょう。<br>
 　これで、適当なブラウザから、このグローバルIPアドレスにアクセスすれば、どこからでもラズパイのWebサーバーにアクセスできる。（ドメインはまだ取得していないので、IPアドレスを直打ちして接続している）</p>
-<h2 id="heading2">独自ドメインを取得する</h2>
+<h2 id="heading-2">独自ドメインを取得する</h2>
 <p>　ポートの開放により外部からサーバーにアクセスできるようになった。しかし、今のままではIPアドレスにアクセスなのでいまいち。そこで次は独自ドメインを取得して自分専用のURLをGETする。<br>
 　ドメイン取得をできるサイトはいくつかあるが、ネット上で評価のよかった「<a href="http://www.muumuudomain.com">ムームードメイン</a>」で取得した。<code>.top</code>一番安くて、なんと77円＋税/年！とても安い。</p>
 <h2 id="dns">DNSサーバーとは</h2>
@@ -230,7 +230,7 @@ network={
 </ol>
 <h2 id="mydnsjp">MyDNS.jpの登録</h2>
 <p>　普通、グローバルIPアドレスは動的に割り当てられるので、それとホスト名（ドメイン名）を動的に登録・管理するのがDDNSです。無料DDNSのひとつに<a href="http://www.mydns.jp">MyDNS.jp</a>があるので、今回はそれを使います。まずは会員登録をします。そして「IP ADDR DIRECT」のところに家のグローバルIPアドレスを記載します。次に、「DOMAIN INFO」のところに自分の取得したホスト名（独自ドメイン）を記載します。欄が多いですが、それ以外は何も書かなくて大丈夫です。</p>
-<h2 id="dns1">DNSの浸透時間</h2>
+<h2 id="dns-1">DNSの浸透時間</h2>
 <p>　ここまでの作業をすれば、取得した独自ドメインをブラウザのURLに書くだけで自分のサーバーにつなことができます。しかし、すぐにつなぐことはできません。先にも書いたようにDNSサーバーはネット上に無数に散らばっていますので、最初にアクセスしたDNSが自分のドメインとIPの関連付けを持っているとは限りません。DNSからDNSへと広がっていき、次第に世界中からアクセスできるようになります。</p>
 <h2 id="ip">動的IPの自動更新</h2>
 <p>　ムームードメインで、独自ドメインを取得した。MyDNS.jpにも登録した。次にやることは、動的IPアドレスの自動更新である。定期的にグローバルIPの変更をチェックして<a href="http://www.mydns.jp">MyDNS.jp</a>に通知をすればよい。それには以下のコマンドを実行する。</p>
@@ -299,7 +299,7 @@ network={
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -316,7 +316,7 @@ network={
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -366,11 +366,11 @@ network={
     <li><a href="#heading">ラズパイの用意</a></li>
     <li><a href="#lan">無線LANの接続</a></li>
     <li><a href="#web">Webサーバー作り</a></li>
-    <li><a href="#heading1">サーバーを外部へ公開する</a></li>
-    <li><a href="#heading2">独自ドメインを取得する</a></li>
+    <li><a href="#heading-1">サーバーを外部へ公開する</a></li>
+    <li><a href="#heading-2">独自ドメインを取得する</a></li>
     <li><a href="#dns">DNSサーバーとは</a></li>
     <li><a href="#mydnsjp">MyDNS.jpの登録</a></li>
-    <li><a href="#dns1">DNSの浸透時間</a></li>
+    <li><a href="#dns-1">DNSの浸透時間</a></li>
     <li><a href="#ip">動的IPの自動更新</a></li>
   </ul>
 </nav>

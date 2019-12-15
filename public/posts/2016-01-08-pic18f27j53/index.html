@@ -24,7 +24,7 @@
 	
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-01-08-pic18f27j53/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-01-08-pic18f27j53/" />
 <meta property="article:published_time" content="2016-01-08T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-01-08T00:00:00+00:00" />
 
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading1">豊富なメモリ</h3>
+<h3 id="heading-1">豊富なメモリ</h3>
 <p>我が宿敵のATMEGA328Pのメモリと比べてみましょう。</p>
 <table>
 <thead>
@@ -189,7 +189,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>メモリがありすぎて、困っちゃうなぁ。</p>
-<h3 id="heading2">豊富な周辺モジュール</h3>
+<h3 id="heading-2">豊富な周辺モジュール</h3>
 <p>主な機能を表にまとめました。</p>
 <table>
 <thead>
@@ -258,20 +258,20 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="usb1">USBブートローダーに対応</h3>
+<h3 id="usb-1">USBブートローダーに対応</h3>
 <p>USB通信を使って、自分自身のプログラムの書き換えをすることができます。ブートローダです。</p>
 <p>初回に1回だけPICkit3でブートローダプログラムを書きこんでしまえば、2回目からはPICkit3を使わずにUSBで書き込むことができます。これなら、スマートに開発をすることができます。</p>
-<h3 id="heading3">周辺モジュールのピンを後から割り当て</h3>
+<h3 id="heading-3">周辺モジュールのピンを後から割り当て</h3>
 <p>周辺モジュールが多いので、ピンの重複が気になるところです。しかし、PIC18F27J53は「Remappable Pin」といものがあります。</p>
 <p>Remappable PinはPWMやI2Cなどのピンをプログラム内で指定することができます。これなら好きなピンに機能を割り当てられるので、重複を回避できます。</p>
 <p>さらに基板に合わせてピンを決められるので結構便利です。</p>
-<h3 id="heading4">タッチセンサ</h3>
+<h3 id="heading-4">タッチセンサ</h3>
 <p>PIC18F27J53にはCTMUというタッチセンサ機能を持ったモジュールがあります。押しボタンの代わりに使えるのでなかなか便利です。</p>
-<h3 id="heading5">リアルタイムクロックモジュール</h3>
+<h3 id="heading-5">リアルタイムクロックモジュール</h3>
 <p>リアルタイムモジュールがあれば、32.768kHzの水晶をつなぐだけで時計とカレンダーをカウントしてくれます。レジスタの数を見るだけで時間や日にちをGETできるのでとても簡単！実用的！</p>
 <p>しかも、スリープ中でも時計は止まらないので、電池でも十分動かすことができます。</p>
-<h2 id="pic18f27j531">PIC18F27J53の使い方(ハードウェア)</h2>
-<h3 id="heading6">ピンアサイン</h3>
+<h2 id="pic18f27j53-1">PIC18F27J53の使い方(ハードウェア)</h2>
+<h3 id="heading-6">ピンアサイン</h3>
 <p>PIC18F27J53のピンアサイン（データシートより）<br>
 <figure >
 	
@@ -285,12 +285,12 @@ if (!doNotTrack) {
 </figure>
 </p>
 <p><strong>RPx</strong>というピンが「Remappable Pin」です。</p>
-<h3 id="heading7">電源について</h3>
+<h3 id="heading-7">電源について</h3>
 <p>電源電圧は<strong>3.3V</strong>です。注意してください。</p>
 <p>誤って5Vを接続したことがありますが、壊れませんでした（PICは強い！）。しかし正常には動作しませんでした。</p>
 <p>上のピンアサインの図の灰色のピンは、5.5Vトレラントなので、5.5Vの入力もそのまま接続できます。</p>
 <p>PIC18F27J53のCoreは2.5Vで動作しています。入力電圧は3.3Vなので、内部にレギュレータが入っています。それの安定化のために「V_DDVORE/V_CAP」端子に10uFのコンデンサをつなぐ必要があります。</p>
-<h3 id="pic18f27j532">PIC18F27J53の一般的な回路図</h3>
+<h3 id="pic18f27j53-2">PIC18F27J53の一般的な回路図</h3>
 <p>USBから電源をとるときは、3端子レギュレータを通して3.3Vにするのを忘れずに。</p>
 <p>PIC18F27J53の基本的な回路図<br>
 <figure >
@@ -308,7 +308,7 @@ if (!doNotTrack) {
 <p>回路図を見てわかるように、実際に使えるGPIO(General Purpose Input Output)は、12本(内10本ADC対応&amp;Remappable)です。</p>
 <p>UARTやI2Cを使わないならば、GPIOはもう少し増えます。</p>
 <p>この回路図をもとに回路を作っていきましょう。</p>
-<h2 id="pic18f27j533">PIC18F27J53の使い方(ソフトウェア)</h2>
+<h2 id="pic18f27j53-3">PIC18F27J53の使い方(ソフトウェア)</h2>
 <p>ソフトウェアもほかのPICと少し違うので少し注意が必要です。</p>
 <h3 id="configration-bits">Configration Bits</h3>
 <p>いつも変わらないので、コピペしましょう。</p>
@@ -328,7 +328,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config WPFP = PAGE_127, WPCFG = OFF</span><span class="cp">
 </span><span class="cp"></span><span class="c1">// CONFIG4H
 </span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config WPDIS = OFF, WPEND = PAGE_WPFP, LS48MHZ = SYS48X8</span><span class="cp">
-</span></code></pre></div><h3 id="heading8">動作クロックの設定</h3>
+</span></code></pre></div><h3 id="heading-8">動作クロックの設定</h3>
 <p>クロックは内蔵8MHzをPLLで6倍してできる、48MHzを使うのが一般的です。これはUSBとして使える周波数です。</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// OSC Settings
 </span><span class="c1"></span><span class="kt">void</span> <span class="nf">OSC_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="p">{</span>
@@ -354,7 +354,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span>	<span class="n">INTCON2bits</span><span class="p">.</span><span class="n">RBPU</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// PORTB Pull-up Pnable
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><p>※「x」となっているところは自分で適当に0/1を入れる。</p>
-<h3 id="heading9">タイマ関連</h3>
+<h3 id="heading-9">タイマ関連</h3>
 <h4 id="timer-0-8bit">Timer 0 (8bit)</h4>
 <p>割り込み周波数 = Fosc / (4 * 256 * 2^prescaler) = 46875/(2^prescaler) [Hz]</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// prescaler is 0~8
@@ -432,7 +432,7 @@ if (!doNotTrack) {
     <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">PIR1bits</span><span class="p">.</span><span class="n">TXIF</span><span class="p">)</span><span class="p">;</span> <span class="c1">// 前のデータの送信完了まで待つ
 </span><span class="c1"></span>    <span class="n">TXREG1</span> <span class="o">=</span> <span class="n">send_data</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="heading10">割り込み関数</h3>
+</code></pre></div><h3 id="heading-10">割り込み関数</h3>
 <p>割り込み関数はPIC16FやPIC18Fと同様です。</p>
 <p>今回説明した内容の機能をを使う場合、割り込み関数は以下のようになります。</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// 割り込み関数
@@ -458,18 +458,18 @@ if (!doNotTrack) {
 </span><span class="c1"></span>	<span class="cm">/* 何らかの処理 */</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="usb2">USB関連</h3>
+</code></pre></div><h3 id="usb-2">USB関連</h3>
 <p>USB関連は結構複雑で長くなりそうなので、改めて後日書こうと思います。</p>
 <p>→追記：<a href="/posts/2016-01-10-pic-usb/">PICでUSB通信</a>をご覧ください。</p>
 <h3 id="remappable-pin">Remappable Pinの使い方</h3>
 <p>同じく長くなりそうなので、後日記事を書きます。</p>
 <h3 id="rtcc">RTCC(リアルタイムクロック)モジュールの使い方</h3>
 <p>同じく長くなりそうなので、後日記事を書きます。</p>
-<h3 id="heading11">タッチセンサの使い方</h3>
+<h3 id="heading-11">タッチセンサの使い方</h3>
 <p>同じく長くなりそうなので、後日記事を書きます。</p>
 <h3 id="pwmi2cspi">PWM、I2C、SPIの使い方</h3>
 <p>同じく長くなりそうなので、(元気があれば)後日記事を書きます。</p>
-<h2 id="heading12">プログラムの例</h2>
+<h2 id="heading-12">プログラムの例</h2>
 <p>このままコピペで動くはずです。</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
 </span><span class="cm"> * PIC18F27J53用サンプルプログラム 
@@ -635,16 +635,16 @@ if (!doNotTrack) {
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h2 id="heading13">さいごに</h2>
+</code></pre></div><h2 id="heading-13">さいごに</h2>
 <h3 id="pic">PICを使おう！</h3>
 <p>僕がググった感じだとPIC18F27J53を使っている人はかなり少ないと思います。この記事を読んで使ってくれる人がいたら嬉しいです。このマイコンは魅力的ですよ～</p>
 <p>PICはとてもおもしろいですね！バンバン使って電子工作を楽しみましょう！</p>
 <p>やっぱり、AVRなんかより<strong>PIC</strong>の方がいいですね～</p>
-<h3 id="pic1">PIC用ライブラリ</h3>
+<h3 id="pic-1">PIC用ライブラリ</h3>
 <p>僕の作ったPIC用ライブラリのリンクを貼っておきます。参考にしてください。<br>
 <a href="https://github.com/kerikun11/MPLABXProjects/tree/master/My_library">PICライブラリ</a></p>
 <p>主に PIC18F27J53 と PIC16F1827、PIC12F1822 用に作られています。</p>
-<h3 id="heading14">何か気づいたら</h3>
+<h3 id="heading-14">何か気づいたら</h3>
 <p>もし、この記事の内容に間違いや疑問をを見つけたら遠慮なく教えてください。Twitterにリプを飛ばしていただけると嬉しいです。<a href="https://twitter.com/Ryokeri14">@Ryokeri14</a>←遠慮なくリプしてください。</p>
 		</div>
 		<footer class="post__footer">
@@ -710,7 +710,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -727,7 +727,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -777,43 +777,43 @@ if (!doNotTrack) {
     <li><a href="#pic18f27j53">PIC18F27J53のいいところ</a>
       <ul>
         <li><a href="#heading">秋月で売っていること</a></li>
-        <li><a href="#heading1">豊富なメモリ</a></li>
-        <li><a href="#heading2">豊富な周辺モジュール</a></li>
+        <li><a href="#heading-1">豊富なメモリ</a></li>
+        <li><a href="#heading-2">豊富な周辺モジュール</a></li>
         <li><a href="#usb">USBでパソコンと通信</a></li>
-        <li><a href="#usb1">USBブートローダーに対応</a></li>
-        <li><a href="#heading3">周辺モジュールのピンを後から割り当て</a></li>
-        <li><a href="#heading4">タッチセンサ</a></li>
-        <li><a href="#heading5">リアルタイムクロックモジュール</a></li>
+        <li><a href="#usb-1">USBブートローダーに対応</a></li>
+        <li><a href="#heading-3">周辺モジュールのピンを後から割り当て</a></li>
+        <li><a href="#heading-4">タッチセンサ</a></li>
+        <li><a href="#heading-5">リアルタイムクロックモジュール</a></li>
       </ul>
     </li>
-    <li><a href="#pic18f27j531">PIC18F27J53の使い方(ハードウェア)</a>
+    <li><a href="#pic18f27j53-1">PIC18F27J53の使い方(ハードウェア)</a>
       <ul>
-        <li><a href="#heading6">ピンアサイン</a></li>
-        <li><a href="#heading7">電源について</a></li>
-        <li><a href="#pic18f27j532">PIC18F27J53の一般的な回路図</a></li>
+        <li><a href="#heading-6">ピンアサイン</a></li>
+        <li><a href="#heading-7">電源について</a></li>
+        <li><a href="#pic18f27j53-2">PIC18F27J53の一般的な回路図</a></li>
       </ul>
     </li>
-    <li><a href="#pic18f27j533">PIC18F27J53の使い方(ソフトウェア)</a>
+    <li><a href="#pic18f27j53-3">PIC18F27J53の使い方(ソフトウェア)</a>
       <ul>
         <li><a href="#configration-bits">Configration Bits</a></li>
-        <li><a href="#heading8">動作クロックの設定</a></li>
+        <li><a href="#heading-8">動作クロックの設定</a></li>
         <li><a href="#io">I/Oポート関連</a></li>
-        <li><a href="#heading9">タイマ関連</a></li>
+        <li><a href="#heading-9">タイマ関連</a></li>
         <li><a href="#uart">UARTの設定&動作</a></li>
-        <li><a href="#heading10">割り込み関数</a></li>
-        <li><a href="#usb2">USB関連</a></li>
+        <li><a href="#heading-10">割り込み関数</a></li>
+        <li><a href="#usb-2">USB関連</a></li>
         <li><a href="#remappable-pin">Remappable Pinの使い方</a></li>
         <li><a href="#rtcc">RTCC(リアルタイムクロック)モジュールの使い方</a></li>
-        <li><a href="#heading11">タッチセンサの使い方</a></li>
+        <li><a href="#heading-11">タッチセンサの使い方</a></li>
         <li><a href="#pwmi2cspi">PWM、I2C、SPIの使い方</a></li>
       </ul>
     </li>
-    <li><a href="#heading12">プログラムの例</a></li>
-    <li><a href="#heading13">さいごに</a>
+    <li><a href="#heading-12">プログラムの例</a></li>
+    <li><a href="#heading-13">さいごに</a>
       <ul>
         <li><a href="#pic">PICを使おう！</a></li>
-        <li><a href="#pic1">PIC用ライブラリ</a></li>
-        <li><a href="#heading14">何か気づいたら</a></li>
+        <li><a href="#pic-1">PIC用ライブラリ</a></li>
+        <li><a href="#heading-14">何か気づいたら</a></li>
       </ul>
     </li>
   </ul>

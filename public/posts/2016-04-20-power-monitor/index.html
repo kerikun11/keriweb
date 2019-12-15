@@ -12,7 +12,7 @@
 100W級ソーラーシステムの発電量をThingSpeak.comというサイトに送ってグラフ化しました。
 データの送信には、自作の中継型電力計を使用しています。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-04-20-power-monitor/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-04-20-power-monitor/" />
 <meta property="article:published_time" content="2016-04-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-04-20T00:00:00+00:00" />
 
@@ -128,25 +128,25 @@ if (!doNotTrack) {
 			<h2 id="heading">概要</h2>
 <p><a href="/posts/2014-09-14-solar-system/">100W級ソーラーシステム</a>の発電量を<a href="https://thingspeak.com/">ThingSpeak.com</a>というサイトに送ってグラフ化しました。</p>
 <p>データの送信には、自作の<a href="/posts/2016-03-23-relay-sensor/">中継型電力計</a>を使用しています。</p>
-<h2 id="heading1">リアルタイム発電量モニター</h2>
+<h2 id="heading-1">リアルタイム発電量モニター</h2>
 <p>ThingSpeakで発行したフレームをHTMLに埋め込む形式なので、自動で更新されます。</p>
-<h3 id="heading2">電圧</h3>
+<h3 id="heading-2">電圧</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/1?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Solar+Voltage&type=column&yaxis=Voltage+%5BV%5D"></iframe>
 </div>
-<h3 id="heading3">電流</h3>
+<h3 id="heading-3">電流</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/2?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Solar+Current&type=column&yaxis=Current+%5BA%5D"></iframe>
 </div>
-<h3 id="heading4">電力</h3>
+<h3 id="heading-4">電力</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/3?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Solar+Power&type=column&yaxis=Power+%5BW%5D"></iframe>
 </div>
-<h3 id="heading5">今日の発電量</h3>
+<h3 id="heading-5">今日の発電量</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/4?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Time+Integration+of+Solar+Power+a+Day&type=column&yaxis=Integration+%5BWh%5D"></iframe>
 </div>
-<h2 id="heading6">まとめ</h2>
+<h2 id="heading-6">まとめ</h2>
 <p>こんなに簡単にグラフ化できるサービスがあるなんてすごいですね！MATLAB解析機能もあるみたいなので使ってみたいです。</p>
 		</div>
 		<footer class="post__footer">
@@ -213,7 +213,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -230,7 +230,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -278,15 +278,15 @@ if (!doNotTrack) {
     	<nav id="TableOfContents">
   <ul>
     <li><a href="#heading">概要</a></li>
-    <li><a href="#heading1">リアルタイム発電量モニター</a>
+    <li><a href="#heading-1">リアルタイム発電量モニター</a>
       <ul>
-        <li><a href="#heading2">電圧</a></li>
-        <li><a href="#heading3">電流</a></li>
-        <li><a href="#heading4">電力</a></li>
-        <li><a href="#heading5">今日の発電量</a></li>
+        <li><a href="#heading-2">電圧</a></li>
+        <li><a href="#heading-3">電流</a></li>
+        <li><a href="#heading-4">電力</a></li>
+        <li><a href="#heading-5">今日の発電量</a></li>
       </ul>
     </li>
-    <li><a href="#heading6">まとめ</a></li>
+    <li><a href="#heading-6">まとめ</a></li>
   </ul>
 </nav>
 	</div>

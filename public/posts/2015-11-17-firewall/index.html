@@ -12,7 +12,7 @@
 ufw
 iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2015-11-17-firewall/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2015-11-17-firewall/" />
 <meta property="article:published_time" content="2015-11-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-11-17T00:00:00+00:00" />
 
@@ -125,30 +125,30 @@ if (!doNotTrack) {
 			<h2 id="heading">概要</h2>
 <h3 id="ufw">ufw</h3>
 <p>iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．</p>
-<h2 id="heading1">ファイアウォールの設定</h2>
-<h3 id="heading2">インストール&amp;初期設定</h3>
-<pre><code>$ sudo apt-get install ufw
+<h2 id="heading-1">ファイアウォールの設定</h2>
+<h3 id="heading-2">インストール&amp;初期設定</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get install ufw
 
 $ sudo ufw status
 Status: inactive
-</code></pre><h3 id="ipv6off">IPv6サポートをOFF</h3>
+</code></pre></div><h3 id="ipv6off">IPv6サポートをOFF</h3>
 <div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">/etc/default/ufw
 
 <span class="gd">-IPV6=yes
 </span><span class="gd"></span><span class="gi">+IPV6=no
-</span></code></pre></div><h3 id="heading3">必要があれば初期化</h3>
+</span></code></pre></div><h3 id="heading-3">必要があれば初期化</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw reset
 Resetting all rules to installed defaults. This may disrupt existing ssh connections. Proceed with operation <span class="o">(</span>y<span class="p">|</span>n<span class="o">)</span>?
 y
-</code></pre></div><h3 id="heading4">基本ポリシーを設定</h3>
+</code></pre></div><h3 id="heading-4">基本ポリシーを設定</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw default deny
-</code></pre></div><h3 id="heading5">使用するサービスのポートを開く</h3>
-<pre><code>$ sudo ufw allow 80
+</code></pre></div><h3 id="heading-5">使用するサービスのポートを開く</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo ufw allow 80
 Rules updated
 $ sudo ufw allow 22
 Rules updated
-</code></pre><h3 id="ufw1">ufwの有効化</h3>
-<pre><code>$ sudo ufw enable
+</code></pre></div><h3 id="ufw-1">ufwの有効化</h3>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo ufw enable
 sudo uFirewall is active and enabled on system startup
 
 $ sudo ufw status
@@ -158,7 +158,7 @@ Status: active
  --                         ------      ----
  22                         ALLOW       Anywhere
  80                         ALLOW       Anywhere
-</code></pre>
+</code></pre></div>
 		</div>
 		<footer class="post__footer">
 			
@@ -223,7 +223,7 @@ Status: active
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -240,7 +240,7 @@ Status: active
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -292,14 +292,14 @@ Status: active
         <li><a href="#ufw">ufw</a></li>
       </ul>
     </li>
-    <li><a href="#heading1">ファイアウォールの設定</a>
+    <li><a href="#heading-1">ファイアウォールの設定</a>
       <ul>
-        <li><a href="#heading2">インストール&初期設定</a></li>
+        <li><a href="#heading-2">インストール&初期設定</a></li>
         <li><a href="#ipv6off">IPv6サポートをOFF</a></li>
-        <li><a href="#heading3">必要があれば初期化</a></li>
-        <li><a href="#heading4">基本ポリシーを設定</a></li>
-        <li><a href="#heading5">使用するサービスのポートを開く</a></li>
-        <li><a href="#ufw1">ufwの有効化</a></li>
+        <li><a href="#heading-3">必要があれば初期化</a></li>
+        <li><a href="#heading-4">基本ポリシーを設定</a></li>
+        <li><a href="#heading-5">使用するサービスのポートを開く</a></li>
+        <li><a href="#ufw-1">ufwの有効化</a></li>
       </ul>
     </li>
   </ul>

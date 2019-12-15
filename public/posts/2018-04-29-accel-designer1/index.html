@@ -15,7 +15,7 @@
 今回の記事では，終点位置，終点速度や最大速度などの拘束条件から，走行途中の速度軌道を算出するアルゴリズムを紹介します．
 最後にはC&#43;&#43;での実装したクラスも簡単に紹介します．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2018-04-29-accel-designer1/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2018-04-29-accel-designer1/" />
 <meta property="article:published_time" content="2018-04-29T12:35:38+09:00" />
 <meta property="article:modified_time" content="2018-04-29T12:35:38+09:00" />
 
@@ -144,7 +144,7 @@ if (!doNotTrack) {
 <li><a href="/posts/2018-04-29-accel-designer3/">滑らかな加速の設計③ 走行距離を考慮した速度設計</a></li>
 <li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C++による実装例</a></li>
 </ul>
-<h2 id="heading1">台形加速の問題点</h2>
+<h2 id="heading-1">台形加速の問題点</h2>
 <p>よく使われる速度設計として，台形加速があります．</p>
 <p>加速 → 等速 → 減速 に対して速度のグラフを描くと台形になるので，台形加速と呼ばれます．</p>
 <figure >
@@ -173,7 +173,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>今回の記事では，このような曲線加速の速度設計について考えていきます．</p>
-<h2 id="heading2">関数の選択</h2>
+<h2 id="heading-2">関数の選択</h2>
 <p>曲線加速を設計するとき，どのような曲線の関数を選ぶか，という問題があります．</p>
 <p>本来ならば，無限回微分をしても連続性を保つ，</p>
 <ul>
@@ -191,7 +191,7 @@ if (!doNotTrack) {
 <p>としました．</p>
 <p>これならば，速度を逆算する際の方程式は3次なので，解の公式を使って解くことができます．</p>
 <!-- 4次方程式にも解の公式が存在しますが，計算が辛そうなので今回は3次に留めます． -->
-<h2 id="heading3">設計方針</h2>
+<h2 id="heading-3">設計方針</h2>
 <p>今回設計する曲線は以下の2つです．</p>
 <h3 id="1">設計1</h3>
 <p>まずはじめに，与えられた始点速度から終点速度までを滑らかにつなぐ曲線を設計します．</p>
@@ -220,7 +220,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading4">まとめ</h2>
+<h2 id="heading-4">まとめ</h2>
 <p>本記事では，台形加速の問題点を指摘し，曲線加速の必要性を述べました．</p>
 <p><a href="/posts/2018-04-29-accel-designer2/">次回の記事</a>では，その曲線加速の設計法を述べていきます．</p>
 		</div>
@@ -284,7 +284,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -301,7 +301,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -353,15 +353,15 @@ if (!doNotTrack) {
         <li><a href="#-">滑らかな加速の設計 目次</a></li>
       </ul>
     </li>
-    <li><a href="#heading1">台形加速の問題点</a></li>
-    <li><a href="#heading2">関数の選択</a></li>
-    <li><a href="#heading3">設計方針</a>
+    <li><a href="#heading-1">台形加速の問題点</a></li>
+    <li><a href="#heading-2">関数の選択</a></li>
+    <li><a href="#heading-3">設計方針</a>
       <ul>
         <li><a href="#1">設計1</a></li>
         <li><a href="#2">設計2</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">まとめ</a></li>
+    <li><a href="#heading-4">まとめ</a></li>
   </ul>
 </nav>
 	</div>

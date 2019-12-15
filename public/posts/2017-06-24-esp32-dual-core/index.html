@@ -24,7 +24,7 @@ ESP32とは
 ESP32 Overview | Espressif Systems
 ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-06-24-esp32-dual-core/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2017-06-24-esp32-dual-core/" />
 <meta property="article:published_time" content="2017-06-24T00:00:00+00:00" />
 <meta property="article:modified_time" content="2017-06-24T00:00:00+00:00" />
 
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 <p><a href="https://www.espressif.com/en/products/hardware/esp32/overview">ESP32 Overview | Espressif Systems</a></p>
 <p>ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．</p>
 <p>ESP-WROOM-32という700円ほどの無線モジュールの中に入っているマイコンがESP32です．</p>
-<h3 id="heading1">デュアルコア</h3>
+<h3 id="heading-1">デュアルコア</h3>
 <p>実はこのマイコン，かなりスペックが高く，CPUがデュアルコアなんです！<br>
 今回はその使い方を簡単に紹介します．</p>
 <h2 id="rtos-">RTOS (リアルタイムオペレーティングシステム)</h2>
@@ -189,7 +189,7 @@ if (!doNotTrack) {
 FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキテクチャに対応しています．オープンソースのRTOSの中では最も有名なものと言えるでしょう．</p>
 <h3 id="esp32freertos">ESP32に使われているFreeRTOS</h3>
 <p>デュアルコアのためかわかりませんが，ESP32に使われているFreeRTOSは，ESP32用にカスタマイズされているみたいです．ただ，使い方はほとんど同じです．</p>
-<h2 id="heading2">デュアルコアの使い方</h2>
+<h2 id="heading-2">デュアルコアの使い方</h2>
 <p>使い方はとても簡単です．</p>
 <p>普段FreeRTOSでタスクを作成するときは</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">BaseType_t</span> <span class="nf">xTaskCreate</span><span class="p">(</span>
@@ -213,7 +213,7 @@ FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキ�
 </code></pre></div><p>という関数を使い，引数の最後に使用するCPUのコア番号を指定します．</p>
 <p>つまり，どのCPUで実行するかというのはユーザーが選択する訳です．</p>
 <p>ESP32の場合，コアは2つなので，コア番号は0か1になります．</p>
-<h2 id="heading3">サンプルコード</h2>
+<h2 id="heading-3">サンプルコード</h2>
 <p>Arduino core for ESP32環境でのサンプルコードです．</p>
 <p>※Arduino IDEのBoard設定でCore Debug Levelをinfoにしないとログは見えません．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;esp32-hal-log.h&#34;</span><span class="cp">
@@ -241,7 +241,7 @@ FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキ�
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
 <span class="p">}</span>
-</code></pre></div><h2 id="heading4">ちなみに</h2>
+</code></pre></div><h2 id="heading-4">ちなみに</h2>
 <p>ちなみに，Arduino core for ESP32のmain.cppでは，</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">if CONFIG_FREERTOS_UNICORE</span><span class="cp">
 </span><span class="cp"></span><span class="cp">#</span><span class="cp">define ARDUINO_RUNNING_CORE 0</span><span class="cp">
@@ -266,16 +266,16 @@ FreeRTOSは，オープンソースのRTOSの1つで，さまざまなアーキ�
 </code></pre></div><p>こう書かれているので，いつも使っているsetup()とloop()は優先度が1のタスクであることがわかります．</p>
 <p>さらに，CONFIG_FREERTOS_UNICOREはfalseなので，このタスクを実行するコアはCPU1であることがわかります．</p>
 <p>おそらくOSなどのシステムタスクはCPU0で行っていて，ユーザーアプリケーションタスクをCPU1で行うという位置づけなのでしょう．実際に各CPUには名前がついていて，Process CPUとApplication CPUとなっています．</p>
-<h2 id="heading5">まとめ</h2>
+<h2 id="heading-5">まとめ</h2>
 <p>ついに電子工作の世界にデュアルコアがやって参りましたね！<br>
 デュアルコアを使うためにはRTOSは必須だと思うのでしっかり勉強していきたいです．</p>
 <p>一度デュアルコア用のコードを書けるようになっておけば，将来クアッドコアやオタクコアのマイコンが登場してもすぐに適応することができます．</p>
 <p>実は，ESP32にはUltra Low Power Coprocessorという8MHzで動くCPUがもう一つ入っています．そちらもこれから使い方を勉強していきたいと思うので，収穫があったら紹介したいと思います．</p>
 <p>こんなにすごいマイコンですが，ESP-WROOM-32はたった700円です．<br>
 ESP32の性能を最大限に使っていきましょう！</p>
-<h2 id="heading6">参考リンク</h2>
+<h2 id="heading-6">参考リンク</h2>
 <ul>
-<li><a href="https://www.espressif.com/en/products/hardware/esp32/resources"><a href="http://www.espressif.com">www.espressif.com</a> Resources</a></li>
+<li><a href="https://www.espressif.com/en/products/hardware/esp32/resources">www.espressif.com Resources</a></li>
 <li><a href="https://github.com/espressif/esp-idf">Espressif IoT Development Framework</a></li>
 <li><a href="https://github.com/espressif/arduino-esp32">Arduino core for ESP32 WiFi chip</a></li>
 </ul>
@@ -342,7 +342,7 @@ ESP32の性能を最大限に使っていきましょう！</p>
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -359,7 +359,7 @@ ESP32の性能を最大限に使っていきましょう！</p>
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -409,7 +409,7 @@ ESP32の性能を最大限に使っていきましょう！</p>
     <li><a href="#heading">概要</a>
       <ul>
         <li><a href="#esp32">ESP32とは</a></li>
-        <li><a href="#heading1">デュアルコア</a></li>
+        <li><a href="#heading-1">デュアルコア</a></li>
       </ul>
     </li>
     <li><a href="#rtos-">RTOS (リアルタイムオペレーティングシステム)</a>
@@ -419,11 +419,11 @@ ESP32の性能を最大限に使っていきましょう！</p>
         <li><a href="#esp32freertos">ESP32に使われているFreeRTOS</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">デュアルコアの使い方</a></li>
-    <li><a href="#heading3">サンプルコード</a></li>
-    <li><a href="#heading4">ちなみに</a></li>
-    <li><a href="#heading5">まとめ</a></li>
-    <li><a href="#heading6">参考リンク</a></li>
+    <li><a href="#heading-2">デュアルコアの使い方</a></li>
+    <li><a href="#heading-3">サンプルコード</a></li>
+    <li><a href="#heading-4">ちなみに</a></li>
+    <li><a href="#heading-5">まとめ</a></li>
+    <li><a href="#heading-6">参考リンク</a></li>
   </ul>
 </nav>
 	</div>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ESP32 on KERI&#39;s Lab</title>
-    <link>/tags/esp32/</link>
+    <link>https://kerikeri.top/tags/esp32/</link>
     <description>Recent content in ESP32 on KERI&#39;s Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
@@ -10,15 +10,15 @@
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
     <lastBuildDate>Sat, 22 Dec 2018 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kerikeri.top/tags/esp32/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PlatformIOでESP32の開発をしよう</title>
-      <link>/posts/2018-12-22-platformio/</link>
+      <link>https://kerikeri.top/posts/2018-12-22-platformio/</link>
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2018-12-22-platformio/</guid>
+      <guid>https://kerikeri.top/posts/2018-12-22-platformio/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/3279&#34;&gt;rogy Advent Calendar 2018&lt;/a&gt; の
 22日目の記事です．&lt;/p&gt;
@@ -31,32 +31,32 @@
     
     <item>
       <title>ESP32 の Power Management 機能</title>
-      <link>/posts/2018-06-28-esp32-power-management/</link>
+      <link>https://kerikeri.top/posts/2018-06-28-esp32-power-management/</link>
       <pubDate>Thu, 28 Jun 2018 08:50:59 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2018-06-28-esp32-power-management/</guid>
+      <guid>https://kerikeri.top/posts/2018-06-28-esp32-power-management/</guid>
       <description>&lt;p&gt;この記事では，ESP32をバッテリー駆動するためのヒントをお届けします．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ESP32にSmartConfigでWiFi情報を伝える</title>
-      <link>/posts/2018-02-16-esp32-smartconfig/</link>
+      <link>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</link>
       <pubDate>Fri, 16 Feb 2018 18:51:25 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2018-02-16-esp32-smartconfig/</guid>
+      <guid>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</guid>
       <description>&lt;h2 id=&#34;wifissid&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
 &lt;p&gt;ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．&lt;/p&gt;
 &lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
-&lt;p&gt;以前は&lt;a href=&#34;/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
+&lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
 &lt;p&gt;SmartConfigとは，そんな悩みをスマホで解決する機能です．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ESP32のすゝめ</title>
-      <link>/posts/2017-12-06-introduction-to-esp32/</link>
+      <link>https://kerikeri.top/posts/2017-12-06-introduction-to-esp32/</link>
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-12-06-introduction-to-esp32/</guid>
+      <guid>https://kerikeri.top/posts/2017-12-06-introduction-to-esp32/</guid>
       <description>&lt;p&gt;こんにちは，けりです．&lt;br&gt;
 これは &lt;a href=&#34;https://adventar.org/calendars/2361&#34;&gt;rogy Advent Calender 2017&lt;/a&gt; の6日目の記事です.&lt;/p&gt;
 &lt;p&gt;本日は，私が愛用しているマイコン「ESP32」を紹介します．&lt;/p&gt;</description>
@@ -64,10 +64,10 @@
     
     <item>
       <title>ESP32 Timeライブラリを作りました</title>
-      <link>/posts/2017-08-30-esp32-time-lib/</link>
+      <link>https://kerikeri.top/posts/2017-08-30-esp32-time-lib/</link>
       <pubDate>Wed, 30 Aug 2017 10:55:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-08-30-esp32-time-lib/</guid>
+      <guid>https://kerikeri.top/posts/2017-08-30-esp32-time-lib/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;こんにちは，けりです．
 みなさん，ESP32使ってますか？&lt;/p&gt;
@@ -76,20 +76,20 @@
     
     <item>
       <title>ESP32とMicro SDカード</title>
-      <link>/posts/2017-07-29-esp32-wifi-sd/</link>
+      <link>https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/</link>
       <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-07-29-esp32-wifi-sd/</guid>
+      <guid>https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回は，ESP32で何か作るときはとりあえず一緒にMicro SDスロットも載せましょうという話です．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>秋月の時計キットをNTP時計化</title>
-      <link>/posts/2017-07-23-aki-clock/</link>
+      <link>https://kerikeri.top/posts/2017-07-23-aki-clock/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-07-23-aki-clock/</guid>
+      <guid>https://kerikeri.top/posts/2017-07-23-aki-clock/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;家の玄関で地味に役に立っていた時計&lt;/h2&gt;
 &lt;p&gt;かなり前に秋月電子で買った&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-04379/&#34;&gt;時計キット&lt;/a&gt;．&lt;br&gt;
 数字が大きく，遠くからでもよく見えるので自宅の玄関で地味に役立っていました．&lt;/p&gt;
@@ -98,10 +98,10 @@
     
     <item>
       <title>ESP32でデュアルコアを使おう！</title>
-      <link>/posts/2017-06-24-esp32-dual-core/</link>
+      <link>https://kerikeri.top/posts/2017-06-24-esp32-dual-core/</link>
       <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-06-24-esp32-dual-core/</guid>
+      <guid>https://kerikeri.top/posts/2017-06-24-esp32-dual-core/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&#34;esp32&#34;&gt;ESP32とは&lt;/h3&gt;
 &lt;figure &gt;
@@ -121,10 +121,10 @@
     
     <item>
       <title>ESP32の設定管理ライブラリの紹介</title>
-      <link>/posts/2017-06-16-esp32-preferences/</link>
+      <link>https://kerikeri.top/posts/2017-06-16-esp32-preferences/</link>
       <pubDate>Fri, 16 Jun 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-06-16-esp32-preferences/</guid>
+      <guid>https://kerikeri.top/posts/2017-06-16-esp32-preferences/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;みなさん，ESP32使ってますか？僕は使っています．その偉大さには驚くばかりです．&lt;/p&gt;
 &lt;p&gt;さて，今回紹介するのは，Arduino core for ESP32に含まれているライブラリ「&lt;a href=&#34;https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences&#34;&gt;Preferences&lt;/a&gt;」です．&lt;/p&gt;
@@ -135,10 +135,10 @@
     
     <item>
       <title>ESP32で時間取得</title>
-      <link>/posts/2017-04-26-esp32-time/</link>
+      <link>https://kerikeri.top/posts/2017-04-26-esp32-time/</link>
       <pubDate>Wed, 26 Apr 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-04-26-esp32-time/</guid>
+      <guid>https://kerikeri.top/posts/2017-04-26-esp32-time/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回はESP32で現在時刻を取得するサンプルコードの紹介です．&lt;/p&gt;
 &lt;p&gt;今回のコードではC++標準の時刻を合わせるので，std::time()関数で時刻を取得することができるようになります．&lt;/p&gt;</description>
@@ -146,10 +146,10 @@
     
     <item>
       <title>ESP32からメールを送る</title>
-      <link>/posts/2017-04-08-esp32-mail/</link>
+      <link>https://kerikeri.top/posts/2017-04-08-esp32-mail/</link>
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-04-08-esp32-mail/</guid>
+      <guid>https://kerikeri.top/posts/2017-04-08-esp32-mail/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;ESP32にはHTTPSクライアントライブラリがあるので，SMTPプロトコルを使ってGmailを送信してみました．意外にもうまくいってしまったので，共有します．&lt;/p&gt;
 &lt;p&gt;Arduino上で動くコードです．esp32-arduino-coreは最新のものを使用してください．古いものだと，SSLまわりでエラーが発生します．&lt;/p&gt;</description>
@@ -157,22 +157,22 @@
     
     <item>
       <title>ESP-WROOM-32で秋月の売場表示</title>
-      <link>/posts/2017-03-29-aki-shelf/</link>
+      <link>https://kerikeri.top/posts/2017-03-29-aki-shelf/</link>
       <pubDate>Wed, 29 Mar 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-03-29-aki-shelf/</guid>
+      <guid>https://kerikeri.top/posts/2017-03-29-aki-shelf/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;まずはじめに&lt;/h2&gt;
-&lt;h3 id=&#34;heading1&#34;&gt;秋月の通販サイトが進化&lt;/h3&gt;
+&lt;h3 id=&#34;heading-1&#34;&gt;秋月の通販サイトが進化&lt;/h3&gt;
 &lt;p&gt;少し前から，&lt;a href=&#34;http://akizukidenshi.com/&#34;&gt;秋月の通販サイト&lt;/a&gt;で店舗の在庫数と売場の場所が見れるようになりました．&lt;br&gt;
 商品写真の下の「店舗情報」というボタンを押すとポップアップが現れ，在庫数と売場が表示されます．&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ESP32用UIライブラリ</title>
-      <link>/posts/2017-03-26-user-interface/</link>
+      <link>https://kerikeri.top/posts/2017-03-26-user-interface/</link>
       <pubDate>Sun, 26 Mar 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2017-03-26-user-interface/</guid>
+      <guid>https://kerikeri.top/posts/2017-03-26-user-interface/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;ESP32も徐々に使い慣れてきました．今回の記事では，ちょっとした工作には欠かせないユーザーインターフェースのコードを紹介します．&lt;/p&gt;
 &lt;ul&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>自動配線 on KERI&#39;s Lab</title>
-    <link>/tags/%E8%87%AA%E5%8B%95%E9%85%8D%E7%B7%9A/</link>
+    <link>https://kerikeri.top/tags/%E8%87%AA%E5%8B%95%E9%85%8D%E7%B7%9A/</link>
     <description>Recent content in 自動配線 on KERI&#39;s Lab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
@@ -10,15 +10,15 @@
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
     <lastBuildDate>Fri, 22 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/%E8%87%AA%E5%8B%95%E9%85%8D%E7%B7%9A/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kerikeri.top/tags/%E8%87%AA%E5%8B%95%E9%85%8D%E7%B7%9A/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>KiCadで自動配線</title>
-      <link>/posts/2016-04-22-freerouting/</link>
+      <link>https://kerikeri.top/posts/2016-04-22-freerouting/</link>
       <pubDate>Fri, 22 Apr 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>/posts/2016-04-22-freerouting/</guid>
+      <guid>https://kerikeri.top/posts/2016-04-22-freerouting/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;figure &gt;
 	
@@ -31,7 +31,7 @@
 	
 &lt;/figure&gt;
 
-&lt;h3 id=&#34;heading1&#34;&gt;自動配線ツールを使おう&lt;/h3&gt;
+&lt;h3 id=&#34;heading-1&#34;&gt;自動配線ツールを使おう&lt;/h3&gt;
 &lt;p&gt;KiCadが流行ってきて，使う人が増えてきている．&lt;/p&gt;
 &lt;p&gt;しかし，自動配線ツールを使っている人は少ない．&lt;/p&gt;
 &lt;p&gt;それでははもったいない！！&lt;/p&gt;

@@ -1,17 +1,17 @@
 # file:     config.toml
 # author:   Ryotaro Onuki
-# hugo:     v0.59.1 or higher
+# hugo:     v0.61.0 or higher
 # base:     https://themes.gohugo.io/mainroad/
 
-baseurl = "/"
+baseurl = "https://kerikeri.top/"
 title = "KERI's Lab"
 languageCode = "ja-jp"
 DefaultContentLanguage = "ja"
-paginate = "20" # Number of posts per page
+hasCJKLanguage = true # handle japanese character
 theme = "mainroad" # Mainroad Theme https://github.com/vimux/mainroad/
-disqusShortname = "kerikun11+disqus@gmail.com" # Enable Disqus comments by entering your Disqus shortname
+paginate = "20" # Number of posts per page
+disqusShortname = "kerikun11" # Enable Disqus comments by entering your Disqus shortname
 googleAnalytics = "UA-103856564-1" # Enable Google Analytics by entering your tracking id
-hasCJKLanguage = true
 rssLimit = 30 # default: 15
 
 pygmentsUseClasses = true
@@ -69,6 +69,12 @@ pygmentsCodefencesGuessSyntax = true
     # gitlab = "username"
     # bitbucket = "username"
     email = "kerikun11+web@gmail.com"
+
+# Custom social links
+[[Params.widgets.social.custom]]
+  title = "Youtube"
+  url = "https://youtube.com/user/username"
+  icon = "youtube.svg" # Optional. Path relative to "layouts/partials"
 
 [Social]
     twitter = "kerikun11"

@@ -10,7 +10,7 @@
 	<meta property="og:title" content="vimの設定" />
 <meta property="og:description" content="vim の設定" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2015-10-07-vim/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2015-10-07-vim/" />
 <meta property="article:published_time" content="2015-10-07T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-10-07T00:00:00+00:00" />
 
@@ -120,7 +120,7 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<h2 id="vim-">vim の設定</h2>
 <h3 id="vimrc">.vimrc</h3>
-<pre><code>syntax enable
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">syntax enable
 set number
 set autoindent
 set smartindent
@@ -128,35 +128,35 @@ set backspace=start,eol,indent
 set mouse=a
 set tabstop=4
 set shiftwidth=4
-&quot;set expandtab
+&#34;set expandtab
 set encoding=utf-8
 set cursorline
 set nocompatible
 
 filetype plugin indent off
 
-if has('vim_starting')
+if has(&#39;vim_starting&#39;)
 		set runtimepath+=~/.vim/bundle/neobundle.vim
-		call neobundle#begin(expand('~/.vim/bundle'))
+		call neobundle#begin(expand(&#39;~/.vim/bundle&#39;))
 endif
 
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'anyakichi/vim-surround'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'taichouchou2/html5.vim'
-NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle &#39;mattn/emmet-vim&#39;
+NeoBundle &#39;anyakichi/vim-surround&#39;
+NeoBundle &#39;scrooloose/nerdcommenter&#39;
+NeoBundle &#39;hail2u/vim-css3-syntax&#39;
+NeoBundle &#39;taichouchou2/html5.vim&#39;
+NeoBundle &#39;taichouchou2/vim-javascript&#39;
 
-if has('vim_starting')
+if has(&#39;vim_starting&#39;)
 		call neobundle#end()
 endif
 
 filetype plugin indent on
-</code></pre><h3 id="plugin">pluginの設定</h3>
+</code></pre></div><h3 id="plugin">pluginの設定</h3>
 <p>NeoBundleをダウンロードする。</p>
-<pre><code>$ mkdir -p ~.vim/bundle
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ mkdir -p ~.vim/bundle
 $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-</code></pre><p>プラグインを入れるには.vimrcにNeoBundleから続けてプラグイン名を書き、保存して、vim上で、</p>
+</code></pre></div><p>プラグインを入れるには.vimrcにNeoBundleから続けてプラグイン名を書き、保存して、vim上で、</p>
 <pre><code>:NeoBundleInstall
 </code></pre>
 <p>または</p>
@@ -225,7 +225,7 @@ $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -242,7 +242,7 @@ $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">

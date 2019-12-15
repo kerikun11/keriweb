@@ -11,7 +11,7 @@
 <meta property="og:description" content="概要
 PIC18F27J53は，リアルタイムクロック&amp;カレンダー(RTCC)モジュールをハードウェアで持っています．今回はそれを使用するためのライブラリを作ったので紹介します．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-09-02-pic-rtcc/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-09-02-pic-rtcc/" />
 <meta property="article:published_time" content="2016-09-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-09-02T00:00:00+00:00" />
 
@@ -123,7 +123,7 @@ if (!doNotTrack) {
 			<h2 id="heading">概要</h2>
 <p>PIC18F27J53は，リアルタイムクロック&amp;カレンダー(RTCC)モジュールをハードウェアで持っています．今回はそれを使用するためのライブラリを作ったので紹介します．</p>
 <h2 id="rtcc">自作のRTCCライブラリ</h2>
-<h3 id="heading1">必要なソースファイル</h3>
+<h3 id="heading-1">必要なソースファイル</h3>
 <ul>
 <li>My_RTCC.h</li>
 <li>My_RTCC.c</li>
@@ -131,8 +131,8 @@ if (!doNotTrack) {
 <li>My_button.c</li>
 <li>main.c</li>
 </ul>
-<h3 id="heading2">概要</h3>
-<h4 id="heading3">変数</h4>
+<h3 id="heading-2">概要</h3>
+<h4 id="heading-3">変数</h4>
 <p>このプログラムでは、時刻情報を持つ変数が３つある。</p>
 <ol>
 <li>PICのRTCCモジュールのレジスタ→カレンダー表記、16進法表記（※厳密には10進だが便宜上16進とする。）</li>
@@ -140,7 +140,7 @@ if (!doNotTrack) {
 <li>time_t構造体内のYY,MM,DD,EE,hh,mm,ss→それぞれ、年、月、日、曜日、時、分、秒の10進法表記。</li>
 </ol>
 <p>以上３つがある。時刻が変わってもRTCC_loop()関数がすべての値を常に一致させているので安心して使用できる。</p>
-<h4 id="heading4">使い方</h4>
+<h4 id="heading-4">使い方</h4>
 <ol>
 <li>TIOSCのピンに32.768kHzのクリスタルをつなぐ。（12pのコンデンサも）</li>
 <li>CONFIGを設定する。RTCOSC = T1OSCREF</li>
@@ -151,8 +151,8 @@ if (!doNotTrack) {
 <li>adjust_time_inc()とadjust_time_dec()で調整するとよい。</li>
 <li>時計合わせが終わったら、adjust_time_toggle()をもう一度呼ぶと時計合わせ終了。</li>
 </ol>
-<h3 id="rtcc1">RTCCライブラリ</h3>
-<h4 id="myrtcch">My_RTCC.h</h4>
+<h3 id="rtcc-1">RTCCライブラリ</h3>
+<h4 id="my-rtcch">My_RTCC.h</h4>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* 
 </span><span class="cm"> * File:   My_RTCC.h
 </span><span class="cm"> * Author: Ryotaro Onuki
@@ -292,7 +292,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">caltime_to_epoch</span><span class="p">(</span><span class="n">time_t</span> <span class="o">*</span><span class="n">tm</span><span class="p">)</span><span class="p">;</span>
 
 <span class="cp">#</span><span class="cp">endif	</span><span class="cm">/* MY_RTCC_H */</span><span class="cp">
-</span></code></pre></div><h4 id="myrtccc">My_RTCC.c</h4>
+</span></code></pre></div><h4 id="my-rtccc">My_RTCC.c</h4>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;My_RTCC.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="cm">/** INCLUDES *******************************************************/</span>
@@ -652,8 +652,8 @@ if (!doNotTrack) {
 
     <span class="n">tm</span><span class="o">-</span><span class="o">&gt;</span><span class="n">epoch</span> <span class="o">=</span> <span class="n">epoch</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="heading5">ボタンライブラリ</h3>
-<h4 id="mybuttonh">My_button.h</h4>
+</code></pre></div><h3 id="heading-5">ボタンライブラリ</h3>
+<h4 id="my-buttonh">My_button.h</h4>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* 
 </span><span class="cm"> * File:   My_button.h
 </span><span class="cm"> * Author: kerikun11
@@ -709,7 +709,7 @@ if (!doNotTrack) {
 <span class="kt">void</span> <span class="nf">button_timer_interrupt</span><span class="p">(</span><span class="n">button_t</span> <span class="o">*</span><span class="n">bt</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">sw_value</span><span class="p">)</span><span class="p">;</span>
 
 <span class="cp">#</span><span class="cp">endif	</span><span class="cm">/* MY_BUTTON_H */</span><span class="cp">
-</span></code></pre></div><h4 id="mybuttonh1">My_button.h</h4>
+</span></code></pre></div><h4 id="my-buttonh-1">My_button.h</h4>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;My_button.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">button_timer_interrupt</span><span class="p">(</span><span class="n">button_t</span> <span class="o">*</span><span class="n">bt</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">sw_value</span><span class="p">)</span> <span class="p">{</span>
@@ -736,7 +736,7 @@ if (!doNotTrack) {
         <span class="n">bt</span><span class="o">-</span><span class="o">&gt;</span><span class="n">flags</span> <span class="o">&amp;</span><span class="o">=</span> <span class="mh">0x00FF</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="heading6">使用例</h3>
+</code></pre></div><h3 id="heading-6">使用例</h3>
 <p>UARTで毎秒時刻を送信します．</p>
 <h4 id="mainc">main.c</h4>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/* 
@@ -945,7 +945,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -962,7 +962,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -1012,11 +1012,11 @@ if (!doNotTrack) {
     <li><a href="#heading">概要</a></li>
     <li><a href="#rtcc">自作のRTCCライブラリ</a>
       <ul>
-        <li><a href="#heading1">必要なソースファイル</a></li>
-        <li><a href="#heading2">概要</a></li>
-        <li><a href="#rtcc1">RTCCライブラリ</a></li>
-        <li><a href="#heading5">ボタンライブラリ</a></li>
-        <li><a href="#heading6">使用例</a></li>
+        <li><a href="#heading-1">必要なソースファイル</a></li>
+        <li><a href="#heading-2">概要</a></li>
+        <li><a href="#rtcc-1">RTCCライブラリ</a></li>
+        <li><a href="#heading-5">ボタンライブラリ</a></li>
+        <li><a href="#heading-6">使用例</a></li>
       </ul>
     </li>
   </ul>

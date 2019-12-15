@@ -12,7 +12,7 @@
 前回の記事の続きです．
 この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2018-04-29-accel-designer3/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2018-04-29-accel-designer3/" />
 <meta property="article:published_time" content="2018-04-29T14:35:38+09:00" />
 <meta property="article:modified_time" content="2018-04-29T14:35:38+09:00" />
 
@@ -150,7 +150,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>ここで，図中の赤線である最大速度とその継続時間は，走行距離の拘束条件を満たすように算出します．</p>
-<h2 id="heading1">拘束条件</h2>
+<h2 id="heading-1">拘束条件</h2>
 <p>与える情報は以下の通りです．</p>
 <ul>
 <li>最大加速度 $a_{m}$</li>
@@ -166,13 +166,13 @@ if (!doNotTrack) {
 <p>というのも，走行距離$d$と最大加速度$a_m$の拘束条件により，与えられた目標速度$v_t$に達することができない場合があるからです．</p>
 <p>結果的に算出される終点速度$v_e$は，目標速度と$v_t$と異なる場合があるので注意します．</p>
 <p>この場合，当初の設計よりも速い速度でターンに突入することがありあますが，無理に減速して姿勢を崩した状態で突入するよりはマシでしょう．</p>
-<h2 id="heading2">求めた式</h2>
+<h2 id="heading-2">求めた式</h2>
 <ul>
 <li>走行距離などの拘束条件から終点速度$v_e$を求める式</li>
 <li>走行距離などの拘束条件から最大速度$v_m$を求める式</li>
 <li>任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$ および位置 $x(t)$ を返す式</li>
 </ul>
-<h3 id="ve">走行距離の拘束から終点速度$v_e$を求める式</h3>
+<h3 id="v-e">走行距離の拘束から終点速度$v_e$を求める式</h3>
 <p>与えられた拘束条件から終点速度を求める式です．</p>
 <p>$$
 \begin{align}
@@ -207,7 +207,7 @@ $$</p>
 <p>少し複雑になってしまいましたが，一応これで求めることができます．</p>
 <p>注意点として，$v_{e2}$の計算する際，減速の場合，2乗根の中身が負になる場合があるので，この部分の計算は複素数で行う必要があります．</p>
 <p>答えは必ず実数になるので，どうにか実数で計算できないか考えましたが，今のところ解決策は見つかっていません．</p>
-<h3 id="vm">走行距離などから最大速度$v_m$を求める式</h3>
+<h3 id="v-m">走行距離などから最大速度$v_m$を求める式</h3>
 <p>与えられた拘束条件から最大速度を求める式です．</p>
 <p>$$
 \begin{align}
@@ -272,8 +272,8 @@ t_3 &amp;:= t_2 + dc.t_{end}
 \end{align}
 $$</p>
 <p>$ac.t_{end}$などの表記は，察してください．</p>
-<h2 id="heading3">導出過程</h2>
-<h3 id="heading4">走行距離などから終点速度を求める式</h3>
+<h2 id="heading-3">導出過程</h2>
+<h3 id="heading-4">走行距離などから終点速度を求める式</h3>
 <p>走行距離$d$がある程度小さいとき，与えられた拘束条件では目標速度$v_t$にたどり着けない場合があります．</p>
 <p>ここでは，そのような場合にギリギリたどり着ける終点速度$v_e$を求めます．</p>
 <figure >
@@ -317,7 +317,7 @@ v_0+\frac{1}{2} j_m(t_1-t_0)^2
 $$</p>
 <p>ただし，最大躍度$j_m:=a_m/t_c$を用いました．</p>
 <p>このあとは，走行距離$d$が$d_m$より大きいか小さいかで場合分けをして，終端速度$v_e$を求めます．</p>
-<h4 id="dge-dm">$d\ge d_m$のとき</h4>
+<h4 id="dge-d-m">$d\ge d_m$のとき</h4>
 <p>$d\ge d_m$のとき，$t_m \ge 0$となります．</p>
 <p>求める終点速度を$v_{e1}$とおくと，
 曲線の対称性により，台形の面積の公式を用いて，</p>
@@ -333,7 +333,7 @@ d &amp;= \frac{1}{2}(v_s+v_{e1})(t_3-t_0)
 \frac{1}{2}\left(\sqrt{4v_s^2-4v_sa_mt_c+a_m(a_mt_c^2+8d)}-a_mt_c\right)
 \end{align}
 $$</p>
-<h4 id="d--dm">$d &lt; d_m$のとき</h4>
+<h4 id="d--d-m">$d &lt; d_m$のとき</h4>
 <p>$d &lt; d_m$のとき，$t_m &lt; 0$となります．</p>
 <p>求める終点速度を$v_{e2}$とおくと，
 曲線の対称性により，台形の面積の公式を用いて，</p>
@@ -370,7 +370,7 @@ v_{e2} &amp; (d &lt; d_m)
 \end{align}
 $$</p>
 <p>これで，走行距離から逆算した終点速度$v_e$が求まりました．</p>
-<h3 id="heading5">走行距離などから最大速度を求める式</h3>
+<h3 id="heading-5">走行距離などから最大速度を求める式</h3>
 <p>次に，下図のように走行するために，最大速度$v_m$を求めます．</p>
 <figure >
 	
@@ -433,7 +433,7 @@ $$</p>
 	
 </figure>
 
-<h2 id="heading6">まとめ</h2>
+<h2 id="heading-6">まとめ</h2>
 <p>本記事では，走行距離の拘束条件を満たすような曲線加速を設計しました．</p>
 <p><a href="/posts/2018-04-29-accel-designer4/">次回の記事</a>では，そのためのC++実装例を紹介します．</p>
 <h2 id="20190319">追記：2019.03.19</h2>
@@ -499,7 +499,7 @@ $$</p>
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -516,7 +516,7 @@ $$</p>
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -569,25 +569,25 @@ $$</p>
       </ul>
     </li>
     <li><a href="#heading">設計内容</a></li>
-    <li><a href="#heading1">拘束条件</a>
+    <li><a href="#heading-1">拘束条件</a>
       <ul>
         <li><a href="#1">設計1との違い</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">求めた式</a>
+    <li><a href="#heading-2">求めた式</a>
       <ul>
-        <li><a href="#ve">走行距離の拘束から終点速度$v_e$を求める式</a></li>
-        <li><a href="#vm">走行距離などから最大速度$v_m$を求める式</a></li>
+        <li><a href="#v-e">走行距離の拘束から終点速度$v_e$を求める式</a></li>
+        <li><a href="#v-m">走行距離などから最大速度$v_m$を求める式</a></li>
         <li><a href="#-t--at-vt--xt">任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$ および位置 $x(t)$</a></li>
       </ul>
     </li>
-    <li><a href="#heading3">導出過程</a>
+    <li><a href="#heading-3">導出過程</a>
       <ul>
-        <li><a href="#heading4">走行距離などから終点速度を求める式</a></li>
-        <li><a href="#heading5">走行距離などから最大速度を求める式</a></li>
+        <li><a href="#heading-4">走行距離などから終点速度を求める式</a></li>
+        <li><a href="#heading-5">走行距離などから最大速度を求める式</a></li>
       </ul>
     </li>
-    <li><a href="#heading6">まとめ</a></li>
+    <li><a href="#heading-6">まとめ</a></li>
     <li><a href="#20190319">追記：2019.03.19</a></li>
   </ul>
 </nav>

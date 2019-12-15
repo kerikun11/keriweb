@@ -11,7 +11,7 @@
 <meta property="og:description" content="概要
 格安WiFiモジュールESP-WROOM-02を使って電流を計測してそれを受信し表示するアプリケーションを作りました。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2016-03-12-sinatra/" />
+<meta property="og:url" content="https://kerikeri.top/posts/2016-03-12-sinatra/" />
 <meta property="article:published_time" content="2016-03-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-03-12T00:00:00+00:00" />
 
@@ -125,7 +125,7 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<h2 id="heading">概要</h2>
 <p>格安WiFiモジュールESP-WROOM-02を使って電流を計測してそれを受信し表示するアプリケーションを作りました。</p>
-<h2 id="heading1">見た目</h2>
+<h2 id="heading-1">見た目</h2>
 <p>ちょっとした計算をしてレポートとして表示しています。</p>
 <figure >
 	
@@ -138,7 +138,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading2">電流計測機器</h2>
+<h2 id="heading-2">電流計測機器</h2>
 <p><a href="/posts/2016-03-23-relay-sensor/">ここ</a>の記事で紹介しているものを使いました。</p>
 <p>5~30VほどのDCケーブルに中継することでその電圧と電流を計り、データをWiFiでサーバーに送ります。</p>
 <p><figure >
@@ -174,14 +174,14 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="heading3">環境</h2>
+<h2 id="heading-3">環境</h2>
 <ul>
 <li>Windows10 &amp; Cygwin</li>
 <li>ruby 2.2.4p230 (2015-12-16 revision 53155) [x86_64-cygwin]</li>
 <li>gem 2.6.1</li>
 <li>SQLite 3.11.1 2016-03-03</li>
 </ul>
-<h2 id="heading4">ソースプログラム</h2>
+<h2 id="heading-4">ソースプログラム</h2>
 <p>必要なソースファイルは以下の３つです。</p>
 <ul>
 <li>app.rb</li>
@@ -242,19 +242,19 @@ if (!doNotTrack) {
 <span class="k">end</span>
 </code></pre></div><h3 id="viewslayouterb">views/layout.erb</h3>
 <p>サイト内共通のHTMLヘッダーやフッターはここに書きます。</p>
-<pre><code class="language-erb" data-lang="erb">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;ja&quot;&gt;
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;ja&#34;&gt;
 	&lt;head&gt;
-		&lt;meta charset=&quot;utf-8&quot;/&gt;
+		&lt;meta charset=&#34;utf-8&#34;/&gt;
 		&lt;title&gt;&lt;%= @title %&gt;&lt;/title&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
 		&lt;div&gt;&lt;%= yield %&gt;&lt;/div&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h3 id="viewsindexerb">views/index.erb</h3>
+</code></pre></div><h3 id="viewsindexerb">views/index.erb</h3>
 <p>実際にブラウザに表示される部分を書きます。</p>
-<pre><code class="language-erb" data-lang="erb">&lt;h1&gt;Power Station&lt;/h1&gt;
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;h1&gt;Power Station&lt;/h1&gt;
 
 &lt;h2&gt;Report&lt;/h2&gt;
 &lt;p&gt;Average : &lt;%= if @samples.length != 0 then @samples.average(:voltageValue).round(3) end %&gt; [V], &lt;%= if @samples.length != 0 then @samples.average(:currentValue).round(3) end %&gt; [A], &lt;%= if @samples.length != 0 then (@samples.average(:currentValue) * @samples.average(:voltageValue)).round(3) end %&gt; [W]&lt;/p&gt;
@@ -262,46 +262,46 @@ if (!doNotTrack) {
 &lt;p&gt;Electrical Energy : &lt;%= @intPower.round(3) %&gt; [Wh]&lt;/p&gt;
 
 &lt;h2&gt;Data&lt;/h2&gt;
-&lt;ul style=&quot;height:30em;overflow:scroll;&quot;&gt;
+&lt;ul style=&#34;height:30em;overflow:scroll;&#34;&gt;
 	&lt;% @samples.each do |sample| %&gt;
-		&lt;li data-id=&quot;&lt;%= sample.id %&gt;&quot;&gt;
-			&lt;button class=&quot;deleteCmd&quot; style=&quot;cursor:pointer;color:blue;}&quot;&gt;delete&lt;/button&gt;
+		&lt;li data-id=&#34;&lt;%= sample.id %&gt;&#34;&gt;
+			&lt;button class=&#34;deleteCmd&#34; style=&#34;cursor:pointer;color:blue;}&#34;&gt;delete&lt;/button&gt;
 			&lt;%= sample.created_at %&gt; (&lt;%= sample.deviceName %&gt;) : &lt;%= esc sample.voltageValue %&gt; [V], &lt;%= esc sample.currentValue %&gt; [A]
 		&lt;/li&gt;
 	&lt;% end %&gt;
 &lt;/ul&gt;
 
 &lt;h2&gt;Add new&lt;/h2&gt;
-&lt;form method=&quot;post&quot; action=&quot;/new&quot;&gt;
-	Device Name:&lt;input type=&quot;text&quot; name=&quot;deviceName&quot;&gt;
-	Voltage:&lt;input type=&quot;text&quot; name=&quot;voltageValue&quot;&gt;
-	Current:&lt;input type=&quot;text&quot; name=&quot;currentValue&quot;&gt;
-	&lt;button type=&quot;submit&quot;&gt;Post!&lt;/button&gt;
+&lt;form method=&#34;post&#34; action=&#34;/new&#34;&gt;
+	Device Name:&lt;input type=&#34;text&#34; name=&#34;deviceName&#34;&gt;
+	Voltage:&lt;input type=&#34;text&#34; name=&#34;voltageValue&#34;&gt;
+	Current:&lt;input type=&#34;text&#34; name=&#34;currentValue&#34;&gt;
+	&lt;button type=&#34;submit&#34;&gt;Post!&lt;/button&gt;
 &lt;/form&gt;
 
 &lt;h2&gt;Delete&lt;/h2&gt;
-&lt;button class=&quot;deleteAll&quot; type=&quot;submit&quot;&gt;Delete All Data&lt;/button&gt;
+&lt;button class=&#34;deleteAll&#34; type=&#34;submit&#34;&gt;Delete All Data&lt;/button&gt;
 
-&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js&#34;&gt;&lt;/script&gt;
 &lt;script&gt;
-	$('.deleteAll').click(function(){
-		if(confirm('Are you sure to delete?')){
-			$.post('/deleteAll');
+	$(&#39;.deleteAll&#39;).click(function(){
+		if(confirm(&#39;Are you sure to delete?&#39;)){
+			$.post(&#39;/deleteAll&#39;);
 			location.href = document.URL;
 		}
 	})
-	$('.deleteCmd').click(function(){
+	$(&#39;.deleteCmd&#39;).click(function(){
 		var el = $(this).parent();
-		if(confirm('Are you sure to delete?')){
-			$.post('/delete',{
-				id: el.data('id')
+		if(confirm(&#39;Are you sure to delete?&#39;)){
+			$.post(&#39;/delete&#39;,{
+				id: el.data(&#39;id&#39;)
 			},function(){
 				el.fadeOut(800);
 			});
 		}
 	})
 &lt;/script&gt;
-</code></pre><h2 id="heading5">参考サイト</h2>
+</code></pre></div><h2 id="heading-5">参考サイト</h2>
 <p><a href="http://dotinstall.com">ドットインストール</a>のレッスンを参考にデータを表示するアプリケーションを作りました。</p>
 		</div>
 		<footer class="post__footer">
@@ -370,7 +370,7 @@ if (!doNotTrack) {
             return;
         }
         var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "kerikun11+disqus@gmail.com" + '.disqus.com/embed.js';
+        s.src = '//' + "kerikun11" + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
@@ -387,7 +387,7 @@ if (!doNotTrack) {
 			<input class="widget-search__field" type="search" placeholder="SEARCH..." value="" name="q" aria-label="SEARCH...">
 		</label>
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="https://kerikeri.top/" />
 	</form>
 </div>
 <div class="widget-social widget">
@@ -435,17 +435,17 @@ if (!doNotTrack) {
     	<nav id="TableOfContents">
   <ul>
     <li><a href="#heading">概要</a></li>
-    <li><a href="#heading1">見た目</a></li>
-    <li><a href="#heading2">電流計測機器</a></li>
-    <li><a href="#heading3">環境</a></li>
-    <li><a href="#heading4">ソースプログラム</a>
+    <li><a href="#heading-1">見た目</a></li>
+    <li><a href="#heading-2">電流計測機器</a></li>
+    <li><a href="#heading-3">環境</a></li>
+    <li><a href="#heading-4">ソースプログラム</a>
       <ul>
         <li><a href="#apprb">app.rb</a></li>
         <li><a href="#viewslayouterb">views/layout.erb</a></li>
         <li><a href="#viewsindexerb">views/index.erb</a></li>
       </ul>
     </li>
-    <li><a href="#heading5">参考サイト</a></li>
+    <li><a href="#heading-5">参考サイト</a></li>
   </ul>
 </nav>
 	</div>
