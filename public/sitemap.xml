@@ -12,12 +12,32 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/categories/</loc>
-    <lastmod>2019-12-18T00:00:00+09:00</lastmod>
+    <loc>https://kerikeri.top/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kerikeri.top/</loc>
+    <loc>https://kerikeri.top/tags/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/work/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/works/micromouse/</loc>
+    <lastmod>2019-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/categories/</loc>
     <lastmod>2019-12-18T00:00:00+09:00</lastmod>
   </url>
   
@@ -28,16 +48,6 @@
   
   <url>
     <loc>https://kerikeri.top/post/</loc>
-    <lastmod>2019-12-18T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/</loc>
-    <lastmod>2019-12-18T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
     <lastmod>2019-12-18T00:00:00+09:00</lastmod>
   </url>
   

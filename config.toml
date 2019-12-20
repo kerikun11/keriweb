@@ -84,6 +84,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [permalinks]
     post = "/posts/:filename/"
+    work = "/works/:filename/"
 
 [sitemap]
     filename = "sitemap.xml"  # c.f. https://gohugo.io/templates/sitemap-template/#configure-sitemap-xml
