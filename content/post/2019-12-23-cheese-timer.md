@@ -75,7 +75,7 @@ Cheese Timer の発端となった計測部は，僕が制作しました．
 
 ### 表示部
 
-タイムの表示部は，先輩のところさんが **MATLAB** で作ってくれました．
+タイムの表示部は，先輩のところさんが **MATLAB** で作ってくださいました．
 
 {{< postfig src="cheese-timer-gui-kerise-v4.png" title="Cheese Timer の表示部" width="480px" >}}
 
