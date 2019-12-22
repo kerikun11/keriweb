@@ -8,10 +8,25 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 27 Nov 2017 12:39:52 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Dec 2019 09:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/%E8%BF%B7%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cheese Timer の紹介</title>
+      <link>https://kerikeri.top/posts/2019-12-23-cheese-timer/</link>
+      <pubDate>Mon, 23 Dec 2019 09:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2019-12-23-cheese-timer/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;先日，12月15日(日) に &lt;strong&gt;第3回Cheese杯&lt;/strong&gt; を開催しました．&lt;/p&gt;
+&lt;p&gt;Cheese杯とは，東京工業大学ロボット技術会Cheeseが主催するマイクロマウスのプチ大会です．&lt;/p&gt;
+&lt;p&gt;おかげさまで，今年，第3回目を開催することができました！&lt;/p&gt;
+&lt;p&gt;今回の記事では，そのとき登場した，
+マイクロマウス計測装置 &lt;strong&gt;Cheese Timer&lt;/strong&gt; を簡単に紹介します．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>マイクロマウス2017HX決勝迷路の探索結果</title>
