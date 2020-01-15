@@ -59,14 +59,6 @@ spotlight: "true"
     // autoSaveとの相性が悪いので保存時自動ビルドを無効化
     "latex-workshop.latex.autoBuild.run": "never",
     // ビルドコマンド
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "latexmk",
-            "tools": [
-                "latexmk"
-            ]
-        },
-    ],
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
@@ -75,10 +67,11 @@ spotlight: "true"
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdfdvi",
+                "-outdir=%OUTDIR%",
                 "%DOC%"
-            ]
-        },
+            ],
+            "env": {}
+        }
     ],
     // .latexmkrc に書かれたディレクトリに設定すること
     "latex-workshop.latex.outDir": "%DIR%/build",
@@ -225,9 +218,7 @@ VSCode の最大の魅力は
 
 ## まとめ
 
-私自身もそうですが，つい快適な環境を求めて環境構築に熱中しがちです．
-
-言うまでもないですが，TeXの文章を書くとき，一番大事なのは書きやすさではなく，書く内容です．
+TeXの文章を書くとき，一番大事なのは書きやすさではなく，書く内容です．
 
 しかし，書く内容に専念するためにも，心地よいTeX環境があるといいですよね！
 

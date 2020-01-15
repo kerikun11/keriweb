@@ -178,15 +178,7 @@ if (!doNotTrack) {
     <span class="c1">// autoSaveとの相性が悪いので保存時自動ビルドを無効化
 </span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.autoBuild.run&#34;</span><span class="o">:</span> <span class="s2">&#34;never&#34;</span><span class="p">,</span>
     <span class="c1">// ビルドコマンド
-</span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.recipes&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;latexmk&#34;</span><span class="p">,</span>
-            <span class="s2">&#34;tools&#34;</span><span class="o">:</span> <span class="p">[</span>
-                <span class="s2">&#34;latexmk&#34;</span>
-            <span class="p">]</span>
-        <span class="p">}</span><span class="p">,</span>
-    <span class="p">]</span><span class="p">,</span>
-    <span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;latexmk&#34;</span><span class="p">,</span>
             <span class="s2">&#34;command&#34;</span><span class="o">:</span> <span class="s2">&#34;latexmk&#34;</span><span class="p">,</span>
@@ -194,10 +186,11 @@ if (!doNotTrack) {
                 <span class="s2">&#34;-synctex=1&#34;</span><span class="p">,</span>
                 <span class="s2">&#34;-interaction=nonstopmode&#34;</span><span class="p">,</span>
                 <span class="s2">&#34;-file-line-error&#34;</span><span class="p">,</span>
-                <span class="s2">&#34;-pdfdvi&#34;</span><span class="p">,</span>
+                <span class="s2">&#34;-outdir=%OUTDIR%&#34;</span><span class="p">,</span>
                 <span class="s2">&#34;%DOC%&#34;</span>
-            <span class="p">]</span>
-        <span class="p">}</span><span class="p">,</span>
+            <span class="p">]</span><span class="p">,</span>
+            <span class="s2">&#34;env&#34;</span><span class="o">:</span> <span class="p">{</span><span class="p">}</span>
+        <span class="p">}</span>
     <span class="p">]</span><span class="p">,</span>
     <span class="c1">// .latexmkrc に書かれたディレクトリに設定すること
 </span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.outDir&#34;</span><span class="o">:</span> <span class="s2">&#34;%DIR%/build&#34;</span><span class="p">,</span>
@@ -297,8 +290,7 @@ if (!doNotTrack) {
 だと思います．</p>
 <p>コマンドパレットで<code>latex</code>などと入力すると，コマンドの候補がいろいろ出てきますので，是非いろいろ試してみてください！</p>
 <h2 id="heading-11">まとめ</h2>
-<p>私自身もそうですが，つい快適な環境を求めて環境構築に熱中しがちです．</p>
-<p>言うまでもないですが，TeXの文章を書くとき，一番大事なのは書きやすさではなく，書く内容です．</p>
+<p>TeXの文章を書くとき，一番大事なのは書きやすさではなく，書く内容です．</p>
 <p>しかし，書く内容に専念するためにも，心地よいTeX環境があるといいですよね！</p>
 <p>もし時間があったら，VSCodeに移行してみてはいかがでしょうか．</p>
 		</div>
@@ -608,7 +600,7 @@ if (!doNotTrack) {
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 KERI&#39;s Lab.
+			&copy; 2020 KERI&#39;s Lab.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
