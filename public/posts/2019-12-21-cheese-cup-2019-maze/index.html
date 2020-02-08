@@ -4,27 +4,27 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Cheese杯2019の報告 - KERI&#39;s Lab</title>
+	<title>Cheese杯2019の迷路 - KERI&#39;s Lab</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="Cheese杯2019の報告" />
+	<meta property="og:title" content="Cheese杯2019の迷路" />
 <meta property="og:description" content="こんにちは．けりです．
 先日，12/15(日) に
 Cheese主催のマイクロマウス・プチ大会
 第3回Cheese杯 を開催しました．
-今回はそのとき登場した，マイクロマウス計測装置 Cheese Timer と，出題された迷路を簡単に紹介します．" />
+今回はそのとき出題された迷路を簡単に紹介します．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kerikeri.top/posts/2019-12-21-cheese-cup-2019-maze/" />
 <meta property="article:published_time" content="2019-12-21T21:00:00+09:00" />
 <meta property="article:modified_time" content="2019-12-21T21:00:00+09:00" />
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cheese杯2019の報告"/>
+<meta name="twitter:title" content="Cheese杯2019の迷路"/>
 <meta name="twitter:description" content="こんにちは．けりです．
 先日，12/15(日) に
 Cheese主催のマイクロマウス・プチ大会
 第3回Cheese杯 を開催しました．
-今回はそのとき登場した，マイクロマウス計測装置 Cheese Timer と，出題された迷路を簡単に紹介します．"/>
+今回はそのとき出題された迷路を簡単に紹介します．"/>
 <meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -108,7 +108,10 @@ if (!doNotTrack) {
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">Cheese杯2019の報告</h1>
+			<figure class="post__thumbnail">
+				<img src="icon.png" alt="Cheese杯2019の迷路">
+			</figure>
+			<h1 class="post__title">Cheese杯2019の迷路</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
@@ -130,121 +133,13 @@ if (!doNotTrack) {
 <p>先日，12/15(日) に
 Cheese主催のマイクロマウス・プチ大会
 <strong>第3回Cheese杯</strong> を開催しました．</p>
-<p>今回はそのとき登場した，マイクロマウス計測装置 <strong>Cheese Timer</strong> と，出題された迷路を簡単に紹介します．</p>
-<h2 id="cheese-timer">Cheese Timer</h2>
-<p>Cheese Timer は，Cheese 杯のためにCheeseのメンバーが共同で制作した<strong>マイクロマウス計測装置</strong>です．</p>
-<p>マイコンや開発環境などがみんなバラバラのCheeseとしては，
-<strong>初めての共同作業</strong> とも言える Cheese Timer です！</p>
-<h3 id="heading">全体構成</h3>
-<p>Cheese Timer は，
-次の3つの部分によって構成されています．</p>
-<ul>
-<li>スタートラインのセンサ</li>
-<li>ゴールラインのセンサ</li>
-<li>親機PC</li>
-</ul>
-<p>計測部は無線化されていて，WiFiでPC側に通過時のタイムを送信します．</p>
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer: ゴールラインのセンサ</h4>
-		</figcaption>
-		
-		<img src="cheese-timer-1.jpg" alt="Cheese Timer: ゴールラインのセンサ" style="width: 360px;"/>
-	
-</figure>
-
-<h3 id="heading-1">計測部</h3>
-<p>計測部は，僕が制作しました．</p>
-<p>無線搭載マイコンモジュール ESP-WROOM-32 を使用して，センサの計測と無線によるデータ送信を行っています．</p>
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer: ゴールラインのセンサ</h4>
-		</figcaption>
-		
-		<img src="cheese-timer-2.jpg" alt="Cheese Timer: ゴールラインのセンサ" style="width: 360px;"/>
-	
-</figure>
-
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer の計測は ToF センサ</h4>
-		</figcaption>
-		
-		<img src="cheese-timer-3.jpg" alt="Cheese Timer の計測は ToF センサ" style="width: 360px;"/>
-	
-</figure>
-
-<p>基板を発注する時間がなかったので，そのへんに落ちていた基板を使いました．</p>
-<p>なんと，これはマイクロマウス KERISE v4 の先頭に立っている基板です！！</p>
-<figure >
-	
-		
-		<figcaption>
-			<h4>KERISE v4 の ToFセンサ</h4>
-		</figcaption>
-		
-		<img src="reflector.jpg" alt="KERISE v4 の ToFセンサ" style="width: 360px;"/>
-	
-</figure>
-
-<h3 id="heading-2">クラッシック柱への変換部分</h3>
-<p>上記のセンサをクラシックとハーフの双方のフィールドで使えるように，
-だんごくんが次のようなアダプタを作ってくれました．</p>
-<figure >
-	
-		
-		<figcaption>
-			<h4>柱アダプタ</h4>
-		</figcaption>
-		
-		<img src="pillar-adapter.png" alt="柱アダプタ" style="width: 240px;"/>
-	
-</figure>
-
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer の計測部</h4>
-		</figcaption>
-		
-		<img src="pillar-adapter.jpg" alt="Cheese Timer の計測部" style="width: 360px;"/>
-	
-</figure>
-
-<p>ちゃんとハマっていないようにも見えますが，そこは見なかったことにしましょう．</p>
-<h3 id="heading-3">表示部</h3>
-<p>タイムの表示部は，ところさんが <strong>MATLAB</strong> で作ってくれました．</p>
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer の表示部</h4>
-		</figcaption>
-		
-		<img src="cheese-timer-gui-kerise-v4.png" alt="Cheese Timer の表示部" style="width: 480px;"/>
-	
-</figure>
-
-<p>これはもう公式のものと区別がつきませんね！！すごい！！</p>
-<p>ここで，MATLABとセンサをAPIでつなぐ部分は，同期の sekiくんが作成してくれました．</p>
-<h3 id="google-">Google スプレットシートと連携</h3>
-<p>出走者には Google フォームでエントリーをして頂きましたが，
-その集計結果のスプレットシートと Cheese Timer はリンクしています．</p>
-<p>機体名や走行タイムなどが自動で反映されるようになっています！<br>
-この部分は，だんごくんと同期のiimuroくんが作ってくれました．</p>
-<h2 id="heading-4">迷路</h2>
-<p>今回のCheese杯2019の迷路は，クラシック競技・マイクロマウス競技の両方とも僕が作成しました．</p>
-<p>実際にみんなが走るような迷路を作成するのは初めての経験でしたが，なかなか楽しかったです．</p>
-<h3 id="heading-5">クラシック競技</h3>
+<p>今回はそのとき出題された迷路を簡単に紹介します．</p>
+<h2 id="heading">迷路</h2>
+<p>今年のCheese杯2019の迷路は，
+クラシック競技・マイクロマウス競技の両方とも僕が作成させて頂きました．</p>
+<h3 id="heading-1">クラシック競技</h3>
 <p>迷路サイズは 9x9 で，ゴール座標は (7,7)-(8,8) です．</p>
-<p><figure >
+<figure >
 	
 		
 		<figcaption>
@@ -255,6 +150,46 @@ Cheese主催のマイクロマウス・プチ大会
 	
 </figure>
 
+<h3 id="heading-2">マイクロマウス競技</h3>
+<p>迷路サイズは 16x9 で，ゴール座標は (4,4)-(5,5) です．</p>
+<figure >
+	
+		
+		<figcaption>
+			<h4>Cheese杯2019 マイクロマウス競技</h4>
+		</figcaption>
+		
+		<img src="MM2019H_Cheese.png" alt="Cheese杯2019 マイクロマウス競技" />
+	
+</figure>
+
+<h2 id="heading-3">想定ルート</h2>
+<p>僕の探索シミュレータでは，次のような経路が出るように設計しました．</p>
+<ul>
+<li>青色：区画がノードの歩数評価（足立法）
+<ul>
+<li>1マス1コストのものと台形加速考慮したものを表示</li>
+</ul>
+</li>
+<li>紫色：壁上がノードの歩数評価
+<ul>
+<li>1マス1コストのものと台形加速考慮したものを表示</li>
+</ul>
+</li>
+<li>黄色：台形加速とスラロームにかかる時間を考慮した時間評価
+<ul>
+<li>区画でターン：斜めなし</li>
+</ul>
+</li>
+<li>黄色：台形加速とスラロームにかかる時間を考慮した時間評価
+<ul>
+<li>壁上でターン：斜めあり</li>
+</ul>
+</li>
+</ul>
+<h3 id="heading-4">クラシック競技</h3>
+<p>台形加速を考慮した走行時間ベースの評価関数の場合，左上から右下への直線が現れています．</p>
+<p>一方，単純な区画ベースの足立法では，青色のジグザグルートになってしまいます．</p>
 <figure >
 	
 		
@@ -265,9 +200,25 @@ Cheese主催のマイクロマウス・プチ大会
 		<img src="MM2019C_Cheese_Path.png" alt="Cheese杯2019 クラシックマウス競技" style="width: 360px;"/>
 	
 </figure>
-</p>
-<p>ちなみに，私は過去の迷路データを以下のようなテキスト形式で保存しています．
-ファイルを開くだけでどんな迷路かすぐにわかる上に，スタート区画や複数のゴール区画の情報も含めることができます．</p>
+
+<h3 id="heading-5">マイクロマウス競技</h3>
+<figure >
+	
+		
+		<figcaption>
+			<h4>Cheese杯2019 マイクロマウス競技</h4>
+		</figcaption>
+		
+		<img src="MM2019H_Cheese_Path.png" alt="Cheese杯2019 マイクロマウス競技" />
+	
+</figure>
+
+<h2 id="heading-6">迷路の保存形式</h2>
+<p>ちなみに，僕は過去の迷路データを以下のようなテキスト形式で保存しています．</p>
+<p>ファイルを見ただけでどんな迷路かすぐにわかる上に，
+スタート区画や複数のゴール区画の情報も含めることができます．</p>
+<p>こうやってブログに貼れば，簡単にコピペができるのでとても便利です！</p>
+<h3 id="heading-7">クラシック競技</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">+---+---+---+---+---+---+---+---+---+
 |   |       |       |       | G   G |
 +   +   +   +   +   +   +   +   +   +
@@ -287,32 +238,7 @@ Cheese主催のマイクロマウス・プチ大会
 +   +   +   +   +---+   +---+   +   +
 | S |       |                       |
 +---+---+---+---+---+---+---+---+---+
-</code></pre></div><p>こうやってブログに貼ればコピペもできるのでとても便利です！</p>
-<h3 id="heading-6">マイクロマウス競技</h3>
-<p>迷路サイズは 16x9 で，ゴール座標は (4,4)-(5,5) です．</p>
-<p><figure >
-	
-		
-		<figcaption>
-			<h4>Cheese杯2019 マイクロマウス競技</h4>
-		</figcaption>
-		
-		<img src="MM2019H_Cheese.png" alt="Cheese杯2019 マイクロマウス競技" />
-	
-</figure>
-
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese杯2019 マイクロマウス競技</h4>
-		</figcaption>
-		
-		<img src="MM2019H_Cheese_Path.png" alt="Cheese杯2019 マイクロマウス競技" />
-	
-</figure>
-</p>
-<p>テキスト形式</p>
+</code></pre></div><h3 id="heading-8">マイクロマウス競技</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
 |                                   |       |                   |
 +   +---+   +   +---+---+   +---+   +   +---+   +   +---+   +   +
@@ -332,77 +258,13 @@ Cheese主催のマイクロマウス・プチ大会
 +   +---+   +---+   +---+---+---+---+---+---+---+---+   +   +---+
 | S |                                                           |
 +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
-</code></pre></div><h2 id="cheese-timer-1">Cheese Timerの未来形</h2>
-<p>1年前くらいから開発が止まってしまっているのですが，
-当初Cheese Timerの計測部は，ハーフサイズの壁の中に収める計画がありました．</p>
-<p>次の写真はその試作品です．</p>
-<p>試作とは言っても，ちゃんと使うことができます．</p>
-<p>壁の中を削る作業がかなり辛くて，量産はできませんでした&hellip;</p>
-<p><figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer</h4>
-		</figcaption>
-		
-		<img src="next-cheese-timer-1.jpg" alt="Cheese Timer" style="width: 360px;"/>
-	
-</figure>
-
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer</h4>
-		</figcaption>
-		
-		<img src="next-cheese-timer-2.jpg" alt="Cheese Timer" style="width: 360px;"/>
-	
-</figure>
-
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer</h4>
-		</figcaption>
-		
-		<img src="next-cheese-timer-3.jpg" alt="Cheese Timer" style="width: 360px;"/>
-	
-</figure>
-
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese Timer</h4>
-		</figcaption>
-		
-		<img src="next-cheese-timer-4.jpg" alt="Cheese Timer" style="width: 360px;"/>
-	
-</figure>
-</p>
-<p>中には無線付きマイコンの ESP-WROOM-32 とレギュレータ，リポなどが空中配線で繋がれています&hellip;</p>
-<p>実はこれ，クラッシックマウス KERISEv1 で用いていたリポを使用しています．</p>
-<h2 id="heading-7">おわりに</h2>
-<p>出走のとき，通信の不具合などでご迷惑をおかけしましてすみませんでした．</p>
-<p>また，今年は会場の都合で懇親会が開けなかったのですが，
-空き時間にたくさん交流ができて，
-とても充実したCheese杯になりました．</p>
-<p>来てくださった方々，本当にありがとうございました！</p>
-<p>僕は，今年度一杯で引退となるのですが，
-後輩のみんなには是非来年も開催してもらいたいと思っています．
-どうぞ，よろしくお願いします！！</p>
-<figure >
-	
-		
-		<figcaption>
-			<h4>Cheese杯2019に参加したマウスの集合写真</h4>
-		</figcaption>
-		
-		<img src="group-photo.jpg" alt="Cheese杯2019に参加したマウスの集合写真" />
-	
-</figure>
+</code></pre></div><h2 id="heading-9">おわりに</h2>
+<p>他人が走るような迷路を作成するのは初めての経験でしたが，
+僕が作った迷路をいろんなマウスが走っていて，
+どんなルートを選択するのかドキドキしながら見ていました．</p>
+<p>審査員の気持ちをちょっと味わうことができました．</p>
+<p>今回の迷路は，アルゴリズムによってさまざまなルートが出るように設計したので，
+みなさんの探索アルゴリズムでも是非試してみてください！</p>
 		</div>
 		<footer class="post__footer">
 			
@@ -445,6 +307,9 @@ Cheese主催のマイクロマウス・プチ大会
 <nav class="post-nav flex">
 	<div class="post-nav__item post-nav__item--prev">
 		<a class="post-nav__link" href="/posts/2019-12-18-auto-recovery-micromouse/" rel="prev"><span class="post-nav__caption">«&thinsp;Previous</span><p class="post-nav__post-title">新機能・クラッシュ後の自動復帰！</p></a>
+	</div>
+	<div class="post-nav__item post-nav__item--next">
+		<a class="post-nav__link" href="/posts/2019-12-23-cheese-timer/" rel="next"><span class="post-nav__caption">Next&thinsp;»</span><p class="post-nav__post-title">Cheese Timer の紹介</p></a>
 	</div>
 </nav>
 
@@ -526,23 +391,25 @@ Cheese主催のマイクロマウス・プチ大会
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#cheese-timer">Cheese Timer</a>
+    <li><a href="#heading">迷路</a>
       <ul>
-        <li><a href="#heading">全体構成</a></li>
-        <li><a href="#heading-1">計測部</a></li>
-        <li><a href="#heading-2">クラッシック柱への変換部分</a></li>
-        <li><a href="#heading-3">表示部</a></li>
-        <li><a href="#google-">Google スプレットシートと連携</a></li>
+        <li><a href="#heading-1">クラシック競技</a></li>
+        <li><a href="#heading-2">マイクロマウス競技</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">迷路</a>
+    <li><a href="#heading-3">想定ルート</a>
       <ul>
-        <li><a href="#heading-5">クラシック競技</a></li>
-        <li><a href="#heading-6">マイクロマウス競技</a></li>
+        <li><a href="#heading-4">クラシック競技</a></li>
+        <li><a href="#heading-5">マイクロマウス競技</a></li>
       </ul>
     </li>
-    <li><a href="#cheese-timer-1">Cheese Timerの未来形</a></li>
-    <li><a href="#heading-7">おわりに</a></li>
+    <li><a href="#heading-6">迷路の保存形式</a>
+      <ul>
+        <li><a href="#heading-7">クラシック競技</a></li>
+        <li><a href="#heading-8">マイクロマウス競技</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-9">おわりに</a></li>
   </ul>
 </nav>
 	</div>
@@ -562,9 +429,9 @@ Cheese主催のマイクロマウス・プチ大会
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-21-cheese-cup-2019-maze/">Cheese杯2019の報告</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-23-cheese-timer/">Cheese Timer の紹介</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-21-cheese-cup-2019-maze/">Cheese杯2019の迷路</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-18-auto-recovery-micromouse/">新機能・クラッシュ後の自動復帰！</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-05-kerise-v5-coming/">New KERISE v5, 登場</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-04-micromouse2019/">全日本マイクロマウス2019の結果報告</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2019-10-12-unknown-accel/">新機能・未知区間加速！</a></li>
 		</ul>
@@ -702,7 +569,7 @@ Cheese主催のマイクロマウス・プチ大会
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 KERI&#39;s Lab.
+			&copy; 2020 KERI&#39;s Lab.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
