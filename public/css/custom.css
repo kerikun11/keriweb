@@ -76,6 +76,9 @@ body {
 	margin-left: 15px;
 	list-style-type: square;
 }
+.widget-toc li{
+	margin-top: 0.5em;
+}
 
 /* toc */
 .toc__menu a {
