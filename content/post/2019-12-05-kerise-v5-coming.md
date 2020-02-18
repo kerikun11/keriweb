@@ -64,7 +64,7 @@ LGAというパッドが裏側にしかない部品なので，ちゃんとつ�
 
 そこで，回路を改良してノイズ対策をしました．
 
-{{< postfig src="refrector.png" title="リフレクタの回路" width="480px" >}}
+{{< postfig src="reflector.png" title="リフレクタの回路" width="480px" >}}
 
 変わった部分は発光回路です．森永式発光回路を拡張して，充電と放電をFETによって分離しました．
 
@@ -74,7 +74,7 @@ LGAというパッドが裏側にしかない部品なので，ちゃんとつ�
 
 遮光板は基板を使っており，はんだ付けで固定してあるので外れることはありません．
 
-{{< postfig src="refrector.jpg" title="リフレクタ" width="360px" >}}
+{{< postfig src="reflector.jpg" title="リフレクタ" width="360px" >}}
 
 ### 車輪の軸受けの改良
 

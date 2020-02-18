@@ -58,7 +58,7 @@ thumbnail: "icon.jpg"
 前向きに[ToFセンサ](https://www.st.com/ja/imaging-and-photonics-solutions/vl6180x.html)がついているので，
 それによって2マス先の壁を見ることができるのです．
 
-{{< postfig src="refrector.jpg" title="ToFセンサ" width="240px" >}}
+{{< postfig src="reflector.jpg" title="ToFセンサ" width="240px" >}}
 
 ## 動画
 
