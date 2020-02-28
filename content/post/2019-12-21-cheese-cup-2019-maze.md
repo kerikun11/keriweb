@@ -6,6 +6,7 @@ categories:
 tags:
   - "マイクロマウス"
   - "迷路"
+  - "Cheese"
 thumbnail: "icon.png"
 ---
 
