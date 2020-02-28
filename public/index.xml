@@ -8,7 +8,7 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 23 Dec 2019 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 15:33:09 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -29,6 +29,15 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/works/</guid>
       <description>今までに私が製作した作品を紹介します．詳しくはそれぞれの記事をご覧ください． KERISE 2016年からマイクロマウスというロボコンに参加しています． 手</description>
+    </item>
+    
+    <item>
+      <title>台湾旅行のメモ</title>
+      <link>https://kerikeri.top/posts/2020-02-28-cheese-trip-in-taiwan/</link>
+      <pubDate>Fri, 28 Feb 2020 15:33:09 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-02-28-cheese-trip-in-taiwan/</guid>
+      <description>&lt;p&gt;2020年2月23日から4泊5日，Cheeseの6人で行った台湾旅行のメモ．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -358,16 +367,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;こんにちは．&lt;/p&gt;
 &lt;p&gt;エクストリーム新作のKERISEv3-2を諦めてKERISEv3-1を必死に調整している，けりです．&lt;/p&gt;
 &lt;p&gt;今回は自作の調整用迷路の紹介です．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>僕の迷路クラスの紹介</title>
-      <link>https://kerikeri.top/posts/2017-11-01-maze-class/</link>
-      <pubDate>Wed, 01 Nov 2017 10:31:52 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-01-maze-class/</guid>
-      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
-&lt;p&gt;今回もマイクロマウスの話題です．僕が使っている迷路クラスを紹介します．&lt;/p&gt;</description>
     </item>
     
   </channel>

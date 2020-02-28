@@ -73,7 +73,7 @@ pygmentsCodefencesGuessSyntax = true
 # Custom social links
 [[Params.widgets.social.custom]]
   title = "Youtube"
-  url = "https://youtube.com/user/username"
+  url = "https://youtube.com/user/kerikun11"
   icon = "youtube.svg" # Optional. Path relative to "layouts/partials"
 
 [Social]

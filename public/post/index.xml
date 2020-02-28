@@ -8,10 +8,19 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 23 Dec 2019 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 15:33:09 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>台湾旅行のメモ</title>
+      <link>https://kerikeri.top/posts/2020-02-28-cheese-trip-in-taiwan/</link>
+      <pubDate>Fri, 28 Feb 2020 15:33:09 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-02-28-cheese-trip-in-taiwan/</guid>
+      <description>&lt;p&gt;2020年2月23日から4泊5日，Cheeseの6人で行った台湾旅行のメモ．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Cheese Timer の紹介</title>
@@ -359,18 +368,6 @@ Cheese主催のマイクロマウス・プチ大会
       <guid>https://kerikeri.top/posts/2017-09-27-freertos-member/</guid>
       <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;FreeRTOSはC言語で書かれているので，C++のメンバ関数をそのまま渡すことができない．そこで，今回はその解決策のひとつを紹介する．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CNCでM0.3のギアを作った</title>
-      <link>https://kerikeri.top/posts/2017-09-21-cnc-gear/</link>
-      <pubDate>Thu, 21 Sep 2017 11:25:11 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-09-21-cnc-gear/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;こんにちは，ESP32と格闘していてなかなか前に進めないけりです．&lt;/p&gt;
-&lt;p&gt;今回は，自作したギアの紹介です．&lt;/p&gt;
-&lt;p&gt;マイクロマウスのハーフサイズで使用する小さなギアをCNCフライスで作ってみました．&lt;/p&gt;</description>
     </item>
     
   </channel>
