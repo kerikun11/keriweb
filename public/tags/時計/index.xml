@@ -19,7 +19,7 @@
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-07-23-aki-clock/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;家の玄関で地味に役に立っていた時計&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;家の玄関で地味に役に立っていた時計&#34;&gt;家の玄関で地味に役に立っていた時計&lt;/h2&gt;
 &lt;p&gt;かなり前に秋月電子で買った&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-04379/&#34;&gt;時計キット&lt;/a&gt;．&lt;br&gt;
 数字が大きく，遠くからでもよく見えるので自宅の玄関で地味に役立っていました．&lt;/p&gt;
 &lt;p&gt;しかし，水晶の精度がいまいちでよくズレるので，7セグの表示部だけを残してESP32によるNTP時計にアップデートしました．&lt;/p&gt;</description>
@@ -31,8 +31,8 @@
       <pubDate>Mon, 12 Sep 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-09-12-low-power-clock/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;h3 id=&#34;pic&#34;&gt;PICで時計&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;picで時計&#34;&gt;PICで時計&lt;/h3&gt;
 &lt;p&gt;久しぶりにPICの話題です．しばらくESP8266やARMマイコンなど，上級のマイコンを使っていましたが，またPICを使ってみたくなりました．&lt;/p&gt;
 &lt;p&gt;他のマイコンには真似できないような超低消費電力の時計を作ってみました．&lt;/p&gt;</description>
     </item>

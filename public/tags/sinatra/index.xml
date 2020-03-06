@@ -19,7 +19,7 @@
       <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-12-04-ir-station-demo-apache2/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．&lt;/p&gt;
 &lt;p&gt;この記事は，デモサイトを作るときのメモ．&lt;br&gt;
 デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;</description>
@@ -31,11 +31,11 @@
       <pubDate>Thu, 20 Oct 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-10-20-ir-station-demo/</guid>
-      <description>&lt;h2 id=&#34;ir-station&#34;&gt;IR-Stationの操作を体験できます！&lt;/h2&gt;
-&lt;h3 id=&#34;ir-station-1&#34;&gt;IR-Stationとは&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;ir-stationの操作を体験できます&#34;&gt;IR-Stationの操作を体験できます！&lt;/h2&gt;
+&lt;h3 id=&#34;ir-stationとは&#34;&gt;IR-Stationとは&lt;/h3&gt;
 &lt;p&gt;IR-Stationとは，WiFi接続に対応した赤外線学習リモコンです．これがあればスマートフォンなどから家電製品をコントロールすることができます．&lt;/p&gt;
 &lt;p&gt;IR-Stationについては，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;をご覧ください．&lt;/p&gt;
-&lt;h3 id=&#34;ir-station-2&#34;&gt;IR-Stationのデモンストレーション&lt;/h3&gt;
+&lt;h3 id=&#34;ir-stationのデモンストレーション&#34;&gt;IR-Stationのデモンストレーション&lt;/h3&gt;
 &lt;p&gt;IR-Stationを持っていない方でもIR-Stationの操作を体験できるように，操作画面を再現したサイトを作りました．&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://ir-station.kerikeri.top&#34;&gt;IR-Stationのデモンストレーションサイト&lt;/a&gt;&lt;/p&gt;</description>
     </item>
@@ -46,7 +46,7 @@
       <pubDate>Sat, 12 Mar 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-03-12-sinatra/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;格安WiFiモジュールESP-WROOM-02を使って電流を計測してそれを受信し表示するアプリケーションを作りました。&lt;/p&gt;</description>
     </item>
     

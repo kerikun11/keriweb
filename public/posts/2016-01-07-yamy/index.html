@@ -106,7 +106,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-01-07T00:00:00">2016-01-07</time>
+	<time class="meta__text" datetime="2016-01-07T00:00:00Z">2016-01-07</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -120,19 +120,19 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>Windowsのキーボードをカスタマイズして使いやすくする。</p>
-<h3 id="capsctrl">CapsキーをCtrlキーにする</h3>
+<h3 id="capsキーをctrlキーにする">CapsキーをCtrlキーにする</h3>
 <p>WindowのPCは<code>Ctrl</code>キーの位置が小指から遠く押しづらい！<br>
 ということで、<code>Caps</code>の位置に<code>Ctrl</code>キーを置く。<br>
 ちなみに、もともと<code>Ctrl</code>があったところにも<code>Caps</code>を置くこともできる。</p>
-<h3 id="heading-1">半角/全角を切り替えではなく、決めうちにする</h3>
+<h3 id="半角全角を切り替えではなく決めうちにする">半角/全角を切り替えではなく、決めうちにする</h3>
 <p>日本語を入力したくて<code>半角/全角</code>キーを押したら、英語で入力されてイラッとすることがある。<br>
 そこで、普段使わない<code>変換</code>キーを日本語切り替えに、<code>無変換</code>キーを英語切り替えにする。</p>
-<h3 id="vim">Vimユーザー必見！</h3>
+<h3 id="vimユーザー必見">Vimユーザー必見！</h3>
 <p>Vimで日本語を入力をしたとき、保存などをしようと<code>:w</code>と打つと、それが全角で入力されて困ることがある。<br>
 そこで、インサートモードからノーマルモードに入ると自動的に日本語をオフにして英語入力にする</p>
-<h3 id="heading-2">今回用いた方法</h3>
+<h3 id="今回用いた方法">今回用いた方法</h3>
 <p>キー割り当てを変えるには以下のような方法がある。</p>
 <ol>
 <li>Windowsの<code>レジストリ</code>を書き換える。（玄人向け）</li>
@@ -140,15 +140,15 @@ if (!doNotTrack) {
 <li><code>yamy.exe</code>というアプリを使う。(便利)</li>
 </ol>
 <p>今回はyamyという便利なアプリを使う。</p>
-<h2 id="yamy">yamyインストール方法</h2>
-<h3 id="heading-3">概要</h3>
+<h2 id="yamyインストール方法">yamyインストール方法</h2>
+<h3 id="概要-1">概要</h3>
 <p>yamyはインストールをする必要がない。zip形式でダウンロードして解凍して、yamy.exeを起動するだけ！！（ただし、後述の設定が必要です。）</p>
-<h3 id="1-">1. ダウンロード</h3>
+<h3 id="1-ダウンロード">1. ダウンロード</h3>
 <p><a href="https://osdn.jp/projects/yamy/">yamyダウンロードページ</a>からzipファイルをダウンロードする。<br>
 執筆時点の最新バージョンは0.03。</p>
-<h3 id="2-">2. 解凍&amp;配置</h3>
+<h3 id="2-解凍配置">2. 解凍&amp;配置</h3>
 <p>あとで起動時に自動起動するように設定するので、わかりやすいところに置いておくとよい。例えば、Cドライブ直下など。</p>
-<h3 id="3-pc">3. PC起動時に自動で起動するように設定</h3>
+<h3 id="3-pc起動時に自動で起動するように設定">3. PC起動時に自動で起動するように設定</h3>
 <p>Windows10の場合を説明する。下に設定中の画像が貼り付けてあるので参照のこと。</p>
 <ol>
 <li>スタートメニューで<code>タスクスケジューラ</code>を起動する(検索するとよい)。</li>
@@ -250,10 +250,10 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="yamy-1">yamyの設定</h2>
-<h3 id="heading-4">オリジナルの設定ファイルを作成</h3>
+<h2 id="yamyの設定">yamyの設定</h2>
+<h3 id="オリジナルの設定ファイルを作成">オリジナルの設定ファイルを作成</h3>
 <p>yamy.exeのあるフォルダ内に<code>mysettings.mayu</code>など適当なテキストファイルを作成する。</p>
-<h3 id="heading-5">設定を書く</h3>
+<h3 id="設定を書く">設定を書く</h3>
 <p>さっき作ったmysettings.mayuの中に以下を書く。</p>
 <pre><code>include &quot;109.mayu&quot;
 keymap Global
@@ -298,7 +298,7 @@ window Cygwin /cygwin/ : Global
 <pre><code>escapeNLSKeys=1
 </code></pre>
 <p>とする。</p>
-<h3 id="heading-6">作った設定を読み込む</h3>
+<h3 id="作った設定を読み込む">作った設定を読み込む</h3>
 <ol>
 <li>タスクバーのアイコンを右クリックして設定を開く。</li>
 <li>追加ボタンを押す。</li>
@@ -327,14 +327,14 @@ window Cygwin /cygwin/ : Global
 	
 </figure>
 </p>
-<h2 id="heading-7">任務完了</h2>
+<h2 id="任務完了">任務完了</h2>
 <p>これで設定は完了。</p>
 <p>あとは、自分でmysettingsにいろいろ書けば好きな割り当てができる。さらに、タスクバーのアイコンを右クリックして「調査」を開くと、実際にキーボードを押したときそのボタンが何に割り当てられているか教えてくれるので便利！</p>
 <p>キーの名前は、同じディレクトリ内の<code>109.mayu</code>というファイルの中に書いてあるので、そこで確認できる。</p>
-<h2 id="heading-8">参考サイト</h2>
+<h2 id="参考サイト">参考サイト</h2>
 <p>参考にさせていただきました。ありがとうございます。</p>
 <ul>
-<li><a href="http://rcmdnk.github.io/blog/tags/yamy/">rcmdnk's blog</a></li>
+<li><a href="http://rcmdnk.github.io/blog/tags/yamy/">rcmdnk&rsquo;s blog</a></li>
 <li><a href="http://d.hatena.ne.jp/kaosf/20111122/1321969965">kaosfield blog</a></li>
 </ul>
 		</div>
@@ -464,31 +464,31 @@ window Cygwin /cygwin/ : Global
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a>
+    <li><a href="#概要">概要</a>
       <ul>
-        <li><a href="#capsctrl">CapsキーをCtrlキーにする</a></li>
-        <li><a href="#heading-1">半角/全角を切り替えではなく、決めうちにする</a></li>
-        <li><a href="#vim">Vimユーザー必見！</a></li>
-        <li><a href="#heading-2">今回用いた方法</a></li>
+        <li><a href="#capsキーをctrlキーにする">CapsキーをCtrlキーにする</a></li>
+        <li><a href="#半角全角を切り替えではなく決めうちにする">半角/全角を切り替えではなく、決めうちにする</a></li>
+        <li><a href="#vimユーザー必見">Vimユーザー必見！</a></li>
+        <li><a href="#今回用いた方法">今回用いた方法</a></li>
       </ul>
     </li>
-    <li><a href="#yamy">yamyインストール方法</a>
+    <li><a href="#yamyインストール方法">yamyインストール方法</a>
       <ul>
-        <li><a href="#heading-3">概要</a></li>
-        <li><a href="#1-">1. ダウンロード</a></li>
-        <li><a href="#2-">2. 解凍&配置</a></li>
-        <li><a href="#3-pc">3. PC起動時に自動で起動するように設定</a></li>
+        <li><a href="#概要-1">概要</a></li>
+        <li><a href="#1-ダウンロード">1. ダウンロード</a></li>
+        <li><a href="#2-解凍配置">2. 解凍&amp;配置</a></li>
+        <li><a href="#3-pc起動時に自動で起動するように設定">3. PC起動時に自動で起動するように設定</a></li>
       </ul>
     </li>
-    <li><a href="#yamy-1">yamyの設定</a>
+    <li><a href="#yamyの設定">yamyの設定</a>
       <ul>
-        <li><a href="#heading-4">オリジナルの設定ファイルを作成</a></li>
-        <li><a href="#heading-5">設定を書く</a></li>
-        <li><a href="#heading-6">作った設定を読み込む</a></li>
+        <li><a href="#オリジナルの設定ファイルを作成">オリジナルの設定ファイルを作成</a></li>
+        <li><a href="#設定を書く">設定を書く</a></li>
+        <li><a href="#作った設定を読み込む">作った設定を読み込む</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">任務完了</a></li>
-    <li><a href="#heading-8">参考サイト</a></li>
+    <li><a href="#任務完了">任務完了</a></li>
+    <li><a href="#参考サイト">参考サイト</a></li>
   </ul>
 </nav>
 	</div>

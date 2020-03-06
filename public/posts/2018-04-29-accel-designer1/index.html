@@ -117,7 +117,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2018-04-29T12:35:38">2018-04-29</time>
+	<time class="meta__text" datetime="2018-04-29T12:35:38&#43;09:00">2018-04-29</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -131,20 +131,20 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>今回はマイクロマウスにおける速度設計のお話です．</p>
 <p>長い直線などを走行するとき，タイムを縮めるため，最大速度まで加速して，ターン直前に減速します．</p>
 <p>ここで注意したのが，途中経過の如何にかかわらず，終点の位置や速度は守らなければならないということです．</p>
 <p>今回の記事では，終点位置，終点速度や最大速度などの拘束条件から，走行途中の速度軌道を算出するアルゴリズムを紹介します．</p>
 <p>最後にはC++での実装したクラスも簡単に紹介します．</p>
-<h3 id="-">滑らかな加速の設計 目次</h3>
+<h3 id="滑らかな加速の設計-目次">滑らかな加速の設計 目次</h3>
 <ul>
 <li><a href="/posts/2018-04-29-accel-designer1/">滑らかな加速の設計① 台形加速と曲線加速</a></li>
 <li><a href="/posts/2018-04-29-accel-designer2/">滑らかな加速の設計② 曲線加速の設計</a></li>
 <li><a href="/posts/2018-04-29-accel-designer3/">滑らかな加速の設計③ 走行距離を考慮した速度設計</a></li>
 <li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C++による実装例</a></li>
 </ul>
-<h2 id="heading-1">台形加速の問題点</h2>
+<h2 id="台形加速の問題点">台形加速の問題点</h2>
 <p>よく使われる速度設計として，台形加速があります．</p>
 <p>加速 → 等速 → 減速 に対して速度のグラフを描くと台形になるので，台形加速と呼ばれます．</p>
 <figure >
@@ -173,7 +173,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>今回の記事では，このような曲線加速の速度設計について考えていきます．</p>
-<h2 id="heading-2">関数の選択</h2>
+<h2 id="関数の選択">関数の選択</h2>
 <p>曲線加速を設計するとき，どのような曲線の関数を選ぶか，という問題があります．</p>
 <p>本来ならば，無限回微分をしても連続性を保つ，</p>
 <ul>
@@ -191,9 +191,9 @@ if (!doNotTrack) {
 <p>としました．</p>
 <p>これならば，速度を逆算する際の方程式は3次なので，解の公式を使って解くことができます．</p>
 <!-- 4次方程式にも解の公式が存在しますが，計算が辛そうなので今回は3次に留めます． -->
-<h2 id="heading-3">設計方針</h2>
+<h2 id="設計方針">設計方針</h2>
 <p>今回設計する曲線は以下の2つです．</p>
-<h3 id="1">設計1</h3>
+<h3 id="設計1">設計1</h3>
 <p>まずはじめに，与えられた始点速度から終点速度までを滑らかにつなぐ曲線を設計します．</p>
 <p>ここでは位置による拘束条件は考えません．</p>
 <figure >
@@ -207,7 +207,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="2">設計2</h3>
+<h3 id="設計2">設計2</h3>
 <p>設計1の曲線を組み合わせて，走行距離に合わせた最適な速度を設計します．</p>
 <figure >
 	
@@ -220,7 +220,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-4">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>本記事では，台形加速の問題点を指摘し，曲線加速の必要性を述べました．</p>
 <p><a href="/posts/2018-04-29-accel-designer2/">次回の記事</a>では，その曲線加速の設計法を述べていきます．</p>
 		</div>
@@ -348,20 +348,20 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a>
+    <li><a href="#概要">概要</a>
       <ul>
-        <li><a href="#-">滑らかな加速の設計 目次</a></li>
+        <li><a href="#滑らかな加速の設計-目次">滑らかな加速の設計 目次</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">台形加速の問題点</a></li>
-    <li><a href="#heading-2">関数の選択</a></li>
-    <li><a href="#heading-3">設計方針</a>
+    <li><a href="#台形加速の問題点">台形加速の問題点</a></li>
+    <li><a href="#関数の選択">関数の選択</a></li>
+    <li><a href="#設計方針">設計方針</a>
       <ul>
-        <li><a href="#1">設計1</a></li>
-        <li><a href="#2">設計2</a></li>
+        <li><a href="#設計1">設計1</a></li>
+        <li><a href="#設計2">設計2</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

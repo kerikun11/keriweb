@@ -108,7 +108,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-10-31T00:00:00">2015-10-31</time>
+	<time class="meta__text" datetime="2015-10-31T00:00:00Z">2015-10-31</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -123,9 +123,9 @@ if (!doNotTrack) {
 </div>
 		</header><div class="content post__content clearfix">
 			<h2 id="ssh">SSH</h2>
-<h3 id="ssh-1">SSHとは</h3>
+<h3 id="sshとは">SSHとは</h3>
 <p>　Secure Shell。暗号や認証の技術を利用して、安全にリモートコンピュータと通信するためのプロトコル。 パスワードなどの認証部分を含むすべてのネットワーク上の通信が暗号化される。</p>
-<h3 id="heading">ホスト側設定</h3>
+<h3 id="ホスト側設定">ホスト側設定</h3>
 <p>openssh-serverをインストールしておく必要がある。これをインストールする前に、パスワードなどがしっかり設定されているかなどを確認しておくこと。</p>
 <pre><code>$sudo apt-get install openssh-server
 </code></pre>
@@ -135,7 +135,7 @@ if (!doNotTrack) {
 <p>　ここで各種設定をする。</p>
 <pre><code>Port 22
 </code></pre>
-<h3 id="heading-1">鍵の生成</h3>
+<h3 id="鍵の生成">鍵の生成</h3>
 <p>　鍵はクライアント側で生成することが多い。</p>
 <pre><code>$ssh-keygen -t ecdsa -C &quot;comment&quot;
 </code></pre>
@@ -147,7 +147,7 @@ if (!doNotTrack) {
 <pre><code>$ cat id_ecdsa.pub &gt;&gt; authorized_keys
 </code></pre>
 <p>なければ、新規作成してから、鍵を追加する。</p>
-<h3 id="ssh-2">SSHの接続</h3>
+<h3 id="sshの接続">SSHの接続</h3>
 <p>　接続コマンドは以下の通り。ログインユーザー名と、ホストアドレスを書く。</p>
 <pre><code>$ssh your_username@your_domain.com
 </code></pre>
@@ -172,7 +172,7 @@ Host global_raspi
 <p>　接続の仕方は、以下の通り。とても簡単。</p>
 <pre><code>$ssh global_raspi
 </code></pre>
-<h2 id="heading-2">ローカルのポートをリモートのポートにつなげる</h2>
+<h2 id="ローカルのポートをリモートのポートにつなげる">ローカルのポートをリモートのポートにつなげる</h2>
 <p>IP制限されているホストやLAN内の機器に外からつなぐ方法</p>
 <pre><code>$ ssh -L 8000:target_hostname:80 ssh_hostname
 </code></pre>
@@ -305,14 +305,14 @@ Host global_raspi
   <ul>
     <li><a href="#ssh">SSH</a>
       <ul>
-        <li><a href="#ssh-1">SSHとは</a></li>
-        <li><a href="#heading">ホスト側設定</a></li>
-        <li><a href="#heading-1">鍵の生成</a></li>
-        <li><a href="#ssh-2">SSHの接続</a></li>
+        <li><a href="#sshとは">SSHとは</a></li>
+        <li><a href="#ホスト側設定">ホスト側設定</a></li>
+        <li><a href="#鍵の生成">鍵の生成</a></li>
+        <li><a href="#sshの接続">SSHの接続</a></li>
         <li><a href="#sshconfig">.ssh/config</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">ローカルのポートをリモートのポートにつなげる</a></li>
+    <li><a href="#ローカルのポートをリモートのポートにつなげる">ローカルのポートをリモートのポートにつなげる</a></li>
   </ul>
 </nav>
 	</div>

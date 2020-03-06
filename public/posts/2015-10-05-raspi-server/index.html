@@ -119,7 +119,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-10-05T00:00:00">2015-10-05</time>
+	<time class="meta__text" datetime="2015-10-05T00:00:00Z">2015-10-05</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -133,14 +133,14 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">ラズパイの用意</h2>
+			<h2 id="ラズパイの用意">ラズパイの用意</h2>
 <ol>
 <li>ラズパイ用のOS「NOOBS」を<a href="http://raspberrypi.org/downloads/">raspberrypi.org</a>からDLして解凍する。</li>
 <li>microSDカードをFAT32でフォーマットする。</li>
 <li>解凍したファイルをSDカードにコピーする。</li>
 <li>ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。</li>
 </ol>
-<h2 id="lan">無線LANの接続</h2>
+<h2 id="無線lanの接続">無線LANの接続</h2>
 <p>　WiFiドングルをラズパイに差す。</p>
 <pre><code>$ifconfig
 </code></pre>
@@ -192,7 +192,7 @@ network={
 		group=CCMP TKIP WEP104 WEP40
 }
 </code></pre></div><p>　これでラズパイを再起動すればつながるはず。</p>
-<h2 id="web">Webサーバー作り</h2>
+<h2 id="webサーバー作り">Webサーバー作り</h2>
 <p>まずは、ラズパイのローカルIPを固定にする。</p>
 <p>ラズパイ上でラズパイ自身のローカルIPアドレスを確認しておく。</p>
 <pre><code>$ip addr
@@ -202,7 +202,7 @@ network={
 <pre><code>$sudo apt-get install apache2
 </code></pre>
 <p>　これで、とりあえずはローカルでサーバーとして使うことができる。ローカルネットワークの端末のブラウザでラズパイのローカルIPアドレスを入力すれば、アクセスできる。</p>
-<h2 id="heading-1">サーバーを外部へ公開する</h2>
+<h2 id="サーバーを外部へ公開する">サーバーを外部へ公開する</h2>
 <p>　今の状態では、LANからしかサーバーにアクセスできない。これを外のネットワークからでもアクセスできるようにする。</p>
 <p>　まず、家のルーターから外への接続用のポートを開放する。</p>
 <ol>
@@ -217,10 +217,10 @@ network={
 </code></pre>
 <p>　次に、<a href="http://www.ugtop.com/spill.shtml">確認くん</a>により自分の家のグローバルIPアドレスを確認する。家のネットワークからアクセスしましょう。<br>
 　これで、適当なブラウザから、このグローバルIPアドレスにアクセスすれば、どこからでもラズパイのWebサーバーにアクセスできる。（ドメインはまだ取得していないので、IPアドレスを直打ちして接続している）</p>
-<h2 id="heading-2">独自ドメインを取得する</h2>
+<h2 id="独自ドメインを取得する">独自ドメインを取得する</h2>
 <p>　ポートの開放により外部からサーバーにアクセスできるようになった。しかし、今のままではIPアドレスにアクセスなのでいまいち。そこで次は独自ドメインを取得して自分専用のURLをGETする。<br>
 　ドメイン取得をできるサイトはいくつかあるが、ネット上で評価のよかった「<a href="http://www.muumuudomain.com">ムームードメイン</a>」で取得した。<code>.top</code>一番安くて、なんと77円＋税/年！とても安い。</p>
-<h2 id="dns">DNSサーバーとは</h2>
+<h2 id="dnsサーバーとは">DNSサーバーとは</h2>
 <p>　独自ドメインを取得しましたが、取得したドメインはまだラズパイのIPアドレス（家のグローバルIPアドレス）に紐ついていません。それを紐つけるのがDNSサーバーです。DNS情報はあまりにも多いので、一つのDNSサーバーで管理しているわけではなく、ネット上に無数に散らばっています。したがってあるDNSサーバーに登録すれば、いろいろなDNSサーバーを経由して目的のIPアドレスを知ることができます。DNS情報のことをレコードと言い、以下に分類されます。</p>
 <ol>
 <li>Aレコード：ドメイン名からIPアドレスを返す（正引き）</li>
@@ -228,11 +228,11 @@ network={
 <li>CNAMEレコード：ドメイン名から別のドメイン名を返す</li>
 <li>NSレコード：「再起問い合わせ」や「反復問い合わせ」の際に、「ここへ問い合わせよ」と教えてくれる</li>
 </ol>
-<h2 id="mydnsjp">MyDNS.jpの登録</h2>
+<h2 id="mydnsjpの登録">MyDNS.jpの登録</h2>
 <p>　普通、グローバルIPアドレスは動的に割り当てられるので、それとホスト名（ドメイン名）を動的に登録・管理するのがDDNSです。無料DDNSのひとつに<a href="http://www.mydns.jp">MyDNS.jp</a>があるので、今回はそれを使います。まずは会員登録をします。そして「IP ADDR DIRECT」のところに家のグローバルIPアドレスを記載します。次に、「DOMAIN INFO」のところに自分の取得したホスト名（独自ドメイン）を記載します。欄が多いですが、それ以外は何も書かなくて大丈夫です。</p>
-<h2 id="dns-1">DNSの浸透時間</h2>
+<h2 id="dnsの浸透時間">DNSの浸透時間</h2>
 <p>　ここまでの作業をすれば、取得した独自ドメインをブラウザのURLに書くだけで自分のサーバーにつなことができます。しかし、すぐにつなぐことはできません。先にも書いたようにDNSサーバーはネット上に無数に散らばっていますので、最初にアクセスしたDNSが自分のドメインとIPの関連付けを持っているとは限りません。DNSからDNSへと広がっていき、次第に世界中からアクセスできるようになります。</p>
-<h2 id="ip">動的IPの自動更新</h2>
+<h2 id="動的ipの自動更新">動的IPの自動更新</h2>
 <p>　ムームードメインで、独自ドメインを取得した。MyDNS.jpにも登録した。次にやることは、動的IPアドレスの自動更新である。定期的にグローバルIPの変更をチェックして<a href="http://www.mydns.jp">MyDNS.jp</a>に通知をすればよい。それには以下のコマンドを実行する。</p>
 <pre><code>$ wget -O- 'http://mydnsXXXXXX:PASSWORD@www.mydns.jp/login.html'
 </code></pre>
@@ -363,15 +363,15 @@ network={
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">ラズパイの用意</a></li>
-    <li><a href="#lan">無線LANの接続</a></li>
-    <li><a href="#web">Webサーバー作り</a></li>
-    <li><a href="#heading-1">サーバーを外部へ公開する</a></li>
-    <li><a href="#heading-2">独自ドメインを取得する</a></li>
-    <li><a href="#dns">DNSサーバーとは</a></li>
-    <li><a href="#mydnsjp">MyDNS.jpの登録</a></li>
-    <li><a href="#dns-1">DNSの浸透時間</a></li>
-    <li><a href="#ip">動的IPの自動更新</a></li>
+    <li><a href="#ラズパイの用意">ラズパイの用意</a></li>
+    <li><a href="#無線lanの接続">無線LANの接続</a></li>
+    <li><a href="#webサーバー作り">Webサーバー作り</a></li>
+    <li><a href="#サーバーを外部へ公開する">サーバーを外部へ公開する</a></li>
+    <li><a href="#独自ドメインを取得する">独自ドメインを取得する</a></li>
+    <li><a href="#dnsサーバーとは">DNSサーバーとは</a></li>
+    <li><a href="#mydnsjpの登録">MyDNS.jpの登録</a></li>
+    <li><a href="#dnsの浸透時間">DNSの浸透時間</a></li>
+    <li><a href="#動的ipの自動更新">動的IPの自動更新</a></li>
   </ul>
 </nav>
 	</div>

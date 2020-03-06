@@ -110,7 +110,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-08-30T10:55:38">2017-08-30</time>
+	<time class="meta__text" datetime="2017-08-30T10:55:38&#43;09:00">2017-08-30</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -124,100 +124,100 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>こんにちは，けりです．
 みなさん，ESP32使ってますか？</p>
 <p>今回はESP32の時刻合わせのArduinoライブラリを作ったので紹介します．</p>
 <h2 id="esp32time">ESP32Time</h2>
 <p><a href="https://github.com/kerikun11/ESP32Time">ESP32Time - Arduino Library for ESP32 Time Adjustment</a></p>
 <p>こちらはArduinoのライブラリです．zipファイルをダウンロードして，Arduino IDEで読み込めば簡単に使うことができます．ライブラリを読み込むと，自動的にサンプルプログラムも追加されます．</p>
-<h2 id="heading-1">ライブラリの概要</h2>
+<h2 id="ライブラリの概要">ライブラリの概要</h2>
 <ul>
 <li>NTPから時刻を取得し，ESP32の内部の時計を合わせる</li>
 <li>1日ごとに時計を合わせる</li>
 </ul>
-<h2 id="heading-2">使い方</h2>
+<h2 id="使い方">使い方</h2>
 <ol>
 <li>WiFiに接続する</li>
 <li><code>setup()</code>内で<code>ESP32Time.begin()</code>を呼んで時刻合わせタスクを起動する</li>
 </ol>
-<h2 id="heading-3">動作環境</h2>
+<h2 id="動作環境">動作環境</h2>
 <p><a href="https://github.com/espressif/arduino-esp32">Arduino core for ESP32 WiFi chip</a>環境があれば動作します．</p>
-<h2 id="heading-4">コード</h2>
+<h2 id="コード">コード</h2>
 <p>最新のコードは<a href="https://github.com/kerikun11/ESP32Time">こちら</a></p>
 <h3 id="esp32timeh">ESP32Time.h</h3>
 <p>ESP32Timeクラスの実体は既に定義されていますが，<code>ESP32.begin()</code>をしない限りCPUリソースを消費することはありません．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">pragma once</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="k">class</span> <span class="nc">ESP32Time</span><span class="p">;</span>
 <span class="k">extern</span> <span class="k">class</span> <span class="nc">ESP32Time</span> <span class="n">ESP32Time</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">ESP32Time</span> <span class="p">{</span>
   <span class="k">public</span><span class="o">:</span>
-    <span class="n">ESP32Time</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">time_zone</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">JST-9</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-    <span class="o">~</span><span class="n">ESP32Time</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">ESP32Time</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">time_zone</span> <span class="o">=</span> <span class="s">&#34;JST-9&#34;</span><span class="p">);</span>
+    <span class="o">~</span><span class="n">ESP32Time</span><span class="p">();</span>
 
-    <span class="kt">void</span> <span class="nf">begin</span><span class="p">(</span><span class="kt">int</span> <span class="n">stack_size</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="kt">int</span> <span class="n">priority</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-    <span class="kt">void</span> <span class="nf">set_time</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">begin</span><span class="p">(</span><span class="kt">int</span> <span class="n">stack_size</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="kt">int</span> <span class="n">priority</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">set_time</span><span class="p">();</span>
 
   <span class="k">private</span><span class="o">:</span>
     <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">time_zone</span><span class="p">;</span>
     <span class="n">xTaskHandle</span> <span class="n">handle</span><span class="p">;</span>
 
-    <span class="kt">void</span> <span class="nf">periodicTimeAdjustmentTask</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="nf">getNtpTime</span><span class="p">(</span><span class="k">struct</span> <span class="nc">timeval</span> <span class="o">*</span> <span class="n">tvp</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span>
-</code></pre></div><h3 id="heading-5">サンプルプログラム</h3>
+    <span class="kt">void</span> <span class="nf">periodicTimeAdjustmentTask</span><span class="p">();</span>
+    <span class="kt">bool</span> <span class="nf">getNtpTime</span><span class="p">(</span><span class="k">struct</span> <span class="nc">timeval</span> <span class="o">*</span> <span class="n">tvp</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div><h3 id="サンプルプログラム">サンプルプログラム</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
 </span><span class="cm">  @file     ESP32Time.ino
 </span><span class="cm">  @author   kerikun11
 </span><span class="cm">  @date     2017.08.29
 </span><span class="cm">*/</span>
 
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;ESP32Time.h&gt;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;ESP32Time.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ssid</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">psk</span> <span class="o">=</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ssid</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">psk</span> <span class="o">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
 
   <span class="c1">// WiFi Connection
-</span><span class="c1"></span>  <span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">connecting to %s ...</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ssid</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">psk</span><span class="p">)</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">waitForConnectResult</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi connection failed:(</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">log_i</span><span class="p">(</span><span class="s">&#34;connecting to %s ...&#34;</span><span class="p">,</span> <span class="n">ssid</span><span class="p">);</span>
+  <span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">psk</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">waitForConnectResult</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">log_e</span><span class="p">(</span><span class="s">&#34;WiFi connection failed:(&#34;</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// adjust the time just now,
 </span><span class="c1"></span>  <span class="c1">// and automatically adjust the time once a day
-</span><span class="c1"></span>  <span class="n">ESP32Time</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; adjusted the time
+</span><span class="c1"></span>  <span class="n">ESP32Time</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="c1">//&lt; adjusted the time
 </span><span class="c1"></span><span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// get the time
-</span><span class="c1"></span>  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
   <span class="k">struct</span> <span class="nc">tm</span> <span class="o">*</span><span class="n">t_st</span><span class="p">;</span>
-  <span class="n">t_st</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">;</span>
+  <span class="n">t_st</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
   <span class="c1">// display the time
-</span><span class="c1"></span>  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">year: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">1900</span> <span class="o">+</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_year</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">month: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_mon</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">month day: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_mday</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">week day: %c%c</span><span class="s">&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">SMTWTFS</span><span class="s">&#34;</span><span class="p">[</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_wday</span><span class="p">]</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">uouehra</span><span class="s">&#34;</span><span class="p">[</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_wday</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">year day: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_yday</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">hour: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_hour</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">minute: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_min</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">second: %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_sec</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">ctime: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;year: %d&#34;</span><span class="p">,</span> <span class="mi">1900</span> <span class="o">+</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_year</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;month: %d&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;month day: %d&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_mday</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;week day: %c%c&#34;</span><span class="p">,</span> <span class="s">&#34;SMTWTFS&#34;</span><span class="p">[</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_wday</span><span class="p">],</span> <span class="s">&#34;uouehra&#34;</span><span class="p">[</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_wday</span><span class="p">]);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;year day: %d&#34;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_yday</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;hour: %d&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;minute: %d&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_min</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;second: %d&#34;</span><span class="p">,</span> <span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_sec</span><span class="p">);</span>
+  <span class="n">log_d</span><span class="p">(</span><span class="s">&#34;ctime: %s&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">));</span>
   <span class="c1">// wait
-</span><span class="c1"></span>  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div><h2 id="heading-6">まとめ</h2>
+</code></pre></div><h2 id="まとめ">まとめ</h2>
 <p><code>ESP32Time.begin()</code>をするだけなので，すぐに使えます！</p>
 <p>なんらかのアプリケーションを作るとき，時刻管理は欠かせないのでとりあえずbeginしときましょう．</p>
 		</div>
@@ -346,18 +346,18 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
+    <li><a href="#概要">概要</a></li>
     <li><a href="#esp32time">ESP32Time</a></li>
-    <li><a href="#heading-1">ライブラリの概要</a></li>
-    <li><a href="#heading-2">使い方</a></li>
-    <li><a href="#heading-3">動作環境</a></li>
-    <li><a href="#heading-4">コード</a>
+    <li><a href="#ライブラリの概要">ライブラリの概要</a></li>
+    <li><a href="#使い方">使い方</a></li>
+    <li><a href="#動作環境">動作環境</a></li>
+    <li><a href="#コード">コード</a>
       <ul>
         <li><a href="#esp32timeh">ESP32Time.h</a></li>
-        <li><a href="#heading-5">サンプルプログラム</a></li>
+        <li><a href="#サンプルプログラム">サンプルプログラム</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

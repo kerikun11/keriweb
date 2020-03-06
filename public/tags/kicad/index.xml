@@ -19,7 +19,7 @@
       <pubDate>Sat, 25 May 2019 13:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-05-25-kicad-script/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;KiCad の基板エディタ Pcbnew では，デフォルトでPythonスクリプトエディタが付属していて，すでにフットプリントがオブジェクトとして定義されています．&lt;/p&gt;
 &lt;p&gt;今回は私がよく使う一括変更を紹介します．&lt;/p&gt;</description>
     </item>
@@ -30,7 +30,7 @@
       <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-08-18-esp32-sip-board/</guid>
-      <description>&lt;h2 id=&#34;esp-wroom-32&#34;&gt;また作ったESP-WROOM-32の変換基板&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;また作ったesp-wroom-32の変換基板&#34;&gt;また作ったESP-WROOM-32の変換基板&lt;/h2&gt;
 &lt;p&gt;以前にも&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://kerikeri.top/posts/2017-03-02-keriesp32/&#34;&gt;C基板型ESP-WROOM-32ブレークアウト基板&lt;/a&gt;&lt;/li&gt;
@@ -46,7 +46,7 @@
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-07-23-keriesp32-trapezoid/</guid>
-      <description>&lt;h2 id=&#34;esp-wroom-32&#34;&gt;ESP-WROOM-32のブレークアウトボード&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;esp-wroom-32のブレークアウトボード&#34;&gt;ESP-WROOM-32のブレークアウトボード&lt;/h2&gt;
 &lt;p&gt;WiFiとBluetoothが載ったデュアルコアなマイコン&lt;strong&gt;ESP32&lt;/strong&gt;のピッチ変換基板を新たに作ったので紹介します．&lt;/p&gt;</description>
     </item>
     
@@ -56,7 +56,7 @@
       <pubDate>Thu, 02 Mar 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-03-02-keriesp32/</guid>
-      <description>&lt;h2 id=&#34;esp-wroom-32&#34;&gt;ESP-WROOM-32とは&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;esp-wroom-32とは&#34;&gt;ESP-WROOM-32とは&lt;/h2&gt;
 &lt;p&gt;ESP-WROOM-32とは，ESP32というハイスペックなマイコンが搭載されたWiFi&amp;amp;Bluetoothモジュールです．無線モジュールとしてだけでなく，メインマイコンとしても十分使用できます．&lt;/p&gt;
 &lt;p&gt;ESP-WROOM-32のすごいところはその価格です．ハイスペックなマイコンとWiFiとBluetoothがついているのに，2017年2月現在たったの700円なのです！！&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-11647/&#34;&gt;秋月電子&lt;/a&gt;で購入できます．&lt;/p&gt;
@@ -78,7 +78,7 @@
       <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-12-27-kerisev1/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今年の全日本マイクロマウス大会2016に出場したKERISE v1．今回はその回路設計を紹介します．&lt;/p&gt;
 &lt;p&gt;全日本マイクロマウス大会2016の結果報告は&lt;a href=&#34;https://kerikeri.top/posts/2016-11-21-micromouse2016/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
 &lt;figure &gt;
@@ -99,7 +99,7 @@
       <pubDate>Fri, 22 Apr 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-04-22-freerouting/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;figure &gt;
 	
 		
@@ -111,7 +111,7 @@
 	
 &lt;/figure&gt;
 
-&lt;h3 id=&#34;heading-1&#34;&gt;自動配線ツールを使おう&lt;/h3&gt;
+&lt;h3 id=&#34;自動配線ツールを使おう&#34;&gt;自動配線ツールを使おう&lt;/h3&gt;
 &lt;p&gt;KiCadが流行ってきて，使う人が増えてきている．&lt;/p&gt;
 &lt;p&gt;しかし，自動配線ツールを使っている人は少ない．&lt;/p&gt;
 &lt;p&gt;それでははもったいない！！&lt;/p&gt;

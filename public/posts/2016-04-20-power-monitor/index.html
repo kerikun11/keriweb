@@ -111,7 +111,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-04-20T00:00:00">2016-04-20</time>
+	<time class="meta__text" datetime="2016-04-20T00:00:00Z">2016-04-20</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -125,28 +125,28 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p><a href="/posts/2014-09-14-solar-system/">100W級ソーラーシステム</a>の発電量を<a href="https://thingspeak.com/">ThingSpeak.com</a>というサイトに送ってグラフ化しました。</p>
 <p>データの送信には、自作の<a href="/posts/2016-03-23-relay-sensor/">中継型電力計</a>を使用しています。</p>
-<h2 id="heading-1">リアルタイム発電量モニター</h2>
+<h2 id="リアルタイム発電量モニター">リアルタイム発電量モニター</h2>
 <p>ThingSpeakで発行したフレームをHTMLに埋め込む形式なので、自動で更新されます。</p>
-<h3 id="heading-2">電圧</h3>
+<h3 id="電圧">電圧</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/1?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Solar+Voltage&type=column&yaxis=Voltage+%5BV%5D"></iframe>
 </div>
-<h3 id="heading-3">電流</h3>
+<h3 id="電流">電流</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/2?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Solar+Current&type=column&yaxis=Current+%5BA%5D"></iframe>
 </div>
-<h3 id="heading-4">電力</h3>
+<h3 id="電力">電力</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/3?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Solar+Power&type=column&yaxis=Power+%5BW%5D"></iframe>
 </div>
-<h3 id="heading-5">今日の発電量</h3>
+<h3 id="今日の発電量">今日の発電量</h3>
 <div class="graph">
 <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/110012/charts/4?bgcolor=%23ffffff&color=%23d62020&days=3&dynamic=true&min=0&title=Time+Integration+of+Solar+Power+a+Day&type=column&yaxis=Integration+%5BWh%5D"></iframe>
 </div>
-<h2 id="heading-6">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>こんなに簡単にグラフ化できるサービスがあるなんてすごいですね！MATLAB解析機能もあるみたいなので使ってみたいです。</p>
 		</div>
 		<footer class="post__footer">
@@ -277,16 +277,16 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">リアルタイム発電量モニター</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#リアルタイム発電量モニター">リアルタイム発電量モニター</a>
       <ul>
-        <li><a href="#heading-2">電圧</a></li>
-        <li><a href="#heading-3">電流</a></li>
-        <li><a href="#heading-4">電力</a></li>
-        <li><a href="#heading-5">今日の発電量</a></li>
+        <li><a href="#電圧">電圧</a></li>
+        <li><a href="#電流">電流</a></li>
+        <li><a href="#電力">電力</a></li>
+        <li><a href="#今日の発電量">今日の発電量</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

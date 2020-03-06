@@ -139,7 +139,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-12-30T00:00:00">2015-12-30</time>
+	<time class="meta__text" datetime="2015-12-30T00:00:00Z">2015-12-30</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -153,10 +153,10 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="esp8266">ESP8266とは</h2>
-<h3 id="wifi">日本の技適を取得済みWiFiモジュール！！</h3>
+			<h2 id="esp8266とは">ESP8266とは</h2>
+<h3 id="日本の技適を取得済みwifiモジュール">日本の技適を取得済みWiFiモジュール！！</h3>
 <p>ESP8266とはWiFi制御用マイコンです。もともと中国で流行っていました。そのマイコンを内蔵したESP-WROOM-02というWiFiモジュールが日本の技適を取得したので、日本でも人気になりました。</p>
-<h3 id="heading">とにかく安い！</h3>
+<h3 id="とにかく安い">とにかく安い！</h3>
 <p>その価格はなんと、たったの<strong>550円</strong>です！！<br>
 <a href="http://akizukidenshi.com/catalog/g/gM-09607/">ESP-WROOM-02</a>←秋月電子などで売っています。<br>
 <figure >
@@ -170,11 +170,11 @@ if (!doNotTrack) {
 	</a>
 </figure>
 </p>
-<h3 id="heading-1">開発の簡単さも流行りの理由</h3>
+<h3 id="開発の簡単さも流行りの理由">開発の簡単さも流行りの理由</h3>
 <p>このマイコンのすごいところは、<strong>Arduino IDE</strong>で開発ができることです。とても簡単に開発ができます。関数もArduinoで使われているものと同じ名前です。Arduinoと同じように書き込みボタンを押せば書き込みができます。</p>
 <p>さらに、Arduinoをよく使う人は知っている通り、Arduino IDEに付属したサンプルプログラムがとても充実しています。それを書き込むだけでそれなりのことができます。</p>
 <p>それを少しずついじっているといつの間にかオリジナルのプログラムが完成しているという感じです。</p>
-<h3 id="heading-2">スペックが十分すぎる…</h3>
+<h3 id="スペックが十分すぎる">スペックが十分すぎる…</h3>
 <p>しかも、このESP8266マイコンはスペックがかなり高く、WiFiモジュールとしてだけでなく格安マイコンとしても十分使うことができるほどです。メモリが十分にあるので、自由なプログラムを書くことができます。</p>
 <p>マイコンは、<strong>32bit</strong>マイコンです。<br>
 動作周波数は、<strong>160MHz</strong>まで対応しています。<br>
@@ -182,11 +182,11 @@ if (!doNotTrack) {
 RAMも大量にあって、<strong>81kB</strong>もあります。</p>
 <p>参考までにPICやAVRマイコンなどはROMが32kBくらい、RAMは4kBほどです。</p>
 <p>今回はこのWiFiモジュールで遊びます。</p>
-<h2 id="heading-3">赤外線学習リモコン</h2>
+<h2 id="赤外線学習リモコン">赤外線学習リモコン</h2>
 <p>赤外線学習リモコンとは自作の赤外線リモコンです。一番最初に本物のリモコンの信号を記憶して、2回目からはその記憶した赤外線を発します。こうしてリモコンを複製することができるのです。</p>
 <p>今回は<strong>WiFi経由</strong>でスマホからコントロールできる赤外線学習リモコンを作りました。</p>
-<h2 id="heading-4">作ったもの</h2>
-<h3 id="heading-5">本体</h3>
+<h2 id="作ったもの">作ったもの</h2>
+<h3 id="本体">本体</h3>
 <p>今回は試作なのでブレッドボードで作りました。<br>
 右に４つの赤外線LEDがついています。</p>
 <figure >
@@ -200,7 +200,7 @@ RAMも大量にあって、<strong>81kB</strong>もあります。</p>
 	
 </figure>
 
-<h3 id="wifi-1">WiFiの設定</h3>
+<h3 id="wifiの設定">WiFiの設定</h3>
 <p>電源を入れるとまずWiFiのアクセスポイントになって、「ESP8266-Remocon」というWiFi電波を発します。スマホなどでそれにつないで、「http://esp8266.local」に接続すると下の画面が表示されます。</p>
 <p>ここで、家のWiFiのSSIDを選んでパスワードを入力すると、家のWiFiにアクセスを試みます。</p>
 <figure >
@@ -214,7 +214,7 @@ RAMも大量にあって、<strong>81kB</strong>もあります。</p>
 	
 </figure>
 
-<h3 id="heading-6">スマホでの操作画面</h3>
+<h3 id="スマホでの操作画面">スマホでの操作画面</h3>
 <p>うまく接続できると、下の画面が出てきて、リモコンが使えるようになります。</p>
 <p>リモコンを登録するときは下の好きなチャンネルの欄にボタンの名前を書いて「Recode」ボタンを押すとリモコンのサンプリングを開始します。リモコンの登録がうまくいくと、上のボタンにさっき入力した名前が表示されてボタンが使えるようになります。</p>
 <figure >
@@ -228,10 +228,10 @@ RAMも大量にあって、<strong>81kB</strong>もあります。</p>
 	
 </figure>
 
-<h2 id="heading-7">作り方</h2>
+<h2 id="作り方">作り方</h2>
 <p>Githubに公開しているのでそちらをご覧下さい。<br>
 <a href="https://github.com/kerikun11/IR-station">Github - IR-station</a></p>
-<h2 id="heading-8">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p><strong>IoT(Internet of Things)<strong>という言葉があります。<br>
 <strong>人と人が</strong>インターネットにつなぐだけでなく</strong>ものとものが</strong>互いにインターネットでつながり、相互に作用し合うということです。<br>
 ESP8266 WiFiモジュールはIoTに最適です。より多くのものがインターネットによりつながるといいですね！</p>
@@ -366,24 +366,24 @@ ESP8266はとにかくすごいマイコンです！みなさんもぜひ使っ�
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#esp8266">ESP8266とは</a>
+    <li><a href="#esp8266とは">ESP8266とは</a>
       <ul>
-        <li><a href="#wifi">日本の技適を取得済みWiFiモジュール！！</a></li>
-        <li><a href="#heading">とにかく安い！</a></li>
-        <li><a href="#heading-1">開発の簡単さも流行りの理由</a></li>
-        <li><a href="#heading-2">スペックが十分すぎる…</a></li>
+        <li><a href="#日本の技適を取得済みwifiモジュール">日本の技適を取得済みWiFiモジュール！！</a></li>
+        <li><a href="#とにかく安い">とにかく安い！</a></li>
+        <li><a href="#開発の簡単さも流行りの理由">開発の簡単さも流行りの理由</a></li>
+        <li><a href="#スペックが十分すぎる">スペックが十分すぎる…</a></li>
       </ul>
     </li>
-    <li><a href="#heading-3">赤外線学習リモコン</a></li>
-    <li><a href="#heading-4">作ったもの</a>
+    <li><a href="#赤外線学習リモコン">赤外線学習リモコン</a></li>
+    <li><a href="#作ったもの">作ったもの</a>
       <ul>
-        <li><a href="#heading-5">本体</a></li>
-        <li><a href="#wifi-1">WiFiの設定</a></li>
-        <li><a href="#heading-6">スマホでの操作画面</a></li>
+        <li><a href="#本体">本体</a></li>
+        <li><a href="#wifiの設定">WiFiの設定</a></li>
+        <li><a href="#スマホでの操作画面">スマホでの操作画面</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">作り方</a></li>
-    <li><a href="#heading-8">まとめ</a></li>
+    <li><a href="#作り方">作り方</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

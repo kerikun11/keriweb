@@ -113,7 +113,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-03-29T00:00:00">2017-03-29</time>
+	<time class="meta__text" datetime="2017-03-29T00:00:00Z">2017-03-29</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -127,8 +127,8 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">まずはじめに</h2>
-<h3 id="heading-1">秋月の通販サイトが進化</h3>
+			<h2 id="まずはじめに">まずはじめに</h2>
+<h3 id="秋月の通販サイトが進化">秋月の通販サイトが進化</h3>
 <p>少し前から，<a href="http://akizukidenshi.com/">秋月の通販サイト</a>で店舗の在庫数と売場の場所が見れるようになりました．<br>
 商品写真の下の「店舗情報」というボタンを押すとポップアップが現れ，在庫数と売場が表示されます．</p>
 <figure >
@@ -153,7 +153,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="wifiesp-wroom-32">ハイスペックなWiFiモジュールESP-WROOM-32</h3>
+<h3 id="ハイスペックなwifiモジュールesp-wroom-32">ハイスペックなWiFiモジュールESP-WROOM-32</h3>
 <figure >
 	
 		
@@ -167,12 +167,12 @@ if (!doNotTrack) {
 
 <p>先日，<a href="http://akizukidenshi.com/catalog/g/gM-11647/">ESP-WROOM-32</a>というWiFiモジュールが発売されました．以前からあるESP-WROOM-02の進化版で，同じように使うことができます．しかし，スペックが圧倒的に高くなりました．</p>
 <p>32bitマイコンで，240MHz動作，なんとデュアルコアです．電子工作の世界にもマルチコアがやってきました！！</p>
-<h2 id="heading-2">作ったもの</h2>
-<h3 id="heading-3">【動画】通販コードから在庫数と棚番を表示</h3>
+<h2 id="作ったもの">作ったもの</h2>
+<h3 id="動画通販コードから在庫数と棚番を表示">【動画】通販コードから在庫数と棚番を表示</h3>
 <p>今回はそのESP-WROOM-32を使って，便利なグッズを作りました．</p>
 <p>秋月の通販コードを入力すると，秋葉原店での在庫数と，売場番号が表示されます．</p>
 <div class="video"><video src="aki-shelf.mp4" width="100%" controls loop preload="metadata"></video></div>
-<h3 id="keriesp32">KERIESP32を使用</h3>
+<h3 id="keriesp32を使用">KERIESP32を使用</h3>
 <p>以前紹介した<a href="/posts/2017-03-02-keriesp32/">KERIESP32基板</a>を使用して作りました．製作時間は3時間くらいです．</p>
 <p><figure >
 	
@@ -218,7 +218,7 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h3 id="heading-4">在庫と売場情報の取得方法</h3>
+<h3 id="在庫と売場情報の取得方法">在庫と売場情報の取得方法</h3>
 <p>WiFi経由で秋月のサーバーに接続して，HTMLを入手し，それをパースして在庫数と売場を得ています．</p>
 <p>普通のHTTPなので，とても簡単です．TCP/IPでサーバーに接続して，</p>
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">GET /catalog/goods/warehouseinfo.aspx?goods=M-11647 HTTP/1.1\r\n
@@ -226,23 +226,23 @@ Host: akizukidenshi.com\r\n
 Connection: close\r\n
 \r\n
 </code></pre></div><p>と送信すると，HTMLが返って来ます．</p>
-<h2 id="heading-5">苦労したこと</h2>
-<h3 id="shift-jis">文字コードがShift_JIS</h3>
+<h2 id="苦労したこと">苦労したこと</h2>
+<h3 id="文字コードがshift_jis">文字コードがShift_JIS</h3>
 <p>今時どこもUTF-8だろうと思いこんでHTMLをパースしていたところ，日本語の検索が全く引っかかりませんでした．</p>
 <p>しばらく悩んでいて，文字をバイナリで表示してUTF-8ではないことに気づき，HTMLのヘッダーを見たら，charasetがまさかのShift_JISになっていました&hellip;</p>
 <p>windowsじゃないんだから&hellip;もう&hellip;</p>
-<h3 id="heading-6">表記がバラバラ</h3>
+<h3 id="表記がバラバラ">表記がバラバラ</h3>
 <p>今回は，キャラクタ液晶で作ったので日本語が表示できません．なので，売場を英数字で表す必要があります．</p>
 <p>それなのに，「1F 01 売場」や「1F 売場 01」，「1F 13 売場キャビネット上段」など，表記がバラバラで，そこから棚番や段数だけを抽出するのはなかなか大変でした．データーベースに直接アクセスしたいですね&hellip;</p>
-<h3 id="heading-7">バックヤードにしかない商品もある</h3>
+<h3 id="バックヤードにしかない商品もある">バックヤードにしかない商品もある</h3>
 <p>バックヤードにしかない商品は「お問い合わせください」という売場名になっていました．このままだと日本語で表示できないので，「backyard」としました．</p>
-<h3 id="html">存在しない通販コードを検索すると，空白のHTMLが返ってくる</h3>
+<h3 id="存在しない通販コードを検索すると空白のhtmlが返ってくる">存在しない通販コードを検索すると，空白のHTMLが返ってくる</h3>
 <p>謎仕様です．「Not Found」としました．</p>
-<h2 id="heading-8">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>ESP-WROOM-32で何か作れないか！と考えていたところ，これを思いつきました．</p>
 <p>これがあれば，通販コードをメモしておくだけでスムーズに買い物できますね！</p>
 <p>HTMLのパースがかなり雑なので，秋月のサーバーの仕様が変わるとすぐに使えなくなりそうですが，おもしろいものができました．</p>
-<h2 id="heading-9">新歓展示に出します</h2>
+<h2 id="新歓展示に出します">新歓展示に出します</h2>
 <p>こちらの作品は，東工大ロボット技術研究会の2017年度新歓展示に出す予定です．使ってみたい方は是非お越しください！<br>
 詳しくは<a href="https://www.rogiken.org/shinkan/2016/">東京工業大学ロボット技術研究会新歓ページ</a>へ．</p>
 		</div>
@@ -373,29 +373,29 @@ Connection: close\r\n
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">まずはじめに</a>
+    <li><a href="#まずはじめに">まずはじめに</a>
       <ul>
-        <li><a href="#heading-1">秋月の通販サイトが進化</a></li>
-        <li><a href="#wifiesp-wroom-32">ハイスペックなWiFiモジュールESP-WROOM-32</a></li>
+        <li><a href="#秋月の通販サイトが進化">秋月の通販サイトが進化</a></li>
+        <li><a href="#ハイスペックなwifiモジュールesp-wroom-32">ハイスペックなWiFiモジュールESP-WROOM-32</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">作ったもの</a>
+    <li><a href="#作ったもの">作ったもの</a>
       <ul>
-        <li><a href="#heading-3">【動画】通販コードから在庫数と棚番を表示</a></li>
-        <li><a href="#keriesp32">KERIESP32を使用</a></li>
-        <li><a href="#heading-4">在庫と売場情報の取得方法</a></li>
+        <li><a href="#動画通販コードから在庫数と棚番を表示">【動画】通販コードから在庫数と棚番を表示</a></li>
+        <li><a href="#keriesp32を使用">KERIESP32を使用</a></li>
+        <li><a href="#在庫と売場情報の取得方法">在庫と売場情報の取得方法</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">苦労したこと</a>
+    <li><a href="#苦労したこと">苦労したこと</a>
       <ul>
-        <li><a href="#shift-jis">文字コードがShift\_JIS</a></li>
-        <li><a href="#heading-6">表記がバラバラ</a></li>
-        <li><a href="#heading-7">バックヤードにしかない商品もある</a></li>
-        <li><a href="#html">存在しない通販コードを検索すると，空白のHTMLが返ってくる</a></li>
+        <li><a href="#文字コードがshift_jis">文字コードがShift_JIS</a></li>
+        <li><a href="#表記がバラバラ">表記がバラバラ</a></li>
+        <li><a href="#バックヤードにしかない商品もある">バックヤードにしかない商品もある</a></li>
+        <li><a href="#存在しない通販コードを検索すると空白のhtmlが返ってくる">存在しない通販コードを検索すると，空白のHTMLが返ってくる</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">まとめ</a></li>
-    <li><a href="#heading-9">新歓展示に出します</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#新歓展示に出します">新歓展示に出します</a></li>
   </ul>
 </nav>
 	</div>

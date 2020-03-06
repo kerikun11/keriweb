@@ -19,7 +19,7 @@
       <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-09-27-freertos-member/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;FreeRTOSはC言語で書かれているので，C++のメンバ関数をそのまま渡すことができない．そこで，今回はその解決策のひとつを紹介する．&lt;/p&gt;</description>
     </item>
     
@@ -29,8 +29,8 @@
       <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-06-24-esp32-dual-core/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;h3 id=&#34;esp32&#34;&gt;ESP32とは&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;esp32とは&#34;&gt;ESP32とは&lt;/h3&gt;
 &lt;figure &gt;
 	
 		

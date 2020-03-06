@@ -113,7 +113,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-08-28T00:00:00">2016-08-28</time>
+	<time class="meta__text" datetime="2016-08-28T00:00:00Z">2016-08-28</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -127,11 +127,11 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">はじめに</h2>
+			<h2 id="はじめに">はじめに</h2>
 <p>これらの作業はすべてSSHで行う．fingなどを使ってIPアドレスを調べる．</p>
 <pre><code>$ ssh pi@192.168.11.13
 </code></pre>
-<h2 id="heading-1">更新</h2>
+<h2 id="更新">更新</h2>
 <pre><code>$ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -155,14 +155,14 @@ $ sudo raspi-config
 </ul>
 </li>
 </ul>
-<h2 id="heading-2">必要なパッケージのインストール</h2>
+<h2 id="必要なパッケージのインストール">必要なパッケージのインストール</h2>
 <pre><code>$ sudo apt-get install -y vim tmux zsh git
 </code></pre>
-<h2 id="heading-3">ルートパスワードの変更</h2>
+<h2 id="ルートパスワードの変更">ルートパスワードの変更</h2>
 <pre><code>$ sudo passwd root
 </code></pre>
-<h2 id="ip">IPアドレスの固定化</h2>
-<h3 id="ip-1">静的IPの設定</h3>
+<h2 id="ipアドレスの固定化">IPアドレスの固定化</h2>
+<h3 id="静的ipの設定">静的IPの設定</h3>
 <p>あらかじめルーターの管理画面で，192.168.11.2をDHCPの割り当て範囲から外しておく．</p>
 <pre><code>$ sudo vim /etc/network/interfaces
 </code></pre>
@@ -193,49 +193,49 @@ iface wlan0 inet manual
 allow-hotplug wlan1
 iface wlan1 inet manual
 	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</code></pre></div><h3 id="heading-4">再起動</h3>
+</code></pre></div><h3 id="再起動">再起動</h3>
 <pre><code>$ sudo reboot
 </code></pre>
-<h2 id="heading-5">使用ユーザーの作成</h2>
-<h3 id="heading-6">ユーザーを新規作成</h3>
+<h2 id="使用ユーザーの作成">使用ユーザーの作成</h2>
+<h3 id="ユーザーを新規作成">ユーザーを新規作成</h3>
 <pre><code>$ sudo adduser hoge
 $ sudo gpasswd -a hoge sudo
 </code></pre>
-<h3 id="heading-7">ホームディレクトリがなければ作る</h3>
+<h3 id="ホームディレクトリがなければ作る">ホームディレクトリがなければ作る</h3>
 <pre><code>$ sudo ls -l /home
 $ sudo mkdir /home/hoge
 $ sudo chown hoge /home/hoge
 $ sudo chgrp hoge /home/hoge
 </code></pre>
-<h3 id="heading-8">デフォルトシェルの変更</h3>
+<h3 id="デフォルトシェルの変更">デフォルトシェルの変更</h3>
 <pre><code>$ sudo vim /etc/passwd
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">- hoge:x:1001:1001:,,,:/home/hoge:/bin/bash
 </span><span class="gd"></span><span class="gi">+ hoge:x:1001:1001:,,,:/home/hoge:/bin/zsh
-</span></code></pre></div><h3 id="heading-9">ログイン</h3>
+</span></code></pre></div><h3 id="ログイン">ログイン</h3>
 <pre><code>$ su hoge
 </code></pre>
-<h2 id="pi">ユーザーpiの削除</h2>
+<h2 id="ユーザーpiの削除">ユーザーpiの削除</h2>
 <pre><code>$ sudo userdel -r pi
 </code></pre>
-<h2 id="heading-10">公開鍵認証</h2>
-<h3 id="heading-11">クライアント上</h3>
-<h4 id="heading-12">必要があれば鍵の作成</h4>
+<h2 id="公開鍵認証">公開鍵認証</h2>
+<h3 id="クライアント上">クライアント上</h3>
+<h4 id="必要があれば鍵の作成">必要があれば鍵の作成</h4>
 <pre><code>$ cd .ssh
 $ ssh-keygen -t ecdsa -C &quot;foo&quot;
 </code></pre>
-<h4 id="heading-13">公開鍵の送信</h4>
+<h4 id="公開鍵の送信">公開鍵の送信</h4>
 <pre><code>$ scp ~/.ssh/id_ecdsa.pub hoge@192.168.11.2:
 </code></pre>
-<h3 id="heading-14">ホスト上</h3>
-<h4 id="heading-15">受け取った公開鍵の登録</h4>
+<h3 id="ホスト上">ホスト上</h3>
+<h4 id="受け取った公開鍵の登録">受け取った公開鍵の登録</h4>
 <pre><code>$ mkdir ~/.ssh
 $ cat ~/id_ecdsa.pub &gt;&gt; ~/.ssh/authorized_keys
 </code></pre>
-<h3 id="heading-16">接続方法</h3>
+<h3 id="接続方法">接続方法</h3>
 <pre><code>$ ssh hoge@192.168.11.2 -p 22 -i ~/.ssh/id_ecdsa
 </code></pre>
-<h2 id="ssh">SSHポートの変更，パスワード認証の禁止</h2>
+<h2 id="sshポートの変更パスワード認証の禁止">SSHポートの変更，パスワード認証の禁止</h2>
 <pre><code>$ sudo vim /etc/ssh/sshd_config
 </code></pre>
 <div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff"><span class="gd">- Port 22
@@ -370,33 +370,33 @@ $ cat ~/id_ecdsa.pub &gt;&gt; ~/.ssh/authorized_keys
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">はじめに</a></li>
-    <li><a href="#heading-1">更新</a></li>
-    <li><a href="#heading-2">必要なパッケージのインストール</a></li>
-    <li><a href="#heading-3">ルートパスワードの変更</a></li>
-    <li><a href="#ip">IPアドレスの固定化</a>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#更新">更新</a></li>
+    <li><a href="#必要なパッケージのインストール">必要なパッケージのインストール</a></li>
+    <li><a href="#ルートパスワードの変更">ルートパスワードの変更</a></li>
+    <li><a href="#ipアドレスの固定化">IPアドレスの固定化</a>
       <ul>
-        <li><a href="#ip-1">静的IPの設定</a></li>
-        <li><a href="#heading-4">再起動</a></li>
+        <li><a href="#静的ipの設定">静的IPの設定</a></li>
+        <li><a href="#再起動">再起動</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">使用ユーザーの作成</a>
+    <li><a href="#使用ユーザーの作成">使用ユーザーの作成</a>
       <ul>
-        <li><a href="#heading-6">ユーザーを新規作成</a></li>
-        <li><a href="#heading-7">ホームディレクトリがなければ作る</a></li>
-        <li><a href="#heading-8">デフォルトシェルの変更</a></li>
-        <li><a href="#heading-9">ログイン</a></li>
+        <li><a href="#ユーザーを新規作成">ユーザーを新規作成</a></li>
+        <li><a href="#ホームディレクトリがなければ作る">ホームディレクトリがなければ作る</a></li>
+        <li><a href="#デフォルトシェルの変更">デフォルトシェルの変更</a></li>
+        <li><a href="#ログイン">ログイン</a></li>
       </ul>
     </li>
-    <li><a href="#pi">ユーザーpiの削除</a></li>
-    <li><a href="#heading-10">公開鍵認証</a>
+    <li><a href="#ユーザーpiの削除">ユーザーpiの削除</a></li>
+    <li><a href="#公開鍵認証">公開鍵認証</a>
       <ul>
-        <li><a href="#heading-11">クライアント上</a></li>
-        <li><a href="#heading-14">ホスト上</a></li>
-        <li><a href="#heading-16">接続方法</a></li>
+        <li><a href="#クライアント上">クライアント上</a></li>
+        <li><a href="#ホスト上">ホスト上</a></li>
+        <li><a href="#接続方法">接続方法</a></li>
       </ul>
     </li>
-    <li><a href="#ssh">SSHポートの変更，パスワード認証の禁止</a></li>
+    <li><a href="#sshポートの変更パスワード認証の禁止">SSHポートの変更，パスワード認証の禁止</a></li>
   </ul>
 </nav>
 	</div>

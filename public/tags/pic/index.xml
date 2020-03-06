@@ -19,7 +19,7 @@
       <pubDate>Wed, 14 Feb 2018 22:02:45 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-02-14-pic-scroll-board-asm/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回の記事は，高校生の時に作った電光掲示板のコードの紹介です．&lt;/p&gt;
 &lt;p&gt;PICのアセンブリ言語で書かれています．&lt;/p&gt;</description>
     </item>
@@ -30,8 +30,8 @@
       <pubDate>Mon, 12 Sep 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-09-12-low-power-clock/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;h3 id=&#34;pic&#34;&gt;PICで時計&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;picで時計&#34;&gt;PICで時計&lt;/h3&gt;
 &lt;p&gt;久しぶりにPICの話題です．しばらくESP8266やARMマイコンなど，上級のマイコンを使っていましたが，またPICを使ってみたくなりました．&lt;/p&gt;
 &lt;p&gt;他のマイコンには真似できないような超低消費電力の時計を作ってみました．&lt;/p&gt;</description>
     </item>
@@ -42,7 +42,7 @@
       <pubDate>Fri, 02 Sep 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-09-02-pic-rtcc/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;PIC18F27J53は，リアルタイムクロック&amp;amp;カレンダー(RTCC)モジュールをハードウェアで持っています．今回はそれを使用するためのライブラリを作ったので紹介します．&lt;/p&gt;</description>
     </item>
     
@@ -52,7 +52,7 @@
       <pubDate>Tue, 05 Apr 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-04-05-strange-keyboard/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;つくったもの&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;つくったもの&#34;&gt;つくったもの&lt;/h2&gt;
 &lt;p&gt;ASCIIキーボードとスクロール表示器を作りました。&lt;/p&gt;
 &lt;figure &gt;
 	
@@ -65,7 +65,7 @@
 	
 &lt;/figure&gt;
 
-&lt;h2 id=&#34;heading-1&#34;&gt;変なキーボード&lt;/h2&gt;
+&lt;h2 id=&#34;変なキーボード&#34;&gt;変なキーボード&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;キーボードの表面には２つのロータリースイッチがついています。それらを回すことで文字を選び、送信ボタンを押して送信します。&lt;/li&gt;
 &lt;li&gt;もし間違った文字を送信してしまったら、送信ボタンを長押しすることで１文字ずつ削除することができます。&lt;/li&gt;
@@ -79,13 +79,13 @@
       <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-13-pic-bootloader/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;h3 id=&#34;pic18f27j53&#34;&gt;PIC18F27J53を使おう&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;pic18f27j53を使おう&#34;&gt;PIC18F27J53を使おう&lt;/h3&gt;
 &lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt; という記事を書きました。それの続きで、今回はUSBブートローダの使い方について書きたいと思います。&lt;/p&gt;
-&lt;h3 id=&#34;heading-1&#34;&gt;ブートローダとは&lt;/h3&gt;
+&lt;h3 id=&#34;ブートローダとは&#34;&gt;ブートローダとは&lt;/h3&gt;
 &lt;p&gt;ブートローダとは自分自身にプログラムを書きこむプログラムです。これを使うとPICkitなどのライタを使わなくてもプログラムの書き込みをすることができるようになります。&lt;/p&gt;
 &lt;p&gt;ただし、初回に一度だけブートローダ用のプログラムをPICkitなどで書きこむ必要があります。&lt;/p&gt;
-&lt;h3 id=&#34;heading-2&#34;&gt;ユーザープログラム&lt;/h3&gt;
+&lt;h3 id=&#34;ユーザープログラム&#34;&gt;ユーザープログラム&lt;/h3&gt;
 &lt;p&gt;ユーザープログラムとは、ブートローダーにより書き込むプログラムです。あなたが作った、実際に動かすプログラムということです。&lt;/p&gt;</description>
     </item>
     
@@ -95,7 +95,7 @@
       <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-10-pic-usb/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt; という記事を書きました。それの続きで、今回はUSBの使い方について書きたいと思います。&lt;/p&gt;
 &lt;p&gt;今回紹介する方法では、USBをUARTの代わりに使えるようにするものです。PICをPCにつなぐとCOMポートが現れます。&lt;/p&gt;
 &lt;p&gt;これならUSBシリアル変換モジュールを使う必要はなくります。&lt;/p&gt;
@@ -117,8 +117,8 @@
       <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-08-pic18f27j53/</guid>
-      <description>&lt;h2 id=&#34;pic18f27j53&#34;&gt;PIC18F27J53のいいところ&lt;/h2&gt;
-&lt;h3 id=&#34;heading&#34;&gt;秋月で売っていること&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;pic18f27j53のいいところ&#34;&gt;PIC18F27J53のいいところ&lt;/h2&gt;
+&lt;h3 id=&#34;秋月で売っていること&#34;&gt;秋月で売っていること&lt;/h3&gt;
 &lt;p&gt;電子工作をするうえでこれはとても大事なこと。「秋月で売っているなら使ってみるか」ってなりますよね。&lt;/p&gt;
 &lt;p&gt;もちろん、秋月なので値段が安い！！&lt;br&gt;
 &lt;strong&gt;1個270円&lt;/strong&gt;です(2016年1月現在)。&lt;/p&gt;
@@ -141,7 +141,7 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2015-07-01-charge-station-ssr/</guid>
       <description>&lt;p&gt;これは東京工業大学ロボット技術研究会平成27年度後期研究報告書に投稿された文書です．&lt;/p&gt;
-&lt;h2 id=&#34;charge-station-&#34;&gt;Charge Station とは&lt;/h2&gt;
+&lt;h2 id=&#34;charge-station-とは&#34;&gt;Charge Station とは&lt;/h2&gt;
 &lt;p&gt;Charge Station は，自作の携帯電話充電器です．僕が命名しました．昨年（2014年）の秋ごろに初代Charge Station を作り始め，今ではVer.6となっています．主な機能は，充電完了後の給電停止と，充電電流の計測です．夜寝るときなど，携帯電話を充電器につないだまま長時間放置することに抵抗があったため，自動で給電を止める装置を自作することにしました．&lt;/p&gt;
 &lt;p&gt;また，昨夏に100Wのソーラーパネルを購入し，100W級ソーラーシステムを自作しました．Charge Station はその電力をもとに動作します．限られた電気を有効に使うためにCharge Stationをつくりました．&lt;/p&gt;</description>
     </item>

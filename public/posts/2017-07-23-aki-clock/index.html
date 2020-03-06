@@ -113,7 +113,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-07-23T00:00:00">2017-07-23</time>
+	<time class="meta__text" datetime="2017-07-23T00:00:00Z">2017-07-23</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -127,7 +127,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">家の玄関で地味に役に立っていた時計</h2>
+			<h2 id="家の玄関で地味に役に立っていた時計">家の玄関で地味に役に立っていた時計</h2>
 <p>かなり前に秋月電子で買った<a href="http://akizukidenshi.com/catalog/g/gK-04379/">時計キット</a>．<br>
 数字が大きく，遠くからでもよく見えるので自宅の玄関で地味に役立っていました．</p>
 <p>しかし，水晶の精度がいまいちでよくズレるので，7セグの表示部だけを残してESP32によるNTP時計にアップデートしました．</p>
@@ -142,7 +142,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-1">作った基板</h2>
+<h2 id="作った基板">作った基板</h2>
 <p>今回は久々にユニバーサル基板で製作しました．最近はプリント基板ばかり使っていたので，部品の配置の吟味に苦労しました．ユニバーサル基板で作るときも基板CADで設計してから作った方がキレイにできそうです．</p>
 <p>上が秋月のキットの基板，下が今回作ったESP32-NTP時計基板<br>
 <figure >
@@ -156,7 +156,7 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="heading-2">ソースコード</h2>
+<h2 id="ソースコード">ソースコード</h2>
 <p><a href="https://github.com/espressif/arduino-esp32">Arduino core for the ESP32</a> 環境で動作するコードです．</p>
 <p><a href="aki-clock.zip">ここ</a>からダウンロードできます．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
@@ -165,64 +165,64 @@ if (!doNotTrack) {
 </span><span class="cm">  @date    2018.02.13
 </span><span class="cm"> */</span>
 
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;ArduinoOTA.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;esp32-hal-log.h&gt;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;WiFi.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;ArduinoOTA.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;esp32-hal-log.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="cm">/** ピンアサイン */</span>
-<span class="k">const</span> <span class="kt">int</span> <span class="n">pins_led_anode</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">}</span><span class="p">;</span> <span class="c1">//&lt; 7セグLEDの各桁アノード
-</span><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">pins_led_cathode</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">}</span><span class="p">;</span> <span class="c1">//&lt; 7セグLEDの各バーカソード
+<span class="k">const</span> <span class="kt">int</span> <span class="n">pins_led_anode</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">};</span> <span class="c1">//&lt; 7セグLEDの各桁アノード
+</span><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">pins_led_cathode</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">};</span> <span class="c1">//&lt; 7セグLEDの各バーカソード
 </span><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">pin_led_colon</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span> <span class="c1">//&lt; コロンのLEDのピン
 </span><span class="c1"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">pin_button</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//&lt; ボタンピン
 </span><span class="c1"></span>
 <span class="cm">/** 初期化関数 */</span>
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Hello, this is ESP32.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+	<span class="n">log_i</span><span class="p">(</span><span class="s">&#34;Hello, this is ESP32.&#34;</span><span class="p">);</span>
 
 	<span class="c1">// イベントハンドラの割り当て
-</span><span class="c1"></span>	<span class="n">WiFi</span><span class="p">.</span><span class="n">onEvent</span><span class="p">(</span><span class="n">WiFiEvent</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">WiFi</span><span class="p">.</span><span class="n">onEvent</span><span class="p">(</span><span class="n">WiFiEvent</span><span class="p">);</span>
 	<span class="c1">// 前回接続したWiFiに自動接続
-</span><span class="c1"></span>	<span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">WiFi</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
 
 	<span class="c1">// タイムゾーンとNTPサーバーの設定
-</span><span class="c1"></span>	<span class="n">configTzTime</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">JST-9</span><span class="s">&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">ntp.jst.mfeed.ad.jp</span><span class="s">&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">ntp.nict.jp</span><span class="s">&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">pool.ntp.org</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">configTzTime</span><span class="p">(</span><span class="s">&#34;JST-9&#34;</span><span class="p">,</span> <span class="s">&#34;ntp.jst.mfeed.ad.jp&#34;</span><span class="p">,</span> <span class="s">&#34;ntp.nict.jp&#34;</span><span class="p">,</span> <span class="s">&#34;pool.ntp.org&#34;</span><span class="p">);</span>
 
 	<span class="c1">// 各タスクを生成
-</span><span class="c1"></span>	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">ota_task</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">ota</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">smartConfig_task</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">smartConfig</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">dynamic_task</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">dynamic</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">colon_task</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">colon</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">time_task</span><span class="p">,</span> <span class="sa"></span><span class="s">&#34;</span><span class="s">time</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">ota_task</span><span class="p">,</span> <span class="s">&#34;ota&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">smartConfig_task</span><span class="p">,</span> <span class="s">&#34;smartConfig&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">dynamic_task</span><span class="p">,</span> <span class="s">&#34;dynamic&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">colon_task</span><span class="p">,</span> <span class="s">&#34;colon&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">xTaskCreate</span><span class="p">(</span><span class="n">time_task</span><span class="p">,</span> <span class="s">&#34;time&#34;</span><span class="p">,</span> <span class="mi">4096</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="cm">/** メインループ
 </span><span class="cm">  @brief すべての処理はFreeRTOSのタスクで行うので，ここでは何もしない
 </span><span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
 <span class="p">}</span>
 
 <span class="cm">/** NTPにより現在時刻を合わせる関数
 </span><span class="cm"> */</span>
-<span class="kt">void</span> <span class="nf">setTime</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">setTime</span><span class="p">()</span> <span class="p">{</span>
 	<span class="k">struct</span> <span class="nc">tm</span> <span class="n">timeinfo</span><span class="p">;</span>
-	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">getLocalTime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">timeinfo</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">log_e</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Failed to obtain time</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">getLocalTime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">timeinfo</span><span class="p">))</span> <span class="p">{</span>
+		<span class="n">log_e</span><span class="p">(</span><span class="s">&#34;Failed to obtain time&#34;</span><span class="p">);</span>
 		<span class="k">return</span><span class="p">;</span>
 	<span class="p">}</span>
-	<span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Time: %s</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">log_d</span><span class="p">(</span><span class="s">&#34;Time: %s&#34;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">));</span>
 <span class="p">}</span>
 
 <span class="cm">/** WiFiイベントが発生したときによばれる関数
 </span><span class="cm">  @brief WiFiに接続されたら時刻合わせをする
 </span><span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">WiFiEvent</span><span class="p">(</span><span class="n">WiFiEvent_t</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">log_d</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">[WiFi-event] event: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">log_d</span><span class="p">(</span><span class="s">&#34;[WiFi-event] event: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">event</span><span class="p">);</span>
 	<span class="k">switch</span> <span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="p">{</span>
 
 		<span class="k">case</span> <span class="nl">SYSTEM_EVENT_STA_GOT_IP</span><span class="p">:</span>
-			<span class="n">setTime</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; 時刻合わせ
+			<span class="n">setTime</span><span class="p">();</span> <span class="c1">//&lt; 時刻合わせ
 </span><span class="c1"></span>			<span class="k">break</span><span class="p">;</span>
 		<span class="k">default</span><span class="o">:</span>
 			<span class="k">break</span><span class="p">;</span>
@@ -233,12 +233,12 @@ if (!doNotTrack) {
 </span><span class="cm">  @brief FreeRTOSにより実行
 </span><span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">ota_task</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">ArduinoOTA</span><span class="p">.</span><span class="n">setHostname</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">AKI-TOKEI</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">ArduinoOTA</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">ArduinoOTA</span><span class="p">.</span><span class="n">setHostname</span><span class="p">(</span><span class="s">&#34;AKI-TOKEI&#34;</span><span class="p">);</span>
+	<span class="n">ArduinoOTA</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">();</span>
 	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
-		<span class="n">ArduinoOTA</span><span class="p">.</span><span class="n">handle</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
+		<span class="n">ArduinoOTA</span><span class="p">.</span><span class="n">handle</span><span class="p">();</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -246,15 +246,15 @@ if (!doNotTrack) {
 </span><span class="cm">  @brief FreeRTOSにより実行，ボタンが押されたらsmartConfig処理を実行
 </span><span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">smartConfig_task</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">pinMode</span><span class="p">(</span><span class="n">pin_button</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">pinMode</span><span class="p">(</span><span class="n">pin_button</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
+	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">();</span>
 	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
-		<span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin_button</span><span class="p">)</span> <span class="o">=</span><span class="o">=</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">log_i</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi.beginSmartConfig();</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-			<span class="n">WiFi</span><span class="p">.</span><span class="n">beginSmartConfig</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-			<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WiFi</span><span class="p">.</span><span class="n">smartConfigDone</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-				<span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin_button</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">log_i</span><span class="p">(</span><span class="s">&#34;WiFi.beginSmartConfig();&#34;</span><span class="p">);</span>
+			<span class="n">WiFi</span><span class="p">.</span><span class="n">beginSmartConfig</span><span class="p">();</span>
+			<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WiFi</span><span class="p">.</span><span class="n">smartConfigDone</span><span class="p">())</span> <span class="p">{</span>
+				<span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 			<span class="p">}</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
@@ -264,18 +264,18 @@ if (!doNotTrack) {
 </span><span class="cm">  @brief FreeRTOSにより実行
 </span><span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">colon_task</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">pinMode</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">pinMode</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span><span class="p">;</span>
-	<span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">();</span>
 	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">)</span><span class="p">;</span>
-			<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
-			<span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">LOW</span><span class="p">)</span><span class="p">;</span>
-			<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">9</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
+		<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+			<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
+			<span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+			<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">9</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
 		<span class="p">}</span>
-		<span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">LOW</span><span class="p">)</span><span class="p">;</span>
-		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">500</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
+		<span class="n">digitalWrite</span><span class="p">(</span><span class="n">pin_led_colon</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">500</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -283,13 +283,13 @@ if (!doNotTrack) {
 </span><span class="cm">  @brief FreeRTOSにより実行
 </span><span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">dynamic_task</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="n">pinMode</span><span class="p">(</span><span class="n">pins_led_anode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="n">pinMode</span><span class="p">(</span><span class="n">pins_led_cathode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">)</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">pinMode</span><span class="p">(</span><span class="n">pins_led_anode</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">OUTPUT</span><span class="p">);</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">pinMode</span><span class="p">(</span><span class="n">pins_led_cathode</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">OUTPUT</span><span class="p">);</span>
 
-	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">();</span>
 	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
-		<span class="n">dynamic</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
+		<span class="n">dynamic</span><span class="p">();</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -297,10 +297,10 @@ if (!doNotTrack) {
 </span><span class="cm">  @brief FreeRTOSにより実行
 </span><span class="cm"> */</span>
 <span class="kt">void</span> <span class="nf">time_task</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">arg</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">portTickType</span> <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">();</span>
 	<span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
-		<span class="n">setTime</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+		<span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
+		<span class="n">setTime</span><span class="p">();</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 
@@ -308,13 +308,13 @@ if (!doNotTrack) {
 </span><span class="cm">  @brief I/Oピンのドライブ関数
 </span><span class="cm"> */</span>
 <span class="k">static</span> <span class="kt">void</span> <span class="nf">print_column</span><span class="p">(</span><span class="kt">int8_t</span> <span class="n">col</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pins_led_anode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span><span class="o">=</span> <span class="n">i</span><span class="p">)</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pins_led_anode</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">col</span> <span class="o">==</span> <span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="cm">/** 7セグLEDの表示処理関数
 </span><span class="cm">  @brief I/Oピンのドライブ関数
 </span><span class="cm"> */</span>
 <span class="k">static</span> <span class="kt">void</span> <span class="nf">print_pattern</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">pat</span><span class="p">)</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pins_led_cathode</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">,</span> <span class="p">(</span><span class="n">pat</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">digitalWrite</span><span class="p">(</span><span class="n">pins_led_cathode</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">pat</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="cm">/** 7セグLEDのある1文字を表示する関数
 </span><span class="cm">  @brief  7セグLEDのある1文字を表示する関数
@@ -334,37 +334,37 @@ if (!doNotTrack) {
 </span><span class="c1"></span>		<span class="mb">0b00100111</span><span class="p">,</span> <span class="c1">// 7
 </span><span class="c1"></span>		<span class="mb">0b01111111</span><span class="p">,</span> <span class="c1">// 8
 </span><span class="c1"></span>		<span class="mb">0b01101111</span><span class="p">,</span> <span class="c1">// 9
-</span><span class="c1"></span>	<span class="p">}</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="p">};</span>
 	<span class="kt">uint8_t</span> <span class="n">pat</span><span class="p">;</span>
 	<span class="k">switch</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc"> </span><span class="sc">&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39; &#39;</span><span class="o">:</span>
 			<span class="n">pat</span> <span class="o">=</span> <span class="mb">0b00000000</span><span class="p">;</span>
 			<span class="k">break</span><span class="p">;</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">:</span><span class="sc">&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;:&#39;</span><span class="o">:</span>
 			<span class="n">pat</span> <span class="o">=</span> <span class="mb">0b10100000</span><span class="p">;</span>
 			<span class="k">break</span><span class="p">;</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">-</span><span class="sc">&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;-&#39;</span><span class="o">:</span>
 			<span class="n">pat</span> <span class="o">=</span> <span class="mb">0b01000000</span><span class="p">;</span>
 			<span class="k">break</span><span class="p">;</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">1</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">2</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">3</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">4</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">5</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">6</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">7</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">8</span><span class="sc">&#39;</span><span class="o">:</span>
-		<span class="k">case</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">9</span><span class="sc">&#39;</span><span class="o">:</span>
-			<span class="n">pat</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[</span><span class="n">c</span> <span class="o">-</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span><span class="p">]</span><span class="p">;</span>
+		<span class="k">case</span> <span class="sc">&#39;0&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;1&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;2&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;3&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;4&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;5&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;6&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;7&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;8&#39;</span><span class="o">:</span>
+		<span class="k">case</span> <span class="sc">&#39;9&#39;</span><span class="o">:</span>
+			<span class="n">pat</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[</span><span class="n">c</span> <span class="o">-</span> <span class="sc">&#39;0&#39;</span><span class="p">];</span>
 			<span class="k">break</span><span class="p">;</span>
 		<span class="k">default</span><span class="o">:</span>
 			<span class="n">pat</span> <span class="o">=</span> <span class="mb">0b00000010</span><span class="p">;</span>
 			<span class="k">break</span><span class="p">;</span>
 	<span class="p">}</span>
-	<span class="n">print_column</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">print_pattern</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">print_column</span><span class="p">(</span><span class="n">col</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">print_column</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+	<span class="n">print_pattern</span><span class="p">(</span><span class="n">pat</span><span class="p">);</span>
+	<span class="n">print_column</span><span class="p">(</span><span class="n">col</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="cm">/** ダイナミクス点灯処理の関数
 </span><span class="cm">  @brief  この関数を定期的に呼ぶと7セグLEDがダイナミック点灯する
@@ -372,30 +372,30 @@ if (!doNotTrack) {
 <span class="kt">void</span> <span class="nf">dynamic</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
 	<span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">dynamic_counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 	<span class="k">static</span> <span class="k">struct</span> <span class="nc">tm</span> <span class="o">*</span><span class="n">t_st</span><span class="p">;</span>
-	<span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">t_st</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">)</span><span class="p">;</span>
+	<span class="n">time_t</span> <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+	<span class="n">t_st</span> <span class="o">=</span> <span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
 	<span class="k">switch</span> <span class="p">(</span><span class="n">dynamic_counter</span><span class="p">)</span> <span class="p">{</span>
 		<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_hour</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_hour</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="sa"></span><span class="sc">&#39;</span><span class="sc"> </span><span class="sc">&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">/</span> <span class="mi">10</span><span class="p">))</span> <span class="o">:</span> <span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">));</span>
 			<span class="k">break</span><span class="p">;</span>
 		<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_hour</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_hour</span> <span class="o">%</span> <span class="mi">10</span><span class="p">));</span>
 			<span class="k">break</span><span class="p">;</span>
 		<span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
-			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_min</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_min</span> <span class="o">/</span> <span class="mi">10</span><span class="p">));</span>
 			<span class="k">break</span><span class="p">;</span>
 		<span class="k">case</span> <span class="mi">4</span><span class="o">:</span>
-			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sa"></span><span class="sc">&#39;</span><span class="sc">0</span><span class="sc">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-</span><span class="o">&gt;</span><span class="n">tm_min</span> <span class="o">%</span> <span class="mi">10</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+			<span class="n">print_7seg</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;0&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="n">t_st</span><span class="o">-&gt;</span><span class="n">tm_min</span> <span class="o">%</span> <span class="mi">10</span><span class="p">));</span>
 			<span class="n">dynamic_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 			<span class="k">break</span><span class="p">;</span>
 		<span class="k">default</span><span class="o">:</span>
 			<span class="n">dynamic_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 			<span class="k">break</span><span class="p">;</span>
 	<span class="p">}</span>
-	<span class="n">dynamic_counter</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
+	<span class="n">dynamic_counter</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
 
-</code></pre></div><h2 id="heading-3">これからもよろしく</h2>
+</code></pre></div><h2 id="これからもよろしく">これからもよろしく</h2>
 <p>1日に1回，NTPサーバーから時刻を取得するようにしたので，ほとんど時間がズレることはないでしょう．地味に役に立っていた玄関の時計，これからも安定動作でよろしくお願いします．</p>
 <figure >
 	
@@ -536,10 +536,10 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">家の玄関で地味に役に立っていた時計</a></li>
-    <li><a href="#heading-1">作った基板</a></li>
-    <li><a href="#heading-2">ソースコード</a></li>
-    <li><a href="#heading-3">これからもよろしく</a></li>
+    <li><a href="#家の玄関で地味に役に立っていた時計">家の玄関で地味に役に立っていた時計</a></li>
+    <li><a href="#作った基板">作った基板</a></li>
+    <li><a href="#ソースコード">ソースコード</a></li>
+    <li><a href="#これからもよろしく">これからもよろしく</a></li>
   </ul>
 </nav>
 	</div>

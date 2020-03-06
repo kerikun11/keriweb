@@ -19,7 +19,7 @@
       <pubDate>Mon, 14 Jan 2019 10:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-01-14-vscode-latex/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回は私が使っているTeXのエディタ環境を紹介します．&lt;/p&gt;
 &lt;p&gt;注目機能は以下の通りです．&lt;/p&gt;
 &lt;ul&gt;
@@ -39,12 +39,12 @@
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-12-22-platformio/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/3279&#34;&gt;rogy Advent Calendar 2018&lt;/a&gt; の
 22日目の記事です．&lt;/p&gt;
 &lt;p&gt;こんにちは．けりです．&lt;/p&gt;
 &lt;p&gt;今回は，PlatformIOという強力な&lt;strong&gt;マイコン開発環境&lt;/strong&gt;の紹介です．&lt;/p&gt;
-&lt;h3 id=&#34;platformio-&#34;&gt;PlatformIO とは？&lt;/h3&gt;
+&lt;h3 id=&#34;platformio-とは&#34;&gt;PlatformIO とは？&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://platformio.org/&#34;&gt;PlatformIO&lt;/a&gt;とは，mbedやArduinoと似たような感じで，さまざまなボードやライブラリを統一的に開発できる開発環境です．&lt;/p&gt;
 &lt;p&gt;PlatformIO はESP32マイコンを公式にサポートしていて，&lt;a href=&#34;https://github.com/espressif/esp-idf&#34;&gt;ESP-IDF&lt;/a&gt;と&lt;a href=&#34;https://github.com/espressif/arduino-esp32&#34;&gt;Arduino Core for the ESP32&lt;/a&gt;から選んで開発することができます．&lt;/p&gt;</description>
     </item>
@@ -55,7 +55,7 @@
       <pubDate>Sat, 03 Nov 2018 18:40:42 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-11-03-fan-sound/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;マイクロマウスでは，User Interface (UI) のために，スピーカーを載せることが多いです．&lt;/p&gt;
 &lt;p&gt;しかしながら，小さなマウスを作るうえで，そのわずかなスペースでも惜しいものです．&lt;/p&gt;
 &lt;p&gt;今回は，既にマウスに乗っている&lt;strong&gt;モーター&lt;/strong&gt;で音を鳴らすことができたので紹介します．&lt;/p&gt;
@@ -77,7 +77,7 @@
       <pubDate>Sun, 29 Apr 2018 15:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer4/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer3/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
 &lt;p&gt;今回の記事では，今までに示した設計法のC++による実装例を紹介します．&lt;/p&gt;</description>
     </item>
@@ -88,7 +88,7 @@
       <pubDate>Sun, 29 Apr 2018 14:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer3/</guid>
-      <description>&lt;h2 id=&#34;2&#34;&gt;設計2・走行距離を考慮した速度設計&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;設計2走行距離を考慮した速度設計&#34;&gt;設計2・走行距離を考慮した速度設計&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer2/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．&lt;/p&gt;</description>
     </item>
@@ -99,7 +99,7 @@
       <pubDate>Sun, 29 Apr 2018 13:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer2/</guid>
-      <description>&lt;h2 id=&#34;1&#34;&gt;設計1・加速曲線の設計&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;設計1加速曲線の設計&#34;&gt;設計1・加速曲線の設計&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer1/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，設計1の曲線加速の設計について考えます．&lt;/p&gt;</description>
     </item>
@@ -110,7 +110,7 @@
       <pubDate>Sun, 29 Apr 2018 12:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer1/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回はマイクロマウスにおける速度設計のお話です．&lt;/p&gt;
 &lt;p&gt;長い直線などを走行するとき，タイムを縮めるため，最大速度まで加速して，ターン直前に減速します．&lt;/p&gt;
 &lt;p&gt;ここで注意したのが，途中経過の如何にかかわらず，終点の位置や速度は守らなければならないということです．&lt;/p&gt;
@@ -124,7 +124,7 @@
       <pubDate>Fri, 16 Feb 2018 18:51:25 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</guid>
-      <description>&lt;h2 id=&#34;wifissid&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;wifiのssidとパスワードをどう伝えるか問題&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
 &lt;p&gt;ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．&lt;/p&gt;
 &lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
 &lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
@@ -158,7 +158,7 @@
       <pubDate>Sun, 03 Sep 2017 18:32:03 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-09-03-pattern-of-turn/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;こんにちは，けりです．久々にマイクロマウスの話題です．&lt;/p&gt;
 &lt;p&gt;今回は，私のマウスで使用しているスラロームパターンを紹介します．&lt;/p&gt;</description>
     </item>
@@ -169,7 +169,7 @@
       <pubDate>Sat, 29 Jul 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回は，ESP32で何か作るときはとりあえず一緒にMicro SDスロットも載せましょうという話です．&lt;/p&gt;</description>
     </item>
     
@@ -179,8 +179,8 @@
       <pubDate>Sat, 24 Jun 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-06-24-esp32-dual-core/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;h3 id=&#34;esp32&#34;&gt;ESP32とは&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;esp32とは&#34;&gt;ESP32とは&lt;/h3&gt;
 &lt;figure &gt;
 	
 		
@@ -202,7 +202,7 @@
       <pubDate>Fri, 16 Jun 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-06-16-esp32-preferences/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;みなさん，ESP32使ってますか？僕は使っています．その偉大さには驚くばかりです．&lt;/p&gt;
 &lt;p&gt;さて，今回紹介するのは，Arduino core for ESP32に含まれているライブラリ「&lt;a href=&#34;https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences&#34;&gt;Preferences&lt;/a&gt;」です．&lt;/p&gt;
 &lt;p&gt;ESP32で何か物を作るとき，電源を切っても保存しておきたいデータなどがあると思います．独自の形式やJSONなどでファイルに保存する方法もありますが，保存と復元の処理を実装するのはなかなか面倒です．&lt;/p&gt;
@@ -216,7 +216,7 @@
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-06-14-pdf/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;世の中にはたくさんのPDF Viewerがあり一長一短である．AdobeのPDF Readerが有名であるが，もっと使いやすいものを見つけたのでそれを紹介する．&lt;/p&gt;</description>
     </item>
     
@@ -226,7 +226,7 @@
       <pubDate>Wed, 18 May 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-05-18-circuit-lecture/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;回路講習会&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;回路講習会&#34;&gt;回路講習会&lt;/h2&gt;
 &lt;p&gt;東京工業大学ロボット技術研究会の平成27年度回路講習会の資料です．&lt;br&gt;
 講習会は90分の講義を4回行いました．&lt;br&gt;
 気持ちを込めて作りました．スライド数は200枚を超えています．どうぞご覧ください．&lt;/p&gt;</description>
@@ -238,7 +238,7 @@
       <pubDate>Fri, 22 Apr 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-04-22-freerouting/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;figure &gt;
 	
 		
@@ -250,7 +250,7 @@
 	
 &lt;/figure&gt;
 
-&lt;h3 id=&#34;heading-1&#34;&gt;自動配線ツールを使おう&lt;/h3&gt;
+&lt;h3 id=&#34;自動配線ツールを使おう&#34;&gt;自動配線ツールを使おう&lt;/h3&gt;
 &lt;p&gt;KiCadが流行ってきて，使う人が増えてきている．&lt;/p&gt;
 &lt;p&gt;しかし，自動配線ツールを使っている人は少ない．&lt;/p&gt;
 &lt;p&gt;それでははもったいない！！&lt;/p&gt;
@@ -263,13 +263,13 @@
       <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-13-pic-bootloader/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
-&lt;h3 id=&#34;pic18f27j53&#34;&gt;PIC18F27J53を使おう&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&#34;pic18f27j53を使おう&#34;&gt;PIC18F27J53を使おう&lt;/h3&gt;
 &lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt; という記事を書きました。それの続きで、今回はUSBブートローダの使い方について書きたいと思います。&lt;/p&gt;
-&lt;h3 id=&#34;heading-1&#34;&gt;ブートローダとは&lt;/h3&gt;
+&lt;h3 id=&#34;ブートローダとは&#34;&gt;ブートローダとは&lt;/h3&gt;
 &lt;p&gt;ブートローダとは自分自身にプログラムを書きこむプログラムです。これを使うとPICkitなどのライタを使わなくてもプログラムの書き込みをすることができるようになります。&lt;/p&gt;
 &lt;p&gt;ただし、初回に一度だけブートローダ用のプログラムをPICkitなどで書きこむ必要があります。&lt;/p&gt;
-&lt;h3 id=&#34;heading-2&#34;&gt;ユーザープログラム&lt;/h3&gt;
+&lt;h3 id=&#34;ユーザープログラム&#34;&gt;ユーザープログラム&lt;/h3&gt;
 &lt;p&gt;ユーザープログラムとは、ブートローダーにより書き込むプログラムです。あなたが作った、実際に動かすプログラムということです。&lt;/p&gt;</description>
     </item>
     
@@ -279,7 +279,7 @@
       <pubDate>Sun, 10 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-10-pic-usb/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt; という記事を書きました。それの続きで、今回はUSBの使い方について書きたいと思います。&lt;/p&gt;
 &lt;p&gt;今回紹介する方法では、USBをUARTの代わりに使えるようにするものです。PICをPCにつなぐとCOMポートが現れます。&lt;/p&gt;
 &lt;p&gt;これならUSBシリアル変換モジュールを使う必要はなくります。&lt;/p&gt;
@@ -301,8 +301,8 @@
       <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-08-pic18f27j53/</guid>
-      <description>&lt;h2 id=&#34;pic18f27j53&#34;&gt;PIC18F27J53のいいところ&lt;/h2&gt;
-&lt;h3 id=&#34;heading&#34;&gt;秋月で売っていること&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;pic18f27j53のいいところ&#34;&gt;PIC18F27J53のいいところ&lt;/h2&gt;
+&lt;h3 id=&#34;秋月で売っていること&#34;&gt;秋月で売っていること&lt;/h3&gt;
 &lt;p&gt;電子工作をするうえでこれはとても大事なこと。「秋月で売っているなら使ってみるか」ってなりますよね。&lt;/p&gt;
 &lt;p&gt;もちろん、秋月なので値段が安い！！&lt;br&gt;
 &lt;strong&gt;1個270円&lt;/strong&gt;です(2016年1月現在)。&lt;/p&gt;
@@ -324,7 +324,7 @@
       <pubDate>Thu, 07 Jan 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-07-yamy/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;Windowsのキーボードをカスタマイズして使いやすくする。&lt;/p&gt;</description>
     </item>
     
@@ -334,7 +334,7 @@
       <pubDate>Fri, 04 Dec 2015 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2015-12-04-cygwin/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。&lt;/p&gt;</description>
     </item>
     
@@ -344,7 +344,7 @@
       <pubDate>Tue, 03 Nov 2015 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2015-11-03-surface-ubuntu/</guid>
-      <description>&lt;h2 id=&#34;uefi&#34;&gt;UEFIとは&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;uefiとは&#34;&gt;UEFIとは&lt;/h2&gt;
 &lt;p&gt;　BIOSの代わりに最近のパソコンに導入されたインターフェース。BIOS特有の制約を解消したものと言える。UEFI環境でブートするには、ディスクの先頭にUEFIシステムパティションというものを置かなければならない。&lt;/p&gt;</description>
     </item>
     
@@ -354,7 +354,7 @@
       <pubDate>Mon, 05 Oct 2015 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2015-10-05-raspi-server/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;ラズパイの用意&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;ラズパイの用意&#34;&gt;ラズパイの用意&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;ラズパイ用のOS「NOOBS」を&lt;a href=&#34;http://raspberrypi.org/downloads/&#34;&gt;raspberrypi.org&lt;/a&gt;からDLして解凍する。&lt;/li&gt;
 &lt;li&gt;microSDカードをFAT32でフォーマットする。&lt;/li&gt;

@@ -112,7 +112,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2018-02-16T18:51:25">2018-02-16</time>
+	<time class="meta__text" datetime="2018-02-16T18:51:25&#43;09:00">2018-02-16</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -126,60 +126,60 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="wifissid">WiFiのSSIDとパスワードをどう伝えるか問題</h2>
+			<h2 id="wifiのssidとパスワードをどう伝えるか問題">WiFiのSSIDとパスワードをどう伝えるか問題</h2>
 <p>ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．</p>
 <p>さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．</p>
 <p>以前は<a href="/posts/2017-07-29-esp32-wifi-sd/">SDカードを使ってWiFi情報を伝える方法</a>を紹介しましたが，これも割と手間でした．</p>
 <p>SmartConfigとは，そんな悩みをスマホで解決する機能です．</p>
-<h2 id="smartconfig">SmartConfigとは</h2>
+<h2 id="smartconfigとは">SmartConfigとは</h2>
 <p>ESP32のSmartConfig機能は，ESP32がWiFiのアクセスポイントになることで，スマホからWiFi情報を伝えてやろうというものです．</p>
 <p>既にESP8266のときからある機能で，スマホのアプリがあります．</p>
 <ul>
 <li><a href="https://play.google.com/store/apps/details?id=com.cmmakerclub.iot.esptouch&amp;hl=ja">Google Play ESP8266 SmartConfig</a></li>
 <li><a href="https://itunes.apple.com/us/app/smartconfig/id1233975749?mt=8">AppStore SmartConfig</a></li>
 </ul>
-<h2 id="heading">使い方</h2>
-<h3 id="esp32">ESP32側</h3>
+<h2 id="使い方">使い方</h2>
+<h3 id="esp32側">ESP32側</h3>
 <p>ここでは例によって <a href="https://github.com/espressif/arduino-esp32">Arduino core for the ESP32</a> 環境でのやり方を紹介します．</p>
 <p><a href="https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/WiFiSmartConfig/WiFiSmartConfig.ino">ここ</a>に公式のサンプルコードがあります．</p>
 <p>SmartConfigの関数はWiFiクラスに宣言されていますので，そのまますぐに使うことができます．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;WiFi.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; シリアルの初期化
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;WiFi.h&#34;</span><span class="cp">
+</span><span class="cp"></span><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span> <span class="c1">//&lt; シリアルの初期化
 </span><span class="c1"></span>
 	<span class="c1">// WiFI を AP + STA モードにする
-</span><span class="c1"></span>	<span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_AP_STA</span><span class="p">)</span><span class="p">;</span>
-	<span class="n">WiFi</span><span class="p">.</span><span class="n">beginSmartConfig</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">//&lt; SmartConfigの初期化
+</span><span class="c1"></span>	<span class="n">WiFi</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">WIFI_AP_STA</span><span class="p">);</span>
+	<span class="n">WiFi</span><span class="p">.</span><span class="n">beginSmartConfig</span><span class="p">();</span> <span class="c1">//&lt; SmartConfigの初期化
 </span><span class="c1"></span>
 	<span class="c1">// スマホからのアクセスを待つ
-</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Waiting for SmartConfig.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WiFi</span><span class="p">.</span><span class="n">smartConfigDone</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="p">;</span>
-		<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Waiting for SmartConfig.&#34;</span><span class="p">);</span>
+	<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WiFi</span><span class="p">.</span><span class="n">smartConfigDone</span><span class="p">())</span> <span class="p">{</span>
+		<span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+		<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">);</span>
 	<span class="p">}</span>
 	<span class="c1">// スマホからSSIDとパスワードが送られてきた
-</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">SmartConfig received.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;SmartConfig received.&#34;</span><span class="p">);</span>
 
 	<span class="c1">// WiFiに接続
-</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Waiting for WiFi</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-	<span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="p">)</span> <span class="o">!</span><span class="o">=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span><span class="p">;</span>
-		<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Waiting for WiFi&#34;</span><span class="p">);</span>
+	<span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+		<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&#34;.&#34;</span><span class="p">);</span>
 	<span class="p">}</span>
 	<span class="c1">// 接続成功
-</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">WiFi Connected.</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>	<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;WiFi Connected.&#34;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="heading-1">スマホ側</h3>
+<h3 id="スマホ側">スマホ側</h3>
 <p>アプリを起動して，WiFiのパスワードを入力するだけです．</p>
 <ul>
 <li><a href="https://play.google.com/store/apps/details?id=com.cmmakerclub.iot.esptouch&amp;hl=ja">Google Play ESP8266 SmartConfig</a></li>
 <li><a href="https://itunes.apple.com/us/app/smartconfig/id1233975749?mt=8">AppStore SmartConfig</a></li>
 </ul>
-<h2 id="heading-2">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>驚くほど簡単にWiFi情報の伝達ができてしまいました．</p>
 <p>いい時代になったものです．</p>
 		</div>
@@ -307,15 +307,15 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#wifissid">WiFiのSSIDとパスワードをどう伝えるか問題</a></li>
-    <li><a href="#smartconfig">SmartConfigとは</a></li>
-    <li><a href="#heading">使い方</a>
+    <li><a href="#wifiのssidとパスワードをどう伝えるか問題">WiFiのSSIDとパスワードをどう伝えるか問題</a></li>
+    <li><a href="#smartconfigとは">SmartConfigとは</a></li>
+    <li><a href="#使い方">使い方</a>
       <ul>
-        <li><a href="#esp32">ESP32側</a></li>
-        <li><a href="#heading-1">スマホ側</a></li>
+        <li><a href="#esp32側">ESP32側</a></li>
+        <li><a href="#スマホ側">スマホ側</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

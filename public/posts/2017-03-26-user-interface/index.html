@@ -116,7 +116,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-03-26T00:00:00">2017-03-26</time>
+	<time class="meta__text" datetime="2017-03-26T00:00:00Z">2017-03-26</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -130,44 +130,44 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>ESP32も徐々に使い慣れてきました．今回の記事では，ちょっとした工作には欠かせないユーザーインターフェースのコードを紹介します．</p>
 <ul>
 <li>スピーカーから音階を鳴らすブザークラス</li>
 <li>タクトスイッチなどのボタンを扱うボタンクラス</li>
 </ul>
 <p>今回のコードは，ESP32用に書かれています．ご注意ください．</p>
-<h2 id="heading-1">必要なライブラリ</h2>
+<h2 id="必要なライブラリ">必要なライブラリ</h2>
 <h3 id="taskbaseh">TaskBase.h</h3>
 <p>C++のメンバ関数をFreeRTOSに渡すためのクラスです．タスクを作るときはこのクラスを継承して使います．
 こちらのコードは，<a href="http://idken.net/posts/2017-02-01-freertos_task_cpp/">id研</a>さんから教えて頂いたものを改変しております．</p>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">pragma once</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#pragma once
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="n">TaskBase</span> <span class="p">{</span>
   <span class="nl">public</span><span class="p">:</span>
-    <span class="n">TaskBase</span><span class="p">(</span><span class="p">)</span> <span class="o">=</span> <span class="n">delete</span><span class="p">;</span>
+    <span class="n">TaskBase</span><span class="p">()</span> <span class="o">=</span> <span class="n">delete</span><span class="p">;</span>
 
     <span class="n">TaskBase</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">_priority</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">_stack_size</span> <span class="o">=</span> <span class="n">configMINIMAL_STACK_SIZE</span><span class="p">)</span>
-      <span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">_name</span><span class="p">)</span><span class="p">,</span> <span class="n">priority</span><span class="p">(</span><span class="n">_priority</span><span class="p">)</span><span class="p">,</span> <span class="n">stack_size</span><span class="p">(</span><span class="n">_stack_size</span><span class="p">)</span> <span class="p">{</span>
+      <span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">_name</span><span class="p">),</span> <span class="n">priority</span><span class="p">(</span><span class="n">_priority</span><span class="p">),</span> <span class="n">stack_size</span><span class="p">(</span><span class="n">_stack_size</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">}</span>
-    <span class="n">virtual</span> <span class="o">~</span><span class="n">TaskBase</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">delete_task</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">virtual</span> <span class="o">~</span><span class="n">TaskBase</span><span class="p">()</span> <span class="p">{</span>
+      <span class="n">delete_task</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="kt">void</span> <span class="n">create_task</span><span class="p">(</span><span class="k">const</span> <span class="n">BaseType_t</span> <span class="n">xCoreID</span> <span class="o">=</span> <span class="n">tskNO_AFFINITY</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">!</span><span class="o">=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span><span class="p">;</span>
       <span class="p">}</span>
       <span class="c1">//      xTaskCreate(task_entry_point, name, stack_size, this, priority, &amp;handle);
-</span><span class="c1"></span>      <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">task_entry_point</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">stack_size</span><span class="p">,</span> <span class="n">this</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">handle</span><span class="p">,</span> <span class="n">xCoreID</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>      <span class="n">xTaskCreatePinnedToCore</span><span class="p">(</span><span class="n">task_entry_point</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">stack_size</span><span class="p">,</span> <span class="n">this</span><span class="p">,</span> <span class="n">priority</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">handle</span><span class="p">,</span> <span class="n">xCoreID</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="kt">void</span> <span class="n">delete_task</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">=</span><span class="o">=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="n">delete_task</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span><span class="p">;</span>
       <span class="p">}</span>
-      <span class="n">vTaskDelete</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">vTaskDelete</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
       <span class="n">handle</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
     <span class="p">}</span>
 
@@ -177,35 +177,35 @@ if (!doNotTrack) {
     <span class="kt">int</span> <span class="n">priority</span><span class="p">;</span>
     <span class="n">uint32_t</span> <span class="n">stack_size</span><span class="p">;</span>
 
-    <span class="n">virtual</span> <span class="kt">void</span> <span class="nf">task</span><span class="p">(</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">virtual</span> <span class="kt">void</span> <span class="nf">task</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
     <span class="k">static</span> <span class="kt">void</span> <span class="nf">task_entry_point</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">task_instance</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">static_cast</span><span class="o">&lt;</span><span class="n">TaskBase</span><span class="o">*</span><span class="o">&gt;</span><span class="p">(</span><span class="n">task_instance</span><span class="p">)</span><span class="o">-</span><span class="o">&gt;</span><span class="n">task</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">static_cast</span><span class="o">&lt;</span><span class="n">TaskBase</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">task_instance</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">task</span><span class="p">();</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="p">;</span>
-</code></pre></div><h2 id="heading-2">ブザークラス</h2>
+<span class="p">};</span>
+</code></pre></div><h2 id="ブザークラス">ブザークラス</h2>
 <p>圧電スピーカを鳴らすライブラリです．</p>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="n">Buzzer</span><span class="o">:</span><span class="o">:</span><span class="n">sound</span><span class="p">(</span><span class="n">note_t</span> <span class="n">note</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">octave</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">time_ms</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="n">Buzzer</span><span class="o">::</span><span class="n">sound</span><span class="p">(</span><span class="n">note_t</span> <span class="n">note</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">octave</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">time_ms</span><span class="p">);</span>
 </code></pre></div><p>この関数に音階，オクターブ，鳴らす時間を与えると自分で好きなメロディを作ることができます．その時は<code>enum Music</code>に新しいエントリを追加して，下のswitch文の中に書いてください．</p>
 <h3 id="buzzerh">Buzzer.h</h3>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">pragma once</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#pragma once
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;TaskBase.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;TaskBase.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">define BUZZER_TASK_PRIORITY    1</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define BUZZER_TASK_STACK_SIZE  2048</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define BUZZER_QUEUE_SIZE       5</span><span class="cp">
+<span class="cp">#define BUZZER_TASK_PRIORITY    1
+</span><span class="cp">#define BUZZER_TASK_STACK_SIZE  2048
+</span><span class="cp">#define BUZZER_QUEUE_SIZE       5
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="nl">Buzzer</span> <span class="p">:</span> <span class="n">TaskBase</span> <span class="p">{</span>
   <span class="nl">public</span><span class="p">:</span>
-    <span class="n">Buzzer</span><span class="p">(</span><span class="kt">int</span> <span class="n">pin</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">ledc_channel</span><span class="p">)</span><span class="o">:</span> <span class="n">TaskBase</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Buzzer Task</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">BUZZER_TASK_PRIORITY</span><span class="p">,</span> <span class="n">BUZZER_TASK_STACK_SIZE</span><span class="p">)</span><span class="p">,</span> <span class="n">pin</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span><span class="p">,</span> <span class="n">ledc_channel</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">playList</span> <span class="o">=</span> <span class="n">xQueueCreate</span><span class="p">(</span><span class="n">BUZZER_QUEUE_SIZE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">enum</span> <span class="n">Music</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-      <span class="n">ledcSetup</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">,</span> <span class="mi">880</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="p">;</span>
-      <span class="n">ledcAttachPin</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">ledc_channel</span><span class="p">)</span><span class="p">;</span>
-      <span class="n">create_task</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Buzzer</span><span class="p">(</span><span class="kt">int</span> <span class="n">pin</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">ledc_channel</span><span class="p">)</span><span class="o">:</span> <span class="n">TaskBase</span><span class="p">(</span><span class="s">&#34;Buzzer Task&#34;</span><span class="p">,</span> <span class="n">BUZZER_TASK_PRIORITY</span><span class="p">,</span> <span class="n">BUZZER_TASK_STACK_SIZE</span><span class="p">),</span> <span class="n">pin</span><span class="p">(</span><span class="n">pin</span><span class="p">),</span> <span class="n">ledc_channel</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">playList</span> <span class="o">=</span> <span class="n">xQueueCreate</span><span class="p">(</span><span class="n">BUZZER_QUEUE_SIZE</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="k">enum</span> <span class="n">Music</span><span class="p">));</span>
+      <span class="n">ledcSetup</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">,</span> <span class="mi">880</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+      <span class="n">ledcAttachPin</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">ledc_channel</span><span class="p">);</span>
+      <span class="n">create_task</span><span class="p">();</span>
     <span class="p">}</span>
-    <span class="n">virtual</span> <span class="o">~</span><span class="n">Buzzer</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+    <span class="n">virtual</span> <span class="o">~</span><span class="n">Buzzer</span><span class="p">()</span> <span class="p">{}</span>
     <span class="k">enum</span> <span class="n">Music</span> <span class="p">{</span>
       <span class="n">BOOT</span><span class="p">,</span>
       <span class="n">SELECT</span><span class="p">,</span>
@@ -213,118 +213,118 @@ if (!doNotTrack) {
       <span class="n">CANCEL</span><span class="p">,</span>
       <span class="n">COMPLETE</span><span class="p">,</span>
       <span class="n">ERROR</span><span class="p">,</span>
-    <span class="p">}</span><span class="p">;</span>
+    <span class="p">};</span>
     <span class="kt">void</span> <span class="nf">play</span><span class="p">(</span><span class="k">const</span> <span class="k">enum</span> <span class="n">Music</span> <span class="n">music</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">xQueueSendToBack</span><span class="p">(</span><span class="n">playList</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">music</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">xQueueSendToBack</span><span class="p">(</span><span class="n">playList</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">music</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="nl">private</span><span class="p">:</span>
     <span class="kt">int</span> <span class="n">pin</span><span class="p">;</span>
     <span class="n">uint8_t</span> <span class="n">ledc_channel</span><span class="p">;</span>
     <span class="n">xQueueHandle</span> <span class="n">playList</span><span class="p">;</span>
     <span class="kt">void</span> <span class="nf">sound</span><span class="p">(</span><span class="k">const</span> <span class="n">note_t</span> <span class="n">note</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">octave</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">time_ms</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">ledcWriteNote</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">octave</span><span class="p">)</span><span class="p">;</span>
-      <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">time_ms</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">ledcWriteNote</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">octave</span><span class="p">);</span>
+      <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">time_ms</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="kt">void</span> <span class="nf">mute</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">time_ms</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">ledcWrite</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-      <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">time_ms</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">ledcWrite</span><span class="p">(</span><span class="n">ledc_channel</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+      <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">time_ms</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="kt">void</span> <span class="nf">task</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">task</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">Music</span> <span class="n">music</span><span class="p">;</span>
-        <span class="n">xQueueReceive</span><span class="p">(</span><span class="n">playList</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">music</span><span class="p">,</span> <span class="n">portMAX_DELAY</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">xQueueReceive</span><span class="p">(</span><span class="n">playList</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">music</span><span class="p">,</span> <span class="n">portMAX_DELAY</span><span class="p">);</span>
         <span class="k">switch</span> <span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">case</span> <span class="nl">BOOT</span><span class="p">:</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_B</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_Fs</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_B</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">mute</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_B</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_Fs</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_B</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">600</span><span class="p">);</span>
+            <span class="n">mute</span><span class="p">();</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="k">case</span> <span class="nl">SELECT</span><span class="p">:</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="k">case</span> <span class="nl">CONFIRM</span><span class="p">:</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="k">case</span> <span class="nl">CANCEL</span><span class="p">:</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="k">case</span> <span class="nl">COMPLETE</span><span class="p">:</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_D</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_F</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_G</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_A</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_B</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_D</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_F</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_G</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_A</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_B</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+            <span class="n">mute</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="k">case</span> <span class="nl">ERROR</span><span class="p">:</span>
-            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-              <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
-              <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+              <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+              <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_E</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
             <span class="p">}</span>
-            <span class="n">mute</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">mute</span><span class="p">();</span>
             <span class="k">break</span><span class="p">;</span>
           <span class="k">default</span><span class="o">:</span>
-            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="p">;</span>
-            <span class="n">mute</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+            <span class="n">sound</span><span class="p">(</span><span class="n">NOTE_C</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+            <span class="n">mute</span><span class="p">();</span>
             <span class="k">break</span><span class="p">;</span>
         <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="p">;</span>
-</code></pre></div><h3 id="heading-3">使い方</h3>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Buzzer.h&#34;</span><span class="cp">
+<span class="p">};</span>
+</code></pre></div><h3 id="使い方">使い方</h3>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;Buzzer.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">define PIN_BUZZER      19</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define LEDC_CH_BUZZER  1</span><span class="cp">
+<span class="cp">#define PIN_BUZZER      19
+</span><span class="cp">#define LEDC_CH_BUZZER  1
 </span><span class="cp"></span>
-<span class="n">Buzzer</span> <span class="nf">bz</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span> <span class="n">LEDC_CH_BUZZER</span><span class="p">)</span><span class="p">;</span>
+<span class="n">Buzzer</span> <span class="nf">bz</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span> <span class="n">LEDC_CH_BUZZER</span><span class="p">);</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
-  <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">:</span><span class="o">:</span><span class="n">BOOT</span><span class="p">)</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(){</span>
+  <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">::</span><span class="n">BOOT</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
 <span class="p">}</span>
-</code></pre></div><h2 id="heading-4">ボタンクラス</h2>
+</code></pre></div><h2 id="ボタンクラス">ボタンクラス</h2>
 <p>ボタンが押されるとその押され方に従ってフラグを立てます．もちろん，チャタリングは回避されています．</p>
 <p>このボタンライブラリでは，ボタンのクリックと3段階の長押しを判定し，それらのフラグを立てます．ライブラリを使うときはそのフラグを監視することでボタンの押下を確認することができます．</p>
 <p>フラグを確認したらそのフラグはクリアしましょう．</p>
 <h3 id="buttonh">Button.h</h3>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">pragma once</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#pragma once
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;TaskBase.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;config.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;TaskBase.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;config.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 
-<span class="cp">#</span><span class="cp">define BUTTON_SAMPLING_MS        20</span><span class="cp">
+<span class="cp">#define BUTTON_SAMPLING_MS        20
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">define BUTTON_PRESS_LEVEL        1</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define BUTTON_LONG_PRESS_LEVEL_1 20</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define BUTTON_LONG_PRESS_LEVEL_2 100</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define BUTTON_LONG_PRESS_LEVEL_3 500</span><span class="cp">
+<span class="cp">#define BUTTON_PRESS_LEVEL        1
+</span><span class="cp">#define BUTTON_LONG_PRESS_LEVEL_1 20
+</span><span class="cp">#define BUTTON_LONG_PRESS_LEVEL_2 100
+</span><span class="cp">#define BUTTON_LONG_PRESS_LEVEL_3 500
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">define BUTTON_TASK_PRIORITY      2</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define BUTTON_STACK_SIZE         1024</span><span class="cp">
+<span class="cp">#define BUTTON_TASK_PRIORITY      2
+</span><span class="cp">#define BUTTON_STACK_SIZE         1024
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="nl">Button</span><span class="p">:</span> <span class="n">TaskBase</span> <span class="p">{</span>
   <span class="nl">public</span><span class="p">:</span>
-    <span class="n">Button</span><span class="p">(</span><span class="kt">int</span> <span class="n">pin</span><span class="p">)</span> <span class="o">:</span> <span class="n">TaskBase</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Button Task</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">BUTTON_TASK_PRIORITY</span><span class="p">,</span> <span class="n">BUTTON_STACK_SIZE</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">Button</span><span class="p">(</span><span class="kt">int</span> <span class="n">pin</span><span class="p">)</span> <span class="o">:</span> <span class="n">TaskBase</span><span class="p">(</span><span class="s">&#34;Button Task&#34;</span><span class="p">,</span> <span class="n">BUTTON_TASK_PRIORITY</span><span class="p">,</span> <span class="n">BUTTON_STACK_SIZE</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">pinMode</span><span class="p">(</span><span class="n">pin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
       <span class="n">flags</span> <span class="o">=</span> <span class="mh">0x00</span><span class="p">;</span>
-      <span class="n">create_task</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">create_task</span><span class="p">();</span>
     <span class="p">}</span>
-    <span class="n">virtual</span> <span class="o">~</span><span class="n">Button</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
+    <span class="n">virtual</span> <span class="o">~</span><span class="n">Button</span><span class="p">()</span> <span class="p">{}</span>
 
     <span class="k">union</span> <span class="p">{</span>
       <span class="n">uint8_t</span> <span class="n">flags</span><span class="p">;</span>                 <span class="cm">/**&lt; all flags             */</span>
@@ -337,73 +337,73 @@ if (!doNotTrack) {
         <span class="n">uint8_t</span> <span class="nl">long_pressing_1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/**&lt; long-pressing level 1 */</span>
         <span class="n">uint8_t</span> <span class="nl">long_pressing_2</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/**&lt; long-pressing level 2 */</span>
         <span class="n">uint8_t</span> <span class="nl">long_pressing_3</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="cm">/**&lt; long-pressing level 3 */</span>
-      <span class="p">}</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">;</span>
+      <span class="p">};</span>
+    <span class="p">};</span>
   <span class="nl">private</span><span class="p">:</span>
     <span class="kt">int</span> <span class="n">pin</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">counter</span><span class="p">;</span>
 
-    <span class="n">virtual</span> <span class="kt">void</span> <span class="nf">task</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">virtual</span> <span class="kt">void</span> <span class="nf">task</span><span class="p">()</span> <span class="p">{</span>
       <span class="n">portTickType</span> <span class="n">xLastWakeTime</span><span class="p">;</span>
-      <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">xLastWakeTime</span> <span class="o">=</span> <span class="n">xTaskGetTickCount</span><span class="p">();</span>
       <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="n">BUTTON_SAMPLING_MS</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">)</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span> <span class="o">=</span><span class="o">=</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">vTaskDelayUntil</span><span class="p">(</span><span class="o">&amp;</span><span class="n">xLastWakeTime</span><span class="p">,</span> <span class="n">BUTTON_SAMPLING_MS</span> <span class="o">/</span> <span class="n">portTICK_RATE_MS</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">pin</span><span class="p">)</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">counter</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">=</span><span class="o">=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_3</span><span class="p">)</span>
+            <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_3</span><span class="p">)</span>
             <span class="n">long_pressing_3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">=</span><span class="o">=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_2</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_2</span><span class="p">)</span>
             <span class="n">long_pressing_2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">=</span><span class="o">=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_1</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_1</span><span class="p">)</span>
             <span class="n">long_pressing_1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">=</span><span class="o">=</span> <span class="n">BUTTON_PRESS_LEVEL</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="n">BUTTON_PRESS_LEVEL</span><span class="p">)</span>
             <span class="n">pressing</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
         <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_3</span><span class="p">)</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_3</span><span class="p">)</span>
             <span class="n">long_pressed_3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_2</span><span class="p">)</span>
+          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_2</span><span class="p">)</span>
             <span class="n">long_pressed_2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_1</span><span class="p">)</span>
+          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">BUTTON_LONG_PRESS_LEVEL_1</span><span class="p">)</span>
             <span class="n">long_pressed_1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">BUTTON_PRESS_LEVEL</span><span class="p">)</span>
+          <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">counter</span> <span class="o">&gt;=</span> <span class="n">BUTTON_PRESS_LEVEL</span><span class="p">)</span>
             <span class="n">pressed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
           <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-          <span class="n">flags</span> <span class="o">&amp;</span><span class="o">=</span> <span class="mh">0x0F</span><span class="p">;</span>
+          <span class="n">flags</span> <span class="o">&amp;=</span> <span class="mh">0x0F</span><span class="p">;</span>
         <span class="p">}</span>
       <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="p">;</span>
-</code></pre></div><h3 id="heading-5">使い方</h3>
-<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Buzzer.h&#34;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Button.h&#34;</span><span class="cp">
+<span class="p">};</span>
+</code></pre></div><h3 id="使い方-1">使い方</h3>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;Buzzer.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;Button.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">define BUTTON_PIN      0</span><span class="cp">
+<span class="cp">#define BUTTON_PIN      0
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">define PIN_BUZZER      19</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define LEDC_CH_BUZZER  1</span><span class="cp">
+<span class="cp">#define PIN_BUZZER      19
+</span><span class="cp">#define LEDC_CH_BUZZER  1
 </span><span class="cp"></span>
-<span class="n">Buzzer</span> <span class="nf">bz</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span> <span class="n">LEDC_CH_BUZZER</span><span class="p">)</span><span class="p">;</span>
-<span class="n">Button</span> <span class="nf">btn</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">)</span><span class="p">;</span>
+<span class="n">Buzzer</span> <span class="nf">bz</span><span class="p">(</span><span class="n">PIN_BUZZER</span><span class="p">,</span> <span class="n">LEDC_CH_BUZZER</span><span class="p">);</span>
+<span class="n">Button</span> <span class="nf">btn</span><span class="p">(</span><span class="n">BUTTON_PIN</span><span class="p">);</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
-  <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">:</span><span class="o">:</span><span class="n">BOOT</span><span class="p">)</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">(){</span>
+  <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">::</span><span class="n">BOOT</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">(){</span>
 
-  <span class="k">if</span><span class="p">(</span><span class="n">btn</span><span class="p">.</span><span class="n">pressed</span><span class="p">)</span><span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">btn</span><span class="p">.</span><span class="n">pressed</span><span class="p">){</span>
     <span class="n">btn</span><span class="p">.</span><span class="n">pressed</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// フラグを確認したらクリアする
-</span><span class="c1"></span>    <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">:</span><span class="o">:</span><span class="n">SELECT</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">::</span><span class="n">SELECT</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="k">if</span><span class="p">(</span><span class="n">btn</span><span class="p">.</span><span class="n">long_pressed_1</span> <span class="o">|</span><span class="o">|</span> <span class="n">btn</span><span class="p">.</span><span class="n">long_presssin_2</span><span class="p">)</span><span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">btn</span><span class="p">.</span><span class="n">long_pressed_1</span> <span class="o">||</span> <span class="n">btn</span><span class="p">.</span><span class="n">long_presssin_2</span><span class="p">){</span>
     <span class="n">btn</span><span class="p">.</span><span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// まとめてクリア
-</span><span class="c1"></span>    <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">:</span><span class="o">:</span><span class="n">CANCEL</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="n">bz</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="n">Buzzer</span><span class="o">::</span><span class="n">CANCEL</span><span class="p">);</span>
   <span class="p">}</span>
 
 <span class="p">}</span>
-</code></pre></div><h2 id="heading-6">まとめ</h2>
+</code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>ボタンやブザーなどはいつも使うので，コピペで同じコードを使いまわせると便利ですね！ぜひ使ってみてください．</p>
 		</div>
 		<footer class="post__footer">
@@ -531,25 +531,25 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">必要なライブラリ</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#必要なライブラリ">必要なライブラリ</a>
       <ul>
         <li><a href="#taskbaseh">TaskBase.h</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">ブザークラス</a>
+    <li><a href="#ブザークラス">ブザークラス</a>
       <ul>
         <li><a href="#buzzerh">Buzzer.h</a></li>
-        <li><a href="#heading-3">使い方</a></li>
+        <li><a href="#使い方">使い方</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">ボタンクラス</a>
+    <li><a href="#ボタンクラス">ボタンクラス</a>
       <ul>
         <li><a href="#buttonh">Button.h</a></li>
-        <li><a href="#heading-5">使い方</a></li>
+        <li><a href="#使い方-1">使い方</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

@@ -139,7 +139,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-04-22T00:00:00">2016-04-22</time>
+	<time class="meta__text" datetime="2016-04-22T00:00:00Z">2016-04-22</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -153,7 +153,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <figure >
 	
 		
@@ -165,28 +165,28 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-1">自動配線ツールを使おう</h3>
+<h3 id="自動配線ツールを使おう">自動配線ツールを使おう</h3>
 <p>KiCadが流行ってきて，使う人が増えてきている．</p>
 <p>しかし，自動配線ツールを使っている人は少ない．</p>
 <p>それでははもったいない！！</p>
 <p>今回は自動配線ツールの使い方を説明する．</p>
-<h2 id="heading-2">自動配線と手動配線の使い分け</h2>
-<h3 id="heading-3">自動配線だとなんか心配？</h3>
+<h2 id="自動配線と手動配線の使い分け">自動配線と手動配線の使い分け</h2>
+<h3 id="自動配線だとなんか心配">自動配線だとなんか心配？</h3>
 <p>これを読んでいる方の中には，**「自動配線なんて使い物にならない．自分でやるのが一番」**と思っている人もいるだろう．</p>
 <p>しかし，それは違う．自動配線と手動配線を<strong>上手く使い分ける</strong>ことで，最高の作品が出来上がるのだ．</p>
-<h3 id="heading-4">どう使い分けるのか</h3>
+<h3 id="どう使い分けるのか">どう使い分けるのか</h3>
 <p>電源周りやアナログ回路，高周波通信回路などはあらかじめ手動配線で行っておく．</p>
 <p>あとは余ったデジタル配線を自動配線ツールに任せる．</p>
 <p>これなら電気的特性を考慮しつつ，<strong>効率的</strong>に作業をすることができる．</p>
-<h2 id="heading-5">配線のコスト(重み)という考え方</h2>
-<h3 id="heading-6">片面基板でも大丈夫</h3>
+<h2 id="配線のコスト重みという考え方">配線のコスト(重み)という考え方</h2>
+<h3 id="片面基板でも大丈夫">片面基板でも大丈夫</h3>
 <p>片面基板(切削基板など)を使うとき，自動配線ツールは一般に使いにくい．なぜならば，片面限定配線にすると，「配線不可能」になり，両面配線にすると切削基板では作成できないからだ．</p>
 <p>しかし，僕の使っている自動配線ツールには，**「コスト」**という考え方がある．</p>
-<h3 id="heading-7">配線にコストをつける</h3>
+<h3 id="配線にコストをつける">配線にコストをつける</h3>
 <p>表面配線のコストを100にして，裏面配線のコストを1にすれば，自然とコストを下げるために裏面配線が優先され，切削基板にぴったりの基板が出来上がるのだ．</p>
 <p>また，ビアにもコストがつけられて，できるだけビアを減らすということもできる．</p>
 <p>とても<strong>柔軟</strong>なのだ．</p>
-<h2 id="heading-8">自動配線ツール使用の流れ</h2>
+<h2 id="自動配線ツール使用の流れ">自動配線ツール使用の流れ</h2>
 <ol>
 <li>KiCadで回路図を書いて部品の割り当てを行う．(いつも通り)</li>
 <li>部品の配置を行う．(いつも通り)</li>
@@ -196,8 +196,8 @@ if (!doNotTrack) {
 <li>自動配線ツールでそのファイルを読み込み，自動配線を行う．</li>
 <li>配線結果をKiCadに取り込み完成！</li>
 </ol>
-<h2 id="heading-9">自動配線ツールのインストール</h2>
-<h3 id="heading-10">必要なもの</h3>
+<h2 id="自動配線ツールのインストール">自動配線ツールのインストール</h2>
+<h3 id="必要なもの">必要なもの</h3>
 <ul>
 <li>自動配線ツール：Freerouting.exe</li>
 <li>Java SE Runtime Environment 8 (JRE8)</li>
@@ -205,14 +205,14 @@ if (!doNotTrack) {
 <p>以下からダウンロードできる．<br>
 <a href="https://github.com/freerouting/freerouting/raw/master/binaries/FreeRouting.exe">Freerouting</a><br>
 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE8</a></p>
-<h3 id="heading-11">インストール</h3>
+<h3 id="インストール">インストール</h3>
 <ol>
 <li>自分のOSにあったJREをダウンロードする．</li>
 <li>案内に従ってJRE8をインストールする．</li>
 </ol>
 <p>Freerouting.exeはインストールする必要はありません．使うときに起動するだけです．</p>
-<h2 id="heading-12">使い方</h2>
-<h3 id="heading-13">まずは部品を配置する</h3>
+<h2 id="使い方">使い方</h2>
+<h3 id="まずは部品を配置する">まずは部品を配置する</h3>
 <p>KiCadでいつも通りにできるだけ配線が楽になるように部品を配置していく．</p>
 <figure >
 	
@@ -225,12 +225,12 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-14">必要に応じてデザインルールを設定する</h3>
+<h3 id="必要に応じてデザインルールを設定する">必要に応じてデザインルールを設定する</h3>
 <p>自動配線ツールはデザインルールをしっかり守ってくれる．電源周りは余裕をもって太めにしておく．</p>
-<h3 id="heading-15">重要な配線を先に行う</h3>
+<h3 id="重要な配線を先に行う">重要な配線を先に行う</h3>
 <p>電源回り，アナログ回路，高周波通信回路など，必要があれば手動で配線しておく．</p>
 <p>もちろん，全部自動配線に任せてもOK</p>
-<h3 id="dsn">配線情報をdsnファイルに書き出す</h3>
+<h3 id="配線情報をdsnファイルに書き出す">配線情報をdsnファイルに書き出す</h3>
 <ol>
 <li>黄色のアイコンの<code>外部ルータ「Freerouter」とのファイル交換</code>をクリックする．</li>
 <li><code>現在のボードを”Specctra DSN”ファイルへエクスポート</code>を押してdsnファイルを作成する．</li>
@@ -257,7 +257,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-16">自動配線ツールの起動</h3>
+<h3 id="自動配線ツールの起動">自動配線ツールの起動</h3>
 <ol>
 <li>ダウンロードした<code>Freerouting.exe</code>を起動する．</li>
 <li>先ほどエクスポートしたdsnファイルを読み込む．</li>
@@ -273,7 +273,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-17">自動配線のパラメータの設定</h3>
+<h3 id="自動配線のパラメータの設定">自動配線のパラメータの設定</h3>
 <ol>
 <li>画面上の<code>Parameter</code>タブから<code>Autoroute</code>を選択する．</li>
 <li>出てきた画面で<code>Detail Parameter</code>をクリックする．</li>
@@ -313,7 +313,7 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h3 id="heading-18">自動配線開始</h3>
+<h3 id="自動配線開始">自動配線開始</h3>
 <p>画面上部の<code>Autoroute</code>ボタンで自動配線を開始すると動き始める．</p>
 <p>パソコンのスペックや配線の複雑さによってはかなり時間がかかることがある．僕の場合，長いときは4時間くらいかかった．</p>
 <figure >
@@ -327,7 +327,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="ses">配線結果をsesファイルに書き出し</h3>
+<h3 id="配線結果をsesファイルに書き出し">配線結果をsesファイルに書き出し</h3>
 <p>配線が終わると画面下のステータスバーに<code>Routing Complete</code>と出る．</p>
 <p>そうなったら，メニューバーの<code>File</code>→<code>Export Specctra Session FIle</code>をクリックしてsesファイルを作成する．</p>
 <figure >
@@ -341,7 +341,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="kicad">配線結果をKiCadへ取り込む</h3>
+<h3 id="配線結果をkicadへ取り込む">配線結果をKiCadへ取り込む</h3>
 <p>KiCadに戻り，dsnファイルを書き出した時と同じ画面で今度はsesファイルをインポートしたら完成．読み込むときに結線情報データを再構築しますか？と聞かれるのではいを押す．</p>
 <p><figure >
 	
@@ -365,12 +365,12 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="heading-19">トラブルシューティング</h2>
-<h3 id="dsn-1">自動配線ツールでdsnファイルを読み込めない（エラー）</h3>
+<h2 id="トラブルシューティング">トラブルシューティング</h2>
+<h3 id="自動配線ツールでdsnファイルを読み込めないエラー">自動配線ツールでdsnファイルを読み込めない（エラー）</h3>
 <p>Free Routingは，日本語の文字に対応していない．したがってKiCadのリファレンスや定数などに日本語があるとNGである．「Ω」とかもNGなので気を付けよう．</p>
-<h3 id="heading-20">自動配線がデザインルールに違反する</h3>
+<h3 id="自動配線がデザインルールに違反する">自動配線がデザインルールに違反する</h3>
 <p>FreeRoutingでdsnファイルを取り込んだ時に，「前の設定を復元しますか？」的なメッセージに対してyesをクリックすると，以前のデザインルールを使用してしまうため，デザインルールに違反する恐れがある．デザインルールを変更したときは，このメッセージにはNoをクリックしよう．</p>
-<h2 id="heading-21">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>手順が多いですが，慣れてしまうとこれなしでは生きていけなくなります．<br>
 自動配線ツールを上手に使って効率よく作業を進めましょう！</p>
 		</div>
@@ -499,50 +499,50 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a>
+    <li><a href="#概要">概要</a>
       <ul>
-        <li><a href="#heading-1">自動配線ツールを使おう</a></li>
+        <li><a href="#自動配線ツールを使おう">自動配線ツールを使おう</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">自動配線と手動配線の使い分け</a>
+    <li><a href="#自動配線と手動配線の使い分け">自動配線と手動配線の使い分け</a>
       <ul>
-        <li><a href="#heading-3">自動配線だとなんか心配？</a></li>
-        <li><a href="#heading-4">どう使い分けるのか</a></li>
+        <li><a href="#自動配線だとなんか心配">自動配線だとなんか心配？</a></li>
+        <li><a href="#どう使い分けるのか">どう使い分けるのか</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">配線のコスト(重み)という考え方</a>
+    <li><a href="#配線のコスト重みという考え方">配線のコスト(重み)という考え方</a>
       <ul>
-        <li><a href="#heading-6">片面基板でも大丈夫</a></li>
-        <li><a href="#heading-7">配線にコストをつける</a></li>
+        <li><a href="#片面基板でも大丈夫">片面基板でも大丈夫</a></li>
+        <li><a href="#配線にコストをつける">配線にコストをつける</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">自動配線ツール使用の流れ</a></li>
-    <li><a href="#heading-9">自動配線ツールのインストール</a>
+    <li><a href="#自動配線ツール使用の流れ">自動配線ツール使用の流れ</a></li>
+    <li><a href="#自動配線ツールのインストール">自動配線ツールのインストール</a>
       <ul>
-        <li><a href="#heading-10">必要なもの</a></li>
-        <li><a href="#heading-11">インストール</a></li>
+        <li><a href="#必要なもの">必要なもの</a></li>
+        <li><a href="#インストール">インストール</a></li>
       </ul>
     </li>
-    <li><a href="#heading-12">使い方</a>
+    <li><a href="#使い方">使い方</a>
       <ul>
-        <li><a href="#heading-13">まずは部品を配置する</a></li>
-        <li><a href="#heading-14">必要に応じてデザインルールを設定する</a></li>
-        <li><a href="#heading-15">重要な配線を先に行う</a></li>
-        <li><a href="#dsn">配線情報をdsnファイルに書き出す</a></li>
-        <li><a href="#heading-16">自動配線ツールの起動</a></li>
-        <li><a href="#heading-17">自動配線のパラメータの設定</a></li>
-        <li><a href="#heading-18">自動配線開始</a></li>
-        <li><a href="#ses">配線結果をsesファイルに書き出し</a></li>
-        <li><a href="#kicad">配線結果をKiCadへ取り込む</a></li>
+        <li><a href="#まずは部品を配置する">まずは部品を配置する</a></li>
+        <li><a href="#必要に応じてデザインルールを設定する">必要に応じてデザインルールを設定する</a></li>
+        <li><a href="#重要な配線を先に行う">重要な配線を先に行う</a></li>
+        <li><a href="#配線情報をdsnファイルに書き出す">配線情報をdsnファイルに書き出す</a></li>
+        <li><a href="#自動配線ツールの起動">自動配線ツールの起動</a></li>
+        <li><a href="#自動配線のパラメータの設定">自動配線のパラメータの設定</a></li>
+        <li><a href="#自動配線開始">自動配線開始</a></li>
+        <li><a href="#配線結果をsesファイルに書き出し">配線結果をsesファイルに書き出し</a></li>
+        <li><a href="#配線結果をkicadへ取り込む">配線結果をKiCadへ取り込む</a></li>
       </ul>
     </li>
-    <li><a href="#heading-19">トラブルシューティング</a>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
       <ul>
-        <li><a href="#dsn-1">自動配線ツールでdsnファイルを読み込めない（エラー）</a></li>
-        <li><a href="#heading-20">自動配線がデザインルールに違反する</a></li>
+        <li><a href="#自動配線ツールでdsnファイルを読み込めないエラー">自動配線ツールでdsnファイルを読み込めない（エラー）</a></li>
+        <li><a href="#自動配線がデザインルールに違反する">自動配線がデザインルールに違反する</a></li>
       </ul>
     </li>
-    <li><a href="#heading-21">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

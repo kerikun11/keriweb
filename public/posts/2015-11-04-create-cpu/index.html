@@ -157,7 +157,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-11-04T00:00:00">2015-11-04</time>
+	<time class="meta__text" datetime="2015-11-04T00:00:00Z">2015-11-04</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -171,7 +171,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="cpu2003-">書籍「CPUの創り方」（2003年）渡波郁 著</h2>
+			<h2 id="書籍cpuの創り方2003年渡波郁-著">書籍「CPUの創り方」（2003年）渡波郁 著</h2>
 <figure >
 	
 		
@@ -184,7 +184,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>　この本は電子工作の入門書です。しかし入門書と言っても内容は壮大で、CPUを設計して自作しようというものです。電子工作初心者だけでなく、ある程度電子工作をしてきた人にも読みごたえのある一冊になっています。</p>
-<h2 id="--td4">作ったもの : TD4</h2>
+<h2 id="作ったもの--td4">作ったもの : TD4</h2>
 <figure >
 	
 		
@@ -197,14 +197,14 @@ if (!doNotTrack) {
 </figure>
 
 <p>　この本の中で設計しているCPUを実際に作りました。TD4とは<strong>T</strong>ada <strong>D</strong>ousa-suru-dakei-no <strong>4</strong>-bit CPU という意味です。</p>
-<h2 id="iccpu">ICとCPUの違い</h2>
+<h2 id="icとcpuの違い">ICとCPUの違い</h2>
 <p>　ICは、決まった動作をしかできません。「こんな機能が欲しい」という時は、その機能を持ったICを買いに行かなければなりません。しかし、CPUは「プログラム」を実行することができます。これにより、プログラム次第で様々な動作をさせることができます。今回は、決まった動作しかできない「IC」を使って柔軟な動作の「CPU」を作りました。（と言っても、回路を設計したのは上の本の作者さんです。）</p>
-<h2 id="cpu">CPUの構成</h2>
-<h3 id="cpubit">CPUのbit数</h3>
+<h2 id="cpuの構成">CPUの構成</h2>
+<h3 id="cpuのbit数">CPUのbit数</h3>
 <p>　先にも書いたとおり、これは4bitのCPUです。4bit CPUというのは各レジスタが4bitでできているということです。</p>
-<h3 id="rom">プログラムメモリ（ROM）</h3>
+<h3 id="プログラムメモリrom">プログラムメモリ（ROM）</h3>
 <p>　写真左側に、16個のDIPスイッチが並んでいます。これがプログラムメモリ(ROM)です。8bitのDIPスイッチが16個あるので、16ByteのROMになります。普通、ROMといえば不揮発性のフラッシュメモリですが、TD4では物理的スイッチにより実現しています。</p>
-<h3 id="ram">レジスタ（RAM）</h3>
+<h3 id="レジスタram">レジスタ（RAM）</h3>
 <p>　TD4には4bitのレジスタが４つあり、以下の役割があります。写真中央の縦に並んだ４つのICです。</p>
 <ul>
 <li>プログラム・カウンタ</li>
@@ -212,14 +212,14 @@ if (!doNotTrack) {
 <li>汎用レジスタB</li>
 <li>出力レジスタ</li>
 </ul>
-<h3 id="alu">算術論理演算装置（ALU）</h3>
+<h3 id="算術論理演算装置alu">算術論理演算装置（ALU）</h3>
 <p>　TD4は、4bit + 4bit の加算器を持っています。以上。</p>
-<h2 id="heading">入出力</h2>
+<h2 id="入出力">入出力</h2>
 <p>　入力は4bitで、写真中央最下部の４つのスライドスイッチです。これらのHigh/Lowをレジスタに取り込むことができます。<br>
 　出力も4bitで、それぞれに黄色のLEDがつながっています。</p>
-<h2 id="heading-1">動作</h2>
+<h2 id="動作">動作</h2>
 <p>　TD4にプログラミングするには、まずはアセンブリ言語を書きます。それをハンドアセンブル（アセンブリ言語を、２進法に変えること）をして、TD4のDIPスイッチにプログラムを書き込みます。</p>
-<h3 id="heading-2">アセンブリ言語命令一覧</h3>
+<h3 id="アセンブリ言語命令一覧">アセンブリ言語命令一覧</h3>
 <p>　プログラムメモリは8bitで1かたまりです。8bitのうち、左4bitがオペレーションコード、右4bitがデータになっています。</p>
 <figure >
 	
@@ -232,7 +232,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-3">動作周波数</h3>
+<h3 id="動作周波数">動作周波数</h3>
 <p>　本の中ではハンドクロック（ボタンを押すたびにクロックが進む）と1HzのRCクロックが用意されていました。これに加えて、可変抵抗による可変クロックをつけました。<br>
 　クロックの最速は、344Hzでした。オシロスコープでクロックを見てみるっと、波が少し汚いです。これはRC発振を標準ロジックICのシュミットトリガで行ってるためだと思われます。</p>
 <figure >
@@ -247,7 +247,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>　そこで、クロックのソースをファンクション・ジェネレータに変えてみました。すると、約1MHzくらいまで動作しました。しかし、クロックが動くのが確認できても、プログラムを正常に実行しているのかは早すぎてわかりませんでした。</p>
-<h2 id="heading-4">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>　この本を読むと、CPUの構造が本当によくわかります。実在するCPUもこれの拡張にすぎません。 マイコンなどを使う時も内部の構造を知っていて使うのと知らずに使うのでは、生産性がかなり違うと思います。ブラックボックスと思い込んでしまうのはだめです。<br>
 　TD4を作るとハンダ付けの技術が上がります。本を読むだけでなく、実際に作ってみましょう。作り終わったら、<strong>楽しい楽しいデバック作業</strong>が待ってますよ(^^)</p>
 <figure >
@@ -376,25 +376,25 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#cpu2003-">書籍「CPUの創り方」（2003年）渡波郁 著</a></li>
-    <li><a href="#--td4">作ったもの : TD4</a></li>
-    <li><a href="#iccpu">ICとCPUの違い</a></li>
-    <li><a href="#cpu">CPUの構成</a>
+    <li><a href="#書籍cpuの創り方2003年渡波郁-著">書籍「CPUの創り方」（2003年）渡波郁 著</a></li>
+    <li><a href="#作ったもの--td4">作ったもの : TD4</a></li>
+    <li><a href="#icとcpuの違い">ICとCPUの違い</a></li>
+    <li><a href="#cpuの構成">CPUの構成</a>
       <ul>
-        <li><a href="#cpubit">CPUのbit数</a></li>
-        <li><a href="#rom">プログラムメモリ（ROM）</a></li>
-        <li><a href="#ram">レジスタ（RAM）</a></li>
-        <li><a href="#alu">算術論理演算装置（ALU）</a></li>
+        <li><a href="#cpuのbit数">CPUのbit数</a></li>
+        <li><a href="#プログラムメモリrom">プログラムメモリ（ROM）</a></li>
+        <li><a href="#レジスタram">レジスタ（RAM）</a></li>
+        <li><a href="#算術論理演算装置alu">算術論理演算装置（ALU）</a></li>
       </ul>
     </li>
-    <li><a href="#heading">入出力</a></li>
-    <li><a href="#heading-1">動作</a>
+    <li><a href="#入出力">入出力</a></li>
+    <li><a href="#動作">動作</a>
       <ul>
-        <li><a href="#heading-2">アセンブリ言語命令一覧</a></li>
-        <li><a href="#heading-3">動作周波数</a></li>
+        <li><a href="#アセンブリ言語命令一覧">アセンブリ言語命令一覧</a></li>
+        <li><a href="#動作周波数">動作周波数</a></li>
       </ul>
     </li>
-    <li><a href="#heading-4">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

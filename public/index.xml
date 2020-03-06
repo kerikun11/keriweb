@@ -8,7 +8,7 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Fri, 28 Feb 2020 15:33:09 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/index.xml" rel="self" type="application/rss+xml" />
     
@@ -46,7 +46,7 @@
       <pubDate>Mon, 23 Dec 2019 09:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-12-23-cheese-timer/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;はじめに&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;こんにちは．けりです．&lt;/p&gt;
 &lt;p&gt;先日，12月15日(日) に &lt;strong&gt;第3回Cheese杯&lt;/strong&gt; を開催しました．&lt;/p&gt;
 &lt;p&gt;Cheese杯とは，東京工業大学ロボット技術会Cheeseが主催するマイクロマウスのプチ大会です．&lt;/p&gt;
@@ -74,7 +74,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/works/micromouse/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;この記事では，私が書いたマイクロマウスの記事をカテゴリごとに列挙します．&lt;br&gt;
 新しい記事が追加され次第，更新していきたいと思います．&lt;/p&gt;</description>
     </item>
@@ -108,7 +108,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sat, 12 Oct 2019 01:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-10-12-unknown-accel/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;はじめに&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;こんにちは．そろそろ修論研究が佳境になってきた けり です．&lt;/p&gt;
 &lt;p&gt;今回の記事では，
 マイクロマウス KERISE v4 に
@@ -122,7 +122,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sat, 25 May 2019 13:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-05-25-kicad-script/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;KiCad の基板エディタ Pcbnew では，デフォルトでPythonスクリプトエディタが付属していて，すでにフットプリントがオブジェクトとして定義されています．&lt;/p&gt;
 &lt;p&gt;今回は私がよく使う一括変更を紹介します．&lt;/p&gt;</description>
     </item>
@@ -133,7 +133,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Mon, 14 Jan 2019 10:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-01-14-vscode-latex/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回は私が使っているTeXのエディタ環境を紹介します．&lt;/p&gt;
 &lt;p&gt;注目機能は以下の通りです．&lt;/p&gt;
 &lt;ul&gt;
@@ -153,12 +153,12 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sat, 22 Dec 2018 00:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-12-22-platformio/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/3279&#34;&gt;rogy Advent Calendar 2018&lt;/a&gt; の
 22日目の記事です．&lt;/p&gt;
 &lt;p&gt;こんにちは．けりです．&lt;/p&gt;
 &lt;p&gt;今回は，PlatformIOという強力な&lt;strong&gt;マイコン開発環境&lt;/strong&gt;の紹介です．&lt;/p&gt;
-&lt;h3 id=&#34;platformio-&#34;&gt;PlatformIO とは？&lt;/h3&gt;
+&lt;h3 id=&#34;platformio-とは&#34;&gt;PlatformIO とは？&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://platformio.org/&#34;&gt;PlatformIO&lt;/a&gt;とは，mbedやArduinoと似たような感じで，さまざまなボードやライブラリを統一的に開発できる開発環境です．&lt;/p&gt;
 &lt;p&gt;PlatformIO はESP32マイコンを公式にサポートしていて，&lt;a href=&#34;https://github.com/espressif/esp-idf&#34;&gt;ESP-IDF&lt;/a&gt;と&lt;a href=&#34;https://github.com/espressif/arduino-esp32&#34;&gt;Arduino Core for the ESP32&lt;/a&gt;から選んで開発することができます．&lt;/p&gt;</description>
     </item>
@@ -169,7 +169,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sat, 03 Nov 2018 18:40:42 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-11-03-fan-sound/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;マイクロマウスでは，User Interface (UI) のために，スピーカーを載せることが多いです．&lt;/p&gt;
 &lt;p&gt;しかしながら，小さなマウスを作るうえで，そのわずかなスペースでも惜しいものです．&lt;/p&gt;
 &lt;p&gt;今回は，既にマウスに乗っている&lt;strong&gt;モーター&lt;/strong&gt;で音を鳴らすことができたので紹介します．&lt;/p&gt;
@@ -212,7 +212,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sun, 29 Apr 2018 15:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer4/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer3/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
 &lt;p&gt;今回の記事では，今までに示した設計法のC++による実装例を紹介します．&lt;/p&gt;</description>
     </item>
@@ -223,7 +223,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sun, 29 Apr 2018 14:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer3/</guid>
-      <description>&lt;h2 id=&#34;2&#34;&gt;設計2・走行距離を考慮した速度設計&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;設計2走行距離を考慮した速度設計&#34;&gt;設計2・走行距離を考慮した速度設計&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer2/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．&lt;/p&gt;</description>
     </item>
@@ -234,7 +234,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sun, 29 Apr 2018 13:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer2/</guid>
-      <description>&lt;h2 id=&#34;1&#34;&gt;設計1・加速曲線の設計&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;設計1加速曲線の設計&#34;&gt;設計1・加速曲線の設計&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer1/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，設計1の曲線加速の設計について考えます．&lt;/p&gt;</description>
     </item>
@@ -245,7 +245,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Sun, 29 Apr 2018 12:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer1/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回はマイクロマウスにおける速度設計のお話です．&lt;/p&gt;
 &lt;p&gt;長い直線などを走行するとき，タイムを縮めるため，最大速度まで加速して，ターン直前に減速します．&lt;/p&gt;
 &lt;p&gt;ここで注意したのが，途中経過の如何にかかわらず，終点の位置や速度は守らなければならないということです．&lt;/p&gt;
@@ -271,7 +271,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Fri, 16 Feb 2018 18:51:25 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</guid>
-      <description>&lt;h2 id=&#34;wifissid&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;wifiのssidとパスワードをどう伝えるか問題&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
 &lt;p&gt;ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．&lt;/p&gt;
 &lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
 &lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
@@ -284,7 +284,7 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Wed, 14 Feb 2018 22:02:45 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-02-14-pic-scroll-board-asm/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回の記事は，高校生の時に作った電光掲示板のコードの紹介です．&lt;/p&gt;
 &lt;p&gt;PICのアセンブリ言語で書かれています．&lt;/p&gt;</description>
     </item>
@@ -307,7 +307,7 @@ Cheese主催のマイクロマウス・プチ大会
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-01-01-new-year-2018/</guid>
       <description>&lt;p&gt;新年，明けましておめでとうございます．&lt;br&gt;
-ブログ &lt;strong&gt;KERI&#39;s Lab&lt;/strong&gt; を始めてから早2年が経ちました．&lt;br&gt;
+ブログ &lt;strong&gt;KERI&amp;rsquo;s Lab&lt;/strong&gt; を始めてから早2年が経ちました．&lt;br&gt;
 今年からは年賀状の代わりにブログでの挨拶とさせて頂きます．&lt;/p&gt;</description>
     </item>
     
@@ -353,7 +353,7 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;こんにちは．&lt;br&gt;
 マイクロマウス全日本大会の3日後に待ち構えていた&lt;strong&gt;卒論中間発表&lt;/strong&gt;を終えたけりです．&lt;/p&gt;
 &lt;p&gt;マウサーの皆さん，中間発表を終えた皆さん，本当にお疲れ様でした&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
+&lt;h2 id=&#34;全日本マイクロマウス2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
 &lt;p&gt;さて，11月17日(金)～19日(日)の3日間，全日本マイクロマウス2017が開催されました．&lt;/p&gt;
 &lt;p&gt;僕は去年に引き続き，2回目となる参加をしてきました！&lt;/p&gt;</description>
     </item>

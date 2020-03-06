@@ -126,7 +126,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2019-01-14T10:00:00">2019-01-14</time>
+	<time class="meta__text" datetime="2019-01-14T10:00:00&#43;09:00">2019-01-14</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -140,7 +140,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>今回は私が使っているTeXのエディタ環境を紹介します．</p>
 <p>注目機能は以下の通りです．</p>
 <ul>
@@ -152,20 +152,20 @@ if (!doNotTrack) {
 <li><code>SyncTex</code>によりTeXコードとPDFの相互ジャンプ</li>
 <li>VSCode Vim を使ってvimキーバインド</li>
 </ul>
-<h2 id="heading-1">環境構築</h2>
-<h3 id="heading-2">インストール</h3>
+<h2 id="環境構築">環境構築</h2>
+<h3 id="インストール">インストール</h3>
 <p>次のリンクにしたがってインストールしてください．</p>
 <ul>
 <li><a href="https://texwiki.texjp.org/?TeX%20Live#w628bee6">TexLive</a></li>
 <li><a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a></li>
 </ul>
-<h3 id="heading-3">拡張機能の追加</h3>
+<h3 id="拡張機能の追加">拡張機能の追加</h3>
 <p>以下のVSCode拡張機能をインストールしましょう．</p>
 <ul>
 <li>LaTeX Workshop</li>
 <li>Vim (オプション)</li>
 </ul>
-<h3 id="vscode">VSCodeの設定</h3>
+<h3 id="vscodeの設定">VSCodeの設定</h3>
 <p>デフォルトの設定ではなぜかTeXのコンパイルが通らなかったので，以下の設定を行います．</p>
 <p><code>Ctrl+,</code>でVSCodeの設定を開き，
 右上の<code>{}</code>アイコンをクリックして，
@@ -188,17 +188,17 @@ if (!doNotTrack) {
                 <span class="s2">&#34;-file-line-error&#34;</span><span class="p">,</span>
                 <span class="s2">&#34;-outdir=%OUTDIR%&#34;</span><span class="p">,</span>
                 <span class="s2">&#34;%DOC%&#34;</span>
-            <span class="p">]</span><span class="p">,</span>
-            <span class="s2">&#34;env&#34;</span><span class="o">:</span> <span class="p">{</span><span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&#34;env&#34;</span><span class="o">:</span> <span class="p">{}</span>
         <span class="p">}</span>
-    <span class="p">]</span><span class="p">,</span>
+    <span class="p">],</span>
     <span class="c1">// .latexmkrc に書かれたディレクトリに設定すること
 </span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.outDir&#34;</span><span class="o">:</span> <span class="s2">&#34;%DIR%/build&#34;</span><span class="p">,</span>
     <span class="c1">// Viewer関係
 </span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.view.pdf.viewer&#34;</span><span class="o">:</span> <span class="s2">&#34;tab&#34;</span><span class="p">,</span>
     <span class="s2">&#34;latex-workshop.view.pdf.zoom&#34;</span><span class="o">:</span> <span class="s2">&#34;page-width&#34;</span><span class="p">,</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="heading-4">キーボードショートカットの追加</h3>
+</code></pre></div><h3 id="キーボードショートカットの追加">キーボードショートカットの追加</h3>
 <p>コマンドパレット<code>Ctrl+Shift+P</code>で
 <code>Preferences: Open Keyboard Shortcuts File</code>とタイプすると開かれる
 <code>keybindings.json</code>に以下の内容を追記します．</p>
@@ -209,19 +209,19 @@ if (!doNotTrack) {
         <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+alt+b&#34;</span><span class="p">,</span>
         <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;latex-workshop.build&#34;</span><span class="p">,</span>
         <span class="nt">&#34;when&#34;</span><span class="p">:</span> <span class="s2">&#34;resourceLangId == latex&#34;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
     <span class="p">{</span>
         <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+alt+c&#34;</span><span class="p">,</span>
         <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;latex-workshop.clean&#34;</span><span class="p">,</span>
         <span class="nt">&#34;when&#34;</span><span class="p">:</span> <span class="s2">&#34;resourceLangId == latex&#34;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
     <span class="p">{</span>
         <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+alt+s&#34;</span><span class="p">,</span>
         <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;latex-workshop.synctex&#34;</span><span class="p">,</span>
         <span class="nt">&#34;when&#34;</span><span class="p">:</span> <span class="s2">&#34;resourceLangId == latex&#34;</span>
     <span class="p">}</span>
 <span class="p">]</span>
-</code></pre></div><h3 id="latexmkrc-">.latexmkrc の追加</h3>
+</code></pre></div><h3 id="latexmkrc-の追加">.latexmkrc の追加</h3>
 <p>TeXにはplatexやlualatexなど様々なコマンドがありますが，エディタのビルド設定を変更してしまうと，コマンドが違うプロジェクトごとにいちいち設定を変えなければならなくなります．</p>
 <p>それを解決するために，<a href="https://texwiki.texjp.org/?Latexmk">latexmk</a>というビルドコマンドがあります．</p>
 <p>texファイルと同じディレクトリに<code>.latexmkrc</code>という設定ファイルを置くと，そのファイルに書かれたビルドコマンドでビルドしてくれるので，エディタ側の設定を変更する必要がなくなります．</p>
@@ -234,26 +234,26 @@ if (!doNotTrack) {
 <span class="c1"># modified_at   2019.02.05</span>
 
 <span class="c1">## latex commands</span>
-<span class="nv">$</span><span class="nv">latex</span>            <span class="o">=</span> <span class="s">&#39;platex -synctex=1 -halt-on-error&#39;</span><span class="p">;</span>
-<span class="nv">$</span><span class="nv">latex_silent</span>     <span class="o">=</span> <span class="s">&#39;platex -synctex=1 -halt-on-error -interaction=batchmode&#39;</span><span class="p">;</span>
-<span class="nv">$</span><span class="nv">bibtex</span>           <span class="o">=</span> <span class="s">&#39;pbibtex -kanji=utf8&#39;</span><span class="p">;</span>
-<span class="nv">$</span><span class="nv">dvipdf</span>           <span class="o">=</span> <span class="s">&#39;dvipdfmx %O -o %D %S&#39;</span><span class="p">;</span>
-<span class="nv">$</span><span class="nv">makeindex</span>        <span class="o">=</span> <span class="s">&#39;mendex %O -o %D %S&#39;</span><span class="p">;</span>
-<span class="nv">$</span><span class="nv">max_repeat</span>       <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nv">$latex</span>            <span class="o">=</span> <span class="s">&#39;platex -synctex=1 -halt-on-error&#39;</span><span class="p">;</span>
+<span class="nv">$latex_silent</span>     <span class="o">=</span> <span class="s">&#39;platex -synctex=1 -halt-on-error -interaction=batchmode&#39;</span><span class="p">;</span>
+<span class="nv">$bibtex</span>           <span class="o">=</span> <span class="s">&#39;pbibtex -kanji=utf8&#39;</span><span class="p">;</span>
+<span class="nv">$dvipdf</span>           <span class="o">=</span> <span class="s">&#39;dvipdfmx %O -o %D %S&#39;</span><span class="p">;</span>
+<span class="nv">$makeindex</span>        <span class="o">=</span> <span class="s">&#39;mendex %O -o %D %S&#39;</span><span class="p">;</span>
+<span class="nv">$max_repeat</span>       <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 
 <span class="c1">## pdf mode</span>
-<span class="nv">$</span><span class="nv">pdf_mode</span>         <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># 0: none, 1: pdflatex, 2: ps2pdf, 3: dvipdfmx</span>
+<span class="nv">$pdf_mode</span>         <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># 0: none, 1: pdflatex, 2: ps2pdf, 3: dvipdfmx</span>
 
 <span class="c1">## output directory</span>
-<span class="nv">$</span><span class="nv">aux_dir</span>          <span class="o">=</span> <span class="s">&#34;build/&#34;</span><span class="p">;</span>
-<span class="nv">$</span><span class="nv">out_dir</span>          <span class="o">=</span> <span class="s">&#34;build/&#34;</span><span class="p">;</span>
+<span class="nv">$aux_dir</span>          <span class="o">=</span> <span class="s">&#34;build/&#34;</span><span class="p">;</span>
+<span class="nv">$out_dir</span>          <span class="o">=</span> <span class="s">&#34;build/&#34;</span><span class="p">;</span>
 
-</code></pre></div><h2 id="heading-5">使い方</h2>
-<h3 id="heading-6">ビルド</h3>
+</code></pre></div><h2 id="使い方">使い方</h2>
+<h3 id="ビルド">ビルド</h3>
 <p>デフォルトではTeXファイルを保存すると自動でビルドされます．</p>
 <p>画像を変更したときなど，強制的にビルドしたいときは，コマンドパレットで<code>Latex Build</code>とするか，
 上記で設定したキーボードショートカット<code>Ctrl+Alt+B</code>を押します．</p>
-<h3 id="pdf">PDFの表示</h3>
+<h3 id="pdfの表示">PDFの表示</h3>
 <p><code>Ctrl+Alt+V</code> でPDFが表示されます．</p>
 <h3 id="synctex">SyncTex</h3>
 <p>SyncTexとは，TeXのソースファイルとPDFでカーソルの位置を同期する機能です．</p>
@@ -265,23 +265,23 @@ if (!doNotTrack) {
 <p>コマンドパレット<code>Ctrl+Shift+P</code>で<code>SyncTex</code>とタイプするか，
 上記で設定した<code>Ctrl+Alt+S</code>を押します．
 すると，PDF上の該当箇所にジャンプし，ハイライトされます．</p>
-<h3 id="heading-7">コード補完</h3>
+<h3 id="コード補完">コード補完</h3>
 <p>単語の一部を入力すると，候補が表示されます．</p>
 <p>ESCなどで候補を閉じてしまって，もう一度表示したいときは，<code>Ctrl+Space</code>で再表示できます．</p>
-<h3 id="heading-8">コード整形</h3>
+<h3 id="コード整形">コード整形</h3>
 <p>コマンドパレット<code>Ctrl+Shift+P</code>で<code>Format</code>とタイプするか，
 ショートカットキー<code>Shift+Alt+F</code>でインデントなどがきれいに揃います．</p>
 <p>また，表やalignの&amp;もそろって表示され，とても見やすくなります．</p>
 <div class="highlight"><pre class="chroma"><code class="language-tex" data-lang="tex"><span class="k">\begin</span><span class="nb">{</span>align*<span class="nb">}</span>
     <span class="k">\dot</span><span class="nb">{</span>x<span class="nb">}</span>      <span class="nb">&amp;</span> = <span class="k">\cos</span> <span class="k">\theta</span> u<span class="nb">_</span>1          <span class="k">\\</span>
     <span class="k">\dot</span><span class="nb">{</span>y<span class="nb">}</span>      <span class="nb">&amp;</span> = <span class="k">\sin</span> <span class="k">\theta</span> u<span class="nb">_</span>1          <span class="k">\\</span>
-    <span class="k">\dot</span><span class="nb">{</span><span class="k">\theta</span><span class="nb">}</span> <span class="nb">&amp;</span> = <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}</span><span class="nb">{</span>l<span class="nb">}</span><span class="k">\tan</span> <span class="k">\phi</span> u<span class="nb">_</span>1 <span class="k">\\</span>
+    <span class="k">\dot</span><span class="nb">{</span><span class="k">\theta</span><span class="nb">}</span> <span class="nb">&amp;</span> = <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}{</span>l<span class="nb">}</span><span class="k">\tan</span> <span class="k">\phi</span> u<span class="nb">_</span>1 <span class="k">\\</span>
     <span class="k">\dot</span><span class="nb">{</span><span class="k">\phi</span><span class="nb">}</span>   <span class="nb">&amp;</span> = u<span class="nb">_</span>2
 <span class="k">\end</span><span class="nb">{</span>align*<span class="nb">}</span>
 </code></pre></div><p>これは プラグイン latex-formatterの機能です．</p>
-<h3 id="heading-9">ビルドに失敗したら？</h3>
+<h3 id="ビルドに失敗したら">ビルドに失敗したら？</h3>
 <p>とりあえず，中間生成物をすべて消去して，クリーンビルドを試しましょう．</p>
-<h2 id="heading-10">その他</h2>
+<h2 id="その他">その他</h2>
 <p>VSCode の最大の魅力は
 <code>F1</code>または
 <code>Ctrl+Shift+P</code>
@@ -289,7 +289,7 @@ if (!doNotTrack) {
 コマンドパレット
 だと思います．</p>
 <p>コマンドパレットで<code>latex</code>などと入力すると，コマンドの候補がいろいろ出てきますので，是非いろいろ試してみてください！</p>
-<h2 id="heading-11">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>TeXの文章を書くとき，一番大事なのは書きやすさではなく，書く内容です．</p>
 <p>しかし，書く内容に専念するためにも，心地よいTeX環境があるといいですよね！</p>
 <p>もし時間があったら，VSCodeに移行してみてはいかがでしょうか．</p>
@@ -419,28 +419,28 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">環境構築</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#環境構築">環境構築</a>
       <ul>
-        <li><a href="#heading-2">インストール</a></li>
-        <li><a href="#heading-3">拡張機能の追加</a></li>
-        <li><a href="#vscode">VSCodeの設定</a></li>
-        <li><a href="#heading-4">キーボードショートカットの追加</a></li>
-        <li><a href="#latexmkrc-">.latexmkrc の追加</a></li>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#拡張機能の追加">拡張機能の追加</a></li>
+        <li><a href="#vscodeの設定">VSCodeの設定</a></li>
+        <li><a href="#キーボードショートカットの追加">キーボードショートカットの追加</a></li>
+        <li><a href="#latexmkrc-の追加">.latexmkrc の追加</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">使い方</a>
+    <li><a href="#使い方">使い方</a>
       <ul>
-        <li><a href="#heading-6">ビルド</a></li>
-        <li><a href="#pdf">PDFの表示</a></li>
+        <li><a href="#ビルド">ビルド</a></li>
+        <li><a href="#pdfの表示">PDFの表示</a></li>
         <li><a href="#synctex">SyncTex</a></li>
-        <li><a href="#heading-7">コード補完</a></li>
-        <li><a href="#heading-8">コード整形</a></li>
-        <li><a href="#heading-9">ビルドに失敗したら？</a></li>
+        <li><a href="#コード補完">コード補完</a></li>
+        <li><a href="#コード整形">コード整形</a></li>
+        <li><a href="#ビルドに失敗したら">ビルドに失敗したら？</a></li>
       </ul>
     </li>
-    <li><a href="#heading-10">その他</a></li>
-    <li><a href="#heading-11">まとめ</a></li>
+    <li><a href="#その他">その他</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

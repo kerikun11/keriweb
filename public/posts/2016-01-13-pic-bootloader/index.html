@@ -121,7 +121,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-01-13T00:00:00">2016-01-13</time>
+	<time class="meta__text" datetime="2016-01-13T00:00:00Z">2016-01-13</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -135,15 +135,15 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
-<h3 id="pic18f27j53">PIC18F27J53を使おう</h3>
+			<h2 id="概要">概要</h2>
+<h3 id="pic18f27j53を使おう">PIC18F27J53を使おう</h3>
 <p>以前 <a href="/posts/2016-01-08-pic18f27j53/">PIC18F27J53のすすめ</a> という記事を書きました。それの続きで、今回はUSBブートローダの使い方について書きたいと思います。</p>
-<h3 id="heading-1">ブートローダとは</h3>
+<h3 id="ブートローダとは">ブートローダとは</h3>
 <p>ブートローダとは自分自身にプログラムを書きこむプログラムです。これを使うとPICkitなどのライタを使わなくてもプログラムの書き込みをすることができるようになります。</p>
 <p>ただし、初回に一度だけブートローダ用のプログラムをPICkitなどで書きこむ必要があります。</p>
-<h3 id="heading-2">ユーザープログラム</h3>
+<h3 id="ユーザープログラム">ユーザープログラム</h3>
 <p>ユーザープログラムとは、ブートローダーにより書き込むプログラムです。あなたが作った、実際に動かすプログラムということです。</p>
-<h2 id="heading-3">回路</h2>
+<h2 id="回路">回路</h2>
 <p>後述のI/Oピンによるブートロードモードへの移行をオンにする場合はRB0(21 pin)をプルアップしておいてください。そこをLOWにするとブートロードモードに入るので、SWなどをつけてもいいでしょう。</p>
 <p>また、RC2(13 pin)がブートローダのステータスを出力するのでLEDをつけるといいでしょう。</p>
 <p>どちらもユーザープログラムには影響はありません。</p>
@@ -159,35 +159,35 @@ if (!doNotTrack) {
 	</a>
 </figure>
 </p>
-<h2 id="heading-4">ブートローダプログラム</h2>
-<h3 id="hex">HEXファイル</h3>
+<h2 id="ブートローダプログラム">ブートローダプログラム</h2>
+<h3 id="hexファイル">HEXファイル</h3>
 <p>以下のHEXファイルをPICに書き込むだけで動作します。HEXファイルをPICに書き込むには、MPLAB X IDEと一緒についてきた<code>MPLAB IPE.exe</code>を使います。</p>
 <p>以下のHEXファイルはMicrochip公式ライブラリ(MLA)のソースをPIC18F27J53用に編集して作りました。コンパイルにはXC8のPRO版が必要なため、ソースではなくHEXファイルを配布します。(XC8には60日間無料のPRO体験版があります)</p>
 <p>ソフトウェアまたはハードウェアでブートモードへ切り替えHEX（推奨）<br>
 <a href="HID_Bootloader_PIC18F27J53(RB0-software-enter).hex">HID_Bootloader_PIC18F27J53(RB0-software-enter).hex</a><br>
 ソフトウェアでブートロードモードへ切り替えHEX(I/Oピンを減らしたくない人向け)<br>
 <a href="HID_Bootloader_PIC18F27J53(software-enter).hex">HID_Bootloader_PIC18F27J53(software-enter).hex</a></p>
-<h2 id="heading-5">ユーザープログラムの書き方</h2>
-<h3 id="configration-bits">Configration Bitsは不要</h3>
+<h2 id="ユーザープログラムの書き方">ユーザープログラムの書き方</h2>
+<h3 id="configration-bitsは不要">Configration Bitsは不要</h3>
 <p>Configration Bitsはハードウェアにかなり寄り添ったプログラムなため、ブートローダで書き換えることができません。上のHEXファイルでは、以下のConfigration Bitsがあらかじめ書き込まれています。</p>
 <p>なお、このConfigration Bitsを変更したい場合は、ブートローダプログラムを再コンパイルする必要があるので、XC8コンパイラのPROライセンスが必要です。</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// CONFIG1L
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config WDTEN = OFF, PLLDIV = 2, CFGPLLEN = ON, STVREN = OFF, XINST = OFF</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config WDTEN = OFF, PLLDIV = 2, CFGPLLEN = ON, STVREN = OFF, XINST = OFF
 </span><span class="cp"></span><span class="c1">// CONFIG1H
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config CPUDIV = OSC1, CP0 = OFF</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config CPUDIV = OSC1, CP0 = OFF
 </span><span class="cp"></span><span class="c1">// CONFIG2L
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config OSC = INTOSCPLL, SOSCSEL = LOW, CLKOEC = OFF, FCMEN = OFF, IESO = OFF</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config OSC = INTOSCPLL, SOSCSEL = LOW, CLKOEC = OFF, FCMEN = OFF, IESO = OFF
 </span><span class="cp"></span><span class="c1">// CONFIG2H
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config WDTPS = 1024</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config WDTPS = 1024
 </span><span class="cp"></span><span class="c1">// CONFIG3L
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config DSWDTOSC = T1OSCREF, RTCOSC = T1OSCREF, DSBOREN = OFF, DSWDTEN = OFF, DSWDTPS = G2</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config DSWDTOSC = T1OSCREF, RTCOSC = T1OSCREF, DSBOREN = OFF, DSWDTEN = OFF, DSWDTPS = G2
 </span><span class="cp"></span><span class="c1">// CONFIG3H
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config IOL1WAY = OFF, ADCSEL = BIT12, MSSP7B_EN = MSK7</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config IOL1WAY = OFF, ADCSEL = BIT12, MSSP7B_EN = MSK7
 </span><span class="cp"></span><span class="c1">// CONFIG4L
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config WPFP = PAGE_127, WPCFG = OFF</span><span class="cp">
+</span><span class="c1"></span><span class="cp">#pragma config WPFP = PAGE_127, WPCFG = OFF
 </span><span class="cp"></span><span class="c1">// CONFIG4H
-</span><span class="c1"></span><span class="cp">#</span><span class="cp">pragma config WPDIS = OFF, WPEND = PAGE_WPFP, LS48MHZ = SYS48X8</span><span class="cp">
-</span></code></pre></div><h3 id="rom">ROMの範囲とオフセットを指定</h3>
+</span><span class="c1"></span><span class="cp">#pragma config WPDIS = OFF, WPEND = PAGE_WPFP, LS48MHZ = SYS48X8
+</span></code></pre></div><h3 id="romの範囲とオフセットを指定">ROMの範囲とオフセットを指定</h3>
 <ol>
 <li>プロジェクトを右クリックして、<code>Properties</code>を開きます。</li>
 <li>左側の<code>XC8 linker</code>をクリックする。</li>
@@ -219,15 +219,15 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="heading-6">ブートロードモードへ移行するには</h2>
-<h3 id="heading-7">ソフトウェアでブートロードモードへ移行</h3>
+<h2 id="ブートロードモードへ移行するには">ブートロードモードへ移行するには</h2>
+<h3 id="ソフトウェアでブートロードモードへ移行">ソフトウェアでブートロードモードへ移行</h3>
 <p>ユーザープログラムからソフトウェアでブートモードへ移るには、以下のコードを書きます。</p>
 <pre><code>asm(&quot;goto   0x001C&quot;);
 </code></pre>
 <p>※ブートロードモードから、ユーザープログラムに移るにはMCLRなどのリセットが必要です。</p>
-<h3 id="io">I/Oピンでブートロードモードへ移行</h3>
+<h3 id="ioピンでブートロードモードへ移行">I/Oピンでブートロードモードへ移行</h3>
 <p>PICに電源を投入またはPICをリセットしたときに、RB0端子がHIGHならばユーザープログラム、LOWならばブートローダプログラムが起動します。</p>
-<h2 id="heading-8">ユーザープログラムを書き込み</h2>
+<h2 id="ユーザープログラムを書き込み">ユーザープログラムを書き込み</h2>
 <ol>
 <li><a href="http://www.microchip.com/pagehandler/en-us/devtools/mla/home.html">ここ</a>からMicrochip Libraris for Applicationsをダウンロードし、インストールする。</li>
 <li>インストール場所/mla_v2014_07_22/ apps/usb/device/bootloaders/ utilities/bin/win/ HIDBootloader.exeを起動する。</li>
@@ -246,7 +246,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-9">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>USBブートローダを使えば、PICkitなどの周辺機器はほとんど必要なくなります。PICだけでPICの開発ができるようになるのです！</p>
 <p>PIC最高ーーー！！！</p>
 		</div>
@@ -377,33 +377,33 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a>
+    <li><a href="#概要">概要</a>
       <ul>
-        <li><a href="#pic18f27j53">PIC18F27J53を使おう</a></li>
-        <li><a href="#heading-1">ブートローダとは</a></li>
-        <li><a href="#heading-2">ユーザープログラム</a></li>
+        <li><a href="#pic18f27j53を使おう">PIC18F27J53を使おう</a></li>
+        <li><a href="#ブートローダとは">ブートローダとは</a></li>
+        <li><a href="#ユーザープログラム">ユーザープログラム</a></li>
       </ul>
     </li>
-    <li><a href="#heading-3">回路</a></li>
-    <li><a href="#heading-4">ブートローダプログラム</a>
+    <li><a href="#回路">回路</a></li>
+    <li><a href="#ブートローダプログラム">ブートローダプログラム</a>
       <ul>
-        <li><a href="#hex">HEXファイル</a></li>
+        <li><a href="#hexファイル">HEXファイル</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">ユーザープログラムの書き方</a>
+    <li><a href="#ユーザープログラムの書き方">ユーザープログラムの書き方</a>
       <ul>
-        <li><a href="#configration-bits">Configration Bitsは不要</a></li>
-        <li><a href="#rom">ROMの範囲とオフセットを指定</a></li>
+        <li><a href="#configration-bitsは不要">Configration Bitsは不要</a></li>
+        <li><a href="#romの範囲とオフセットを指定">ROMの範囲とオフセットを指定</a></li>
       </ul>
     </li>
-    <li><a href="#heading-6">ブートロードモードへ移行するには</a>
+    <li><a href="#ブートロードモードへ移行するには">ブートロードモードへ移行するには</a>
       <ul>
-        <li><a href="#heading-7">ソフトウェアでブートロードモードへ移行</a></li>
-        <li><a href="#io">I/Oピンでブートロードモードへ移行</a></li>
+        <li><a href="#ソフトウェアでブートロードモードへ移行">ソフトウェアでブートロードモードへ移行</a></li>
+        <li><a href="#ioピンでブートロードモードへ移行">I/Oピンでブートロードモードへ移行</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">ユーザープログラムを書き込み</a></li>
-    <li><a href="#heading-9">まとめ</a></li>
+    <li><a href="#ユーザープログラムを書き込み">ユーザープログラムを書き込み</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

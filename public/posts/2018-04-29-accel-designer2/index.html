@@ -111,7 +111,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2018-04-29T13:35:38">2018-04-29</time>
+	<time class="meta__text" datetime="2018-04-29T13:35:38&#43;09:00">2018-04-29</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -125,17 +125,17 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="1">設計1・加速曲線の設計</h2>
+			<h2 id="設計1加速曲線の設計">設計1・加速曲線の設計</h2>
 <p><a href="/posts/2018-04-29-accel-designer1/">前回の記事</a>の続きです．</p>
 <p>この記事では，設計1の曲線加速の設計について考えます．</p>
-<h3 id="-">滑らかな加速の設計 目次</h3>
+<h3 id="滑らかな加速の設計-目次">滑らかな加速の設計 目次</h3>
 <ul>
 <li><a href="/posts/2018-04-29-accel-designer1/">滑らかな加速の設計① 台形加速と曲線加速</a></li>
 <li><a href="/posts/2018-04-29-accel-designer2/">滑らかな加速の設計② 曲線加速の設計</a></li>
 <li><a href="/posts/2018-04-29-accel-designer3/">滑らかな加速の設計③ 走行距離を考慮した速度設計</a></li>
 <li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C++による実装例</a></li>
 </ul>
-<h2 id="heading">設計内容</h2>
+<h2 id="設計内容">設計内容</h2>
 <p>ここでは，下図のように，始点速度$v_s$から最大加速度$a_m$で加速して終点速度$v_e$に達するような場合を考えます．</p>
 <p>注意点として，
 最大加速度$a_m$で加速する時間を$t_m$としたとき，
@@ -153,7 +153,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-1">拘束条件</h2>
+<h2 id="拘束条件">拘束条件</h2>
 <p>与える情報は以下の通りです．</p>
 <ul>
 <li>最大加速度 $a_m$</li>
@@ -162,12 +162,12 @@ if (!doNotTrack) {
 <li>加速度が曲線である時間 $t_c$</li>
 </ul>
 <p>$t_c$は，実機の特性や生成した波形を見ながら経験的に適当に決めます．</p>
-<h2 id="heading-2">求めた関数</h2>
+<h2 id="求めた関数">求めた関数</h2>
 <p>求めた関数，値は以下の通りです．</p>
 <ul>
 <li>任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$ および位置 $x(t)$ を返す関数</li>
 </ul>
-<h3 id="heading-3">関数</h3>
+<h3 id="関数">関数</h3>
 <p>任意の時刻$t$における各関数は，</p>
 <p>$$
 \begin{align}
@@ -203,7 +203,7 @@ x_3 + v_3(t-t_3) &amp; (t_3 &lt; t \hspace{2.2em})
 \end{align}
 $$</p>
 <p>と表すことができます．ただし，各定数は以下の通りです．</p>
-<h3 id="heading-4">境界点の時刻</h3>
+<h3 id="境界点の時刻">境界点の時刻</h3>
 <p>まずは，各境界点における時刻の定義です．</p>
 <p>等加速度運動となる時間 $ t_m := \frac{1}{a_m}(v_e - v_s) - t_c $ に対し，</p>
 <p>$$
@@ -225,7 +225,7 @@ t_3 := t_2 + (t_1-t_0)
 \end{array} \right.
 \end{array}
 $$</p>
-<h3 id="heading-5">境界点における定数</h3>
+<h3 id="境界点における定数">境界点における定数</h3>
 <p>次に，境界点の各定数は，</p>
 <p>$$
 \begin{align}
@@ -245,13 +245,13 @@ x_3 := x_0 + \frac{1}{2}(v_0 + v_3)(t_3-t_0)
 \end{align}
 $$</p>
 <p>となります．</p>
-<h3 id="heading-6">加速度の符号</h3>
+<h3 id="加速度の符号">加速度の符号</h3>
 <p>ちなみに，最大加速度 $a_m$ の符号を適切に設定すれば，減速の場合にもそのまま使用できることに注意しましょう．つまり，</p>
 <p>$$
 a_m = \mathrm{sign}(v_e-v_s) \times|a_m|
 $$</p>
 <p>のように$a_m$の符号を設定すると上手くいきます．</p>
-<h2 id="heading-7">導出過程</h2>
+<h2 id="導出過程">導出過程</h2>
 <p>簡単に流れを書きます．</p>
 <ol>
 <li>とりあえず最大加速度の時間を$t_m$と置いて，境界点の時刻$t_0,\cdots,t_3$を$t_m$で表す．</li>
@@ -264,7 +264,7 @@ $$</p>
 </ol>
 <p>ポイントは，積分をする際に，$t_0$から単純に積分していくのではなく，$t_0$と$t_3$の双方から対称性を使って積分しているところです．</p>
 <p>これは，$t_m$の符号による場合分けを最小限に抑えるためです．その結果，$t_m$による場合分けは境界点の定数のみで，関数の方には現れなくなりました．</p>
-<h2 id="heading-8">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>今回の記事では，始点速度と終点速度を滑らかにつなぐ曲線加速の設計を行いました．</p>
 <p><a href="/posts/2018-04-29-accel-designer3/">次回の記事</a>では，走行距離の拘束条件を満たすように，今回設計した曲線加速を組み合わせていきます．</p>
 		</div>
@@ -392,23 +392,23 @@ $$</p>
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#1">設計1・加速曲線の設計</a>
+    <li><a href="#設計1加速曲線の設計">設計1・加速曲線の設計</a>
       <ul>
-        <li><a href="#-">滑らかな加速の設計 目次</a></li>
+        <li><a href="#滑らかな加速の設計-目次">滑らかな加速の設計 目次</a></li>
       </ul>
     </li>
-    <li><a href="#heading">設計内容</a></li>
-    <li><a href="#heading-1">拘束条件</a></li>
-    <li><a href="#heading-2">求めた関数</a>
+    <li><a href="#設計内容">設計内容</a></li>
+    <li><a href="#拘束条件">拘束条件</a></li>
+    <li><a href="#求めた関数">求めた関数</a>
       <ul>
-        <li><a href="#heading-3">関数</a></li>
-        <li><a href="#heading-4">境界点の時刻</a></li>
-        <li><a href="#heading-5">境界点における定数</a></li>
-        <li><a href="#heading-6">加速度の符号</a></li>
+        <li><a href="#関数">関数</a></li>
+        <li><a href="#境界点の時刻">境界点の時刻</a></li>
+        <li><a href="#境界点における定数">境界点における定数</a></li>
+        <li><a href="#加速度の符号">加速度の符号</a></li>
       </ul>
     </li>
-    <li><a href="#heading-7">導出過程</a></li>
-    <li><a href="#heading-8">まとめ</a></li>
+    <li><a href="#導出過程">導出過程</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

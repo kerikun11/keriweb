@@ -109,7 +109,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-08-28T00:00:00">2016-08-28</time>
+	<time class="meta__text" datetime="2016-08-28T00:00:00Z">2016-08-28</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -123,16 +123,16 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="github">github上にあるブログを同期するシェルスクリプト</h2>
+			<h2 id="github上にあるブログを同期するシェルスクリプト">github上にあるブログを同期するシェルスクリプト</h2>
 <p>自分用のメモ</p>
-<h2 id="heading">前提</h2>
+<h2 id="前提">前提</h2>
 <h3 id="sshconfig">~/.ssh/config</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Host github
 	HostName github.com
 	User git
 	Port 22
 	IdentityFile ~/.ssh/id_ecdsa
-</code></pre></div><h2 id="apache2">Apache2の設定</h2>
+</code></pre></div><h2 id="apache2の設定">Apache2の設定</h2>
 <h3 id="etcapache2sites-availablemyconfconf">/etc/apache2/sites-available/myconf.conf</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;VirtualHost *:80&gt;
 	# The ServerName directive sets the request scheme, hostname and port that
@@ -186,7 +186,7 @@ $ sudo mkdir /var/keriweb
 $ sudo chown kerikun11 /var/keriweb
 $ sudo chgrp kerikun11 /var/keriweb
 </code></pre>
-<h2 id="heading-1">スクリプト</h2>
+<h2 id="スクリプト">スクリプト</h2>
 <h3 id="update-keriwebsh">update-keriweb.sh</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="nv">tmpdir</span><span class="o">=</span>/home/kerikun11/keriweb
@@ -208,7 +208,7 @@ $ sudo chgrp kerikun11 /var/keriweb
 	<span class="k">fi</span>
 <span class="k">fi</span>
 
-<span class="nb">echo</span> <span class="s2">&#34;</span><span class="s2">not found </span><span class="nv">$basename</span><span class="s2">&#34;</span>
+<span class="nb">echo</span> <span class="s2">&#34;not found </span><span class="nv">$basename</span><span class="s2">&#34;</span>
 
 mkdir -p <span class="s2">&#34;</span><span class="nv">$dirname</span><span class="s2">&#34;</span>
 <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$dirname</span><span class="s2">&#34;</span>
@@ -348,18 +348,18 @@ rm -rf <span class="s2">&#34;</span><span class="nv">$basename</span><span class
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#github">github上にあるブログを同期するシェルスクリプト</a></li>
-    <li><a href="#heading">前提</a>
+    <li><a href="#github上にあるブログを同期するシェルスクリプト">github上にあるブログを同期するシェルスクリプト</a></li>
+    <li><a href="#前提">前提</a>
       <ul>
         <li><a href="#sshconfig">~/.ssh/config</a></li>
       </ul>
     </li>
-    <li><a href="#apache2">Apache2の設定</a>
+    <li><a href="#apache2の設定">Apache2の設定</a>
       <ul>
         <li><a href="#etcapache2sites-availablemyconfconf">/etc/apache2/sites-available/myconf.conf</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">スクリプト</a>
+    <li><a href="#スクリプト">スクリプト</a>
       <ul>
         <li><a href="#update-keriwebsh">update-keriweb.sh</a></li>
       </ul>

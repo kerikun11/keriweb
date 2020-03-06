@@ -117,7 +117,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2017-06-16T00:00:00">2017-06-16</time>
+	<time class="meta__text" datetime="2017-06-16T00:00:00Z">2017-06-16</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -131,34 +131,34 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>みなさん，ESP32使ってますか？僕は使っています．その偉大さには驚くばかりです．</p>
 <p>さて，今回紹介するのは，Arduino core for ESP32に含まれているライブラリ「<a href="https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences">Preferences</a>」です．</p>
 <p>ESP32で何か物を作るとき，電源を切っても保存しておきたいデータなどがあると思います．独自の形式やJSONなどでファイルに保存する方法もありますが，保存と復元の処理を実装するのはなかなか面倒です．</p>
 <p>みんなどうせ同じようなことをするでしょうということで，ESP32ではライブラリが用意されていました．</p>
 <p>不揮発性のフラッシュ領域を使ってデータを保存&amp;復元します．</p>
-<h2 id="preferences">Preferencesライブラリ</h2>
+<h2 id="preferencesライブラリ">Preferencesライブラリ</h2>
 <p>ライブラリのヘッダーファイルとサンプルコードをコピペします．<br>
 ソースは<a href="https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences">ここ</a></p>
 <p>Arduino core for ESP32 に含まれているので，特に何もインストールすることなく使うことができます．バージョンが古い場合は最新にアップデートしましょう．</p>
 <h3 id="preferencesh">Preferences.h</h3>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="c1">// Copyright 2015-2016 Espressif Systems (Shanghai) PTE LTD
-</span><span class="c1"></span><span class="c1">//
-</span><span class="c1"></span><span class="c1">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
-</span><span class="c1"></span><span class="c1">// you may not use this file except in compliance with the License.
-</span><span class="c1"></span><span class="c1">// You may obtain a copy of the License at
-</span><span class="c1"></span><span class="c1">//     http://www.apache.org/licenses/LICENSE-2.0
-</span><span class="c1"></span><span class="c1">//
-</span><span class="c1"></span><span class="c1">// Unless required by applicable law or agreed to in writing, software
-</span><span class="c1"></span><span class="c1">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
-</span><span class="c1"></span><span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-</span><span class="c1"></span><span class="c1">// See the License for the specific language governing permissions and
-</span><span class="c1"></span><span class="c1">// limitations under the License.
+</span><span class="c1">//
+</span><span class="c1">// Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+</span><span class="c1">// you may not use this file except in compliance with the License.
+</span><span class="c1">// You may obtain a copy of the License at
+</span><span class="c1">//     http://www.apache.org/licenses/LICENSE-2.0
+</span><span class="c1">//
+</span><span class="c1">// Unless required by applicable law or agreed to in writing, software
+</span><span class="c1">// distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+</span><span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+</span><span class="c1">// See the License for the specific language governing permissions and
+</span><span class="c1">// limitations under the License.
 </span><span class="c1"></span>
-<span class="cp">#</span><span class="cp">ifndef _PREFERENCES_H_</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">define _PREFERENCES_H_</span><span class="cp">
+<span class="cp">#ifndef _PREFERENCES_H_
+</span><span class="cp">#define _PREFERENCES_H_
 </span><span class="cp"></span>
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&#34;Arduino.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&#34;Arduino.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">class</span> <span class="n">Preferences</span> <span class="p">{</span>
     <span class="nl">protected</span><span class="p">:</span>
@@ -166,51 +166,51 @@ if (!doNotTrack) {
         <span class="kt">bool</span> <span class="n">_started</span><span class="p">;</span>
         <span class="kt">bool</span> <span class="n">_readOnly</span><span class="p">;</span>
     <span class="nl">public</span><span class="p">:</span>
-        <span class="n">Preferences</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-        <span class="o">~</span><span class="n">Preferences</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">Preferences</span><span class="p">();</span>
+        <span class="o">~</span><span class="n">Preferences</span><span class="p">();</span>
 
-        <span class="kt">bool</span> <span class="nf">begin</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">readOnly</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">void</span> <span class="nf">end</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nf">begin</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">readOnly</span><span class="o">=</span><span class="nb">false</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">end</span><span class="p">();</span>
 
-        <span class="kt">bool</span> <span class="nf">clear</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">bool</span> <span class="nf">remove</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">key</span><span class="p">)</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="nf">clear</span><span class="p">();</span>
+        <span class="kt">bool</span> <span class="nf">remove</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">key</span><span class="p">);</span>
 
-        <span class="n">size_t</span> <span class="nf">putChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int8_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putUChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int16_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putUShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putUInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putLong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putULong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putLong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putULong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putFloat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">float_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putDouble</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">double_t</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putBool</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">String</span> <span class="n">value</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">putBytes</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">len</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">size_t</span> <span class="nf">putChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int8_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putUChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int16_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putUShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putUInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putLong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putULong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putLong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putULong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putFloat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">float_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putDouble</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">double_t</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putBool</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">String</span> <span class="n">value</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">putBytes</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">len</span><span class="p">);</span>
 
-        <span class="n">int8_t</span> <span class="nf">getChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int8_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">uint8_t</span> <span class="nf">getUChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">int16_t</span> <span class="nf">getShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int16_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">uint16_t</span> <span class="nf">getUShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">int32_t</span> <span class="nf">getInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">uint32_t</span> <span class="nf">getUInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">int32_t</span> <span class="nf">getLong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">uint32_t</span> <span class="nf">getULong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">int64_t</span> <span class="nf">getLong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">uint64_t</span> <span class="nf">getULong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">float_t</span> <span class="nf">getFloat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">float_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">double_t</span> <span class="nf">getDouble</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">double_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">)</span><span class="p">;</span>
-        <span class="kt">bool</span> <span class="nf">getBool</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">getString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">maxLen</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">String</span> <span class="nf">getString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">String</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">size_t</span> <span class="nf">getBytes</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">maxLen</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span>
+        <span class="n">int8_t</span> <span class="nf">getChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int8_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">uint8_t</span> <span class="nf">getUChar</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint8_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">int16_t</span> <span class="nf">getShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int16_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">uint16_t</span> <span class="nf">getUShort</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint16_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">int32_t</span> <span class="nf">getInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">uint32_t</span> <span class="nf">getUInt</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">int32_t</span> <span class="nf">getLong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">uint32_t</span> <span class="nf">getULong</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint32_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">int64_t</span> <span class="nf">getLong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">int64_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">uint64_t</span> <span class="nf">getULong64</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">uint64_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">float_t</span> <span class="nf">getFloat</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">float_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">);</span>
+        <span class="n">double_t</span> <span class="nf">getDouble</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">double_t</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="n">NAN</span><span class="p">);</span>
+        <span class="kt">bool</span> <span class="nf">getBool</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="nb">false</span><span class="p">);</span>
+        <span class="n">size_t</span> <span class="nf">getString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">maxLen</span><span class="p">);</span>
+        <span class="n">String</span> <span class="nf">getString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="n">String</span> <span class="n">defaultValue</span> <span class="o">=</span> <span class="n">String</span><span class="p">());</span>
+        <span class="n">size_t</span> <span class="nf">getBytes</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">key</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">maxLen</span><span class="p">);</span>
+<span class="p">};</span>
 
-<span class="cp">#</span><span class="cp">endif</span><span class="cp">
+<span class="cp">#endif
 </span></code></pre></div><h3 id="sampleino">sample.ino</h3>
 <p>起動回数をPreferencesとして保存し，再起動を繰り返してもデータが消えないというサンプルです．</p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="cm">/*
@@ -224,19 +224,19 @@ if (!doNotTrack) {
 </span><span class="cm"> by Martin Sloup (Arcao)
 </span><span class="cm">*/</span>
 
-<span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;Preferences.h&gt;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&lt;Preferences.h&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="n">Preferences</span> <span class="n">preferences</span><span class="p">;</span>
 
-<span class="kt">void</span> <span class="nf">setup</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
 
   <span class="c1">// Open Preferences with my-app namespace. Each application module, library, etc.
 </span><span class="c1"></span>  <span class="c1">// has to use namespace name to prevent key name collisions. We will open storage in
 </span><span class="c1"></span>  <span class="c1">// RW-mode (second parameter has to be false).
 </span><span class="c1"></span>  <span class="c1">// Note: Namespace name is limited to 15 chars
-</span><span class="c1"></span>  <span class="n">preferences</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">my-app</span><span class="s">&#34;</span><span class="p">,</span> <span class="nb">false</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">preferences</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="s">&#34;my-app&#34;</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
 
   <span class="c1">// Remove all preferences under opened namespace
 </span><span class="c1"></span>  <span class="c1">//preferences.clear();
@@ -246,30 +246,30 @@ if (!doNotTrack) {
 </span><span class="c1"></span>
   <span class="c1">// Get a counter value, if key is not exist return default value 0
 </span><span class="c1"></span>  <span class="c1">// Note: Key name is limited to 15 chars too
-</span><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">preferences</span><span class="p">.</span><span class="n">getUInt</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">counter</span><span class="s">&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">preferences</span><span class="p">.</span><span class="n">getUInt</span><span class="p">(</span><span class="s">&#34;counter&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 
   <span class="c1">// Increase counter
-</span><span class="c1"></span>  <span class="n">counter</span><span class="o">+</span><span class="o">+</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
 
   <span class="c1">// Print counter to a Serial
-</span><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Current counter value: %u</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&#34;Current counter value: %u</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
 
   <span class="c1">// Store counter to the Preferences
-</span><span class="c1"></span>  <span class="n">preferences</span><span class="p">.</span><span class="n">putUInt</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">counter</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">preferences</span><span class="p">.</span><span class="n">putUInt</span><span class="p">(</span><span class="s">&#34;counter&#34;</span><span class="p">,</span> <span class="n">counter</span><span class="p">);</span>
 
   <span class="c1">// Close the Preferences
-</span><span class="c1"></span>  <span class="n">preferences</span><span class="p">.</span><span class="n">end</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">preferences</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
 
   <span class="c1">// Wait 10 seconds
-</span><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">Restarting in 2 seconds...</span><span class="s">&#34;</span><span class="p">)</span><span class="p">;</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&#34;Restarting in 2 seconds...&#34;</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
 
   <span class="c1">// Restart ESP
-</span><span class="c1"></span>  <span class="n">ESP</span><span class="p">.</span><span class="n">restart</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="n">ESP</span><span class="p">.</span><span class="n">restart</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="nf">loop</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span>
-</code></pre></div><h2 id="heading-1">説明</h2>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div><h2 id="説明">説明</h2>
 <p>ヘッダーファイルとサンプルコードを見れば雰囲気はわかると思います．</p>
 <p>要点をまとめると</p>
 <ul>
@@ -281,7 +281,7 @@ if (!doNotTrack) {
 <li>読み取り専用にもできる</li>
 </ul>
 <p>といったところでしょうか．</p>
-<h2 id="heading-2">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>最近は時間があるとESP32のリファレンスやデータシートを読んでいますが，このマイコンの強さには恐れいりました．みなさんもぜひ使ってみてくださいね！</p>
 <p>ESP32のライブラリは現在も頻繁に更新されており，便利な機能が増えています．ときどきチェックして最新機能に触れましょう！</p>
 		</div>
@@ -410,15 +410,15 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#preferences">Preferencesライブラリ</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#preferencesライブラリ">Preferencesライブラリ</a>
       <ul>
         <li><a href="#preferencesh">Preferences.h</a></li>
         <li><a href="#sampleino">sample.ino</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">説明</a></li>
-    <li><a href="#heading-2">まとめ</a></li>
+    <li><a href="#説明">説明</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>

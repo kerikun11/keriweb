@@ -108,7 +108,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2019-05-25T13:00:00">2019-05-25</time>
+	<time class="meta__text" datetime="2019-05-25T13:00:00&#43;09:00">2019-05-25</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -122,36 +122,36 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>KiCad の基板エディタ Pcbnew では，デフォルトでPythonスクリプトエディタが付属していて，すでにフットプリントがオブジェクトとして定義されています．</p>
 <p>今回は私がよく使う一括変更を紹介します．</p>
-<h2 id="heading-1">使い方</h2>
+<h2 id="使い方">使い方</h2>
 <p>Pcbnew の右のほうにコンソールのアイコンがあるので，そこをクリックするとエディタが立ち上がります．</p>
 <p><img src="console_icon.png" alt="Pcbnew"></p>
 <p>そこにPythonコードを書くことで，スクリプトによる一括編集をすることができます．</p>
-<h2 id="heading-2">よく使うスクリプト</h2>
-<h3 id="heading-3">すべてのリファレンスを非表示にする</h3>
+<h2 id="よく使うスクリプト">よく使うスクリプト</h2>
+<h3 id="すべてのリファレンスを非表示にする">すべてのリファレンスを非表示にする</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pcbnew</span>
-<span class="n">board</span> <span class="o">=</span> <span class="n">pcbnew</span><span class="o">.</span><span class="n">GetBoard</span><span class="p">(</span><span class="p">)</span>
-<span class="n">mods</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">GetModules</span><span class="p">(</span><span class="p">)</span>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pcbnew</span><span class="o">.</span><span class="n">GetBoard</span><span class="p">()</span>
+<span class="n">mods</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">GetModules</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">mod</span> <span class="ow">in</span> <span class="n">mods</span><span class="p">:</span>
-    <span class="n">ref</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">Reference</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">print</span> <span class="n">ref</span><span class="o">.</span><span class="n">GetText</span><span class="p">(</span><span class="p">)</span>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">Reference</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">ref</span><span class="o">.</span><span class="n">GetText</span><span class="p">()</span>
     <span class="n">ref</span><span class="o">.</span><span class="n">SetVisible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-</code></pre></div><h3 id="heading-4">すべてのリファレンスサイズを変更する</h3>
+</code></pre></div><h3 id="すべてのリファレンスサイズを変更する">すべてのリファレンスサイズを変更する</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pcbnew</span>
-<span class="n">board</span> <span class="o">=</span> <span class="n">pcbnew</span><span class="o">.</span><span class="n">GetBoard</span><span class="p">(</span><span class="p">)</span>
-<span class="n">mods</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">GetModules</span><span class="p">(</span><span class="p">)</span>
+<span class="n">board</span> <span class="o">=</span> <span class="n">pcbnew</span><span class="o">.</span><span class="n">GetBoard</span><span class="p">()</span>
+<span class="n">mods</span> <span class="o">=</span> <span class="n">board</span><span class="o">.</span><span class="n">GetModules</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">mod</span> <span class="ow">in</span> <span class="n">mods</span><span class="p">:</span>
-    <span class="n">ref</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">Reference</span><span class="p">(</span><span class="p">)</span>
-    <span class="k">print</span> <span class="n">ref</span><span class="o">.</span><span class="n">GetText</span><span class="p">(</span><span class="p">)</span>
-    <span class="n">ref</span><span class="o">.</span><span class="n">SetTextSize</span><span class="p">(</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">wxSize</span><span class="p">(</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">FromMM</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span><span class="p">,</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">FromMM</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
-    <span class="n">ref</span><span class="o">.</span><span class="n">SetThickness</span><span class="p">(</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">FromMM</span><span class="p">(</span><span class="mf">0.15</span><span class="p">)</span><span class="p">)</span>
-</code></pre></div><h2 id="heading-5">まとめ</h2>
+    <span class="n">ref</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">Reference</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">ref</span><span class="o">.</span><span class="n">GetText</span><span class="p">()</span>
+    <span class="n">ref</span><span class="o">.</span><span class="n">SetTextSize</span><span class="p">(</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">wxSize</span><span class="p">(</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">FromMM</span><span class="p">(</span><span class="mf">0.8</span><span class="p">),</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">FromMM</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)))</span>
+    <span class="n">ref</span><span class="o">.</span><span class="n">SetThickness</span><span class="p">(</span><span class="n">pcbnew</span><span class="o">.</span><span class="n">FromMM</span><span class="p">(</span><span class="mf">0.15</span><span class="p">))</span>
+</code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>既にPythonのオブジェクトが用意されているので，簡単に使うことができました．</p>
 <p>私自身，まだあまり使いこなせていないので大したことはできてませんが，for文による一括編集などができるととても便利です．</p>
 <p>リファレンスを深く読めばもっと強力なことができそうですね！</p>
-<h2 id="heading-6">参考資料</h2>
+<h2 id="参考資料">参考資料</h2>
 <ul>
 <li><a href="http://docs.kicad-pcb.org/doxygen-python/classpcbnew_1_1MODULE.html">KiCad Pcbnew Python Scripting</a></li>
 </ul>
@@ -281,16 +281,16 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">使い方</a></li>
-    <li><a href="#heading-2">よく使うスクリプト</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#使い方">使い方</a></li>
+    <li><a href="#よく使うスクリプト">よく使うスクリプト</a>
       <ul>
-        <li><a href="#heading-3">すべてのリファレンスを非表示にする</a></li>
-        <li><a href="#heading-4">すべてのリファレンスサイズを変更する</a></li>
+        <li><a href="#すべてのリファレンスを非表示にする">すべてのリファレンスを非表示にする</a></li>
+        <li><a href="#すべてのリファレンスサイズを変更する">すべてのリファレンスサイズを変更する</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">まとめ</a></li>
-    <li><a href="#heading-6">参考資料</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
   </ul>
 </nav>
 	</div>

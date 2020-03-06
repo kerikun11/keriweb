@@ -19,7 +19,7 @@
       <pubDate>Tue, 17 Nov 2015 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2015-11-17-firewall/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;概要&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&#34;ufw&#34;&gt;ufw&lt;/h3&gt;
 &lt;p&gt;iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．&lt;/p&gt;</description>
     </item>

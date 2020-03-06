@@ -110,7 +110,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-12-04T00:00:00">2016-12-04</time>
+	<time class="meta__text" datetime="2016-12-04T00:00:00Z">2016-12-04</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -124,11 +124,11 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．</p>
 <p>この記事は，デモサイトを作るときのメモ．<br>
 デモサイト紹介記事は<a href="/posts/2016-10-20-ir-station-demo/">こちら</a></p>
-<h2 id="heading-1">環境作り</h2>
+<h2 id="環境作り">環境作り</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo apt-get install rubygems
 $ sudo apt-get install libapache2-mod-passenger
 $ sudo gem install sinatra
@@ -137,13 +137,13 @@ $ sudo gem install passenger
 $ sudo apt-get install -y libcurl4-openssl-dev apache2-threaded-dev ruby-dev libapr1-dev libaprutil1-dev
 $ sudo passenger-install-apache2-module
 いろいろ聞いてくるのでEnterを押しまくる．エラーがなければOK
-</code></pre></div><h2 id="heading-2">アプリケーションの用意</h2>
+</code></pre></div><h2 id="アプリケーションの用意">アプリケーションの用意</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ git clone https://github.com/kerikun11/IR-station.git
 $ sudo mkdir /var/ir-station
 $ sudo chown kerikun11 /var/ir-station
 $ sudo chgrp kerikun11 /var/ir-station
 $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
-</code></pre></div><h2 id="apache2">Apache2の設定</h2>
+</code></pre></div><h2 id="apache2の設定">Apache2の設定</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo vim /etc/apache2/sites-available/myconf.conf
 </code></pre></div><p>以下を追記</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;VirtualHost *:80&gt;
@@ -192,7 +192,7 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
 &lt;/VirtualHost&gt;
 
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
-</code></pre></div><h3 id="heading-3">設定を反映</h3>
+</code></pre></div><h3 id="設定を反映">設定を反映</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ sudo service apache2 restart
 </code></pre></div>
 		</div>
@@ -324,12 +324,12 @@ $ ln -ds ~/IR-station/server_demo/main /var/ir-station/
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">環境作り</a></li>
-    <li><a href="#heading-2">アプリケーションの用意</a></li>
-    <li><a href="#apache2">Apache2の設定</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#環境作り">環境作り</a></li>
+    <li><a href="#アプリケーションの用意">アプリケーションの用意</a></li>
+    <li><a href="#apache2の設定">Apache2の設定</a>
       <ul>
-        <li><a href="#heading-3">設定を反映</a></li>
+        <li><a href="#設定を反映">設定を反映</a></li>
       </ul>
     </li>
   </ul>

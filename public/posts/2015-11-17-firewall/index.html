@@ -108,7 +108,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-11-17T00:00:00">2015-11-17</time>
+	<time class="meta__text" datetime="2015-11-17T00:00:00Z">2015-11-17</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -122,32 +122,32 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <h3 id="ufw">ufw</h3>
 <p>iptablesという有名なファイアウォールソフトウェアがあるが初心者には使いにくいので，今回は初心者でも使いやすいufwというソフトを使う．</p>
-<h2 id="heading-1">ファイアウォールの設定</h2>
-<h3 id="heading-2">インストール&amp;初期設定</h3>
+<h2 id="ファイアウォールの設定">ファイアウォールの設定</h2>
+<h3 id="インストール初期設定">インストール&amp;初期設定</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo apt-get install ufw
 
 $ sudo ufw status
 Status: inactive
-</code></pre></div><h3 id="ipv6off">IPv6サポートをOFF</h3>
+</code></pre></div><h3 id="ipv6サポートをoff">IPv6サポートをOFF</h3>
 <div class="highlight"><pre class="chroma"><code class="language-diff" data-lang="diff">/etc/default/ufw
 
 <span class="gd">-IPV6=yes
 </span><span class="gd"></span><span class="gi">+IPV6=no
-</span></code></pre></div><h3 id="heading-3">必要があれば初期化</h3>
+</span></code></pre></div><h3 id="必要があれば初期化">必要があれば初期化</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw reset
 Resetting all rules to installed defaults. This may disrupt existing ssh connections. Proceed with operation <span class="o">(</span>y<span class="p">|</span>n<span class="o">)</span>?
 y
-</code></pre></div><h3 id="heading-4">基本ポリシーを設定</h3>
+</code></pre></div><h3 id="基本ポリシーを設定">基本ポリシーを設定</h3>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo ufw default deny
-</code></pre></div><h3 id="heading-5">使用するサービスのポートを開く</h3>
+</code></pre></div><h3 id="使用するサービスのポートを開く">使用するサービスのポートを開く</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo ufw allow 80
 Rules updated
 $ sudo ufw allow 22
 Rules updated
-</code></pre></div><h3 id="ufw-1">ufwの有効化</h3>
+</code></pre></div><h3 id="ufwの有効化">ufwの有効化</h3>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$ sudo ufw enable
 sudo uFirewall is active and enabled on system startup
 
@@ -287,19 +287,19 @@ Status: active
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a>
+    <li><a href="#概要">概要</a>
       <ul>
         <li><a href="#ufw">ufw</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">ファイアウォールの設定</a>
+    <li><a href="#ファイアウォールの設定">ファイアウォールの設定</a>
       <ul>
-        <li><a href="#heading-2">インストール&初期設定</a></li>
-        <li><a href="#ipv6off">IPv6サポートをOFF</a></li>
-        <li><a href="#heading-3">必要があれば初期化</a></li>
-        <li><a href="#heading-4">基本ポリシーを設定</a></li>
-        <li><a href="#heading-5">使用するサービスのポートを開く</a></li>
-        <li><a href="#ufw-1">ufwの有効化</a></li>
+        <li><a href="#インストール初期設定">インストール&amp;初期設定</a></li>
+        <li><a href="#ipv6サポートをoff">IPv6サポートをOFF</a></li>
+        <li><a href="#必要があれば初期化">必要があれば初期化</a></li>
+        <li><a href="#基本ポリシーを設定">基本ポリシーを設定</a></li>
+        <li><a href="#使用するサービスのポートを開く">使用するサービスのポートを開く</a></li>
+        <li><a href="#ufwの有効化">ufwの有効化</a></li>
       </ul>
     </li>
   </ul>

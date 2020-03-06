@@ -109,7 +109,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2015-12-04T00:00:00">2015-12-04</time>
+	<time class="meta__text" datetime="2015-12-04T00:00:00Z">2015-12-04</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -123,9 +123,9 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。</p>
-<h2 id="cygwin">Cygwinのインストール手順</h2>
+<h2 id="cygwinのインストール手順">Cygwinのインストール手順</h2>
 <ol>
 <li><a href="https://www.cygwin.com/">Cygwin.com</a>からCygwinのインストーラをダウンロードする。32bitマシン用と64bitマシン用があるので適当なほうを選ぶ。</li>
 <li>DLしたインストーラを起動する。</li>
@@ -256,15 +256,15 @@ if (!doNotTrack) {
 	
 </figure>
 </p>
-<h2 id="apt-cyg">apt-cygを使う</h2>
-<h3 id="apt-cyg-1">apt-cygとは</h3>
+<h2 id="apt-cygを使う">apt-cygを使う</h2>
+<h3 id="apt-cygとは">apt-cygとは</h3>
 <p>apt-cygとは普通のシェルスクリプトで、新しくソフトウェアをインストールするときに使う。Macintoshのyumやlinuxのapt-getとほぼ同じ使い方ができる。</p>
-<h3 id="apt-cyg-2">apt-cygを使う理由</h3>
+<h3 id="apt-cygを使う理由">apt-cygを使う理由</h3>
 <p>cygwinでは、新たにソフトをインストールする際には、cygwinインストール時に使ったsetup.exeを使うのが一般的である。</p>
 <p>しかし、setup.exeで欲しいソフトをインストールするとき、そのソフトが他のソフトに依存していることがある。それなのに欲しいソフトだけインストールしても、エラーになってしまう。これを解決するには、Googleでそのソフトの依存関係を調べて、必要なソフトをすべてsetup.exeで選んでインストールしなければならない。はっきり言ってめんどくさい。</p>
 <p>めんどくさいので、setup.exeに表示された<strong>すべてのソフト</strong>をインストールしてみたことがある。これなら依存関係があっても全部あるんだから大丈夫！と思った。</p>
 <p>が、なんど１晩かかってもDLが終わらず、インストールが終わった後にサイズを確認したら<strong>60GB</strong>も容量を取られてしまった。もう絶対にやらない。</p>
-<h3 id="apt-cyg-3">apt-cygをインストール</h3>
+<h3 id="apt-cygをインストール">apt-cygをインストール</h3>
 <p>Cygwinを起動したら、以下のコマンドを実行する。</p>
 <pre><code>$ wget https://raw.githubusercontent.com/transcode-open/apt-cyg/master/apt-cyg
 $ chmod 755 apt-cyg
@@ -293,8 +293,8 @@ $ apt-cyg install tmux
 $ apt-cyg install git
 </code></pre>
 <p>などなど</p>
-<h2 id="heading-1">おまけ（各種設定）</h2>
-<h3 id="windows">Windowsのコピペを使う</h3>
+<h2 id="おまけ各種設定">おまけ（各種設定）</h2>
+<h3 id="windowsのコピペを使う">Windowsのコピペを使う</h3>
 <p>Cygwinのデフォルトの設定ではWindowsのCtrl+C,Ctrl+Vが使えない。これでは不便なので使えるようにする。</p>
 <ol>
 <li>Cygwinのウィンドウの左上のCygwinアイコンを右クリックする。</li>
@@ -339,7 +339,7 @@ $ apt-cyg install git
 	
 </figure>
 </p>
-<h3 id="zsh">デフォルトのシェルをzshにする</h3>
+<h3 id="デフォルトのシェルをzshにする">デフォルトのシェルをzshにする</h3>
 <pre><code>$ apt-cyg install zsh
 $ ls /etc/passwd
 </code></pre>
@@ -480,19 +480,19 @@ $ ls /etc/passwd
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#cygwin">Cygwinのインストール手順</a></li>
-    <li><a href="#apt-cyg">apt-cygを使う</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#cygwinのインストール手順">Cygwinのインストール手順</a></li>
+    <li><a href="#apt-cygを使う">apt-cygを使う</a>
       <ul>
-        <li><a href="#apt-cyg-1">apt-cygとは</a></li>
-        <li><a href="#apt-cyg-2">apt-cygを使う理由</a></li>
-        <li><a href="#apt-cyg-3">apt-cygをインストール</a></li>
+        <li><a href="#apt-cygとは">apt-cygとは</a></li>
+        <li><a href="#apt-cygを使う理由">apt-cygを使う理由</a></li>
+        <li><a href="#apt-cygをインストール">apt-cygをインストール</a></li>
       </ul>
     </li>
-    <li><a href="#heading-1">おまけ（各種設定）</a>
+    <li><a href="#おまけ各種設定">おまけ（各種設定）</a>
       <ul>
-        <li><a href="#windows">Windowsのコピペを使う</a></li>
-        <li><a href="#zsh">デフォルトのシェルをzshにする</a></li>
+        <li><a href="#windowsのコピペを使う">Windowsのコピペを使う</a></li>
+        <li><a href="#デフォルトのシェルをzshにする">デフォルトのシェルをzshにする</a></li>
       </ul>
     </li>
   </ul>

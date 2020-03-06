@@ -106,7 +106,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-04-08T00:00:00">2016-04-08</time>
+	<time class="meta__text" datetime="2016-04-08T00:00:00Z">2016-04-08</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -120,23 +120,23 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>写真をブログやSNSにアップロードするときに位置情報のタグをつけたままだと自宅を特定される可能性があり、非常に危険である。今回はそれを削除する方法を紹介する。</p>
-<h2 id="heading-1">ツール</h2>
+<h2 id="ツール">ツール</h2>
 <ul>
 <li>exiftool</li>
 </ul>
-<h3 id="linux">インストール方法(Linux)</h3>
+<h3 id="インストール方法linux">インストール方法(Linux)</h3>
 <pre><code>$ sudo apt-get install exiftool
 </code></pre>
-<h3 id="windows">インストール方法(Windows)</h3>
+<h3 id="インストール方法windows">インストール方法(Windows)</h3>
 <p><a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">ここ</a>からzipファイルをダウンロードする。</p>
-<h2 id="heading-2">使い方</h2>
-<h3 id="geotag">geotagを削除する</h3>
+<h2 id="使い方">使い方</h2>
+<h3 id="geotagを削除する">geotagを削除する</h3>
 <p><code>geotag=</code>で何も書かなければ、位置情報はなくなる。</p>
 <pre><code>$ exiftool -overwrite_original -geotag= filename
 </code></pre>
-<h3 id="heading-3">ついでに回転した写真の修正方法も</h3>
+<h3 id="ついでに回転した写真の修正方法も">ついでに回転した写真の修正方法も</h3>
 <p>エクスプローラ上では正常な写真がBlogなどに乗せると回転してしまう現象がある。それは写真の回転タグが影響しているので、下記コマンドで修正できる。</p>
 <pre><code>$ exiftool -overwrite_original -n -Orientation=1 filename
 </code></pre>
@@ -266,17 +266,17 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">ツール</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#ツール">ツール</a>
       <ul>
-        <li><a href="#linux">インストール方法(Linux)</a></li>
-        <li><a href="#windows">インストール方法(Windows)</a></li>
+        <li><a href="#インストール方法linux">インストール方法(Linux)</a></li>
+        <li><a href="#インストール方法windows">インストール方法(Windows)</a></li>
       </ul>
     </li>
-    <li><a href="#heading-2">使い方</a>
+    <li><a href="#使い方">使い方</a>
       <ul>
-        <li><a href="#geotag">geotagを削除する</a></li>
-        <li><a href="#heading-3">ついでに回転した写真の修正方法も</a></li>
+        <li><a href="#geotagを削除する">geotagを削除する</a></li>
+        <li><a href="#ついでに回転した写真の修正方法も">ついでに回転した写真の修正方法も</a></li>
       </ul>
     </li>
   </ul>

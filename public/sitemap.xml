@@ -22,11 +22,6 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/</loc>
-    <lastmod>2020-02-28T15:33:09+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kerikeri.top/post/</loc>
     <lastmod>2020-02-28T15:33:09+09:00</lastmod>
   </url>
@@ -359,6 +354,11 @@
   <url>
     <loc>https://kerikeri.top/posts/2017-08-18-esp32-sip-board/</loc>
     <lastmod>2017-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/</loc>
+    <lastmod>2017-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>

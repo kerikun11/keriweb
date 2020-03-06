@@ -106,7 +106,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-12-04T00:00:00">2016-12-04</time>
+	<time class="meta__text" datetime="2016-12-04T00:00:00Z">2016-12-04</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -120,9 +120,9 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>家のIPアドレスは固定ではないのでDDNSで追いかける．</p>
-<h2 id="heading-1">通知スクリプト</h2>
+<h2 id="通知スクリプト">通知スクリプト</h2>
 <h3 id="mydnssh">mydns.sh</h3>
 <p>たったこれだけ．</p>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="cp">#!/bin/sh
@@ -130,7 +130,7 @@ if (!doNotTrack) {
 wget -O- <span class="s1">&#39;http://mydns012345:XXXXXXXXXXX@www.mydns.jp/login.html&#39;</span>
 <span class="nb">echo</span> <span class="s2">&#34;end&#34;</span>
 </code></pre></div><p>実行権限をつけるのをお忘れなく．</p>
-<h2 id="crontab">Crontabの設定</h2>
+<h2 id="crontabの設定">Crontabの設定</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ crontab -e
 </code></pre></div><p>5分ごとに通知する．</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># Edit this file to introduce tasks to be run by cron.
@@ -285,13 +285,13 @@ wget -O- <span class="s1">&#39;http://mydns012345:XXXXXXXXXXX@www.mydns.jp/login
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">通知スクリプト</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#通知スクリプト">通知スクリプト</a>
       <ul>
         <li><a href="#mydnssh">mydns.sh</a></li>
       </ul>
     </li>
-    <li><a href="#crontab">Crontabの設定</a></li>
+    <li><a href="#crontabの設定">Crontabの設定</a></li>
   </ul>
 </nav>
 	</div>

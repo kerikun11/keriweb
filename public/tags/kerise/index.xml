@@ -42,7 +42,7 @@
       <pubDate>Sat, 12 Oct 2019 01:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-10-12-unknown-accel/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;はじめに&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
 &lt;p&gt;こんにちは．そろそろ修論研究が佳境になってきた けり です．&lt;/p&gt;
 &lt;p&gt;今回の記事では，
 マイクロマウス KERISE v4 に
@@ -69,7 +69,7 @@
       <description>&lt;p&gt;こんにちは．&lt;br&gt;
 マイクロマウス全日本大会の3日後に待ち構えていた&lt;strong&gt;卒論中間発表&lt;/strong&gt;を終えたけりです．&lt;/p&gt;
 &lt;p&gt;マウサーの皆さん，中間発表を終えた皆さん，本当にお疲れ様でした&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
+&lt;h2 id=&#34;全日本マイクロマウス2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
 &lt;p&gt;さて，11月17日(金)～19日(日)の3日間，全日本マイクロマウス2017が開催されました．&lt;/p&gt;
 &lt;p&gt;僕は去年に引き続き，2回目となる参加をしてきました！&lt;/p&gt;</description>
     </item>
@@ -92,7 +92,7 @@
 	
 &lt;/figure&gt;
 
-&lt;h3 id=&#34;3&#34;&gt;3台目のマウス&lt;/h3&gt;
+&lt;h3 id=&#34;3台目のマウス&#34;&gt;3台目のマウス&lt;/h3&gt;
 &lt;p&gt;マイクロマウスを始めて8か月目になりました．けりです．&lt;br&gt;
 作っては壊しを繰り返してはや3台目になります．なぜこんなに壊れるのでしょうか&amp;hellip;&lt;/p&gt;</description>
     </item>
@@ -103,7 +103,7 @@
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-01-12-1st-half/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;ハーフサイズの迷路を走ってみました&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;ハーフサイズの迷路を走ってみました&#34;&gt;ハーフサイズの迷路を走ってみました&lt;/h2&gt;
 &lt;p&gt;こんにちは，けりです．&lt;br&gt;
 KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷路で走らせてみることにしました！&lt;/p&gt;</description>
     </item>
@@ -114,7 +114,7 @@ KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-01-08-kerise-v2-1st/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;マイクロマウスクラシック&amp;amp;ハーフ兼用マウス&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;マイクロマウスクラシックハーフ兼用マウス&#34;&gt;マイクロマウスクラシック&amp;amp;ハーフ兼用マウス&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2016-11-21-micromouse2016/&#34;&gt;昨年の大会&lt;/a&gt;ではクラシッククラスに出場しましたが，今度はハーフにも出場したい！ということで，試しにハーフ迷路も走れる大きさのマウスを作ってみました．&lt;/p&gt;
 &lt;figure &gt;
 	
@@ -134,7 +134,7 @@ KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷
       <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-11-21-micromouse2016/</guid>
-      <description>&lt;h2 id=&#34;2016&#34;&gt;全日本マイクロマウス大会2016&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;全日本マイクロマウス大会2016&#34;&gt;全日本マイクロマウス大会2016&lt;/h2&gt;
 &lt;p&gt;今年春に先輩から誘われて8月ごろから設計を始めたマイクロマウス．&lt;br&gt;
 11月に開催された全日本マイクロマウス大会2016に出場してきました！&lt;/p&gt;</description>
     </item>

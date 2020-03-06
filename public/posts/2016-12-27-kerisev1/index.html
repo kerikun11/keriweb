@@ -131,7 +131,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-12-27T00:00:00">2016-12-27</time>
+	<time class="meta__text" datetime="2016-12-27T00:00:00Z">2016-12-27</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -145,7 +145,7 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="heading">概要</h2>
+			<h2 id="概要">概要</h2>
 <p>今年の全日本マイクロマウス大会2016に出場したKERISE v1．今回はその回路設計を紹介します．</p>
 <p>全日本マイクロマウス大会2016の結果報告は<a href="/posts/2016-11-21-micromouse2016/">こちら</a></p>
 <figure >
@@ -159,7 +159,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-1">主な使用部品</h2>
+<h2 id="主な使用部品">主な使用部品</h2>
 <p>部品のほとんどは<a href="http://www.digikey.jp/">digikey</a>で購入しました．</p>
 <table>
 <thead>
@@ -197,11 +197,11 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<h2 id="heading-2">回路図</h2>
+<h2 id="回路図">回路図</h2>
 <p><a href="sketch.pdf">ここ</a>からダウンロードできます．</p>
 <p>KiCadの階層機能を使って書いてみました．とても便利です．</p>
-<h2 id="heading-3">各部位の説明</h2>
-<h3 id="heading-4">マイコン</h3>
+<h2 id="各部位の説明">各部位の説明</h2>
+<h3 id="マイコン">マイコン</h3>
 <p>マイコンは，STM32F405RGT6を使いました．ARMのCortex-M4が入っており高スペックです．</p>
 <table>
 <thead>
@@ -229,7 +229,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<h3 id="heading-5">電源回路</h3>
+<h3 id="電源回路">電源回路</h3>
 <p>バッテリーは，3.7vのリポを2つ直列につなぐので，7.4Vです．それをDCDCコンバータで5Vに落とし，さらにリニアレギュレータで3.3Vに落とします．</p>
 <figure >
 	
@@ -243,7 +243,7 @@ if (!doNotTrack) {
 </figure>
 
 <p>※2017.11.03追記：電源スイッチにPchFETをつけました．BAT-VOLにコンデンサをつけました．</p>
-<h3 id="heading-6">モータードライバ</h3>
+<h3 id="モータードライバ">モータードライバ</h3>
 <p>モータードライバは，DRV8835を使用しました．1.5Aまで流せるHブリッジが2つ入っています．2つ並列に使えば3Aまで流すことができるらしいです．</p>
 <p>パッケージは，12-WSONといい，0.5mmピッチで足が側面にわずかに出ているもので，はんだ付けが難しかったです．</p>
 <figure >
@@ -257,11 +257,11 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="6">6軸センサ</h3>
+<h3 id="6軸センサ">6軸センサ</h3>
 <p>6軸センサにはMPU6500を使いました．といっても，そのうちジャイロ1軸と加速度1軸の計2軸しか使っていません．</p>
 <p>SPIでデジタルデータを得ることができるので，とても使いやすいですが，はんだ付けはカオスです．</p>
 <p>1kHzで値を得ることができます．</p>
-<h3 id="heading-7">フォトリフレクタ</h3>
+<h3 id="フォトリフレクタ">フォトリフレクタ</h3>
 <p>フォトリフレクタには，指向性の高い赤外線LEDと，応答の速いフォトダイオードを使用しました．</p>
 <p>受光回路は，オペアンプでバンドパスフィルタを作り，高周波と低周波成分をカットしています．
 そのため，赤外線LEDは2kHzで点滅させることで，周辺光と区別しています．この回路は先輩から教えてもらいました．</p>
@@ -289,7 +289,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-8">基板の設計</h2>
+<h2 id="基板の設計">基板の設計</h2>
 <p>KiCadで設計します．いつも通り，<a href="/posts/2016-04-22-freerouting/">自動配線</a>をフル活用です．</p>
 <figure >
 	
@@ -313,7 +313,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-9">できた基板</h2>
+<h2 id="できた基板">できた基板</h2>
 <p>Elecrowに発注して約10日で基板が届きました！</p>
 <figure >
 	
@@ -326,9 +326,9 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="heading-10">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>はんだ付けを練習しましょう．</p>
-<h2 id="heading-11">参考文献</h2>
+<h2 id="参考文献">参考文献</h2>
 <ul>
 <li><a href="http://blog.tokor.org/2015/08/16/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9%E9%80%B2%E6%8D%97%E5%A0%B1%E5%91%8A/">マイクロマウス進捗報告</a></li>
 </ul>
@@ -460,22 +460,22 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">概要</a></li>
-    <li><a href="#heading-1">主な使用部品</a></li>
-    <li><a href="#heading-2">回路図</a></li>
-    <li><a href="#heading-3">各部位の説明</a>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#主な使用部品">主な使用部品</a></li>
+    <li><a href="#回路図">回路図</a></li>
+    <li><a href="#各部位の説明">各部位の説明</a>
       <ul>
-        <li><a href="#heading-4">マイコン</a></li>
-        <li><a href="#heading-5">電源回路</a></li>
-        <li><a href="#heading-6">モータードライバ</a></li>
-        <li><a href="#6">6軸センサ</a></li>
-        <li><a href="#heading-7">フォトリフレクタ</a></li>
+        <li><a href="#マイコン">マイコン</a></li>
+        <li><a href="#電源回路">電源回路</a></li>
+        <li><a href="#モータードライバ">モータードライバ</a></li>
+        <li><a href="#6軸センサ">6軸センサ</a></li>
+        <li><a href="#フォトリフレクタ">フォトリフレクタ</a></li>
       </ul>
     </li>
-    <li><a href="#heading-8">基板の設計</a></li>
-    <li><a href="#heading-9">できた基板</a></li>
-    <li><a href="#heading-10">まとめ</a></li>
-    <li><a href="#heading-11">参考文献</a></li>
+    <li><a href="#基板の設計">基板の設計</a></li>
+    <li><a href="#できた基板">できた基板</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
   </ul>
 </nav>
 	</div>

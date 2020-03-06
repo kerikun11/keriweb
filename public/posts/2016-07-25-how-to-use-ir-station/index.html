@@ -109,7 +109,7 @@ if (!doNotTrack) {
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg>
-	<time class="meta__text" datetime="2016-07-25T00:00:00">2016-07-25</time>
+	<time class="meta__text" datetime="2016-07-25T00:00:00Z">2016-07-25</time>
 </div>
 
 <div class="meta__item-categories meta__item">
@@ -123,9 +123,9 @@ if (!doNotTrack) {
 </div>
 </div>
 		</header><div class="content post__content clearfix">
-			<h2 id="ir-station">IR-Stationとは</h2>
+			<h2 id="ir-stationとは">IR-Stationとは</h2>
 <p>自作のWiFi接続の赤外線学習リモコンです．IR-Stationを使えば，スマホやPCから家電製品をコントロールすることができます．</p>
-<h3 id="heading">本体の写真</h3>
+<h3 id="本体の写真">本体の写真</h3>
 <p>上面の4つの点が赤外線LEDです．</p>
 <figure >
 	
@@ -138,7 +138,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-1">壁に取り付けた時の様子</h3>
+<h3 id="壁に取り付けた時の様子">壁に取り付けた時の様子</h3>
 <p>とてもコンパクトです．</p>
 <figure >
 	
@@ -151,17 +151,17 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="ir-station-1">IR-Stationのバージョン</h2>
+<h2 id="ir-stationのバージョン">IR-Stationのバージョン</h2>
 <p>この記事の内容は，IR-Stationの「<strong>v1.4.0</strong>」に対応しております．ご注意ください．</p>
-<h2 id="2">2つの動作モード</h2>
-<h3 id="wifi">WiFiステーションモード</h3>
+<h2 id="2つの動作モード">2つの動作モード</h2>
+<h3 id="wifiステーションモード">WiFiステーションモード</h3>
 <p>IR-Stationを家のルーターなどに接続して，スマホやPCからはルーター経由でIR-Stationに接続するモードです．</p>
 <p>普通はこちらのモードを使います．</p>
-<h3 id="wifi-1">WiFiアクセスポイントモード</h3>
+<h3 id="wifiアクセスポイントモード">WiFiアクセスポイントモード</h3>
 <p>IR-StationがWiFiのアクセスポイントになり，スマホやPCがIR-StationのWiFiに接続して使用するモードです．</p>
 <p>このモードの場合，ルーターが不要なのでお手軽ですが，IR-StationのWiFiはインターネットに接続されていないので，スマホもインターネットにはつなぐことができないので注意が必要です．</p>
-<h2 id="ir-station-2">IR-Stationのセットアップ</h2>
-<h3 id="ir-station-3">IR-Stationに電源を供給</h3>
+<h2 id="ir-stationのセットアップ">IR-Stationのセットアップ</h2>
+<h3 id="ir-stationに電源を供給">IR-Stationに電源を供給</h3>
 <p>電源はUSB-Micro-Bケーブルを使って，適当なUSB電源から供給します．</p>
 <figure >
 	
@@ -174,7 +174,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="ir-station-4">IR-Stationが出現</h3>
+<h3 id="ir-stationが出現">IR-Stationが出現</h3>
 <p>電源を供給すると，<code>IR-Station</code>という名前のWiFiが出現します．<br>
 セキュリティがかかっている場合はパスワード「IR-Station」を使ってください．</p>
 <figure >
@@ -188,7 +188,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-2">自動でウィンドウが現れる</h3>
+<h3 id="自動でウィンドウが現れる">自動でウィンドウが現れる</h3>
 <p>AppleのデバイスやWindowsの場合，自動でログイン画面が現れます．</p>
 <p>自動で画面が現れない場合や，その他のデバイスを使っている場合は，適当なブラウザで<a href="http://192.168.4.1">http://192.168.4.1</a>を開いてください．</p>
 <figure >
@@ -202,11 +202,11 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="wifi-2">付近のWiFiを検出</h3>
+<h3 id="付近のwifiを検出">付近のWiFiを検出</h3>
 <p>ログイン画面が現れて，しばらくすると，IR-Stationのセットアップ画面が表示されます．</p>
-<h4 id="ir-station-5">IR-Stationをステーションモードで使う場合</h4>
+<h4 id="ir-stationをステーションモードで使う場合">IR-Stationをステーションモードで使う場合</h4>
 <p><code>WiFi Setup Mode</code>内に必要事項を記入し，<code>Confirm</code>ボタンを押します．</p>
-<h4 id="ir-station-6">IR-Stationをアクセスポイントモードで使う場合</h4>
+<h4 id="ir-stationをアクセスポイントモードで使う場合">IR-Stationをアクセスポイントモードで使う場合</h4>
 <p><code>Access Point Mode</code>内に必要事項を記入し，<code>Access Point Mode</code>ボタンを押します．</p>
 <figure >
 	
@@ -219,7 +219,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-3">接続成功画面→スクリーンショット</h3>
+<h3 id="接続成功画面スクリーンショット">接続成功画面→スクリーンショット</h3>
 <p>入力したWiFi情報が正しく，接続に成功した場合，以下のような画面になります．この画面に表示されるURLを控えておかないといけないので，この画面を<strong>スクリーンショット</strong>することをお勧めします．</p>
 <p>失敗した場合は前の画面に戻るので，もう一度正しく入力してください．(時々，入力したWiFi情報が正しくても接続に失敗することがあるので，その場合はもう一度試してください．)</p>
 <figure >
@@ -233,7 +233,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="ssid">上手くいくとSSIDが消える</h3>
+<h3 id="上手くいくとssidが消える">上手くいくとSSIDが消える</h3>
 <p>設定が完了するとIR-StationのWiFiが消えてなくなります．</p>
 <figure >
 	
@@ -246,8 +246,8 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h2 id="ir-station-7">IR-Stationを使う</h2>
-<h3 id="ip">IPアドレスでアクセス(すべての機器で使えます)</h3>
+<h2 id="ir-stationを使う">IR-Stationを使う</h2>
+<h3 id="ipアドレスでアクセスすべての機器で使えます">IPアドレスでアクセス(すべての機器で使えます)</h3>
 <figure >
 	
 		
@@ -259,7 +259,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="mdns">mDNSホスト名でアクセス（対応機器のみ）</h3>
+<h3 id="mdnsホスト名でアクセス対応機器のみ">mDNSホスト名でアクセス（対応機器のみ）</h3>
 <p>mDNS対応機器には，Appleデバイス，iTunesのインストールされたWindows PCなどがあります．これらのデバイスからは，IPアドレスだけでなく，わかりやすい名前のURLでアクセスすることができます．表示される画面は同じです．</p>
 <figure >
 	
@@ -272,7 +272,7 @@ if (!doNotTrack) {
 	
 </figure>
 
-<h3 id="heading-4">赤外線信号を登録する</h3>
+<h3 id="赤外線信号を登録する">赤外線信号を登録する</h3>
 <ol>
 <li>画面の下の方の<code>Recode a Signal</code>というボタンを押すと，メニューが現れます．</li>
 <li>登録したいチャンネルを選び，ボタンの名前を入力します．</li>
@@ -280,9 +280,9 @@ if (!doNotTrack) {
 <li>その状態でIR-Stationにリモコンを向けて，登録したいリモコンのボタンを押してください．</li>
 <li>登録に成功すると，IR-Stationの画面上のボタンの名前が更新されます．</li>
 </ol>
-<h3 id="ir-station-8">赤外線信号を送る（IR-Stationをリモコンとして使う）</h3>
+<h3 id="赤外線信号を送るir-stationをリモコンとして使う">赤外線信号を送る（IR-Stationをリモコンとして使う）</h3>
 <p>画面上のボタンを押すだけです．そのボタンに割り当てられた赤外線信号がIR-Stationから送られます．送信中は画面のボタンがピンクに変わります．ピンク色が元の白色に戻ったら送信完了です．</p>
-<h2 id="heading-5">まとめ</h2>
+<h2 id="まとめ">まとめ</h2>
 <p>IR-Stationは，僕ひとりでかなりの時間をかけて開発してきたものです．やっと実用できるレベルまで来ました．これからもバージョンアップを重ねて，より便利にしていきたいです．</p>
 		</div>
 		<footer class="post__footer">
@@ -412,38 +412,38 @@ if (!doNotTrack) {
 	<div class="widget__content">
     	<nav id="TableOfContents">
   <ul>
-    <li><a href="#ir-station">IR-Stationとは</a>
+    <li><a href="#ir-stationとは">IR-Stationとは</a>
       <ul>
-        <li><a href="#heading">本体の写真</a></li>
-        <li><a href="#heading-1">壁に取り付けた時の様子</a></li>
+        <li><a href="#本体の写真">本体の写真</a></li>
+        <li><a href="#壁に取り付けた時の様子">壁に取り付けた時の様子</a></li>
       </ul>
     </li>
-    <li><a href="#ir-station-1">IR-Stationのバージョン</a></li>
-    <li><a href="#2">2つの動作モード</a>
+    <li><a href="#ir-stationのバージョン">IR-Stationのバージョン</a></li>
+    <li><a href="#2つの動作モード">2つの動作モード</a>
       <ul>
-        <li><a href="#wifi">WiFiステーションモード</a></li>
-        <li><a href="#wifi-1">WiFiアクセスポイントモード</a></li>
+        <li><a href="#wifiステーションモード">WiFiステーションモード</a></li>
+        <li><a href="#wifiアクセスポイントモード">WiFiアクセスポイントモード</a></li>
       </ul>
     </li>
-    <li><a href="#ir-station-2">IR-Stationのセットアップ</a>
+    <li><a href="#ir-stationのセットアップ">IR-Stationのセットアップ</a>
       <ul>
-        <li><a href="#ir-station-3">IR-Stationに電源を供給</a></li>
-        <li><a href="#ir-station-4">IR-Stationが出現</a></li>
-        <li><a href="#heading-2">自動でウィンドウが現れる</a></li>
-        <li><a href="#wifi-2">付近のWiFiを検出</a></li>
-        <li><a href="#heading-3">接続成功画面→スクリーンショット</a></li>
-        <li><a href="#ssid">上手くいくとSSIDが消える</a></li>
+        <li><a href="#ir-stationに電源を供給">IR-Stationに電源を供給</a></li>
+        <li><a href="#ir-stationが出現">IR-Stationが出現</a></li>
+        <li><a href="#自動でウィンドウが現れる">自動でウィンドウが現れる</a></li>
+        <li><a href="#付近のwifiを検出">付近のWiFiを検出</a></li>
+        <li><a href="#接続成功画面スクリーンショット">接続成功画面→スクリーンショット</a></li>
+        <li><a href="#上手くいくとssidが消える">上手くいくとSSIDが消える</a></li>
       </ul>
     </li>
-    <li><a href="#ir-station-7">IR-Stationを使う</a>
+    <li><a href="#ir-stationを使う">IR-Stationを使う</a>
       <ul>
-        <li><a href="#ip">IPアドレスでアクセス(すべての機器で使えます)</a></li>
-        <li><a href="#mdns">mDNSホスト名でアクセス（対応機器のみ）</a></li>
-        <li><a href="#heading-4">赤外線信号を登録する</a></li>
-        <li><a href="#ir-station-8">赤外線信号を送る（IR-Stationをリモコンとして使う）</a></li>
+        <li><a href="#ipアドレスでアクセスすべての機器で使えます">IPアドレスでアクセス(すべての機器で使えます)</a></li>
+        <li><a href="#mdnsホスト名でアクセス対応機器のみ">mDNSホスト名でアクセス（対応機器のみ）</a></li>
+        <li><a href="#赤外線信号を登録する">赤外線信号を登録する</a></li>
+        <li><a href="#赤外線信号を送るir-stationをリモコンとして使う">赤外線信号を送る（IR-Stationをリモコンとして使う）</a></li>
       </ul>
     </li>
-    <li><a href="#heading-5">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
   </ul>
 </nav>
 	</div>
