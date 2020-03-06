@@ -23,7 +23,6 @@ thumbnail: "icon.png"
 - [滑らかな加速の設計③ 走行距離を考慮した速度設計](/posts/2018-04-29-accel-designer3/)
 - [滑らかな加速の設計④ C++による実装例](/posts/2018-04-29-accel-designer4/)
 
-
 ## 設計内容
 
 設計1によって，始点速度と終点速度を与えれば，それを繋ぐ曲線加速を生成できるようになりました．
@@ -35,6 +34,7 @@ thumbnail: "icon.png"
 ここで，図中の赤線である最大速度とその継続時間は，走行距離の拘束条件を満たすように算出します．
 
 ## 拘束条件
+
 与える情報は以下の通りです．
 
 - 最大加速度 $a_{m}$
@@ -192,7 +192,7 @@ d_m & = \\int\_{t_0}^{t_1}v(t) dt + \\int\_{t_1}^{t_2}v(t) dt
 \\newline
 &= \\int\_{t_0}^{t_1}\\left( v_0+\\frac{1}{2} j_m(t-t_0)^2 \\right) dt
 \\newline
-&\\quad+ \\int\_{t_1}^{t_2}\\left( 
+&\\quad+ \\int\_{t_1}^{t_2}\\left(
   v_0+\\frac{1}{2} j_m(t_1-t_0)^2
   +j_m(t_1-t_0)(t-t_1) - \\frac{1}{2}j_m(t-t_1)^2
 \\right) dt
@@ -238,10 +238,10 @@ d &= \\frac{1}{2}(v_s+v\_{e2})(t_3-t_0)
 \\newline
 &= \\frac{1}{2}(v_s+v\_{e2})2\\sqrt{\\frac{t_c}{a_m}(v\_{e2}-v_s)}
 \\newline
-\\Leftrightarrow 
+\\Leftrightarrow
 v\_{e2}^3 &+ v_s v\_{e2}^2-v_s^2v\_{e2}-v_s^3-\frac{a_md^2}{t_c} = 0
 \\newline
-\\Leftrightarrow 
+\\Leftrightarrow
 v\_{e2} &=
 \\frac{1}{3}\\left(c +\\frac{4a^2}{c}
   -a
@@ -324,3 +324,7 @@ $$
 ## 追記：2019.03.19
 
 一部の場合分けのミスを修正しました．
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>

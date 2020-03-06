@@ -18,7 +18,7 @@
 散らかりがちな生成物を build ディレクトリにまとめる
 TeXコードのとなりにPDFを表示
 SyncTexによりTeXコードとPDFの相互ジャンプ
-VSCode Vim を使ってvimキーバインド
+VSCode Vim を使ってvimキーバインド (オプション)
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kerikeri.top/posts/2019-01-14-vscode-latex/" />
@@ -37,7 +37,7 @@ VSCode Vim を使ってvimキーバインド
 散らかりがちな生成物を build ディレクトリにまとめる
 TeXコードのとなりにPDFを表示
 SyncTexによりTeXコードとPDFの相互ジャンプ
-VSCode Vim を使ってvimキーバインド
+VSCode Vim を使ってvimキーバインド (オプション)
 "/>
 <meta name="twitter:site" content="@kerikun11"/>
 
@@ -150,7 +150,7 @@ if (!doNotTrack) {
 <li>散らかりがちな生成物を <code>build</code> ディレクトリにまとめる</li>
 <li>TeXコードのとなりにPDFを表示</li>
 <li><code>SyncTex</code>によりTeXコードとPDFの相互ジャンプ</li>
-<li>VSCode Vim を使ってvimキーバインド</li>
+<li>VSCode Vim を使ってvimキーバインド (オプション)</li>
 </ul>
 <h2 id="環境構築">環境構築</h2>
 <h3 id="インストール">インストール</h3>
@@ -165,18 +165,13 @@ if (!doNotTrack) {
 <li>LaTeX Workshop</li>
 <li>Vim (オプション)</li>
 </ul>
+<p>サイドバーの拡張機能で検索してインストールできます．</p>
 <h3 id="vscodeの設定">VSCodeの設定</h3>
 <p>デフォルトの設定ではなぜかTeXのコンパイルが通らなかったので，以下の設定を行います．</p>
-<p><code>Ctrl+,</code>でVSCodeの設定を開き，
-右上の<code>{}</code>アイコンをクリックして，
-ワークスペースの設定を選び，
-<code>settings.json</code>に以下の内容を追加します．</p>
-<p>ダウンロード: <a href="settings.json">.vscode/settings.json</a></p>
+<p>コマンドパレット<code>Ctrl+Shift+P</code>に<code>open settings json</code>などと入力して，
+<code>Preferences: Open Settings (JSON)</code>を選び，設定ファイルに
+以下の内容を追加します．</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
-    <span class="c1">// 自動保存
-</span><span class="c1"></span>    <span class="s2">&#34;files.autoSave&#34;</span><span class="o">:</span> <span class="s2">&#34;afterDelay&#34;</span><span class="p">,</span>
-    <span class="c1">// autoSaveとの相性が悪いので保存時自動ビルドを無効化
-</span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.autoBuild.run&#34;</span><span class="o">:</span> <span class="s2">&#34;never&#34;</span><span class="p">,</span>
     <span class="c1">// ビルドコマンド
 </span><span class="c1"></span>    <span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -202,8 +197,6 @@ if (!doNotTrack) {
 <p>コマンドパレット<code>Ctrl+Shift+P</code>で
 <code>Preferences: Open Keyboard Shortcuts File</code>とタイプすると開かれる
 <code>keybindings.json</code>に以下の内容を追記します．</p>
-<p>ビルド，クリーン，シンクのショートカットを追加します．</p>
-<p>他のショートカットと干渉しないように，TeXファイルを編集中ときだけ適用されるようにします．</p>
 <div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;ctrl+alt+b&#34;</span><span class="p">,</span>
@@ -221,7 +214,10 @@ if (!doNotTrack) {
         <span class="nt">&#34;when&#34;</span><span class="p">:</span> <span class="s2">&#34;resourceLangId == latex&#34;</span>
     <span class="p">}</span>
 <span class="p">]</span>
-</code></pre></div><h3 id="latexmkrc-の追加">.latexmkrc の追加</h3>
+</code></pre></div><p>ビルド，クリーン，シンクのショートカットを追加しました．</p>
+<p>なお，他のショートカットと干渉しないように，
+TeXファイルを編集中ときだけ適用されるようにしています．</p>
+<h3 id="latexmkrc-の追加">.latexmkrc の追加</h3>
 <p>TeXにはplatexやlualatexなど様々なコマンドがありますが，エディタのビルド設定を変更してしまうと，コマンドが違うプロジェクトごとにいちいち設定を変えなければならなくなります．</p>
 <p>それを解決するために，<a href="https://texwiki.texjp.org/?Latexmk">latexmk</a>というビルドコマンドがあります．</p>
 <p>texファイルと同じディレクトリに<code>.latexmkrc</code>という設定ファイルを置くと，そのファイルに書かれたビルドコマンドでビルドしてくれるので，エディタ側の設定を変更する必要がなくなります．</p>
@@ -278,8 +274,7 @@ if (!doNotTrack) {
     <span class="k">\dot</span><span class="nb">{</span><span class="k">\theta</span><span class="nb">}</span> <span class="nb">&amp;</span> = <span class="k">\frac</span><span class="nb">{</span>1<span class="nb">}{</span>l<span class="nb">}</span><span class="k">\tan</span> <span class="k">\phi</span> u<span class="nb">_</span>1 <span class="k">\\</span>
     <span class="k">\dot</span><span class="nb">{</span><span class="k">\phi</span><span class="nb">}</span>   <span class="nb">&amp;</span> = u<span class="nb">_</span>2
 <span class="k">\end</span><span class="nb">{</span>align*<span class="nb">}</span>
-</code></pre></div><p>これは プラグイン latex-formatterの機能です．</p>
-<h3 id="ビルドに失敗したら">ビルドに失敗したら？</h3>
+</code></pre></div><h3 id="ビルドに失敗したら">ビルドに失敗したら？</h3>
 <p>とりあえず，中間生成物をすべて消去して，クリーンビルドを試しましょう．</p>
 <h2 id="その他">その他</h2>
 <p>VSCode の最大の魅力は

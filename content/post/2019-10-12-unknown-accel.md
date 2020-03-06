@@ -149,3 +149,7 @@ $$
 探索部分をもっと工夫して賢いマウスを作りたいですね！
 
 ではまた！
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>

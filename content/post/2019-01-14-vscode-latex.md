@@ -21,7 +21,7 @@ spotlight: "true"
 - 散らかりがちな生成物を `build` ディレクトリにまとめる
 - TeXコードのとなりにPDFを表示
 - `SyncTex`によりTeXコードとPDFの相互ジャンプ
-- VSCode Vim を使ってvimキーバインド
+- VSCode Vim を使ってvimキーバインド (オプション)
 
 <!--more-->
 
@@ -41,23 +41,18 @@ spotlight: "true"
 - LaTeX Workshop
 - Vim (オプション)
 
+サイドバーの拡張機能で検索してインストールできます．
+
 ### VSCodeの設定
 
 デフォルトの設定ではなぜかTeXのコンパイルが通らなかったので，以下の設定を行います．
 
-`Ctrl+,`でVSCodeの設定を開き，
-右上の`{}`アイコンをクリックして，
-ワークスペースの設定を選び，
-`settings.json`に以下の内容を追加します．
-
-ダウンロード: [.vscode/settings.json](settings.json)
+コマンドパレット`Ctrl+Shift+P`に`open settings json`などと入力して，
+`Preferences: Open Settings (JSON)`を選び，設定ファイルに
+以下の内容を追加します．
 
 ```js
 {
-    // 自動保存
-    "files.autoSave": "afterDelay",
-    // autoSaveとの相性が悪いので保存時自動ビルドを無効化
-    "latex-workshop.latex.autoBuild.run": "never",
     // ビルドコマンド
     "latex-workshop.latex.tools": [
         {
@@ -87,10 +82,6 @@ spotlight: "true"
 `Preferences: Open Keyboard Shortcuts File`とタイプすると開かれる
 `keybindings.json`に以下の内容を追記します．
 
-ビルド，クリーン，シンクのショートカットを追加します．
-
-他のショートカットと干渉しないように，TeXファイルを編集中ときだけ適用されるようにします．
-
 ```json
 [
     {
@@ -110,6 +101,11 @@ spotlight: "true"
     }
 ]
 ```
+
+ビルド，クリーン，シンクのショートカットを追加しました．
+
+なお，他のショートカットと干渉しないように，
+TeXファイルを編集中ときだけ適用されるようにしています．
 
 ### .latexmkrc の追加
 
@@ -198,8 +194,6 @@ ESCなどで候補を閉じてしまって，もう一度表示したいとき�
     \dot{\phi}   & = u_2
 \end{align*}
 ```
-
-これは プラグイン latex-formatterの機能です．
 
 ### ビルドに失敗したら？
 

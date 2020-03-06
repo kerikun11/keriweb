@@ -171,3 +171,7 @@ $$
 今回の記事では，始点速度と終点速度を滑らかにつなぐ曲線加速の設計を行いました．
 
 [次回の記事](/posts/2018-04-29-accel-designer3/)では，走行距離の拘束条件を満たすように，今回設計した曲線加速を組み合わせていきます．
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>

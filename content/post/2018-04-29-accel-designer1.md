@@ -96,3 +96,7 @@ spotlight: "true"
 本記事では，台形加速の問題点を指摘し，曲線加速の必要性を述べました．
 
 [次回の記事](/posts/2018-04-29-accel-designer2/)では，その曲線加速の設計法を述べていきます．
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>

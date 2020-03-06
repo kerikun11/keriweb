@@ -359,3 +359,7 @@ end
 ### 追記: 2019年1月29日
 
 ソースコードに飽和速度を超過するバグがあったので修正しました．
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>

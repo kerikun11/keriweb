@@ -29,7 +29,7 @@
 &lt;li&gt;散らかりがちな生成物を &lt;code&gt;build&lt;/code&gt; ディレクトリにまとめる&lt;/li&gt;
 &lt;li&gt;TeXコードのとなりにPDFを表示&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;SyncTex&lt;/code&gt;によりTeXコードとPDFの相互ジャンプ&lt;/li&gt;
-&lt;li&gt;VSCode Vim を使ってvimキーバインド&lt;/li&gt;
+&lt;li&gt;VSCode Vim を使ってvimキーバインド (オプション)&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     
