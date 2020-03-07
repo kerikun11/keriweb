@@ -8,10 +8,23 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 23 Dec 2019 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2020 12:08:12 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>M5Stackで作るマイクロマウスのタイム表示機</title>
+      <link>https://kerikeri.top/posts/2020-03-07-m5stack-micromouse-timer/</link>
+      <pubDate>Sat, 07 Mar 2020 12:08:12 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-03-07-m5stack-micromouse-timer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;こんにちは．
+春休みに行きたい予定が重なっていてどちらに行くか迷っていたのに，
+どちらの予定も中止になって虚無になったけりです．&lt;/p&gt;
+&lt;p&gt;今回は先日制作したマイクロマウスのタイム表示機の紹介です．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Cheese Timer の紹介</title>
@@ -411,17 +424,6 @@ KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;赤外線学習リモコンとは，市販の家電製品などのリモコンの赤外線信号を記憶し，送信することができるものです．&lt;/p&gt;
 &lt;p&gt;今回は，WiFi接続に対応した赤外線学習リモコンを作りました．スマートフォンやパソコンなどから，家電製品をコントロールすることができます．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>赤外線学習リモコンの基板が届きました！</title>
-      <link>https://kerikeri.top/posts/2016-07-06-ir-station-board/</link>
-      <pubDate>Wed, 06 Jul 2016 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2016-07-06-ir-station-board/</guid>
-      <description>&lt;h2 id=&#34;基板が届きました&#34;&gt;基板が届きました&lt;/h2&gt;
-&lt;h3 id=&#34;思ったより早かった&#34;&gt;思ったより早かった&lt;/h3&gt;
-&lt;p&gt;基板加工サービス&lt;a href=&#34;http://www.elecrow.com/&#34;&gt;Elecrow&lt;/a&gt;に発注した基板が届きました！発送方法は一番安い&lt;code&gt;Registered Airmail&lt;/code&gt;だったのですが，なんと発注から10日で届きました！&lt;/p&gt;</description>
     </item>
     
   </channel>

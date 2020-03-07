@@ -6,7 +6,6 @@ categories:
 tags:
   - "マイクロマウス"
 thumbnail: "icon.jpg"
-draft: true
 ---
 
 ## はじめに

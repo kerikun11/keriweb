@@ -8,10 +8,19 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Fri, 28 Feb 2020 15:33:09 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2020 12:08:12 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウス</title>
+      <link>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</link>
+      <pubDate>Sat, 07 Mar 2020 12:08:12 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cheese</title>
@@ -19,15 +28,6 @@
       <pubDate>Fri, 28 Feb 2020 15:33:09 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/tags/cheese/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>マイクロマウス</title>
-      <link>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</link>
-      <pubDate>Mon, 23 Dec 2019 09:00:00 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</guid>
       <description></description>
     </item>
     

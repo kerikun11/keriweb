@@ -32,6 +32,19 @@
     </item>
     
     <item>
+      <title>M5Stackで作るマイクロマウスのタイム表示機</title>
+      <link>https://kerikeri.top/posts/2020-03-07-m5stack-micromouse-timer/</link>
+      <pubDate>Sat, 07 Mar 2020 12:08:12 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-03-07-m5stack-micromouse-timer/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;こんにちは．
+春休みに行きたい予定が重なっていてどちらに行くか迷っていたのに，
+どちらの予定も中止になって虚無になったけりです．&lt;/p&gt;
+&lt;p&gt;今回は先日制作したマイクロマウスのタイム表示機の紹介です．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>台湾旅行のメモ</title>
       <link>https://kerikeri.top/posts/2020-02-28-cheese-trip-in-taiwan/</link>
       <pubDate>Fri, 28 Feb 2020 15:33:09 +0900</pubDate>
@@ -356,17 +369,6 @@ Cheese主催のマイクロマウス・プチ大会
 &lt;h2 id=&#34;全日本マイクロマウス2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
 &lt;p&gt;さて，11月17日(金)～19日(日)の3日間，全日本マイクロマウス2017が開催されました．&lt;/p&gt;
 &lt;p&gt;僕は去年に引き続き，2回目となる参加をしてきました！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>調整用の小さな迷路</title>
-      <link>https://kerikeri.top/posts/2017-11-05-small-maze/</link>
-      <pubDate>Sun, 05 Nov 2017 15:26:06 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-05-small-maze/</guid>
-      <description>&lt;p&gt;こんにちは．&lt;/p&gt;
-&lt;p&gt;エクストリーム新作のKERISEv3-2を諦めてKERISEv3-1を必死に調整している，けりです．&lt;/p&gt;
-&lt;p&gt;今回は自作の調整用迷路の紹介です．&lt;/p&gt;</description>
     </item>
     
   </channel>
