@@ -1,6 +1,6 @@
 ---
 date: "2019-12-21T21:00:00+09:00"
-title: "Cheese杯2019の迷路"
+title: "Cheese杯2019の迷路紹介"
 categories:
   - "作品紹介"
 tags:
