@@ -32,6 +32,19 @@
     </item>
     
     <item>
+      <title>過去の全日本マイクロマウス大会32x32迷路の分析</title>
+      <link>https://kerikeri.top/posts/2020-03-08-all-japan-32x32-maze/</link>
+      <pubDate>Sun, 08 Mar 2020 16:26:06 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-03-08-all-japan-32x32-maze/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;こんにちは．けりです．&lt;br&gt;
+今回はマイクロマウスの迷路探索のお話です．&lt;/p&gt;
+&lt;p&gt;過去10年分のマイクロマウス全日本大会の32x32迷路を比較してみました．&lt;/p&gt;
+&lt;p&gt;まずは探索走行の比較を，次に最短経路の比較を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>M5Stackで作るマイクロマウスのタイム表示機</title>
       <link>https://kerikeri.top/posts/2020-03-07-m5stack-micromouse-timer/</link>
       <pubDate>Sat, 07 Mar 2020 12:08:12 +0900</pubDate>
@@ -355,20 +368,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;が開催されました．結果報告の記事は&lt;a href=&#34;https://kerikeri.top/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．&lt;/p&gt;
 &lt;p&gt;今回はその迷路の探索結果についてお話しします．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全日本マイクロマウス2017の結果報告</title>
-      <link>https://kerikeri.top/posts/2017-11-22-micromouse2017/</link>
-      <pubDate>Wed, 22 Nov 2017 01:10:24 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-22-micromouse2017/</guid>
-      <description>&lt;p&gt;こんにちは．&lt;br&gt;
-マイクロマウス全日本大会の3日後に待ち構えていた&lt;strong&gt;卒論中間発表&lt;/strong&gt;を終えたけりです．&lt;/p&gt;
-&lt;p&gt;マウサーの皆さん，中間発表を終えた皆さん，本当にお疲れ様でした&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;全日本マイクロマウス2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
-&lt;p&gt;さて，11月17日(金)～19日(日)の3日間，全日本マイクロマウス2017が開催されました．&lt;/p&gt;
-&lt;p&gt;僕は去年に引き続き，2回目となる参加をしてきました！&lt;/p&gt;</description>
     </item>
     
   </channel>
