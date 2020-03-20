@@ -203,12 +203,12 @@ if (!doNotTrack) {
 <tr>
 <td align="left">8bitタイマ</td>
 <td align="left">4個</td>
-<td></td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left">16bitタイマ</td>
 <td align="left">4個</td>
-<td></td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left">PWM</td>
@@ -379,7 +379,7 @@ if (!doNotTrack) {
 </span><span class="c1"></span><span class="cp">#define T1OSC  2 </span><span class="c1">// Timer 1 OSC
 </span><span class="c1">// prescaler is 0~3
 </span><span class="c1">// clock_select is FOSC_4(Fosc/4) or T1OSC(32.768kHz)
-</span><span class="c1"></span><span class="kt">void</span> <span class="nf">Timer1_init</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span>  <span class="n">prescaler</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">clock_select</span><span class="p">)</span> <span class="p">{</span> 
+</span><span class="c1"></span><span class="kt">void</span> <span class="nf">Timer1_init</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span>  <span class="n">prescaler</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">clock_select</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">T1CONbits</span><span class="p">.</span><span class="n">TMR1CS</span> <span class="o">=</span> <span class="n">clock_select</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">clock_select</span> <span class="o">==</span> <span class="n">T1OSC</span><span class="p">)</span> <span class="n">T1CONbits</span><span class="p">.</span><span class="n">T1OSCEN</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Drive Crystal
 </span><span class="c1"></span>    <span class="k">else</span> <span class="n">T1CONbits</span><span class="p">.</span><span class="n">T1OSCEN</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -645,7 +645,7 @@ if (!doNotTrack) {
 <a href="https://github.com/kerikun11/MPLABXProjects/tree/master/My_library">PICライブラリ</a></p>
 <p>主に PIC18F27J53 と PIC16F1827、PIC12F1822 用に作られています。</p>
 <h3 id="何か気づいたら">何か気づいたら</h3>
-<p>もし、この記事の内容に間違いや疑問をを見つけたら遠慮なく教えてください。Twitterにリプを飛ばしていただけると嬉しいです。<a href="https://twitter.com/Ryokeri14">@Ryokeri14</a>←遠慮なくリプしてください。</p>
+<p>もし、この記事の内容に間違いや疑問をを見つけたら遠慮なく教えてください。Twitterにリプを飛ばしていただけると嬉しいです。<a href="https://twitter.com/kerikun11">@kerikun11</a>←遠慮なくリプしてください。</p>
 		</div>
 		<footer class="post__footer">
 			

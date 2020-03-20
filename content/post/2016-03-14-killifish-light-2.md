@@ -81,7 +81,7 @@ Dサイズのユニバーサル基板に実装しました。回路はとても�
 
 ## ソースファイル
 
-ソースファイルはGithubに公開していますので興味がある方はご覧ください。[→リンク](https://github.com/kerikun11/Light-for-Fish.git)
+ソースファイルはGitHubに公開していますので興味がある方はご覧ください。[→リンク](https://github.com/kerikun11/Light-for-Fish.git)
 
 ただし、他人に見せるつもりで書いたソースではないので説明は皆無です。
 

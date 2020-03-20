@@ -189,7 +189,7 @@ C言語はわかりづらいので，C++のラッパを作ってみました．
 
 - [ESP32_PowerManagement](https://github.com/kerikun11/ESP32_PowerManagement)
 
-Github上のコードが最新です．以下の説明は古い可能性があります．
+GitHub上のコードが最新です．以下の説明は古い可能性があります．
 
 ### PowerManagement クラス
 直観的に使えるようになっています．

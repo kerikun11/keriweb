@@ -82,8 +82,8 @@ RAMも大量にあって、**81kB**もあります。
 
 ## 作り方
 
-Githubに公開しているのでそちらをご覧下さい。  
-[Github - IR-station](https://github.com/kerikun11/IR-station)
+GitHubに公開しているのでそちらをご覧下さい。  
+[GitHub - IR-station](https://github.com/kerikun11/IR-station)
 
 ## まとめ
 

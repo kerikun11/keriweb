@@ -60,7 +60,7 @@ ESP-WROOM-32は[秋月電子](http://akizukidenshi.com/catalog/g/gM-11647/)で�
 
 ## ESP32の開発環境
 
-ESP32の開発環境は主に以下の2つです．どちらもEspressif公式のGithubリポジトリにあります．
+ESP32の開発環境は主に以下の2つです．どちらもEspressif公式のGitHubリポジトリにあります．
 
 |開発環境|概要|コメント|
 |:--|:--|:--|

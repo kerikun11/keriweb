@@ -1,7 +1,7 @@
 /**
 * @file Maze.h
 * @brief マイクロマウスの迷路クラスを定義
-* @author KERI (Github: kerikun11)
+* @author KERI (GitHub: kerikun11)
 * @date 2017.10.30
 */
 #pragma once

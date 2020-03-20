@@ -71,7 +71,7 @@ thumbnail: "icon.jpg"
 ## ソースコード
 
 M5Stack のファームウェアは
-[Github](https://github.com/kerikun11/m5stack-micromouse-timer) に公開しました．  
+[GitHub](https://github.com/kerikun11/m5stack-micromouse-timer) に公開しました．  
 ただし，著作権が不明な効果音ファイルはアップロードできませんでした...
 
 [PlatformIO](https://platformio.org/)のプロジェクトになっています．

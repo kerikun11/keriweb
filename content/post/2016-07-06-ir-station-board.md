@@ -17,31 +17,31 @@ thumbnail: "icon.jpg"
 
 ### 発注内容
 
-|項目				|詳細						|金額			|
-|:------------------|:--------------------------|:--------------|
-|10pcs				|2 layer PCB				|$9.90			|
-|Layer				|2							|				|
-|PCB Thickness		|0.6mm						|				|
-|Copper Weight		|1oz 35um					|				|
-|PCB Size			|5cm Max * 5cm Max			|				|
-|PCB Color			|White						|				|
-|Suface Finish		|Hasl (lead free)			|				|
-|PCB Stencil		|NO Stencil					|				|
-|Lead time			|Shipped in 4 to 7 days		|				|
-|Panelizing			|Single PCB with milling	|				|
-|File				|51049. IR-Station-01.zip	|				|
-|Registered Airmail	|Weight: 110 g. 7 - 25 Days	|$4.59			|
-|Total				|							|$14.49(￥1546)	|
+| 項目               | 詳細                       | 金額          |
+| :----------------- | :------------------------- | :------------ |
+| 10pcs              | 2 layer PCB                | $9.90         |
+| Layer              | 2                          |               |
+| PCB Thickness      | 0.6mm                      |               |
+| Copper Weight      | 1oz 35um                   |               |
+| PCB Size           | 5cm Max * 5cm Max          |               |
+| PCB Color          | White                      |               |
+| Suface Finish      | Hasl (lead free)           |               |
+| PCB Stencil        | NO Stencil                 |               |
+| Lead time          | Shipped in 4 to 7 days     |               |
+| Panelizing         | Single PCB with milling    |               |
+| File               | 51049. IR-Station-01.zip   |               |
+| Registered Airmail | Weight: 110 g. 7 - 25 Days | $4.59         |
+| Total              |                            | $14.49(￥1546) |
 
 ### 基板発注過程
 
-|日付		|経過日数	|出来事					|
-|:----------|:----------|:----------------------|
-|2016/06/25	|			|Webで基板発注			|
-|2016/06/25	|0			|CADデータのチェック	|
-|2016/06/25	|0			|加工開始				|
-|2016/06/29	|4			|発送					|
-|2016/07/05	|10			|到着					|
+| 日付       | 経過日数 | 出来事              |
+| :--------- | :------- | :------------------ |
+| 2016/06/25 |          | Webで基板発注       |
+| 2016/06/25 | 0        | CADデータのチェック |
+| 2016/06/25 | 0        | 加工開始            |
+| 2016/06/29 | 4        | 発送                |
+| 2016/07/05 | 10       | 到着                |
 
 ### 写真
 

@@ -54,7 +54,7 @@ ESP8266マイコンを備えたWiFiモジュールである，ESP-WROOM-02が現
 
 ## 作り方
 
-すべてのデータをGithubで公開しています．  
+すべてのデータをGitHubで公開しています．  
 作り方は[ここ](https://github.com/kerikun11/IR-station)を参考にしてください．
 
 ## 最後に
