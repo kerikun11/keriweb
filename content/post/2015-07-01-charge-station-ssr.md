@@ -6,6 +6,7 @@ categories:
 tags:
   - "PIC"
   - "Charge Station"
+  - "ロボット技術研究会"
 thumbnail: "icon.jpg"
 ---
 
