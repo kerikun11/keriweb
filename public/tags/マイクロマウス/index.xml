@@ -8,10 +8,25 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Sun, 08 Mar 2020 16:26:06 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2020 17:51:37 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウス迷路の自動生成</title>
+      <link>https://kerikeri.top/posts/2020-03-23-maze-generator/</link>
+      <pubDate>Mon, 23 Mar 2020 17:51:37 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-03-23-maze-generator/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;マイクロマウスを作るにあたって，
+普段は迷路を解くことばかり考えていますが，
+ふと迷路づくりについて考えてみました．&lt;/p&gt;
+&lt;p&gt;しかも，ランダムウォークによる迷路の自動生成を試してみました．&lt;/p&gt;
+&lt;p&gt;果たしてマイクロマウスっぽい迷路はできるのでしょうか．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>過去の全日本マイクロマウス大会32x32迷路の分析</title>
@@ -380,17 +395,6 @@ KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷
 		&lt;img src=&#34;KERISEv1.jpg&#34; alt=&#34;KERISEv1&#34; style=&#34;width: 240px;&#34;/&gt;
 	
 &lt;/figure&gt;</description>
-    </item>
-    
-    <item>
-      <title>全日本マイクロマウス2016の結果報告</title>
-      <link>https://kerikeri.top/posts/2016-11-21-micromouse2016/</link>
-      <pubDate>Mon, 21 Nov 2016 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2016-11-21-micromouse2016/</guid>
-      <description>&lt;h2 id=&#34;全日本マイクロマウス大会2016&#34;&gt;全日本マイクロマウス大会2016&lt;/h2&gt;
-&lt;p&gt;今年春に先輩から誘われて8月ごろから設計を始めたマイクロマウス．&lt;br&gt;
-11月に開催された全日本マイクロマウス大会2016に出場してきました！&lt;/p&gt;</description>
     </item>
     
   </channel>

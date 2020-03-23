@@ -8,10 +8,25 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Sun, 08 Mar 2020 16:26:06 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2020 17:51:37 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウス迷路の自動生成</title>
+      <link>https://kerikeri.top/posts/2020-03-23-maze-generator/</link>
+      <pubDate>Mon, 23 Mar 2020 17:51:37 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-03-23-maze-generator/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;マイクロマウスを作るにあたって，
+普段は迷路を解くことばかり考えていますが，
+ふと迷路づくりについて考えてみました．&lt;/p&gt;
+&lt;p&gt;しかも，ランダムウォークによる迷路の自動生成を試してみました．&lt;/p&gt;
+&lt;p&gt;果たしてマイクロマウスっぽい迷路はできるのでしょうか．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>過去の全日本マイクロマウス大会32x32迷路の分析</title>
@@ -364,16 +379,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;こんにちは．&lt;/p&gt;
 &lt;p&gt;エクストリーム新作のKERISEv3-2を諦めてKERISEv3-1を必死に調整している，けりです．&lt;/p&gt;
 &lt;p&gt;今回は自作の調整用迷路の紹介です．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>僕の迷路クラスの紹介</title>
-      <link>https://kerikeri.top/posts/2017-11-01-maze-class/</link>
-      <pubDate>Wed, 01 Nov 2017 10:31:52 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-01-maze-class/</guid>
-      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
-&lt;p&gt;今回もマイクロマウスの話題です．僕が使っている迷路クラスを紹介します．&lt;/p&gt;</description>
     </item>
     
   </channel>

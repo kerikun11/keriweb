@@ -13,22 +13,32 @@
   
   <url>
     <loc>https://kerikeri.top/categories/</loc>
-    <lastmod>2020-03-08T16:26:06+09:00</lastmod>
+    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/post/</loc>
-    <lastmod>2020-03-08T16:26:06+09:00</lastmod>
+    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/tags/</loc>
-    <lastmod>2020-03-08T16:26:06+09:00</lastmod>
+    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
-    <lastmod>2020-03-08T16:26:06+09:00</lastmod>
+    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/posts/2020-03-23-maze-generator/</loc>
+    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/</loc>
+    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
   </url>
   
   <url>
@@ -58,11 +68,6 @@
   
   <url>
     <loc>https://kerikeri.top/posts/2020-03-07-m5stack-micromouse-timer/</loc>
-    <lastmod>2020-03-07T12:08:12+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/</loc>
     <lastmod>2020-03-07T12:08:12+09:00</lastmod>
   </url>
   
