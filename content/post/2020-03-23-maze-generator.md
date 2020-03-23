@@ -5,6 +5,7 @@ categories:
   - "作品紹介"
 tags:
   - "マイクロマウス"
+  - "迷路"
 thumbnail: "icon.png"
 ---
 

@@ -8,10 +8,26 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Sun, 08 Mar 2020 16:26:06 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2020 17:51:37 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/%E8%BF%B7%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウス迷路の自動生成</title>
+      <link>https://kerikeri.top/posts/2020-03-23-maze-generator/</link>
+      <pubDate>Mon, 23 Mar 2020 17:51:37 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-03-23-maze-generator/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;マイクロマウスを作るにあたり，
+普段は迷路を解くことばかり考えていますが，
+今回はその迷路を作成するお話です．&lt;/p&gt;
+&lt;p&gt;試してみたのは，
+ランダムウォークによる迷路の自動生成です．&lt;/p&gt;
+&lt;p&gt;果たしてマイクロマウスっぽい迷路はできるのでしょうか？&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>過去の全日本マイクロマウス大会32x32迷路の分析</title>
