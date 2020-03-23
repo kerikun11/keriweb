@@ -39,11 +39,12 @@
       <guid>https://kerikeri.top/posts/2020-03-23-maze-generator/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;こんにちは．けりです．&lt;/p&gt;
-&lt;p&gt;マイクロマウスを作るにあたって，
+&lt;p&gt;マイクロマウスを作るにあたり，
 普段は迷路を解くことばかり考えていますが，
-ふと迷路づくりについて考えてみました．&lt;/p&gt;
-&lt;p&gt;しかも，ランダムウォークによる迷路の自動生成を試してみました．&lt;/p&gt;
-&lt;p&gt;果たしてマイクロマウスっぽい迷路はできるのでしょうか．&lt;/p&gt;</description>
+今回はその迷路を作成するお話です．&lt;/p&gt;
+&lt;p&gt;試してみたのは，
+ランダムウォークによる迷路の自動生成です．&lt;/p&gt;
+&lt;p&gt;果たしてマイクロマウスっぽい迷路はできるのでしょうか？&lt;/p&gt;</description>
     </item>
     
     <item>
