@@ -8,10 +8,23 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 23 Mar 2020 17:51:37 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2020 10:17:40 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>UNIX環境の設定ファイルの管理</title>
+      <link>https://kerikeri.top/posts/2020-04-06-dotfiles/</link>
+      <pubDate>Mon, 06 Apr 2020 10:17:40 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-06-dotfiles/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;今回は、ターミナルなどの設定ファイルの管理方法の紹介です。&lt;/p&gt;
+&lt;p&gt;設定ファイルの多くは &lt;code&gt;.zshrc&lt;/code&gt; というようにドットから始まる隠しファイルになっているので、
+これらをまとめて &lt;code&gt;.dotfiles&lt;/code&gt; と呼んでいます。&lt;/p&gt;
+&lt;p&gt;GitHubに.dotfilesを保存していつでも最新のものを使えるようにしています。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>マイクロマウス迷路の自動生成</title>
@@ -369,17 +382,6 @@ Cheese主催のマイクロマウス・プチ大会
 &lt;h2 id=&#34;全日本マイクロマウス2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
 &lt;p&gt;さて，11月17日(金)～19日(日)の3日間，全日本マイクロマウス2017が開催されました．&lt;/p&gt;
 &lt;p&gt;僕は去年に引き続き，2回目となる参加をしてきました！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>調整用の小さな迷路</title>
-      <link>https://kerikeri.top/posts/2017-11-05-small-maze/</link>
-      <pubDate>Sun, 05 Nov 2017 15:26:06 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-05-small-maze/</guid>
-      <description>&lt;p&gt;こんにちは．&lt;/p&gt;
-&lt;p&gt;エクストリーム新作のKERISEv3-2を諦めてKERISEv3-1を必死に調整している，けりです．&lt;/p&gt;
-&lt;p&gt;今回は自作の調整用迷路の紹介です．&lt;/p&gt;</description>
     </item>
     
   </channel>
