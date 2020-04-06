@@ -2,7 +2,9 @@
 body {
 	background: #228;
 	font: inherit;
-	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	/* font-family: "Meiryo","sans-serif"; */
+	/* font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif; */
+	font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 .header, .wrapper {
 	background-color: rgba(255,255,255,0.9);
