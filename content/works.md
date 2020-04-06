@@ -5,7 +5,8 @@ menu:
   main:
     name: "Works"
 weight: 3
-disable_comments: true
+comments: false
+authorbox: false
 ---
 
 今までに私が製作した作品を紹介します．詳しくはそれぞれの記事をご覧ください．
