@@ -32,6 +32,28 @@
     </item>
     
     <item>
+      <title>マイクロマウスの迷路探索概要</title>
+      <link>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</link>
+      <pubDate>Tue, 07 Apr 2020 14:10:54 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，
+マイクロマウス探索初心者向けに，
+マイクロマウスの迷路探索アルゴリズムに必要な処理とアルゴリズムの概要について記述する．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux Mint 19.3 をインストールしたら設定すること</title>
+      <link>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</link>
+      <pubDate>Tue, 07 Apr 2020 12:33:15 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，&lt;code&gt;Linux Mint 19.3&lt;/code&gt; をクリーンインストールした際に行う自己流の設定について紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>UNIX環境の設定ファイルの管理</title>
       <link>https://kerikeri.top/posts/2020-04-06-dotfiles/</link>
       <pubDate>Mon, 06 Apr 2020 10:17:40 +0900</pubDate>
@@ -47,7 +69,7 @@
     <item>
       <title>マイクロマウス記事のまとめ</title>
       <link>https://kerikeri.top/works/micromouse/</link>
-      <pubDate>Mon, 23 Mar 2020 18:51:37 +0900</pubDate>
+      <pubDate>Mon, 23 Mar 2020 23:59:59 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/works/micromouse/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -353,28 +375,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;こんにちは．
 今回は久しぶりにサーバーの話題です．&lt;/p&gt;
 &lt;p&gt;自宅のサーバーにNextcloudを導入したので，それを紹介します．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>謹賀新年 2018</title>
-      <link>https://kerikeri.top/posts/2018-01-01-new-year-2018/</link>
-      <pubDate>Mon, 01 Jan 2018 11:54:58 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-01-01-new-year-2018/</guid>
-      <description>&lt;p&gt;新年，明けましておめでとうございます．&lt;br&gt;
-ブログ &lt;strong&gt;KERI&amp;rsquo;s Lab&lt;/strong&gt; を始めてから早2年が経ちました．&lt;br&gt;
-今年からは年賀状の代わりにブログでの挨拶とさせて頂きます．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>プチコンに参加しました</title>
-      <link>https://kerikeri.top/posts/2017-12-24-petitcon/</link>
-      <pubDate>Sun, 24 Dec 2017 15:45:50 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-12-24-petitcon/</guid>
-      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
-&lt;p&gt;プチコン・Cheese杯 お疲れ様でした！&lt;/p&gt;
-&lt;p&gt;今回は，Cheese杯の傍ら行われていたトレース競技の参加報告です．&lt;/p&gt;</description>
     </item>
     
   </channel>

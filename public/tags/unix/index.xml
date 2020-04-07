@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UNIX on KERI&#39;s Lab</title>
+    <link>https://kerikeri.top/tags/unix/</link>
+    <description>Recent content in UNIX on KERI&#39;s Lab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
+    <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
+    <lastBuildDate>Tue, 07 Apr 2020 12:33:15 +0900</lastBuildDate>
+    
+	<atom:link href="https://kerikeri.top/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Mint 19.3 をインストールしたら設定すること</title>
+      <link>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</link>
+      <pubDate>Tue, 07 Apr 2020 12:33:15 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，&lt;code&gt;Linux Mint 19.3&lt;/code&gt; をクリーンインストールした際に行う自己流の設定について紹介します．&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

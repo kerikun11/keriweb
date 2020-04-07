@@ -8,10 +8,22 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 06 Apr 2020 10:17:40 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 14:10:54 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウスの迷路探索概要</title>
+      <link>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</link>
+      <pubDate>Tue, 07 Apr 2020 14:10:54 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，
+マイクロマウス探索初心者向けに，
+マイクロマウスの迷路探索アルゴリズムに必要な処理とアルゴリズムの概要について記述する．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>UNIX環境の設定ファイルの管理</title>

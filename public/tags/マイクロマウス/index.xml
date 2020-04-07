@@ -8,15 +8,27 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 23 Mar 2020 18:51:37 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 14:10:54 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>マイクロマウスの迷路探索概要</title>
+      <link>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</link>
+      <pubDate>Tue, 07 Apr 2020 14:10:54 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，
+マイクロマウス探索初心者向けに，
+マイクロマウスの迷路探索アルゴリズムに必要な処理とアルゴリズムの概要について記述する．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>マイクロマウス記事のまとめ</title>
       <link>https://kerikeri.top/works/micromouse/</link>
-      <pubDate>Mon, 23 Mar 2020 18:51:37 +0900</pubDate>
+      <pubDate>Mon, 23 Mar 2020 23:59:59 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/works/micromouse/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
@@ -373,27 +385,6 @@ KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷
 		&lt;/figcaption&gt;
 		
 		&lt;img src=&#34;with-hand.jpg&#34; alt=&#34;KERISEv2&#34; style=&#34;width: 480px;&#34;/&gt;
-	
-&lt;/figure&gt;</description>
-    </item>
-    
-    <item>
-      <title>KERISE v1の設計(回路編)</title>
-      <link>https://kerikeri.top/posts/2016-12-27-kerisev1/</link>
-      <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2016-12-27-kerisev1/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;今年の全日本マイクロマウス大会2016に出場したKERISE v1．今回はその回路設計を紹介します．&lt;/p&gt;
-&lt;p&gt;全日本マイクロマウス大会2016の結果報告は&lt;a href=&#34;https://kerikeri.top/posts/2016-11-21-micromouse2016/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
-&lt;figure &gt;
-	
-		
-		&lt;figcaption&gt;
-			&lt;h4&gt;KERISEv1&lt;/h4&gt;
-		&lt;/figcaption&gt;
-		
-		&lt;img src=&#34;KERISEv1.jpg&#34; alt=&#34;KERISEv1&#34; style=&#34;width: 240px;&#34;/&gt;
 	
 &lt;/figure&gt;</description>
     </item>

@@ -8,10 +8,32 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Mon, 06 Apr 2020 10:17:40 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 14:10:54 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウスの迷路探索概要</title>
+      <link>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</link>
+      <pubDate>Tue, 07 Apr 2020 14:10:54 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，
+マイクロマウス探索初心者向けに，
+マイクロマウスの迷路探索アルゴリズムに必要な処理とアルゴリズムの概要について記述する．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux Mint 19.3 をインストールしたら設定すること</title>
+      <link>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</link>
+      <pubDate>Tue, 07 Apr 2020 12:33:15 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;この記事では，&lt;code&gt;Linux Mint 19.3&lt;/code&gt; をクリーンインストールした際に行う自己流の設定について紹介します．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>UNIX環境の設定ファイルの管理</title>
@@ -357,31 +379,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;こんにちは，けりです．&lt;br&gt;
 これは &lt;a href=&#34;https://adventar.org/calendars/2361&#34;&gt;rogy Advent Calender 2017&lt;/a&gt; の6日目の記事です.&lt;/p&gt;
 &lt;p&gt;本日は，私が愛用しているマイコン「ESP32」を紹介します．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>マイクロマウス2017HX決勝迷路の探索結果</title>
-      <link>https://kerikeri.top/posts/2017-11-27-result-of-hx2017-maze/</link>
-      <pubDate>Mon, 27 Nov 2017 12:39:52 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-27-result-of-hx2017-maze/</guid>
-      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;が開催されました．結果報告の記事は&lt;a href=&#34;https://kerikeri.top/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．&lt;/p&gt;
-&lt;p&gt;今回はその迷路の探索結果についてお話しします．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全日本マイクロマウス2017の結果報告</title>
-      <link>https://kerikeri.top/posts/2017-11-22-micromouse2017/</link>
-      <pubDate>Wed, 22 Nov 2017 01:10:24 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-11-22-micromouse2017/</guid>
-      <description>&lt;p&gt;こんにちは．&lt;br&gt;
-マイクロマウス全日本大会の3日後に待ち構えていた&lt;strong&gt;卒論中間発表&lt;/strong&gt;を終えたけりです．&lt;/p&gt;
-&lt;p&gt;マウサーの皆さん，中間発表を終えた皆さん，本当にお疲れ様でした&amp;hellip;&lt;/p&gt;
-&lt;h2 id=&#34;全日本マイクロマウス2017&#34;&gt;全日本マイクロマウス2017&lt;/h2&gt;
-&lt;p&gt;さて，11月17日(金)～19日(日)の3日間，全日本マイクロマウス2017が開催されました．&lt;/p&gt;
-&lt;p&gt;僕は去年に引き続き，2回目となる参加をしてきました！&lt;/p&gt;</description>
     </item>
     
   </channel>
