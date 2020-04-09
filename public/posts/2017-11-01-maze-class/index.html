@@ -124,17 +124,17 @@ if (!doNotTrack) {
 <p>よく使われている壁の変数定義方法に，各区画に1バイト確保して，下位4bitを壁情報，上位4bitを既知壁情報として保存する方法があります．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/* 1区画の壁構造体 */</span>
 <span class="k">union</span> <span class="nc">Wall</span><span class="p">{</span>
-	<span class="kt">uint8_t</span> <span class="n">flags</span><span class="p">;</span> <span class="c1">//&lt; all
-</span><span class="c1"></span>	<span class="k">struct</span><span class="p">{</span>
-		<span class="kt">uint8_t</span> <span class="nl">e</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; east
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">n</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; north
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">w</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; west
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">s</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; south
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">E</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; known east
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">N</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; known north
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">W</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; known west
-</span><span class="c1"></span>		<span class="kt">uint8_t</span> <span class="nl">S</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span>	<span class="c1">//&lt; known south
-</span><span class="c1"></span>	<span class="p">};</span>
+    <span class="kt">uint8_t</span> <span class="n">flags</span><span class="p">;</span> <span class="c1">//&lt; all
+</span><span class="c1"></span>    <span class="k">struct</span><span class="p">{</span>
+        <span class="kt">uint8_t</span> <span class="nl">e</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; east
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">n</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; north
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">w</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; west
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">s</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; south
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">E</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; known east
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">N</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; known north
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">W</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; known west
+</span><span class="c1"></span>        <span class="kt">uint8_t</span> <span class="nl">S</span><span class="p">:</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//&lt; known south
+</span><span class="c1"></span>    <span class="p">};</span>
 <span class="p">};</span>
 
 <span class="cm">/* 迷路データ */</span>
@@ -240,70 +240,49 @@ if (!doNotTrack) {
 </span><span class="cm">*   32x32の迷路ならuint32_t，16x16ならuint16_t，8x8ならuint8_t
 </span><span class="cm">*/</span>
 <span class="k">typedef</span> <span class="kt">uint32_t</span> <span class="n">wall_size_t</span><span class="p">;</span>
-
-<span class="cm">/** @def
-</span><span class="cm">*  @brief 迷路のカラー表示切替
-</span><span class="cm">*/</span>
-<span class="cp">#if 1
-</span><span class="cp">#define C_RED     &#34;\x1b[31m&#34;
-</span><span class="cp">#define C_GREEN   &#34;\x1b[32m&#34;
-</span><span class="cp">#define C_YELLOW  &#34;\x1b[33m&#34;
-</span><span class="cp">#define C_BLUE    &#34;\x1b[34m&#34;
-</span><span class="cp">#define C_MAGENTA &#34;\x1b[35m&#34;
-</span><span class="cp">#define C_CYAN    &#34;\x1b[36m&#34;
-</span><span class="cp">#define C_RESET   &#34;\x1b[0m&#34;
-</span><span class="cp">#else
-</span><span class="cp">#define C_RED     &#34;&#34;
-</span><span class="cp">#define C_GREEN   &#34;&#34;
-</span><span class="cp">#define C_YELLOW  &#34;&#34;
-</span><span class="cp">#define C_BLUE    &#34;&#34;
-</span><span class="cp">#define C_MAGENTA &#34;&#34;
-</span><span class="cp">#define C_CYAN    &#34;&#34;
-</span><span class="cp">#define C_RESET   &#34;&#34;
-</span><span class="cp">#endif
-</span></code></pre></div><h3 id="dir構造体">Dir構造体</h3>
+</code></pre></div><h3 id="dir構造体">Dir構造体</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/** @struc Dir
 </span><span class="cm">*  @brief 迷路上の方向を定義
 </span><span class="cm">*/</span>
 <span class="k">struct</span> <span class="nc">Dir</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-	<span class="cm">/** @enum Dir::AbsoluteDir
-</span><span class="cm">	*  @brief 絶対方向の列挙型
-</span><span class="cm">	*/</span>
-	<span class="k">enum</span> <span class="nc">AbsoluteDir</span><span class="o">:</span> <span class="kt">int8_t</span> <span class="p">{</span> <span class="n">East</span><span class="p">,</span> <span class="n">North</span><span class="p">,</span> <span class="n">West</span><span class="p">,</span> <span class="n">South</span><span class="p">,</span> <span class="n">AbsMax</span> <span class="p">};</span>
-	<span class="cm">/** @enum Dir::RelativeDir
-</span><span class="cm">	*  @brief 相対方向の列挙型
-</span><span class="cm">	*/</span>
-	<span class="k">enum</span> <span class="nc">RelativeDir</span><span class="o">:</span> <span class="kt">int8_t</span> <span class="p">{</span> <span class="n">Forward</span><span class="p">,</span> <span class="n">Left</span><span class="p">,</span> <span class="n">Back</span><span class="p">,</span> <span class="n">Right</span><span class="p">,</span> <span class="n">RelMax</span> <span class="p">};</span>
-	<span class="cm">/** @function Constructor
-</span><span class="cm">	*  @param d Absolute Direction
-</span><span class="cm">	*/</span>
-	<span class="n">Dir</span><span class="p">(</span><span class="k">const</span> <span class="k">enum</span> <span class="nc">AbsoluteDir</span> <span class="n">d</span> <span class="o">=</span> <span class="n">East</span><span class="p">)</span> <span class="o">:</span> <span class="n">d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{}</span>
-	<span class="n">Dir</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span> <span class="n">d</span><span class="p">)</span> <span class="o">:</span> <span class="n">d</span><span class="p">(</span><span class="n">AbsoluteDir</span><span class="p">(</span><span class="n">d</span><span class="o">&amp;</span><span class="mi">3</span><span class="p">))</span> <span class="p">{}</span>
+    <span class="cm">/** @enum Dir::AbsoluteDir
+</span><span class="cm">    *  @brief 絶対方向の列挙型
+</span><span class="cm">    */</span>
+    <span class="k">enum</span> <span class="nc">AbsoluteDir</span><span class="o">:</span> <span class="kt">int8_t</span> <span class="p">{</span> <span class="n">East</span><span class="p">,</span> <span class="n">North</span><span class="p">,</span> <span class="n">West</span><span class="p">,</span> <span class="n">South</span><span class="p">,</span> <span class="n">AbsMax</span> <span class="p">};</span>
+    <span class="cm">/** @enum Dir::RelativeDir
+</span><span class="cm">    *  @brief 相対方向の列挙型
+</span><span class="cm">    */</span>
+    <span class="k">enum</span> <span class="nc">RelativeDir</span><span class="o">:</span> <span class="kt">int8_t</span> <span class="p">{</span> <span class="n">Forward</span><span class="p">,</span> <span class="n">Left</span><span class="p">,</span> <span class="n">Back</span><span class="p">,</span> <span class="n">Right</span><span class="p">,</span> <span class="n">RelMax</span> <span class="p">};</span>
+    <span class="cm">/** @function Constructor
+</span><span class="cm">    *  @param d Absolute Direction
+</span><span class="cm">    */</span>
+    <span class="n">Dir</span><span class="p">(</span><span class="k">const</span> <span class="k">enum</span> <span class="nc">AbsoluteDir</span> <span class="n">d</span> <span class="o">=</span> <span class="n">East</span><span class="p">)</span> <span class="o">:</span> <span class="n">d</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="n">Dir</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span> <span class="n">d</span><span class="p">)</span> <span class="o">:</span> <span class="n">d</span><span class="p">(</span><span class="n">AbsoluteDir</span><span class="p">(</span><span class="n">d</span><span class="o">&amp;</span><span class="mi">3</span><span class="p">))</span> <span class="p">{}</span>
 
-	<span class="cm">/** @brief 整数へのキャスト
-</span><span class="cm">	*/</span>
-	<span class="k">operator</span> <span class="nf">int8_t</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="p">;</span> <span class="p">}</span>
-	<span class="cm">/** @brief 代入演算子のオーバーロード
-</span><span class="cm">	*/</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="n">Dir</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">d</span> <span class="o">=</span> <span class="n">obj</span><span class="p">.</span><span class="n">d</span><span class="p">;</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+    <span class="cm">/** @brief 整数へのキャスト
+</span><span class="cm">    */</span>
+    <span class="k">operator</span> <span class="nf">int8_t</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">d</span><span class="p">;</span> <span class="p">}</span>
+    <span class="cm">/** @brief 代入演算子のオーバーロード
+</span><span class="cm">    */</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="n">Dir</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">d</span> <span class="o">=</span> <span class="n">obj</span><span class="p">.</span><span class="n">d</span><span class="p">;</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
 
-	<span class="cm">/** @function getRelative
-</span><span class="cm">	*  @brief 自オブジェクト方向から見た引数方向を返す．
-</span><span class="cm">	*  @param rd 対象方向
-</span><span class="cm">	*  @return 相対方向
-</span><span class="cm">	*/</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="n">Dir</span> <span class="nf">getRelative</span><span class="p">(</span><span class="k">const</span> <span class="k">enum</span> <span class="nc">RelativeDir</span><span class="o">&amp;</span> <span class="n">rd</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Dir</span><span class="p">(</span><span class="n">rd</span><span class="o">-</span><span class="n">d</span><span class="p">);</span> <span class="p">}</span>
-	<span class="cm">/** @function ordered
-</span><span class="cm">	*  @brief 「正面，左，右，後」の順序の方向配列を生成する関数
-</span><span class="cm">	*/</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Dir</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">ordered</span><span class="p">()</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function All
-</span><span class="cm">	*  @brief 全方向の方向配列を生成する静的関数
-</span><span class="cm">	*/</span>
-	<span class="k">static</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Dir</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;&amp;</span> <span class="n">All</span><span class="p">();</span>
+    <span class="cm">/** @function getRelative
+</span><span class="cm">    *  @brief 自オブジェクト方向から見た引数方向を返す．
+</span><span class="cm">    *  @param rd 対象方向
+</span><span class="cm">    *  @return 相対方向
+</span><span class="cm">    */</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="n">Dir</span> <span class="nf">getRelative</span><span class="p">(</span><span class="k">const</span> <span class="k">enum</span> <span class="nc">RelativeDir</span><span class="o">&amp;</span> <span class="n">rd</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">Dir</span><span class="p">(</span><span class="n">rd</span><span class="o">-</span><span class="n">d</span><span class="p">);</span> <span class="p">}</span>
+    <span class="cm">/** @function ordered
+</span><span class="cm">    *  @brief 「正面，左，右，後」の順序の方向配列を生成する関数
+</span><span class="cm">    */</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Dir</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">ordered</span><span class="p">()</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function All
+</span><span class="cm">    *  @brief 全方向の方向配列を生成する静的関数
+</span><span class="cm">    */</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">Dir</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;&amp;</span> <span class="n">All</span><span class="p">();</span>
 <span class="k">private</span><span class="o">:</span>
-	<span class="k">enum</span> <span class="nc">AbsoluteDir</span> <span class="n">d</span><span class="p">;</span> <span class="cm">/**&lt; @brief 方向の実体 */</span>
+    <span class="k">enum</span> <span class="nc">AbsoluteDir</span> <span class="n">d</span><span class="p">;</span> <span class="cm">/**&lt; @brief 方向の実体 */</span>
 <span class="p">};</span>
 </code></pre></div><h3 id="vector構造体">Vector構造体</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/** @struct Vector
@@ -311,20 +290,20 @@ if (!doNotTrack) {
 </span><span class="cm">*/</span>
 <span class="k">struct</span> <span class="nc">Vector</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-	<span class="kt">int8_t</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="cm">/**&lt; @brief 迷路の区画座標 */</span>
-	<span class="n">Vector</span><span class="p">(</span><span class="kt">int8_t</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int8_t</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">{}</span> <span class="cm">/**&lt; @brief コンストラクタ */</span>
-	<span class="n">Vector</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">{}</span> <span class="cm">/**&lt; @brief コンストラクタ */</span>
-	<span class="cm">/** @brief 演算子のオーバーロード
-</span><span class="cm">	*/</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">==</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">y</span><span class="o">==</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">!=</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span> <span class="o">||</span> <span class="n">y</span><span class="o">!=</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
-	<span class="cm">/** @function next
-</span><span class="cm">	*  @brief 自分の引数方向に隣接した区画のVectorを返す
-</span><span class="cm">	*  @param 隣接方向
-</span><span class="cm">	*  @return 隣接座標
-</span><span class="cm">	*/</span>
-	<span class="kr">inline</span> <span class="k">const</span> <span class="n">Vector</span> <span class="nf">next</span><span class="p">(</span><span class="k">const</span> <span class="n">Dir</span> <span class="o">&amp;</span><span class="n">dir</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="kt">int8_t</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span> <span class="cm">/**&lt; @brief 迷路の区画座標 */</span>
+    <span class="n">Vector</span><span class="p">(</span><span class="kt">int8_t</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="kt">int8_t</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">{}</span> <span class="cm">/**&lt; @brief コンストラクタ */</span>
+    <span class="n">Vector</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="o">:</span> <span class="n">x</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="p">{}</span> <span class="cm">/**&lt; @brief コンストラクタ */</span>
+    <span class="cm">/** @brief 演算子のオーバーロード
+</span><span class="cm">    */</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span><span class="p">;</span> <span class="n">y</span><span class="o">=</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">==</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">y</span><span class="o">==</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="kt">bool</span> <span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">!=</span><span class="n">obj</span><span class="p">.</span><span class="n">x</span> <span class="o">||</span> <span class="n">y</span><span class="o">!=</span><span class="n">obj</span><span class="p">.</span><span class="n">y</span><span class="p">;</span> <span class="p">}</span>
+    <span class="cm">/** @function next
+</span><span class="cm">    *  @brief 自分の引数方向に隣接した区画のVectorを返す
+</span><span class="cm">    *  @param 隣接方向
+</span><span class="cm">    *  @return 隣接座標
+</span><span class="cm">    */</span>
+    <span class="kr">inline</span> <span class="k">const</span> <span class="n">Vector</span> <span class="nf">next</span><span class="p">(</span><span class="k">const</span> <span class="n">Dir</span> <span class="o">&amp;</span><span class="n">dir</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div><h3 id="mazeクラス">Mazeクラス</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/** @class Maze
@@ -332,92 +311,92 @@ if (!doNotTrack) {
 </span><span class="cm">*/</span>
 <span class="k">class</span> <span class="nc">Maze</span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-	<span class="n">Maze</span><span class="p">()</span> <span class="p">{</span> <span class="n">reset</span><span class="p">();</span> <span class="p">}</span> <span class="cm">/**&lt; @brief 空の迷路のコンストラクタ */</span>
-	<span class="n">Maze</span><span class="p">(</span><span class="k">const</span> <span class="n">Maze</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">){</span> <span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">obj</span><span class="p">;</span> <span class="p">}</span> <span class="cm">/**&lt; @brief コピーコンストラクタ */</span>
-	<span class="cm">/** @brief 配列から迷路を読み込むコンストラクタ
-</span><span class="cm">	*  @param data 各区画16進表記の文字列配列
-</span><span class="cm">	*  例：{&#34;abaf&#34;, &#34;1234&#34;, &#34;abab&#34;, &#34;aaff&#34;}
-</span><span class="cm">	*  @param east_origin true: 東から反時計回り，false: 北から時計回り に0bitから格納されている
-</span><span class="cm">	*/</span>
-	<span class="n">Maze</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="n">MAZE_SIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">MAZE_SIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="kt">bool</span> <span class="n">east_origin</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
-	<span class="cm">/** @brief 代入演算子のオーバーロード，データのコピー
-</span><span class="cm">	*/</span>
-	<span class="k">const</span> <span class="n">Maze</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Maze</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">);</span>
-	<span class="cm">/** @function reset
-</span><span class="cm">	*  @brief 迷路の初期化．壁を削除し，スタート区画を既知に
-</span><span class="cm">	*/</span>
-	<span class="kt">void</span> <span class="nf">reset</span><span class="p">();</span>
-	<span class="cm">/** @function isWall
-</span><span class="cm">	*  @brief 壁の有無を返す
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @param d 壁の方向
-</span><span class="cm">	*  @return true: 壁あり，false: 壁なし
-</span><span class="cm">	*/</span>
-	<span class="kt">bool</span> <span class="nf">isWall</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isWall</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span> <span class="p">}</span>
-	<span class="kt">bool</span> <span class="nf">isWall</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function setWall
-</span><span class="cm">	*  @brief 壁を更新をする
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @param d 壁の方向
-</span><span class="cm">	*  @param b 壁の有無 true:壁あり，false:壁なし
-</span><span class="cm">	*/</span>
-	<span class="kt">void</span> <span class="nf">setWall</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">setWall</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="p">}</span>
-	<span class="kt">void</span> <span class="nf">setWall</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">;</span>
-	<span class="cm">/** @function isKnown
-</span><span class="cm">	*  @brief 壁が探索済みかを返す
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @param d 壁の方向
-</span><span class="cm">	*  @return true: 探索済み，false: 未探索
-</span><span class="cm">	*/</span>
-	<span class="kt">bool</span> <span class="nf">isKnown</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isKnown</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span> <span class="p">}</span>
-	<span class="kt">bool</span> <span class="nf">isKnown</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function setWall
-</span><span class="cm">	*  @brief 壁の既知を更新する
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @param d 壁の方向
-</span><span class="cm">	*  @param b 壁の未知既知 true:既知，false:未知
-</span><span class="cm">	*/</span>
-	<span class="kt">void</span> <span class="nf">setKnown</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">setKnown</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="p">}</span>
-	<span class="kt">void</span> <span class="nf">setKnown</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">;</span>
-	<span class="cm">/** @function canGo
-</span><span class="cm">	*  @brief 通過可能かどうかを返す
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @param d 壁の方向
-</span><span class="cm">	*  @return true:既知かつ壁なし，false:それ以外
-</span><span class="cm">	*/</span>
-	<span class="kt">bool</span> <span class="nf">canGo</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function wallCount
-</span><span class="cm">	*  @brief 引数区画の壁の数を返す
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @return 壁の数 0~4
-</span><span class="cm">	*/</span>
-	<span class="kt">int8_t</span> <span class="nf">wallCount</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function wallCount
-</span><span class="cm">	*  @brief 引数区画の既知壁の数を返す
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @return 既知壁の数 0~4
-</span><span class="cm">	*/</span>
-	<span class="kt">int8_t</span> <span class="nf">knownCount</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function updateWall
-</span><span class="cm">	*  @brief 壁を更新して既知とする関数
-</span><span class="cm">	*  @param v 区画の座標
-</span><span class="cm">	*  @param d 壁の方向
-</span><span class="cm">	*/</span>
-	<span class="kt">void</span> <span class="nf">updateWall</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">);</span>
-	<span class="cm">/** @function print
-</span><span class="cm">	*  @brief 迷路の表示
-</span><span class="cm">	*  @param v ハイライト区画の座標
-</span><span class="cm">	*/</span>
-	<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">const</span> <span class="p">;</span>
-	<span class="cm">/** @function printPath
-</span><span class="cm">	*  @brief パス付の迷路の表示
-</span><span class="cm">	*  @param start パスのスタート座標
-</span><span class="cm">	*  @param dirs 移動方向の配列
-</span><span class="cm">	*/</span>
-	<span class="kt">void</span> <span class="nf">printPath</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="n">start</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Dir</span><span class="o">&gt;&amp;</span> <span class="n">dirs</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="n">Maze</span><span class="p">()</span> <span class="p">{</span> <span class="n">reset</span><span class="p">();</span> <span class="p">}</span> <span class="cm">/**&lt; @brief 空の迷路のコンストラクタ */</span>
+    <span class="n">Maze</span><span class="p">(</span><span class="k">const</span> <span class="n">Maze</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">){</span> <span class="o">*</span><span class="k">this</span> <span class="o">=</span> <span class="n">obj</span><span class="p">;</span> <span class="p">}</span> <span class="cm">/**&lt; @brief コピーコンストラクタ */</span>
+    <span class="cm">/** @brief 配列から迷路を読み込むコンストラクタ
+</span><span class="cm">    *  @param data 各区画16進表記の文字列配列
+</span><span class="cm">    *  例：{&#34;abaf&#34;, &#34;1234&#34;, &#34;abab&#34;, &#34;aaff&#34;}
+</span><span class="cm">    *  @param east_origin true: 東から反時計回り，false: 北から時計回り に0bitから格納されている
+</span><span class="cm">    */</span>
+    <span class="n">Maze</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="n">data</span><span class="p">[</span><span class="n">MAZE_SIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">MAZE_SIZE</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="kt">bool</span> <span class="n">east_origin</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+    <span class="cm">/** @brief 代入演算子のオーバーロード，データのコピー
+</span><span class="cm">    */</span>
+    <span class="k">const</span> <span class="n">Maze</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Maze</span><span class="o">&amp;</span> <span class="n">obj</span><span class="p">);</span>
+    <span class="cm">/** @function reset
+</span><span class="cm">    *  @brief 迷路の初期化．壁を削除し，スタート区画を既知に
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">reset</span><span class="p">();</span>
+    <span class="cm">/** @function isWall
+</span><span class="cm">    *  @brief 壁の有無を返す
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @param d 壁の方向
+</span><span class="cm">    *  @return true: 壁あり，false: 壁なし
+</span><span class="cm">    */</span>
+    <span class="kt">bool</span> <span class="nf">isWall</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isWall</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span> <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isWall</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function setWall
+</span><span class="cm">    *  @brief 壁を更新をする
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @param d 壁の方向
+</span><span class="cm">    *  @param b 壁の有無 true:壁あり，false:壁なし
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">setWall</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">setWall</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">setWall</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">;</span>
+    <span class="cm">/** @function isKnown
+</span><span class="cm">    *  @brief 壁が探索済みかを返す
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @param d 壁の方向
+</span><span class="cm">    *  @return true: 探索済み，false: 未探索
+</span><span class="cm">    */</span>
+    <span class="kt">bool</span> <span class="nf">isKnown</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isKnown</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span> <span class="p">}</span>
+    <span class="kt">bool</span> <span class="nf">isKnown</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function setWall
+</span><span class="cm">    *  @brief 壁の既知を更新する
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @param d 壁の方向
+</span><span class="cm">    *  @param b 壁の未知既知 true:既知，false:未知
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">setKnown</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">setKnown</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="nf">setKnown</span><span class="p">(</span><span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int8_t</span><span class="o">&amp;</span> <span class="n">y</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">;</span>
+    <span class="cm">/** @function canGo
+</span><span class="cm">    *  @brief 通過可能かどうかを返す
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @param d 壁の方向
+</span><span class="cm">    *  @return true:既知かつ壁なし，false:それ以外
+</span><span class="cm">    */</span>
+    <span class="kt">bool</span> <span class="nf">canGo</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function wallCount
+</span><span class="cm">    *  @brief 引数区画の壁の数を返す
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @return 壁の数 0~4
+</span><span class="cm">    */</span>
+    <span class="kt">int8_t</span> <span class="nf">wallCount</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function wallCount
+</span><span class="cm">    *  @brief 引数区画の既知壁の数を返す
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @return 既知壁の数 0~4
+</span><span class="cm">    */</span>
+    <span class="kt">int8_t</span> <span class="nf">knownCount</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function updateWall
+</span><span class="cm">    *  @brief 壁を更新して既知とする関数
+</span><span class="cm">    *  @param v 区画の座標
+</span><span class="cm">    *  @param d 壁の方向
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">updateWall</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">,</span> <span class="k">const</span> <span class="n">Dir</span><span class="o">&amp;</span> <span class="n">d</span><span class="p">,</span> <span class="k">const</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">);</span>
+    <span class="cm">/** @function print
+</span><span class="cm">    *  @brief 迷路の表示
+</span><span class="cm">    *  @param v ハイライト区画の座標
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="n">v</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">const</span> <span class="p">;</span>
+    <span class="cm">/** @function printPath
+</span><span class="cm">    *  @brief パス付の迷路の表示
+</span><span class="cm">    *  @param start パスのスタート座標
+</span><span class="cm">    *  @param dirs 移動方向の配列
+</span><span class="cm">    */</span>
+    <span class="kt">void</span> <span class="nf">printPath</span><span class="p">(</span><span class="k">const</span> <span class="n">Vector</span> <span class="n">start</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Dir</span><span class="o">&gt;&amp;</span> <span class="n">dirs</span><span class="p">)</span> <span class="k">const</span> <span class="p">;</span>
 <span class="k">private</span><span class="o">:</span>
-	<span class="n">wall_size_t</span> <span class="n">wall</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">MAZE_SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="cm">/**&lt; 壁情報 */</span>
-	<span class="n">wall_size_t</span> <span class="n">known</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">MAZE_SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="cm">/**&lt; 既知壁情報 */</span>
+    <span class="n">wall_size_t</span> <span class="n">wall</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">MAZE_SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="cm">/**&lt; 壁情報 */</span>
+    <span class="n">wall_size_t</span> <span class="n">known</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">MAZE_SIZE</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="cm">/**&lt; 既知壁情報 */</span>
 <span class="p">};</span>
 </code></pre></div><h2 id="まとめ">まとめ</h2>
 <p>迷路の管理方法は様々なものがあります．もっといい方法がありましたら教えてくださいね！</p>
