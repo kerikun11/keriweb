@@ -104,7 +104,7 @@ body {
 }
 
 /* post */
-/* .post:not(.list__item)  */
+.post:not(.list__item) 
 .post__title {
 	font-size: 28px;
 	font-size: 1.75rem;
