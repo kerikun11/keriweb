@@ -5,6 +5,7 @@ categories:
   - "説明記事"
 tags:
   - "マイクロマウス"
+  - "制御"
 thumbnail: "icon.png"
 spotlight: "true"
 ---

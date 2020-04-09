@@ -6,6 +6,7 @@ categories:
 tags:
   - "マイクロマウス"
   - "MATLAB"
+  - "迷路"
 thumbnail: "icon.png"
 ---
 

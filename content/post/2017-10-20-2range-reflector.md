@@ -5,7 +5,6 @@ categories:
   - "説明記事"
 tags:
   - "マイクロマウス"
-  - "フォトリフレクタ"
 thumbnail: "icon.jpg"
 ---
 

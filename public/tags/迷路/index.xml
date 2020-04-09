@@ -71,6 +71,17 @@ Cheese主催のマイクロマウス・プチ大会
     </item>
     
     <item>
+      <title>MATLABで迷路画像をパースする</title>
+      <link>https://kerikeri.top/posts/2018-07-04-maze-img-parser/</link>
+      <pubDate>Wed, 04 Jul 2018 15:18:17 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2018-07-04-maze-img-parser/</guid>
+      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;今回は，マイクロマウス公式から配布される迷路画像を，プログラムなどで読める形式に変換するMATLABコードを紹介します．&lt;/p&gt;
+&lt;p&gt;自分向けに作ったものなので，あまり高機能ではありませんが，参考になれば幸いです．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>マイクロマウス2017HX決勝迷路の探索結果</title>
       <link>https://kerikeri.top/posts/2017-11-27-result-of-hx2017-maze/</link>
       <pubDate>Mon, 27 Nov 2017 12:39:52 +0900</pubDate>
