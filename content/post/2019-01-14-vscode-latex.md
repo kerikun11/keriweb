@@ -1,6 +1,6 @@
 ---
 date: "2019-01-14T10:00:00+09:00"
-title: "VSCode で TeX を書こう"
+title: "VSCodeでTeXを書こう"
 categories:
   - "説明記事"
 tags:
