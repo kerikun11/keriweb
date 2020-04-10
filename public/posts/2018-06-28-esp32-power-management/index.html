@@ -162,10 +162,10 @@ ESP-IDF環境で実行する必要があります．</p>
 <p>これで，FreeRTOSのdelay中にクロックを止めることができます．(FreeRTOSにそういう機能がちゃんとある)</p>
 <p>Light-Sleepを使用しない場合，Arduino環境でも一応動作するようですが，240MHzが40MHzに落ちるだけなので，あまり効果がないかもしれません．</p>
 <h3 id="インクルードファイル">インクルードファイル</h3>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
 </span></code></pre></div><h3 id="初期化">初期化</h3>
 <p>以下のコードを実行すると，PowerManagement機能がスタートします．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">pm_init</span><span class="p">()</span> <span class="p">{</span>
 	<span class="n">esp_pm_config_esp32_t</span> <span class="n">esp_pm_config_esp32</span><span class="p">;</span>
@@ -176,8 +176,8 @@ ESP-IDF環境で実行する必要があります．</p>
 <span class="p">}</span>
 </code></pre></div><h3 id="省エネ動作">省エネ動作</h3>
 <p>例えば，以下のような関数を呼べば，その間スリープとなります．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">sleep_ms</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">ms</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">vTaskDelay</span><span class="p">(</span><span class="n">ms</span> <span class="o">/</span> <span class="n">portTICK_PERIOD_MS</span><span class="p">);</span>
@@ -195,7 +195,7 @@ delayはするけどCPUのクロックを変えたくない場合があります
 <p>に対して，ロックハンドルを生成し，
 ロックの獲得，解放を行います．</p>
 <p>実行例は以下の通りです．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_pm.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="c1">// CPU の周波数固定ハンドル
 </span><span class="c1"></span><span class="n">esp_pm_lock_handle_t</span> <span class="n">lock_handle_cpu</span><span class="p">;</span>
@@ -256,11 +256,11 @@ delayはするけどCPUのクロックを変えたくない場合があります
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre></div><h3 id="実行例">実行例</h3>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_log.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;esp_log.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/FreeRTOS.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;freertos/task.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&#34;PowerManagement.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&#34;PowerManagement.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="kt">void</span> <span class="n">app_main</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// PowerManagement機能の有効化
@@ -305,7 +305,7 @@ delayはするけどCPUのクロックを変えたくない場合があります
 <p>例えば，LEDを繋いでいた場合は，消えてしまいます．</p>
 <p>代わりに，RTC_GPIOを使うことで，Light-Sleep中もキープさせることができます．</p>
 <p>例えば，Light-Sleep中でもLEDを光らせたければ，以下のようにします．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;driver/rtc_io.h&#34;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;driver/rtc_io.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">void</span> <span class="nf">rtc_gpio_test</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// rtc_gpio init

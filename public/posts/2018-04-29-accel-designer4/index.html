@@ -310,10 +310,10 @@ if (!doNotTrack) {
 <h3 id="シンプル">シンプル</h3>
 <p>一番簡単な例として以下のC++コードをご覧ください．
 実行すると，標準出力にCSVが表示されます．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">AccelDesigner</span> <span class="n">sd</span><span class="p">;</span>
@@ -336,11 +336,11 @@ if (!doNotTrack) {
 </code></pre></div><h3 id="連続使用">連続使用</h3>
 <p>加減速をいくつか繰り返す例です．</p>
 <p>前回の終点の速度や位置を，次回の始点速度，位置に使っています．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">of</span><span class="p">(</span><span class="s">&#34;out.csv&#34;</span><span class="p">);</span> <span class="c1">//&lt; ファイル名
@@ -357,13 +357,13 @@ if (!doNotTrack) {
 <span class="p">}</span>
 </code></pre></div><h3 id="csvをmatlabでプロット">CSVをMATLABでプロット</h3>
 <p>以下のMATLABコードで，出力された<a href="out.csv">out.csv</a>ファイルをプロットできます．</p>
-<div class="highlight"><pre class="chroma"><code class="language-m" data-lang="m"><span class="c">%% cleaning</span>
+<div class="highlight"><pre class="chroma"><code class="language-m" data-lang="m"><span class="c">%% cleaning</span>
 <span class="n">clear</span><span class="p">;</span>
 <span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultTextInterpreter&#39;</span><span class="p">,</span> <span class="s">&#39;Latex&#39;</span><span class="p">);</span>
 <span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultLegendInterpreter&#39;</span><span class="p">,</span> <span class="s">&#39;Latex&#39;</span><span class="p">);</span>
 <span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultLineLineWidth&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
 
-<span class="c">%% load</span>
+<span class="c">%% load</span>
 <span class="n">rawdata</span> <span class="p">=</span> <span class="n">csvread</span><span class="p">(</span><span class="s">&#39;out.csv&#39;</span><span class="p">);</span>
 <span class="n">t</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">1</span><span class="p">);</span>
 <span class="nb">j</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">2</span><span class="p">);</span>
@@ -371,7 +371,7 @@ if (!doNotTrack) {
 <span class="n">v</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">4</span><span class="p">);</span>
 <span class="n">x</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">5</span><span class="p">);</span>
 
-<span class="c">%% plot</span>
+<span class="c">%% plot</span>
 <span class="n">ylabels</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;$j$ [mm/s/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$a$ [mm/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$v$ [mm/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$x$ [mm]&#39;</span><span class="p">};</span>
 <span class="n">titles</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;Jerk&#39;</span><span class="p">,</span> <span class="s">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="s">&#39;Velocity&#39;</span><span class="p">,</span> <span class="s">&#39;Position&#39;</span><span class="p">};</span>
 <span class="n">xlabelstr</span> <span class="p">=</span> <span class="s">&#39;$t$ [s]&#39;</span><span class="p">;</span>
@@ -380,7 +380,7 @@ if (!doNotTrack) {
 <span class="n">data</span> <span class="p">=</span> <span class="p">[</span><span class="nb">j</span> <span class="n">a</span> <span class="n">v</span> <span class="n">x</span><span class="p">];</span>
 <span class="k">for</span> <span class="nb">i</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">4</span>
     <span class="n">subplot</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">i</span><span class="p">);</span>
-    <span class="n">hold</span> <span class="n">off</span><span class="p">;</span> <span class="n">plot</span><span class="p">(</span><span class="nb">nan</span><span class="p">,</span> <span class="nb">nan</span><span class="p">);</span> <span class="c">% clean</span>
+    <span class="n">hold</span> <span class="n">off</span><span class="p">;</span> <span class="n">plot</span><span class="p">(</span><span class="nb">nan</span><span class="p">,</span> <span class="nb">nan</span><span class="p">);</span> <span class="c">% clean</span>
     <span class="n">hold</span> <span class="n">on</span><span class="p">;</span>
     <span class="n">ax</span> <span class="p">=</span> <span class="n">gca</span><span class="p">;</span> <span class="n">ax</span><span class="p">.</span><span class="n">ColorOrderIndex</span> <span class="p">=</span> <span class="nb">i</span><span class="p">;</span>
     <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="p">(:,</span> <span class="nb">i</span><span class="p">));</span>
