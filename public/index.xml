@@ -32,6 +32,18 @@
     </item>
     
     <item>
+      <title>Linuxで画面を3分割して表示する</title>
+      <link>https://kerikeri.top/posts/2020-04-10-linux-split-3-windows/</link>
+      <pubDate>Fri, 10 Apr 2020 11:13:33 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-10-linux-split-3-windows/</guid>
+      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;最近，縦横比が21:9のウルトラワイドモニタを購入しました．&lt;/p&gt;
+&lt;p&gt;今回は，そのモニタの画面を3列に分割してウィンドウを配置する方法を紹介します．&lt;/p&gt;
+&lt;p&gt;私のPCのOSは &lt;strong&gt;Manjaro Linux (Cinnamon)&lt;/strong&gt; ですが，他のLinuxでも使える方法だと思います．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>マイクロマウスの迷路探索概要</title>
       <link>https://kerikeri.top/posts/2020-04-07-maze-solving-algorithm/</link>
       <pubDate>Tue, 07 Apr 2020 14:10:54 +0900</pubDate>
@@ -364,17 +376,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;今回の記事は，高校生の時に作った電光掲示板のコードの紹介です．&lt;/p&gt;
 &lt;p&gt;PICのアセンブリ言語で書かれています．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>自宅サーバーにNextcloudを導入した</title>
-      <link>https://kerikeri.top/posts/2018-02-11-nextcloud/</link>
-      <pubDate>Sun, 11 Feb 2018 14:58:18 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-02-11-nextcloud/</guid>
-      <description>&lt;p&gt;こんにちは．
-今回は久しぶりにサーバーの話題です．&lt;/p&gt;
-&lt;p&gt;自宅のサーバーにNextcloudを導入したので，それを紹介します．&lt;/p&gt;</description>
     </item>
     
   </channel>

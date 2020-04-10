@@ -5,6 +5,7 @@ categories:
   - "説明記事"
 tags:
   - "マイクロマウス"
+  - "制御"
 draft: true
 ---
 
@@ -77,3 +78,7 @@ $$
 $$
 u(t) = \frac{T_1}{K_1} \dot{y}(t) + \frac{1}{K_1} y(t)
 $$
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>

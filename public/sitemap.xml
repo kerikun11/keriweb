@@ -13,17 +13,32 @@
   
   <url>
     <loc>https://kerikeri.top/categories/</loc>
-    <lastmod>2020-04-07T14:10:54+09:00</lastmod>
+    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/linux/</loc>
+    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/posts/2020-04-10-linux-split-3-windows/</loc>
+    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/post/</loc>
-    <lastmod>2020-04-07T14:10:54+09:00</lastmod>
+    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/tags/</loc>
-    <lastmod>2020-04-07T14:10:54+09:00</lastmod>
+    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/</loc>
+    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
   </url>
   
   <url>
@@ -37,17 +52,7 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/</loc>
-    <lastmod>2020-04-07T14:10:54+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</loc>
-    <lastmod>2020-04-07T12:33:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/unix/</loc>
     <lastmod>2020-04-07T12:33:15+09:00</lastmod>
   </url>
   
@@ -304,11 +309,6 @@
   <url>
     <loc>https://kerikeri.top/posts/2018-01-01-new-year-2018/</loc>
     <lastmod>2018-01-01T11:54:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/%E3%83%97%E3%83%81%E3%82%B3%E3%83%B3/</loc>
-    <lastmod>2017-12-24T15:45:50+09:00</lastmod>
   </url>
   
   <url>
@@ -1079,11 +1079,6 @@
   <url>
     <loc>https://kerikeri.top/posts/2015-11-04-create-cpu/</loc>
     <lastmod>2015-11-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/linux/</loc>
-    <lastmod>2015-11-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>

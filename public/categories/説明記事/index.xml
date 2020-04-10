@@ -8,10 +8,22 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Tue, 07 Apr 2020 14:10:54 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 11:13:33 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linuxで画面を3分割して表示する</title>
+      <link>https://kerikeri.top/posts/2020-04-10-linux-split-3-windows/</link>
+      <pubDate>Fri, 10 Apr 2020 11:13:33 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-10-linux-split-3-windows/</guid>
+      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;最近，縦横比が21:9のウルトラワイドモニタを購入しました．&lt;/p&gt;
+&lt;p&gt;今回は，そのモニタの画面を3列に分割してウィンドウを配置する方法を紹介します．&lt;/p&gt;
+&lt;p&gt;私のPCのOSは &lt;strong&gt;Manjaro Linux (Cinnamon)&lt;/strong&gt; ですが，他のLinuxでも使える方法だと思います．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>マイクロマウスの迷路探索概要</title>

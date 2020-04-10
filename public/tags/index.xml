@@ -8,10 +8,19 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Tue, 07 Apr 2020 14:10:54 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 11:13:33 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://kerikeri.top/tags/linux/</link>
+      <pubDate>Fri, 10 Apr 2020 11:13:33 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/tags/linux/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>マイクロマウス</title>
@@ -19,15 +28,6 @@
       <pubDate>Tue, 07 Apr 2020 14:10:54 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>UNIX</title>
-      <link>https://kerikeri.top/tags/unix/</link>
-      <pubDate>Tue, 07 Apr 2020 12:33:15 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/tags/unix/</guid>
       <description></description>
     </item>
     
@@ -212,15 +212,6 @@
     </item>
     
     <item>
-      <title>プチコン</title>
-      <link>https://kerikeri.top/tags/%E3%83%97%E3%83%81%E3%82%B3%E3%83%B3/</link>
-      <pubDate>Sun, 24 Dec 2017 15:45:50 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/tags/%E3%83%97%E3%83%81%E3%82%B3%E3%83%B3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ESP-WROOM-32</title>
       <link>https://kerikeri.top/tags/esp-wroom-32/</link>
       <pubDate>Wed, 06 Dec 2017 00:00:00 +0900</pubDate>
@@ -280,6 +271,15 @@
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/tags/%E6%99%82%E8%A8%88/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>秋月</title>
+      <link>https://kerikeri.top/tags/%E7%A7%8B%E6%9C%88/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/tags/%E7%A7%8B%E6%9C%88/</guid>
       <description></description>
     </item>
     
