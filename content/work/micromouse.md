@@ -1,5 +1,5 @@
 ---
-date: "2020-03-23T23:59:59+09:00"
+date: "2020-04-15T22:00:00+09:00"
 title: "マイクロマウス記事のまとめ"
 tags:
   - "マイクロマウス"
@@ -21,6 +21,7 @@ thumbnail: "icon.jpg"
 - [KERISE v2](/posts/2017-01-08-kerise-v2-1st)
 - [KERISE v3](/posts/2017-03-28-kerisev3-coming)
 - [KERISE v4](/posts/2018-05-03-kerise-v4-coming)
+- [KERISE v5](/posts/2020-04-15-kerise-v5-coming)
 
 ## 大会の参加報告
 

@@ -32,6 +32,27 @@
     </item>
     
     <item>
+      <title>マイクロマウス記事のまとめ</title>
+      <link>https://kerikeri.top/works/micromouse/</link>
+      <pubDate>Wed, 15 Apr 2020 22:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/works/micromouse/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;この記事では，私が書いたマイクロマウスの記事をカテゴリごとに列挙します．&lt;br&gt;
+新しい記事が追加され次第，更新していきたいと思います．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New KERISE v5，登場</title>
+      <link>https://kerikeri.top/posts/2020-04-15-kerise-v5-coming/</link>
+      <pubDate>Wed, 15 Apr 2020 21:53:42 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-15-kerise-v5-coming/</guid>
+      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;新作マイクロマウス「KERISE v5」を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Linuxで画面を3分割して表示する</title>
       <link>https://kerikeri.top/posts/2020-04-10-linux-split-3-windows/</link>
       <pubDate>Fri, 10 Apr 2020 11:13:33 +0900</pubDate>
@@ -76,17 +97,6 @@
 &lt;p&gt;設定ファイルの多くは &lt;code&gt;.zshrc&lt;/code&gt; というようにドットから始まる隠しファイルになっているので、
 これらをまとめて &lt;code&gt;.dotfiles&lt;/code&gt; と呼んでいます。&lt;/p&gt;
 &lt;p&gt;GitHubに.dotfilesを保存していつでも最新のものを使えるようにしています。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>マイクロマウス記事のまとめ</title>
-      <link>https://kerikeri.top/works/micromouse/</link>
-      <pubDate>Mon, 23 Mar 2020 23:59:59 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/works/micromouse/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;この記事では，私が書いたマイクロマウスの記事をカテゴリごとに列挙します．&lt;br&gt;
-新しい記事が追加され次第，更新していきたいと思います．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -365,17 +375,6 @@ Cheese主催のマイクロマウス・プチ大会
 &lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
 &lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
 &lt;p&gt;SmartConfigとは，そんな悩みをスマホで解決する機能です．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>アセンブリ言語で書いた電光掲示板</title>
-      <link>https://kerikeri.top/posts/2018-02-14-pic-scroll-board-asm/</link>
-      <pubDate>Wed, 14 Feb 2018 22:02:45 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-02-14-pic-scroll-board-asm/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;今回の記事は，高校生の時に作った電光掲示板のコードの紹介です．&lt;/p&gt;
-&lt;p&gt;PICのアセンブリ言語で書かれています．&lt;/p&gt;</description>
     </item>
     
   </channel>

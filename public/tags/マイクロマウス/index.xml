@@ -8,10 +8,31 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Tue, 07 Apr 2020 14:10:54 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2020 22:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>マイクロマウス記事のまとめ</title>
+      <link>https://kerikeri.top/works/micromouse/</link>
+      <pubDate>Wed, 15 Apr 2020 22:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/works/micromouse/</guid>
+      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;この記事では，私が書いたマイクロマウスの記事をカテゴリごとに列挙します．&lt;br&gt;
+新しい記事が追加され次第，更新していきたいと思います．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New KERISE v5，登場</title>
+      <link>https://kerikeri.top/posts/2020-04-15-kerise-v5-coming/</link>
+      <pubDate>Wed, 15 Apr 2020 21:53:42 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-15-kerise-v5-coming/</guid>
+      <description>&lt;p&gt;こんにちは．けりです．&lt;/p&gt;
+&lt;p&gt;新作マイクロマウス「KERISE v5」を紹介します．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>マイクロマウスの迷路探索概要</title>
@@ -23,17 +44,6 @@
 &lt;p&gt;この記事では，
 マイクロマウス探索初心者向けに，
 マイクロマウスの迷路探索アルゴリズムに必要な処理とアルゴリズムの概要について記述する．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>マイクロマウス記事のまとめ</title>
-      <link>https://kerikeri.top/works/micromouse/</link>
-      <pubDate>Mon, 23 Mar 2020 23:59:59 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/works/micromouse/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;この記事では，私が書いたマイクロマウスの記事をカテゴリごとに列挙します．&lt;br&gt;
-新しい記事が追加され次第，更新していきたいと思います．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -367,26 +377,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;h2 id=&#34;ハーフサイズの迷路を走ってみました&#34;&gt;ハーフサイズの迷路を走ってみました&lt;/h2&gt;
 &lt;p&gt;こんにちは，けりです．&lt;br&gt;
 KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷路で走らせてみることにしました！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>KERISE v2 ができました！</title>
-      <link>https://kerikeri.top/posts/2017-01-08-kerise-v2-1st/</link>
-      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-01-08-kerise-v2-1st/</guid>
-      <description>&lt;h2 id=&#34;マイクロマウスクラシックハーフ兼用マウス&#34;&gt;マイクロマウスクラシック&amp;amp;ハーフ兼用マウス&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2016-11-21-micromouse2016/&#34;&gt;昨年の大会&lt;/a&gt;ではクラシッククラスに出場しましたが，今度はハーフにも出場したい！ということで，試しにハーフ迷路も走れる大きさのマウスを作ってみました．&lt;/p&gt;
-&lt;figure &gt;
-	
-		
-		&lt;figcaption&gt;
-			&lt;h4&gt;KERISEv2&lt;/h4&gt;
-		&lt;/figcaption&gt;
-		
-		&lt;img src=&#34;with-hand.jpg&#34; alt=&#34;KERISEv2&#34; style=&#34;width: 480px;&#34;/&gt;
-	
-&lt;/figure&gt;</description>
     </item>
     
   </channel>

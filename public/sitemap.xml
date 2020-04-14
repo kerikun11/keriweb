@@ -12,8 +12,53 @@
   </url>
   
   <url>
+    <loc>https://kerikeri.top/tags/</loc>
+    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/work/</loc>
+    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
+    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/works/micromouse/</loc>
+    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kerikeri.top/categories/</loc>
-    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
+    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/kerise/</loc>
+    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/posts/2020-04-15-kerise-v5-coming/</loc>
+    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/post/</loc>
+    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88/</loc>
+    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/</loc>
+    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
   </url>
   
   <url>
@@ -27,23 +72,8 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/post/</loc>
-    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/</loc>
-    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kerikeri.top/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/</loc>
     <lastmod>2020-04-10T11:13:33+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
-    <lastmod>2020-04-07T14:10:54+09:00</lastmod>
   </url>
   
   <url>
@@ -72,22 +102,7 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/work/</loc>
-    <lastmod>2020-03-23T23:59:59+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/works/micromouse/</loc>
-    <lastmod>2020-03-23T23:59:59+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kerikeri.top/posts/2020-03-23-maze-generator/</loc>
-    <lastmod>2020-03-23T17:51:37+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/</loc>
     <lastmod>2020-03-23T17:51:37+09:00</lastmod>
   </url>
   
@@ -132,22 +147,12 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/tags/kerise/</loc>
-    <lastmod>2019-12-18T00:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kerikeri.top/posts/2019-12-18-auto-recovery-micromouse/</loc>
     <lastmod>2019-12-18T00:00:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/tags/%E3%83%AD%E3%83%9C%E3%82%B3%E3%83%B3/</loc>
-    <lastmod>2019-12-04T21:01:24+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/%E3%83%AD%E3%83%9C%E3%83%83%E3%83%88/</loc>
     <lastmod>2019-12-04T21:01:24+09:00</lastmod>
   </url>
   
