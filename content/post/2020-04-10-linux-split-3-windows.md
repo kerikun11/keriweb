@@ -59,7 +59,7 @@ PCとモニターのスペックは次のとおりです．
   - 分割数を選ぶが，3分割を選ぶと2分割ができなくなる．
 - [gTile](https://cinnamon-spices.linuxmint.com/extensions/view/21)
   - Cinnamon の拡張機能で，ショートカットキーで分割箇所を選択する
-  - 毎回いちいち場所を選ぶのが面倒
+  - とりあえず使えたが，毎回いちいち場所を選ぶのが面倒
 - [QuickTile](http://ssokolow.com/quicktile/)
   - GTKのAPIをたたくオープンソースソフトウェア
   - 結局これを採用

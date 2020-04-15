@@ -24,7 +24,6 @@ thumbnail: "icon.png"
 - [滑らかな加速の設計③ 走行距離を考慮した速度設計](/posts/2018-04-29-accel-designer3/)
 - [滑らかな加速の設計④ C++による実装例](/posts/2018-04-29-accel-designer4/)
 
-
 ## ソースコード
 
 このライブラリに実体はなく，クラスの宣言が書かれたヘッダファイルのみです．
@@ -277,6 +276,7 @@ int main(void) {
   return 0;
 }
 ~~~
+
 ### CSVをMATLABでプロット
 
 以下のMATLABコードで，出力された[out.csv](out.csv)ファイルをプロットできます．

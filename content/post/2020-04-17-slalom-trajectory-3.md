@@ -18,6 +18,10 @@ draft: true
 
 <!--more-->
 
+### 対称性
+
+![スラローム形状](shape/shape_1_xy.svg)
+
 ## 軌道の例
 
 ### 最大角躍度，角加速度，角速度
@@ -61,7 +65,7 @@ draft: true
 
 ![スラローム軌道](shape/shape_4_t.svg)
 
-### #5 最短V90度
+### #5 最短斜め90度
 
 ![スラローム形状](shape/shape_5_xy.svg)
 
