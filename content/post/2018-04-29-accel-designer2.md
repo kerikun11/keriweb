@@ -26,73 +26,88 @@ thumbnail: "icon.png"
 
 ## 設計内容
 
-ここでは，下図のように，始点速度$v_s$から最大加速度$a_m$で加速して終点速度$v_e$に達するような場合を考えます．
+ここでは，下図のように，始点速度 $v_s$ から最大加速度 $a_m$ で加速して終点速度 $v_e$ に達するような場合を考えます．
 
-注意点として，
-最大加速度$a_m$で加速する時間を$t_m$としたとき，
-始点速度$v_s$と終点速度$v_e$の差がある程度小さいと，
-算出される$t_m$が負になる場合があります．
+注意点として，最大加速度 $a_m$ で加速する時間を $t_m$ としたとき，始点速度 $v_s$ と終点速度 $v_e$ の差がある程度小さいと，算出される $t_m$ が負になってしまう場合があります．
 
 したがって，$t_m$の符号によって場合分けをして考える必要があります．
+
+ちなみに，グラフ中の $t_c$ は加速度が曲線である時間を表しています．
+
+加速度が $a_m$ になるまでの時間なので，
+最大躍度を $j_m$ と与えると，$t_c = a_m / j_m$ と計算できます．
 
 {{< postfig src="design1_cmp.png" title="加速曲線" width="480px" >}}
 
 ## 拘束条件
 
-与える情報は以下の通りです．
+今回の設計で与える情報は以下の通りです．
 
+- 最大躍度 $j_m$
 - 最大加速度 $a_m$
 - 始点速度 $v_s$
 - 終点速度 $v_e$
-- 加速度が曲線である時間 $t_c$
 
-$t_c$は，実機の特性や生成した波形を見ながら経験的に適当に決めます．
+最大躍度 $j_m$ や最大加速度 $a_m$ は，
+実機の特性や生成した波形を見ながら適当に決めます．
 
-ちなみに，最大躍度を $j_m$ とすると，$a_m = j_m t_c$ の関係が成り立つので，躍度の観点から$t_c$を設定することができます．
+## 導出結果
 
-## 求めた関数
+まずは実際に使用する結果だけ示します．
 
-求めた関数，値は以下の通りです．
+求まった関数，値は以下の通りです．
 
-- 任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$ および位置 $x(t)$ を返す関数
+- 任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$，位置 $x(t)$ を返す関数
 
 ### 関数
 
 任意の時刻$t$における各関数は，
 
+<div>
 $$
-\\begin{align}
-&
-a(t) :=
-\\left\\{ \\begin{array}{ll}
-  0 & (\\hspace{2.2em}t \\le t_0) \\newline
-  \\frac{a_m}{t_c}(t-t_0) & (t_0 < t \\le t_1) \\newline
-  a_m & (t_1 < t \\le t_2) \\newline
-  -\\frac{a_m}{t_c}(t-t_3) & (t_2 < t \\le t_3) \\newline
-  0 & (t_3 < t \\hspace{2.2em})
-\\end{array} \\right.
-\\newline
-&
-v(t) :=
-\\left\\{ \\begin{array}{ll}
-  v_0                               & (\\hspace{2.2em} t \\le t_0) \\newline
-  v_0 + \\frac{a_m}{2t_c}(t-t_0)^2  & (t_0 < t \\le t_1) \\newline
-  v_1 + a_m(t-t_1)                  & (t_1 < t \\le t_2) \\newline
-  v_3 - \\frac{a_m}{2t_c}(t-t_3)^2  & (t_2 < t \\le t_3) \\newline
-  v_3                               & (t_3 < t \\hspace{2.2em})
-\\end{array} \\right.
-\\newline
-&
-x(t) :=
-\\left\\{ \\begin{array}{ll}
-  x_0 + v_0(t-t_0) & (\\hspace{2.2em} t \\le t_0) \\newline
-  x_0 + v_0(t-t_0) + \\frac{a_m}{6t_c}(t-t_0)^3 & (t_0 < t \\le t_1) \\newline
-  x_1 + v_1(t-t_1) + \\frac{a_m}{2}(t-t_1)^2 & (t_1 < t \\le t_2) \\newline
-  x_3 + v_3(t-t_3) - \\frac{a_m}{6t_c}(t-t_3)^3 & (t_2 < t \\le t_3) \\newline
-  x_3 + v_3(t-t_3) & (t_3 < t \\hspace{2.2em})
-\\end{array} \\right.
-\\end{align}
+\begin{align}
+    j(t)
+     & :=
+    \left\{ \begin{array}{ll}
+        0    & (\hspace{2.2em}t \le t_0) \\
+        j_m  & (t_0 < t \le t_1)         \\
+        0    & (t_1 < t \le t_2)         \\
+        -j_m & (t_2 < t \le t_3)         \\
+        0    & (t_3 < t \hspace{2.2em})
+    \end{array} \right.
+    \\
+    a(t)
+     & :=
+    \left\{ \begin{array}{ll}
+        0           & (\hspace{2.2em}t \le t_0) \\
+        j_m(t-t_0)  & (t_0 < t \le t_1)         \\
+        a_m         & (t_1 < t \le t_2)         \\
+        -j_m(t-t_3) & (t_2 < t \le t_3)         \\
+        0           & (t_3 < t \hspace{2.2em})
+    \end{array} \right.
+    \\
+    v(t)
+     & :=
+    \left\{ \begin{array}{ll}
+        v_0                           & (\hspace{2.2em} t \le t_0) \\
+        v_0 + \frac{1}{2}j_m(t-t_0)^2 & (t_0 < t \le t_1)          \\
+        v_1 + a_m(t-t_1)              & (t_1 < t \le t_2)          \\
+        v_3 - \frac{1}{2}j_m(t-t_3)^2 & (t_2 < t \le t_3)          \\
+        v_3                           & (t_3 < t \hspace{2.2em})
+    \end{array} \right.
+    \\
+    x(t)
+     & :=
+    \left\{ \begin{array}{ll}
+        x_0 + v_0(t-t_0)                           & (\hspace{2.2em} t \le t_0) \\
+        x_0 + v_0(t-t_0) + \frac{1}{6}j_m(t-t_0)^3 & (t_0 < t \le t_1)          \\
+        x_1 + v_1(t-t_1) + \frac{1}{2}a_m(t-t_1)^2 & (t_1 < t \le t_2)          \\
+        x_3 + v_3(t-t_3) - \frac{1}{6}j_m(t-t_3)^3 & (t_2 < t \le t_3)          \\
+        x_3 + v_3(t-t_3)                           & (t_3 < t \hspace{2.2em})
+    \end{array} \right.
+\end{align}
 $$
+</div>
 
 と表すことができます．ただし，各定数は以下の通りです．
 
@@ -100,60 +115,87 @@ $$
 
 まずは，各境界点における時刻の定義です．
 
-等加速度運動となる時間 $ t_m := \\frac{1}{a_m}(v_e - v_s) - t_c $ に対し，
+等加速度運動となる時間 $t_m$ および加速度が変化する時間 $t_c$
 
+<div>
 $$
-\\begin{array}{ll}
-  \\mathrm{if}~(t_m > 0) &
-  \\left\\{ \\begin{array}{l}
-    t_0 := 0\\newline
-    t_1 := t_0 + t_c\\newline
-    t_2 := t_1 + t_m\\newline
-    t_3 := t_2 + t_c
-  \\end{array} \\right.
-   \\newline
-  \\mathrm{else}~(t_m \\le 0) &
-  \\left\\{ \\begin{array}{l}
-    t_0 := 0\\newline
-    t_1 := t_0 + \\sqrt{\\frac{t_c}{a_m}(v_e-v_s)} \\newline
-    t_2 := t_1\\newline
-    t_3 := t_2 + (t_1-t_0)
-  \\end{array} \\right.
-\\end{array}
+\begin{align}
+t_m &:= \frac{1}{a_m}(v_e - v_s) - t_c,\\
+t_c &:= \frac{a_m}{j_m}
+\end{align}
 $$
+</div>
+
+に対し，
+
+<div>
+$$
+    \left\{ \begin{array}{l}
+        \begin{array}{ll}
+            \left\{ \begin{array}{l}
+                t_0 := 0         \\
+                t_1 := t_0 + t_c \\
+                t_2 := t_1 + t_m \\
+                t_3 := t_2 + t_c
+            \end{array} \right.
+             &
+            (t_m > 0)
+            \\
+            \left\{ \begin{array}{l}
+                t_0 := 0                                   \\
+                t_1 := t_0 + \sqrt{\frac{1}{j_m}(v_e-v_s)} \\
+                t_2 := t_1                                 \\
+                t_3 := t_2 + (t_1-t_0)
+            \end{array} \right.
+             &
+            (t_m \le 0)
+        \end{array}
+    \end{array} \right.
+$$
+</div>
+
+と表されます．$t_m$によって場合分けがあります．
 
 ### 境界点における定数
-次に，境界点の各定数は，
 
-$$
-\\begin{align}
-  &\\left\\{ \\begin{array}{l}
-  v_0 := v_s \\newline
-  v_1 := v(t_1) \\newline
-  v_2 := v(t_2) \\newline
-  v_3 := v_e
-  \\end{array} \\right.
-  \\newline
-  &\\left\\{ \\begin{array}{l}
-  x_0 := 0 \\newline
-  x_1 := x(t_1) \\newline
-  x_2 := x(t_2) \\newline
-  x_3 := x_0 + \\frac{1}{2}(v_0 + v_3)(t_3-t_0)
-  \\end{array} \\right.
-  \\end{align}
-$$
+次に，境界点の速度および位置の各定数は，
 
-となります．
+<div>
+$$
+    \left\{ \begin{array}{l}
+        v_0 := v_s    \\
+        v_1 := v(t_1) \\
+        v_2 := v(t_2) \\
+        v_3 := v_e
+    \end{array} \right.
+    \quad
+    \left\{ \begin{array}{l}
+        x_0 := 0      \\
+        x_1 := x(t_1) \\
+        x_2 := x(t_2) \\
+        x_3 := x_0 + \frac{1}{2}(v_0 + v_3)(t_3-t_0)
+    \end{array} \right.
+$$
+</div>
+
+として，既出の関数を利用して求めます．
+
+こうすることで，面倒な場合分けを省略できます．
 
 ### 加速度の符号
 
-ちなみに，最大加速度 $a_m$ の符号を適切に設定すれば，減速の場合にもそのまま使用できることに注意しましょう．つまり，
+ちなみに，最大加速度 $a_m$ の符号などを適切に設定すれば，減速の場合にもそのまま使用できることに注意しましょう．つまり，
 
+<div>
 $$
-a_m = \\mathrm{sign}(v_e-v_s) \\times|a_m|
+\begin{align}
+    j_m & = \mathrm{sign}(v_e-v_s) \times|j_{\max}| \\
+    a_m & = \mathrm{sign}(v_e-v_s) \times|a_{\max}|
+\end{align}
 $$
+</div>
 
-のように$a_m$の符号を設定すると上手くいきます．
+のように $j_m,~a_m$ の符号を設定することで，加減速どちらでも上記の数式を使用することができます．
 
 ## 導出過程
 

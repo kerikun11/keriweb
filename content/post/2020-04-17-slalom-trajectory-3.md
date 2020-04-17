@@ -10,13 +10,11 @@ thumbnail: "icon.png"
 draft: true
 ---
 
-## はじめに
-
 前回の記事の続きです．
 
-今回の記事では，[マイクロマウスの走行パターン](/posts/2017-09-03-pattern-of-turn/)について，ターンの軌道の例を紹介します．
-
 <!--more-->
+
+今回の記事では，[マイクロマウスの走行パターン](/posts/2017-09-03-pattern-of-turn/)について，ターンの軌道の例を紹介します．
 
 ### 対称性
 
@@ -70,6 +68,12 @@ draft: true
 ![スラローム形状](shape/shape_5_xy.svg)
 
 ![スラローム軌道](shape/shape_5_t.svg)
+
+### #6 最短斜めロング90度
+
+![スラローム形状](shape/shape_6_xy.svg)
+
+![スラローム軌道](shape/shape_6_t.svg)
 
 ## まとめ
 

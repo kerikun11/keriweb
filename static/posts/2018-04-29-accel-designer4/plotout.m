@@ -14,9 +14,8 @@ v = rawdata(:, 4);
 x = rawdata(:, 5);
 
 %% plot
-legends= {'Jerk $j$ [mm/s/s/s]', 'Acceleration $a$ [mm/s/s]', 'Velocity $v$ [mm/s]', 'Position $x$ [mm]'};
-ylabels= {'$j$ [mm/s/s/s]', '$a$ [mm/s/s]', '$v$ [mm/s]', '$x$ [mm]'};
 titles= {'Jerk', 'Acceleration', 'Velocity', 'Position'};
+ylabels= {'$j$ [mm/s/s/s]', '$a$ [mm/s/s]', '$v$ [mm/s]', '$x$ [mm]'};
 xlabelstr = '$t$ [s]';
 
 figure(1);
