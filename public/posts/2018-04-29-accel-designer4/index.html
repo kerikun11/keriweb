@@ -129,60 +129,51 @@ if (!doNotTrack) {
 <h2 id="ソースコード">ソースコード</h2>
 <p>このライブラリに実体はなく，クラスの宣言が書かれたヘッダファイルのみです．</p>
 <ul>
-<li>ライブラリ <a href="AccelDesigner.h">AccelDesigner.h</a></li>
+<li>ライブラリ <a href="accel_curve.h">accel_curve.h</a>, <a href="accel_designer.h">accel_designer.h</a></li>
 <li>使用例 <a href="main.cpp">main.cpp</a></li>
-<li>CSVをプロットするMATLABコード <a href="plotout.m">plotout.m</a></li>
+<li>CSV をプロットする MATLAB コード <a href="plotout.m">plotout.m</a></li>
 </ul>
 <p>※使用する際は，これらのファイルはすべて同じディレクトリにおいてください．</p>
 <h2 id="設計1-曲線加速">設計1 曲線加速</h2>
-<p>以下のコードは，曲線加速クラスの宣言部分です．</p>
+<p>以下のコードは，曲線加速クラスの抜粋です．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
-</span><span class="cm"> * @class 加速曲線を生成するクラス
-</span><span class="cm"> * @brief 引数に従って加速曲線を生成する
+</span><span class="cm"> * @brief 加速曲線を生成するクラス
+</span><span class="cm"> *
+</span><span class="cm"> * 引数に従って加速曲線を生成する
 </span><span class="cm"> */</span>
 <span class="k">class</span> <span class="nc">AccelCurve</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="cm">/**
 </span><span class="cm">   * @brief 初期化付きのコンストラクタ．
-</span><span class="cm">   * @param a_max   最大加速度 [mm/s/s]
+</span><span class="cm">   *
+</span><span class="cm">   * @param j_max   最大躍度の大きさ [mm/s/s/s]
+</span><span class="cm">   * @param a_max   最大加速度の大きさ [mm/s/s]
 </span><span class="cm">   * @param v_start 始点速度   [mm/s]
 </span><span class="cm">   * @param v_end   終点速度   [mm/s]
 </span><span class="cm">   */</span>
-  <span class="n">AccelCurve</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_end</span><span class="p">);</span>
+  <span class="n">AccelCurve</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_end</span><span class="p">);</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 空のコンストラクタ．あとで reset() により初期化すること．
-</span><span class="cm">   */</span>
-  <span class="n">AccelCurve</span><span class="p">();</span>
-  <span class="cm">/**
-</span><span class="cm">   * @brief 引数の拘束条件から曲線を生成する．
-</span><span class="cm">   * この関数によって，すべての変数が初期化される．(漏れはない)
-</span><span class="cm">   * @param a_max   最大加速度 [mm/s/s]
-</span><span class="cm">   * @param v_start 始点速度 [mm/s]
-</span><span class="cm">   * @param v_end   終点速度 [mm/s]
-</span><span class="cm">   */</span>
-  <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_end</span><span class="p">);</span>
-  <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における躍度$j$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 躍度[mm/s/s/s]
+</span><span class="cm">   * @brief 時刻 $t$ における躍度 $j$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return 躍度 [mm/s/s/s]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">j</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における加速度$a$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 加速度[mm/s/s]
+</span><span class="cm">   * @brief 時刻 $t$ における加速度 $a$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return 加速度 [mm/s/s]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">a</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における速度$v$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 速度[mm/s]
+</span><span class="cm">   * @brief 時刻 $t$ における速度 $v$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return 速度 [mm/s]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">v</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における位置$x$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 位置[mm]
+</span><span class="cm">   * @brief 時刻 $t$ における位置 $x$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return 位置 [mm]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">x</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
@@ -192,65 +183,74 @@ if (!doNotTrack) {
   <span class="kt">float</span> <span class="nf">v_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
   <span class="kt">float</span> <span class="nf">x_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 曲線加速部分の時間を決定する関数
-</span><span class="cm">   * @param am 最大加速度の大きさ
+</span><span class="cm">   * @brief std::ofstream に軌道のcsvを出力する関数．
 </span><span class="cm">   */</span>
-  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcTimeCurve</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">am</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">printCsv</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_interval</span> <span class="o">=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
   <span class="cm">/**
 </span><span class="cm">   * @brief 走行距離から達しうる終点速度を算出する関数
-</span><span class="cm">   * @param am 最大加速度の大きさ [mm/s/s]
+</span><span class="cm">   *
+</span><span class="cm">   * @param j_max 最大躍度の大きさ [mm/s/s/s]
+</span><span class="cm">   * @param a_max 最大加速度の大きさ [mm/s/s]
 </span><span class="cm">   * @param vs 始点速度 [mm/s]
 </span><span class="cm">   * @param vt 目標速度 [mm/s]
 </span><span class="cm">   * @param d 走行距離 [mm]
 </span><span class="cm">   * @return ve 終点速度 [mm/s]
 </span><span class="cm">   */</span>
-  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcVelocityEnd</span><span class="p">(</span><span class="kt">float</span> <span class="n">am</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vt</span><span class="p">,</span>
-                               <span class="k">const</span> <span class="kt">float</span> <span class="n">d</span><span class="p">);</span>
-  <span class="cm">/** @function calcVelocityMax
-</span><span class="cm">   *   @brief 走行距離から最大速度を算出する関数
-</span><span class="cm">   *   @param am 最大加速度の大きさ [mm/s/s]
-</span><span class="cm">   *   @param vs 始点速度 [mm/s]
-</span><span class="cm">   *   @param va 飽和速度 [mm/s]
-</span><span class="cm">   *   @param ve 終点速度 [mm/s]
-</span><span class="cm">   *   @param d 走行距離 [mm]
-</span><span class="cm">   *   @return vm 最大速度 [mm/s]
+  <span class="k">static</span> <span class="kt">float</span> <span class="n">calcVelocityEnd</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span><span class="p">,</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vt</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">d</span><span class="p">);</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 走行距離から最大速度を算出する関数
+</span><span class="cm">   *
+</span><span class="cm">   * @param j_max 最大躍度の大きさ [mm/s/s/s]
+</span><span class="cm">   * @param a_max 最大加速度の大きさ [mm/s/s]
+</span><span class="cm">   * @param vs 始点速度 [mm/s]
+</span><span class="cm">   * @param ve 終点速度 [mm/s]
+</span><span class="cm">   * @param d 走行距離 [mm]
+</span><span class="cm">   * @return vm 最大速度 [mm/s]
 </span><span class="cm">   */</span>
-  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcVelocityMax</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">am</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">ve</span><span class="p">,</span>
-                               <span class="k">const</span> <span class="kt">float</span> <span class="n">d</span><span class="p">);</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcVelocityMax</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">ve</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">d</span><span class="p">);</span>
   <span class="cm">/**
 </span><span class="cm">   * @brief 速度差から変位を算出する関数
 </span><span class="cm">   *
-</span><span class="cm">   * @param am 最大加速度の大きさ [mm/s/s]
-</span><span class="cm">   * @param vs 始点速度 [mm/s]
-</span><span class="cm">   * @param vt 目標速度 [mm/s]
+</span><span class="cm">   * @param j_max   最大躍度の大きさ [mm/s/s/s]
+</span><span class="cm">   * @param a_max   最大加速度の大きさ [mm/s/s]
+</span><span class="cm">   * @param v_start 始点速度 [mm/s]
+</span><span class="cm">   * @param v_end   終点速度 [mm/s]
 </span><span class="cm">   * @return float d 変位 [mm/s]
 </span><span class="cm">   */</span>
-  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcMinDistance</span><span class="p">(</span><span class="kt">float</span> <span class="n">am</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vs</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">vt</span><span class="p">);</span>
+  <span class="k">static</span> <span class="kt">float</span> <span class="nf">calcMinDistance</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_end</span><span class="p">);</span>
 
-<span class="k">private</span><span class="o">:</span>
-  <span class="kt">float</span> <span class="n">am</span><span class="p">;</span>             <span class="c1">//&lt; 最大加速度 [m/s/s]
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">;</span> <span class="c1">//&lt; 境界点の時刻 [s]
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">;</span> <span class="c1">//&lt; 境界点の速度 [m/s]
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">;</span> <span class="c1">//&lt; 境界点の位置 [m]
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">tc</span><span class="p">;</span>             <span class="c1">//&lt; 曲線加速の時間 [s]
-</span><span class="c1"></span>  <span class="kt">float</span> <span class="n">tm</span><span class="p">;</span>             <span class="c1">//&lt; 最大加速度の時間 [s]
-</span><span class="c1"></span><span class="p">};</span>
+<span class="k">protected</span><span class="o">:</span>
+  <span class="kt">float</span> <span class="n">jm</span><span class="p">;</span>             <span class="cm">/**&lt; @brief 最大躍度 [m/s/s/s] */</span>
+  <span class="kt">float</span> <span class="n">am</span><span class="p">;</span>             <span class="cm">/**&lt; @brief 最大加速度 [m/s/s] */</span>
+  <span class="kt">float</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">;</span> <span class="cm">/**&lt; @brief 境界点の時刻 [s] */</span>
+  <span class="kt">float</span> <span class="n">v0</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">;</span> <span class="cm">/**&lt; @brief 境界点の速度 [m/s] */</span>
+  <span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">;</span> <span class="cm">/**&lt; @brief 境界点の位置 [m] */</span>
+<span class="p">};</span>
 </code></pre></div><h2 id="設計2-曲線加減速">設計2 曲線加減速</h2>
-<p>以下のコードは，走行距離の拘束条件を満たした曲線加減速クラスの宣言部分です．</p>
+<p>以下のコードは，走行距離の拘束条件を満たす曲線加減速クラスの抜粋です．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cm">/**
-</span><span class="cm"> * @class 加減速曲線を生成するクラス
-</span><span class="cm"> * @brief 引数に従って速度計画をし，加減速曲線を生成する
+</span><span class="cm"> * @brief 加減速曲線を生成するクラス
+</span><span class="cm"> *
+</span><span class="cm"> * 引数の拘束条件に従って速度計画をし，加減速曲線を生成する
 </span><span class="cm"> */</span>
 <span class="k">class</span> <span class="nc">AccelDesigner</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
   <span class="cm">/**
-</span><span class="cm">   * @param a_max 最大加速度 [mm/s/s]
-</span><span class="cm">   * @param v_start 始点速度 [mm/s]
-</span><span class="cm">   * @param v_end 終点速度 [mm/s]
+</span><span class="cm">   * @brief 初期化付きコンストラクタ
+</span><span class="cm">   *
+</span><span class="cm">   * @param j_max     最大躍度の大きさ [mm/s/s/s]，正であること
+</span><span class="cm">   * @param a_max     最大加速度の大きさ [mm/s/s], 正であること
+</span><span class="cm">   * @param v_start   始点速度 [mm/s]
+</span><span class="cm">   * @param v_sat     飽和速度の大きさ [mm/s]，正であること
+</span><span class="cm">   * @param v_target  目標速度 [mm/s]
+</span><span class="cm">   * @param v_end     終点速度 [mm/s]
+</span><span class="cm">   * @param dist      移動距離の大きさ [mm], 非負であること
+</span><span class="cm">   * @param x_start   始点位置 [mm]
+</span><span class="cm">   * @param t_start   始点時刻 [t]
 </span><span class="cm">   */</span>
-  <span class="n">AccelDesigner</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span><span class="p">,</span>
-                <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">distance</span><span class="p">,</span>
-                <span class="k">const</span> <span class="kt">float</span> <span class="n">x_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">AccelDesigner</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">dist</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">x_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
   <span class="cm">/**
 </span><span class="cm">   * @brief 空のコンストラクタ．あとで reset() により初期化すること．
 </span><span class="cm">   */</span>
@@ -258,32 +258,40 @@ if (!doNotTrack) {
   <span class="cm">/**
 </span><span class="cm">   * @brief 引数の拘束条件から曲線を生成する．
 </span><span class="cm">   * この関数によって，すべての変数が初期化される．(漏れはない)
+</span><span class="cm">   *
+</span><span class="cm">   * @param j_max     最大躍度の大きさ [mm/s/s/s]，正であること
+</span><span class="cm">   * @param a_max     最大加速度の大きさ [mm/s/s], 正であること
+</span><span class="cm">   * @param v_start   始点速度 [mm/s]
+</span><span class="cm">   * @param v_sat     飽和速度の大きさ [mm/s]，正であること
+</span><span class="cm">   * @param v_target  目標速度 [mm/s]
+</span><span class="cm">   * @param v_end     終点速度 [mm/s]
+</span><span class="cm">   * @param dist      移動距離の大きさ [mm], 非負であること
+</span><span class="cm">   * @param x_start   始点位置 [mm]
+</span><span class="cm">   * @param t_start   始点時刻 [t]
 </span><span class="cm">   */</span>
-  <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span><span class="p">,</span>
-             <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span><span class="p">,</span> <span class="kt">float</span> <span class="n">distance</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">x_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-             <span class="k">const</span> <span class="kt">float</span> <span class="n">t_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">reset</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">dist</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">x_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における躍度$j$
+</span><span class="cm">   * @brief 時刻 $t$ における躍度 $j$
 </span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 躍度[mm/s/s/s]
+</span><span class="cm">   * @return j 躍度[mm/s/s/s]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">j</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における加速度$a$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 加速度[mm/s/s]
+</span><span class="cm">   * @brief 時刻 $t$ における加速度 $a$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return a 加速度 [mm/s/s]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">a</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における速度$v$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 速度[mm/s]
+</span><span class="cm">   * @brief 時刻 $t$ における速度 $v$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return v 速度 [mm/s]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">v</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
-</span><span class="cm">   * @brief 時刻$t$における位置$x$
-</span><span class="cm">   * @param t 時刻[s]
-</span><span class="cm">   * @return 位置[mm]
+</span><span class="cm">   * @brief 時刻 $t$ における位置 $x$
+</span><span class="cm">   * @param t 時刻 [s]
+</span><span class="cm">   * @return x 位置 [mm]
 </span><span class="cm">   */</span>
   <span class="kt">float</span> <span class="nf">x</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
@@ -293,42 +301,56 @@ if (!doNotTrack) {
   <span class="kt">float</span> <span class="nf">v_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
   <span class="kt">float</span> <span class="nf">x_end</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
+</span><span class="cm">   * @brief 端点の時刻
+</span><span class="cm">   */</span>
+  <span class="kt">float</span> <span class="nf">t_0</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">t_1</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">t_2</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="nf">t_3</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
 </span><span class="cm">   * @brief stdoutに軌道のcsvを出力する関数．
 </span><span class="cm">   */</span>
   <span class="kt">void</span> <span class="nf">printCsv</span><span class="p">(</span><span class="k">const</span> <span class="kt">float</span> <span class="n">t_interval</span> <span class="o">=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
   <span class="cm">/**
 </span><span class="cm">   * @brief std::ofstream に軌道のcsvを出力する関数．
 </span><span class="cm">   */</span>
-  <span class="kt">void</span> <span class="nf">printCsv</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="o">&amp;</span><span class="n">of</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_interval</span> <span class="o">=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">void</span> <span class="nf">printCsv</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="kt">float</span> <span class="n">t_interval</span> <span class="o">=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+  <span class="cm">/**
+</span><span class="cm">   * @brief 情報の表示
+</span><span class="cm">   */</span>
+  <span class="k">friend</span> <span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span> <span class="o">&amp;</span><span class="n">os</span><span class="p">,</span> <span class="k">const</span> <span class="n">AccelDesigner</span> <span class="o">&amp;</span><span class="n">obj</span><span class="p">);</span>
 
 <span class="k">private</span><span class="o">:</span>
-  <span class="kt">float</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">;</span> <span class="cm">/**&lt; 境界点の時刻 [s] */</span>
-  <span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x3</span><span class="p">;</span>         <span class="cm">/**&lt; 境界点の位置 [mm] */</span>
-  <span class="n">AccelCurve</span> <span class="n">ac</span><span class="p">,</span> <span class="n">dc</span><span class="p">;</span>    <span class="cm">/**&lt; 曲線加速，曲線減速オブジェクト */</span>
+  <span class="kt">float</span> <span class="n">t0</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">;</span> <span class="cm">/**&lt; @brief 境界点の時刻 [s] */</span>
+  <span class="kt">float</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x3</span><span class="p">;</span>         <span class="cm">/**&lt; @brief 境界点の位置 [mm] */</span>
+  <span class="n">AccelCurve</span> <span class="n">ac</span><span class="p">,</span> <span class="n">dc</span><span class="p">;</span> <span class="cm">/**&lt; @brief 曲線加速，曲線減速オブジェクト */</span>
 <span class="p">};</span>
 </code></pre></div><h2 id="使用例">使用例</h2>
+<p>次に， <code>AccelDesigner</code> の使用例を紹介します．</p>
 <h3 id="シンプル">シンプル</h3>
-<p>一番簡単な例として以下のC++コードをご覧ください．
-実行すると，標準出力にCSVが表示されます．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
+<p>一番簡単な例として以下の C++コードをご覧ください．
+実行すると，標準出力に CSV が表示されます．</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&#34;accel_designer.h&#34;</span><span class="cp">
+</span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">AccelDesigner</span> <span class="n">sd</span><span class="p">;</span>
+  <span class="n">ctrl</span><span class="o">::</span><span class="n">AccelDesigner</span> <span class="n">ad</span><span class="p">;</span>
 
   <span class="c1">// パラメータを設定
-</span><span class="c1"></span>  <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span> <span class="o">=</span> <span class="mi">120000</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">;</span>
   <span class="k">const</span> <span class="kt">float</span> <span class="n">v_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span> <span class="o">=</span> <span class="mi">2400</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">v_sat</span> <span class="o">=</span> <span class="mi">1800</span><span class="p">;</span>
   <span class="k">const</span> <span class="kt">float</span> <span class="n">v_target</span> <span class="o">=</span> <span class="mi">600</span><span class="p">;</span>
   <span class="k">const</span> <span class="kt">float</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">720</span><span class="p">;</span>
   <span class="c1">// 曲線を生成
-</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">a_max</span><span class="p">,</span> <span class="n">v_start</span><span class="p">,</span> <span class="n">v_sat</span><span class="p">,</span> <span class="n">v_target</span><span class="p">,</span> <span class="n">distance</span><span class="p">);</span>
+</span><span class="c1"></span>  <span class="n">ad</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">j_max</span><span class="p">,</span> <span class="n">a_max</span><span class="p">,</span> <span class="n">v_start</span><span class="p">,</span> <span class="n">v_sat</span><span class="p">,</span> <span class="n">v_target</span><span class="p">,</span> <span class="n">distance</span><span class="p">);</span>
   <span class="c1">// CSV出力
-</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">();</span> <span class="n">t</span> <span class="o">+=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f,%f,%f,%f,%f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">j</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sd</span><span class="p">.</span><span class="n">a</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sd</span><span class="p">.</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sd</span><span class="p">.</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+</span><span class="c1"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="n">ad</span><span class="p">.</span><span class="n">t_end</span><span class="p">();</span> <span class="n">t</span> <span class="o">+=</span> <span class="mf">0.001f</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%f,%f,%f,%f,%f</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">j</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">ad</span><span class="p">.</span><span class="n">a</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">ad</span><span class="p">.</span><span class="n">v</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">ad</span><span class="p">.</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -336,27 +358,30 @@ if (!doNotTrack) {
 </code></pre></div><h3 id="連続使用">連続使用</h3>
 <p>加減速をいくつか繰り返す例です．</p>
 <p>前回の終点の速度や位置を，次回の始点速度，位置に使っています．</p>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&#34;AccelDesigner.h&#34;</span><span class="cp">
+<span class="cp">#include</span> <span class="cpf">&#34;accel_designer.h&#34;</span><span class="cp">
 </span><span class="cp"></span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">of</span><span class="p">(</span><span class="s">&#34;out.csv&#34;</span><span class="p">);</span> <span class="c1">//&lt; ファイル名
-</span><span class="c1"></span>  <span class="n">AccelDesigner</span> <span class="n">sd</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">of</span><span class="p">(</span><span class="s">&#34;out.csv&#34;</span><span class="p">);</span> <span class="c1">//&lt; 出力ファイル名
+</span><span class="c1"></span>  <span class="n">ctrl</span><span class="o">::</span><span class="n">AccelDesigner</span> <span class="n">ad</span><span class="p">;</span>
 
-  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span> <span class="c1">//&lt; 曲線の生成
-</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span> <span class="c1">//&lt; CSVファイル出力
-</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span> <span class="c1">//&lt; 曲線の生成
-</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span> <span class="c1">//&lt; CSVファイル出力
-</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="mi">12000</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="n">sd</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">sd</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span> <span class="c1">//&lt; 曲線の生成
-</span><span class="c1"></span>  <span class="n">sd</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span> <span class="c1">//&lt; CSVファイル出力
-</span><span class="c1"></span>
+  <span class="c1">// パラメータを設定
+</span><span class="c1"></span>  <span class="k">const</span> <span class="kt">float</span> <span class="n">j_max</span> <span class="o">=</span> <span class="mi">120000</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">float</span> <span class="n">a_max</span> <span class="o">=</span> <span class="mi">9000</span><span class="p">;</span>
+  <span class="c1">// 曲線を生成 &amp; CSVを作成 の連続
+</span><span class="c1"></span>  <span class="n">ad</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">j_max</span><span class="p">,</span> <span class="n">a_max</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1080</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">ad</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span>
+  <span class="n">ad</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span>
+  <span class="n">ad</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">j_max</span><span class="p">,</span> <span class="n">a_max</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">ad</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span>
+  <span class="n">ad</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span>
+  <span class="n">ad</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">j_max</span><span class="p">,</span> <span class="n">a_max</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">v_end</span><span class="p">(),</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="n">ad</span><span class="p">.</span><span class="n">x_end</span><span class="p">(),</span> <span class="n">ad</span><span class="p">.</span><span class="n">t_end</span><span class="p">());</span>
+  <span class="n">ad</span><span class="p">.</span><span class="n">printCsv</span><span class="p">(</span><span class="n">of</span><span class="p">);</span>
+
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="csvをmatlabでプロット">CSVをMATLABでプロット</h3>
-<p>以下のMATLABコードで，出力された<a href="out.csv">out.csv</a>ファイルをプロットできます．</p>
+</code></pre></div><h3 id="csv-を-matlab-でプロット">CSV を MATLAB でプロット</h3>
+<p>以下の MATLAB コードで，出力された<a href="out.csv">out.csv</a>ファイルをプロットできます．</p>
 <div class="highlight"><pre class="chroma"><code class="language-m" data-lang="m"><span class="c">%% cleaning</span>
 <span class="n">clear</span><span class="p">;</span>
 <span class="n">set</span><span class="p">(</span><span class="n">groot</span><span class="p">,</span> <span class="s">&#39;DefaultTextInterpreter&#39;</span><span class="p">,</span> <span class="s">&#39;Latex&#39;</span><span class="p">);</span>
@@ -372,8 +397,8 @@ if (!doNotTrack) {
 <span class="n">x</span> <span class="p">=</span> <span class="n">rawdata</span><span class="p">(:,</span> <span class="mi">5</span><span class="p">);</span>
 
 <span class="c">%% plot</span>
-<span class="n">ylabels</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;$j$ [mm/s/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$a$ [mm/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$v$ [mm/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$x$ [mm]&#39;</span><span class="p">};</span>
 <span class="n">titles</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;Jerk&#39;</span><span class="p">,</span> <span class="s">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="s">&#39;Velocity&#39;</span><span class="p">,</span> <span class="s">&#39;Position&#39;</span><span class="p">};</span>
+<span class="n">ylabels</span><span class="p">=</span> <span class="p">{</span><span class="s">&#39;$j$ [mm/s/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$a$ [mm/s/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$v$ [mm/s]&#39;</span><span class="p">,</span> <span class="s">&#39;$x$ [mm]&#39;</span><span class="p">};</span>
 <span class="n">xlabelstr</span> <span class="p">=</span> <span class="s">&#39;$t$ [s]&#39;</span><span class="p">;</span>
 
 <span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -397,10 +422,11 @@ if (!doNotTrack) {
 			<h4>CSVをMATLABでプロット</h4>
 		</figcaption>
 		
-		<img src="out.png" alt="CSVをMATLABでプロット" style="width: 480px;"/>
+		<img src="main.png" alt="CSVをMATLABでプロット" style="width: 480px;"/>
 	
 </figure>
 
+<p>滑らかな曲線加速になっていることがわかります．</p>
 <h2 id="実装上の工夫">実装上の工夫</h2>
 <h3 id="使いやすさ">使いやすさ</h3>
 <p>今回作ったライブラリでは，コンストラクタや <code>reset()</code> 関数でパラメータを設定してあげれは
@@ -423,8 +449,6 @@ if (!doNotTrack) {
 <h3 id="免責">免責</h3>
 <p>設計には欠陥やミスがあるかもしれません．くれぐれも自己責任ご使用ください．</p>
 <p>もしミスや改良点を見つけたら教えてください！</p>
-<h3 id="追記-2019年1月29日">追記: 2019年1月29日</h3>
-<p>ソースコードに飽和速度を超過するバグがあったので修正しました．</p>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
@@ -576,7 +600,7 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#シンプル">シンプル</a></li>
         <li><a href="#連続使用">連続使用</a></li>
-        <li><a href="#csvをmatlabでプロット">CSVをMATLABでプロット</a></li>
+        <li><a href="#csv-を-matlab-でプロット">CSV を MATLAB でプロット</a></li>
       </ul>
     </li>
     <li><a href="#実装上の工夫">実装上の工夫</a>
@@ -588,7 +612,6 @@ if (!doNotTrack) {
     <li><a href="#まとめ">まとめ</a>
       <ul>
         <li><a href="#免責">免責</a></li>
-        <li><a href="#追記-2019年1月29日">追記: 2019年1月29日</a></li>
       </ul>
     </li>
   </ul>

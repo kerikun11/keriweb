@@ -30,15 +30,15 @@ thumbnail: "icon.png"
 
 - ライブラリ [accel_curve.h](accel_curve.h), [accel_designer.h](accel_designer.h)
 - 使用例 [main.cpp](main.cpp)
-- CSVをプロットするMATLABコード [plotout.m](plotout.m)
+- CSV をプロットする MATLAB コード [plotout.m](plotout.m)
 
 ※使用する際は，これらのファイルはすべて同じディレクトリにおいてください．
 
 ## 設計1 曲線加速
 
-以下のコードは，曲線加速クラスの宣言部分です．
+以下のコードは，曲線加速クラスの抜粋です．
 
-~~~cpp
+```cpp
 /**
  * @brief 加速曲線を生成するクラス
  *
@@ -55,20 +55,6 @@ public:
    * @param v_end   終点速度   [mm/s]
    */
   AccelCurve(const float j_max, const float a_max, const float v_start, const float v_end);
-  /**
-   * @brief 空のコンストラクタ．あとで reset() により初期化すること．
-   */
-  AccelCurve();
-  /**
-   * @brief 引数の拘束条件から曲線を生成する．
-   * この関数によって，すべての変数が初期化される．(漏れはない)
-   *
-   * @param j_max   最大躍度の大きさ [mm/s/s/s]
-   * @param a_max   最大加速度の大きさ [mm/s/s]
-   * @param v_start 始点速度 [mm/s]
-   * @param v_end   終点速度 [mm/s]
-   */
-  void reset(const float j_max, const float a_max, const float v_start, const float v_end);
   /**
    * @brief 時刻 $t$ における躍度 $j$
    * @param t 時刻 [s]
@@ -103,10 +89,6 @@ public:
    * @brief std::ofstream に軌道のcsvを出力する関数．
    */
   void printCsv(std::ostream &os, const float t_interval = 0.001f) const;
-  /**
-   * @brief 情報の表示
-   */
-  friend std::ostream &operator<<(std::ostream &os, const AccelCurve &obj);
 
 public:
   /**
@@ -149,13 +131,13 @@ protected:
   float v0, v1, v2, v3; /**< @brief 境界点の速度 [m/s] */
   float x0, x1, x2, x3; /**< @brief 境界点の位置 [m] */
 };
-~~~
+```
 
 ## 設計2 曲線加減速
 
-以下のコードは，走行距離の拘束条件を満たした曲線加減速クラスの宣言部分です．
+以下のコードは，走行距離の拘束条件を満たす曲線加減速クラスの抜粋です．
 
-~~~cpp
+```cpp
 /**
  * @brief 加減速曲線を生成するクラス
  *
@@ -251,16 +233,18 @@ private:
   float x0, x3;         /**< @brief 境界点の位置 [mm] */
   AccelCurve ac, dc; /**< @brief 曲線加速，曲線減速オブジェクト */
 };
-~~~
+```
 
 ## 使用例
 
+次に， `AccelDesigner` の使用例を紹介します．
+
 ### シンプル
 
-一番簡単な例として以下のC++コードをご覧ください．
-実行すると，標準出力にCSVが表示されます．
+一番簡単な例として以下の C++コードをご覧ください．
+実行すると，標準出力に CSV が表示されます．
 
-~~~cpp
+```cpp
 #include <cstdio>
 #include <fstream>
 #include <iostream>
@@ -286,7 +270,7 @@ int main(void) {
 
   return 0;
 }
-~~~
+```
 
 ### 連続使用
 
@@ -294,7 +278,7 @@ int main(void) {
 
 前回の終点の速度や位置を，次回の始点速度，位置に使っています．
 
-~~~cpp
+```cpp
 #include <fstream>
 #include <iostream>
 
@@ -317,13 +301,13 @@ int main(void) {
 
   return 0;
 }
-~~~
+```
 
-### CSVをMATLABでプロット
+### CSV を MATLAB でプロット
 
-以下のMATLABコードで，出力された[out.csv](out.csv)ファイルをプロットできます．
+以下の MATLAB コードで，出力された[out.csv](out.csv)ファイルをプロットできます．
 
-~~~m
+```m
 %% cleaning
 clear;
 set(groot, 'DefaultTextInterpreter', 'Latex');
@@ -356,7 +340,7 @@ for i = 1 : 4
     ylabel(ylabels(i));
     title(titles(i));
 end
-~~~
+```
 
 上記の連続使用のコード例をプロットしたのが以下の図です．
 

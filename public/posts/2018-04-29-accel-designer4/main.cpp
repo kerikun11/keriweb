@@ -1,19 +1,23 @@
-#include <cstdio>
 #include <fstream>
 #include <iostream>
 
-#include "AccelDesigner.h"
+#include "accel_designer.h"
 
 int main(void) {
-  std::ofstream of("out.csv"); //< ファイル名
-  AccelDesigner sd;
+  std::ofstream of("out.csv"); //< 出力ファイル名
+  ctrl::AccelDesigner ad;
 
-  sd.reset(12000, sd.v_end(), 2400, 1200, 1080, sd.x_end(), sd.t_end()); //< 曲線の生成
-  sd.printCsv(of); //< CSVファイル出力
-  sd.reset(12000, sd.v_end(), 2400, 600, 360, sd.x_end(), sd.t_end()); //< 曲線の生成
-  sd.printCsv(of); //< CSVファイル出力
-  sd.reset(12000, sd.v_end(), 2400, 0, 720, sd.x_end(), sd.t_end()); //< 曲線の生成
-  sd.printCsv(of); //< CSVファイル出力
+  const float j_max = 120000;
+  const float a_max = 9000;
+  ad.reset(j_max, a_max, ad.v_end(), 2400, 1200, 1080, ad.x_end(),
+           ad.t_end()); //< 曲線の生成
+  ad.printCsv(of);      //< CSVファイル出力
+  ad.reset(j_max, a_max, ad.v_end(), 2400, 600, 360, ad.x_end(),
+           ad.t_end()); //< 曲線の生成
+  ad.printCsv(of);      //< CSVファイル出力
+  ad.reset(j_max, a_max, ad.v_end(), 2400, 0, 720, ad.x_end(),
+           ad.t_end()); //< 曲線の生成
+  ad.printCsv(of);      //< CSVファイル出力
 
   return 0;
 }
