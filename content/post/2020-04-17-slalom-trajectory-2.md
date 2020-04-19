@@ -65,14 +65,39 @@ draft: true
 
 ## まとめ
 
+与える情報と得られる情報をまとめると，次にようになります．
+
+### 設計時に与える情報
+
+- 最大角躍度 $\dddot{\theta}_{\max}$
+- 最大角躍度 $\ddot{\theta}_{\max}$
+- 最大角躍度 $\dot{\theta}_{\max}$
+- 角度 $\theta_{\rm end}$
+- 位置 $x_{\rm end},~ y_{\rm end}$
+
+### 設計時に得られる情報
+
+- 基準並進速度 $v_{\rm ref}$
+
 ### 走行時に与える情報
 
 - 並進速度 $v$
 
 ### 走行時に得られる情報
 
-- 各時刻 $t$ における角度 $\theta(t)$，角速度 $\dot{\theta}(t)$，角加速度 $\ddot{\theta}(t)$，角躍度 $\dddot{\theta}(t)$
-- 各時刻 $t$ における位置 $x(t)$, $y(t)$
+- 任意の時刻 $t$ における以下の値
+  - 角躍度 $\dddot{\theta}(t)$
+  - 角加速度 $\ddot{\theta}(t)$
+  - 角速度 $\dot{\theta}(t)$
+  - 角度 $\theta(t)$
+  - 位置 $x(t)$, $y(t)$
+
+## まとめ
+
+今回の記事では，滑らかなスラローム軌道の設計方法について述べました．
+
+次回の記事では，C++による実装例を紹介します．
+
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>

@@ -26,17 +26,23 @@ thumbnail: "icon.png"
 
 ## ソースコード
 
+サンプルファイルは，[ここ](src.zip)からダウンロードできます．
+
 このライブラリに実体はなく，クラスの宣言が書かれたヘッダファイルのみです．
 
-- ライブラリ [accel_curve.h](accel_curve.h), [accel_designer.h](accel_designer.h)
-- 使用例 [main.cpp](main.cpp)
-- CSV をプロットする MATLAB コード [plotout.m](plotout.m)
+- ライブラリ `accel_curve.h`, `accel_designer.h`
+- 使用例 `simple.cpp`, `multi.cpp`
+- 出力された CSV をプロットする MATLAB コード `plotout.m`
 
 ※使用する際は，これらのファイルはすべて同じディレクトリにおいてください．
 
 ## 設計1 曲線加速
 
-以下のコードは，曲線加速クラスの抜粋です．
+まず，移動距離の拘束がない速度設計クラス `AccelCurve` を紹介します．
+
+以下のコードは，
+`accel_curve.h`
+の抜粋です．
 
 ```cpp
 /**
@@ -135,7 +141,11 @@ protected:
 
 ## 設計2 曲線加減速
 
-以下のコードは，走行距離の拘束条件を満たす曲線加減速クラスの抜粋です．
+次は，移動距離などの拘束条件を満たす加減速設計クラス `AccelDesigner` を紹介します．
+
+以下のコードは，
+`accel_designer.h`
+の抜粋です．
 
 ```cpp
 /**
@@ -244,6 +254,8 @@ private:
 一番簡単な例として以下の C++コードをご覧ください．
 実行すると，標準出力に CSV が表示されます．
 
+`simple.cpp`
+
 ```cpp
 #include <cstdio>
 #include <fstream>
@@ -278,6 +290,8 @@ int main(void) {
 
 前回の終点の速度や位置を，次回の始点速度，位置に使っています．
 
+`multi.cpp`
+
 ```cpp
 #include <fstream>
 #include <iostream>
@@ -305,7 +319,7 @@ int main(void) {
 
 ### CSV を MATLAB でプロット
 
-以下の MATLAB コードで，出力された[out.csv](out.csv)ファイルをプロットできます．
+以下の MATLAB コードで，生成された `out.csv` をプロットできます．
 
 ```m
 %% cleaning
@@ -361,13 +375,13 @@ end
 
 今回のクラス設計では，
 
-- 走行距離$d$を考慮して終点速度$v_e$を求める関数`AccelCurve::calcVelocityEnd()`
-- 走行距離$d$を考慮して最大速度$v_m$を求める関数`AccelCurve::calcVelocityMax()`
+- 走行距離 $d$ を考慮して終点速度 $v_e$ を求める関数 `AccelCurve::calcVelocityEnd()`
+- 走行距離 $d$ を考慮して最大速度 $v_m$ を求める関数 `AccelCurve::calcVelocityMax()`
 
-は，設計1の`AccelCurve`クラスに実装しました．
+は，設計1の `AccelCurve` クラスに実装しました．
 
-というのも，曲線生成部分がすべて`AccelCurve`クラスにまとまっているので，
-今後，曲線部分を2次関数ではない別の関数に変えたくなったら，`AccelCurve`クラスの中身を変更するだけで済むようになっています．
+というのも，曲線生成部分がすべて `AccelCurve` クラスにまとまっているので，
+今後，曲線部分を2次関数ではない別の関数に変えたくなったら， `AccelCurve` クラスの中身を変更するだけで済むようになっています．
 
 ## まとめ
 
@@ -383,7 +397,7 @@ end
 
 設計には欠陥やミスがあるかもしれません．くれぐれも自己責任ご使用ください．
 
-もしミスや改良点を見つけたら教えてください！
+もしミスや改良点を見つけたら是非教えてください！[@kerikun11](https://twitter.com/kerikun11)
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});

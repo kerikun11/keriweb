@@ -22,6 +22,8 @@ draft: true
 
 ## 軌道の例
 
+ここでは，1区画が 90 [mm] のマイクロマウス競技のスラローム走行軌道を紹介します．
+
 ### 最大角躍度，角加速度，角速度
 
 これは設計パラメータのひとつです．
@@ -75,9 +77,11 @@ draft: true
 
 ![スラローム軌道](shape/shape_6_t.svg)
 
-## まとめ
+### #1 〜 #4 まとめ
 
 ![区画の中心から出る軌道](shape_1_stack.svg)
+
+## おわりに
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
