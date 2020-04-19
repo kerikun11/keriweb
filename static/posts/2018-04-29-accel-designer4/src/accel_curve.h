@@ -3,7 +3,7 @@
  * @author Ryotaro Onuki (kerikun11+github@gmail.com)
  * @ref https://kerikeri.top/posts/2018-04-29-accel-designer4/
  * @brief 躍度0次，加速度1次，速度2次，位置3次関数により，滑らかな加速を実現する
- * @date 2020-04-19 編集
+ * @date 2020-04-19
  */
 #pragma once
 
@@ -153,10 +153,16 @@ public:
       return x3 + v3 * (t - t3);
   }
   /**
-   * @brief 終端定数
+   * @brief 終点時刻 [s]
    */
   float t_end() const { return t3; }
+  /**
+   * @brief 終点速度 [m/s]
+   */
   float v_end() const { return v3; }
+  /**
+   * @brief 終点位置 [m]
+   */
   float x_end() const { return x3; }
   /**
    * @brief std::ostream に軌道のcsvを出力する関数．

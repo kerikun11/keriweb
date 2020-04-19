@@ -3,7 +3,7 @@
  * @author Ryotaro Onuki (kerikun11+github@gmail.com)
  * @ref https://kerikeri.top/posts/2018-04-29-accel-designer4/
  * @brief 距離の拘束を満たす加減速走行軌道を生成するクラスを保持するファイル
- * @date 2020-04-19 編集
+ * @date 2020-04-19
  */
 #pragma once
 
@@ -20,9 +20,13 @@
 namespace ctrl {
 
 /**
- * @brief 加減速曲線を生成するクラス
+ * @brief 拘束条件を満たす曲線加減速の軌道を生成するクラス
  *
- * 引数の拘束条件に従って速度計画をし，加減速曲線を生成する
+ * - 移動距離の拘束条件を満たす曲線加速軌道を生成する
+ * - 各時刻 $t$ における躍度 $j(t)$，加速度 $a(t)$，速度 $v(t)$，位置 $x(t)$
+ * を提供する
+ * - 最大加速度 $a_{\max}$ と始点速度 $v_s$
+ * など拘束次第では目標速度に達することができない場合があるので注意する
  */
 class AccelDesigner {
 public:
@@ -167,13 +171,19 @@ public:
       return x3 - dc.x_end() + dc.x(t - t2);
   }
   /**
-   * @brief 終端xx
+   * @brief 終点時刻 [s]
    */
   float t_end() const { return t3; }
+  /**
+   * @brief 終点速度 [m/s]
+   */
   float v_end() const { return dc.v_end(); }
+  /**
+   * @brief 終点位置 [m]
+   */
   float x_end() const { return x3; }
   /**
-   * @brief 端点の時刻
+   * @brief 境界の時刻
    */
   float t_0() const { return t0; }
   float t_1() const { return t1; }
