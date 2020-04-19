@@ -83,9 +83,7 @@ tags:
 
 ## 実装例
 
-以下に，私がC++で実装した例を示す．
-
-[GitHub/kerikun11/MazeLibrary/test_search/main.cpp](https://github.com/kerikun11/MazeLibrary/blob/master/test_search/main.cpp)
+[GitHub/kerikun11/MazeLibrary](https://github.com/kerikun11/MazeLibrary)
 
 ## おわりに
 

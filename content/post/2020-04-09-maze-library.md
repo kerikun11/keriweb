@@ -10,7 +10,7 @@ thumbnail: ""
 draft: true
 ---
 
-マイクロマウスの迷路探索ライhugoブラリ
+マイクロマウスの迷路探索ライブラリ
 
 [GitHub](https://github.com/kerikun11/MazeLibrary)
 
