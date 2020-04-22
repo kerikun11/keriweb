@@ -26,12 +26,12 @@ thumbnail: "icon.png"
 
 ## ソースコード
 
-サンプルファイルは，[ここ](src.zip)からダウンロードできます．
+以下のソースコードは，まとめて[ここ](src.zip)からダウンロードできます．
 
-このライブラリに実体はなく，クラスの宣言が書かれたヘッダファイルのみです．
+このライブラリには実体はなく，クラスの宣言が書かれたヘッダファイルのみです．
 
 - ライブラリ `accel_curve.h`, `accel_designer.h`
-- 使用例 `simple.cpp`, `multi.cpp`
+- 使用例 `simple.cpp`, `continuous.cpp`
 - 出力された CSV をプロットする MATLAB コード `plotout.m`
 
 ※使用する際は，これらのファイルはすべて同じディレクトリにおいてください．
@@ -290,7 +290,7 @@ int main(void) {
 
 前回の終点の速度や位置を，次回の始点速度，位置に使っています．
 
-`multi.cpp`
+`continuous.cpp`:
 
 ```cpp
 #include <fstream>

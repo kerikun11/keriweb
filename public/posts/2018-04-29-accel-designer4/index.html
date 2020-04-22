@@ -127,11 +127,11 @@ if (!doNotTrack) {
 <li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C++による実装例</a></li>
 </ul>
 <h2 id="ソースコード">ソースコード</h2>
-<p>サンプルファイルは，<a href="src.zip">ここ</a>からダウンロードできます．</p>
-<p>このライブラリに実体はなく，クラスの宣言が書かれたヘッダファイルのみです．</p>
+<p>以下のソースコードは，まとめて<a href="src.zip">ここ</a>からダウンロードできます．</p>
+<p>このライブラリには実体はなく，クラスの宣言が書かれたヘッダファイルのみです．</p>
 <ul>
 <li>ライブラリ <code>accel_curve.h</code>, <code>accel_designer.h</code></li>
-<li>使用例 <code>simple.cpp</code>, <code>multi.cpp</code></li>
+<li>使用例 <code>simple.cpp</code>, <code>continuous.cpp</code></li>
 <li>出力された CSV をプロットする MATLAB コード <code>plotout.m</code></li>
 </ul>
 <p>※使用する際は，これらのファイルはすべて同じディレクトリにおいてください．</p>
@@ -366,7 +366,7 @@ if (!doNotTrack) {
 </code></pre></div><h3 id="連続使用">連続使用</h3>
 <p>加減速をいくつか繰り返して，<code>out.csv</code> ファイルに書き込む例です．</p>
 <p>前回の終点の速度や位置を，次回の始点速度，位置に使っています．</p>
-<p><code>multi.cpp</code></p>
+<p><code>continuous.cpp</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp">
 </span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span><span class="cp"></span>
