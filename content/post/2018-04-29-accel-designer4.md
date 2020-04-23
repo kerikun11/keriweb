@@ -41,101 +41,110 @@ thumbnail: "icon.png"
 まず，移動距離の拘束がない速度設計クラス `AccelCurve` を紹介します．
 
 以下のコードは，
-`accel_curve.h`
+[accel_curve.h](src/accel_curve.h)
 の抜粋です．
 
 ```cpp
 /**
  * @brief 加速曲線を生成するクラス
  *
- * 引数に従って加速曲線を生成する
+ * - 引数の拘束に従って加速曲線を生成する
+ * - 始点速度と終点速度を滑らかにつなぐ
+ * - 移動距離の拘束はない
+ * - 始点速度および終点速度は，正でも負でも可
  */
 class AccelCurve {
 public:
   /**
    * @brief 初期化付きのコンストラクタ．
    *
-   * @param j_max   最大躍度の大きさ [mm/s/s/s]
-   * @param a_max   最大加速度の大きさ [mm/s/s]
-   * @param v_start 始点速度   [mm/s]
-   * @param v_end   終点速度   [mm/s]
+   * @param j_max   最大躍度の大きさ [m/s/s/s], 正であること
+   * @param a_max   最大加速度の大きさ [m/s/s], 正であること
+   * @param v_start 始点速度 [m/s]
+   * @param v_end   終点速度 [m/s]
    */
-  AccelCurve(const float j_max, const float a_max, const float v_start, const float v_end);
+  AccelCurve(const float j_max, const float a_max, const float v_start,
+             const float v_end);
   /**
    * @brief 時刻 $t$ における躍度 $j$
    * @param t 時刻 [s]
-   * @return 躍度 [mm/s/s/s]
+   * @return j 躍度 [m/s/s/s]
    */
   float j(const float t) const;
   /**
    * @brief 時刻 $t$ における加速度 $a$
    * @param t 時刻 [s]
-   * @return 加速度 [mm/s/s]
+   * @return a 加速度 [m/s/s]
    */
   float a(const float t) const;
   /**
    * @brief 時刻 $t$ における速度 $v$
    * @param t 時刻 [s]
-   * @return 速度 [mm/s]
+   * @return v 速度 [m/s]
    */
   float v(const float t) const;
   /**
    * @brief 時刻 $t$ における位置 $x$
    * @param t 時刻 [s]
-   * @return 位置 [mm]
+   * @return x 位置 [m]
    */
   float x(const float t) const;
   /**
-   * @brief 終端定数
+   * @brief 終点時刻 [s]
    */
   float t_end() const;
-  float v_end() const;
-  float x_end() const;
   /**
-   * @brief std::ofstream に軌道のcsvを出力する関数．
+   * @brief 終点速度 [m/s]
    */
-  void printCsv(std::ostream &os, const float t_interval = 0.001f) const;
+  float v_end() const;
+  /**
+   * @brief 終点位置 [m]
+   */
+  float x_end() const;
 
 public:
   /**
    * @brief 走行距離から達しうる終点速度を算出する関数
    *
-   * @param j_max 最大躍度の大きさ [mm/s/s/s]
-   * @param a_max 最大加速度の大きさ [mm/s/s]
-   * @param vs 始点速度 [mm/s]
-   * @param vt 目標速度 [mm/s]
-   * @param d 走行距離 [mm]
-   * @return ve 終点速度 [mm/s]
+   * @param j_max 最大躍度の大きさ [m/s/s/s], 正であること
+   * @param a_max 最大加速度の大きさ [m/s/s], 正であること
+   * @param vs    始点速度 [m/s]
+   * @param vt    目標速度 [m/s]
+   * @param d     走行距離 [m]
+   * @return ve   終点速度 [m/s]
    */
-  static float calcVelocityEnd(const float j_max, float a_max, const float vs, const float vt, const float d);
+  static float calcVelocityEnd(const float j_max, const float a_max,
+                               const float vs, const float vt, const float d);
   /**
-   * @brief 走行距離から最大速度を算出する関数
+   * @brief 走行距離から達しうる最大速度を算出する関数
    *
-   * @param j_max 最大躍度の大きさ [mm/s/s/s]
-   * @param a_max 最大加速度の大きさ [mm/s/s]
-   * @param vs 始点速度 [mm/s]
-   * @param ve 終点速度 [mm/s]
-   * @param d 走行距離 [mm]
-   * @return vm 最大速度 [mm/s]
+   * @param j_max 最大躍度の大きさ [m/s/s/s], 正であること
+   * @param a_max 最大加速度の大きさ [m/s/s], 正であること
+   * @param vs    始点速度 [m/s]
+   * @param ve    終点速度 [m/s]
+   * @param d     走行距離 [m]
+   * @return vm   最大速度 [m/s]
    */
-  static float calcVelocityMax(const float j_max, const float a_max, const float vs, const float ve, const float d);
+  static float calcVelocityMax(const float j_max, const float a_max,
+                               const float vs, const float ve, const float d);
   /**
    * @brief 速度差から変位を算出する関数
    *
-   * @param j_max   最大躍度の大きさ [mm/s/s/s]
-   * @param a_max   最大加速度の大きさ [mm/s/s]
-   * @param v_start 始点速度 [mm/s]
-   * @param v_end   終点速度 [mm/s]
-   * @return float d 変位 [mm/s]
+   * @param j_max   最大躍度の大きさ [m/s/s/s], 正であること
+   * @param a_max   最大加速度の大きさ [m/s/s], 正であること
+   * @param v_start 始点速度 [m/s]
+   * @param v_end   終点速度 [m/s]
+   * @return d      変位 [m]
    */
-  static float calcMinDistance(const float j_max, const float a_max, const float v_start, const float v_end);
+  static float calcMinDistance(const float j_max, const float a_max,
+                               const float v_start, const float v_end);
 
 protected:
-  float jm;             /**< @brief 最大躍度 [m/s/s/s] */
-  float am;             /**< @brief 最大加速度 [m/s/s] */
-  float t0, t1, t2, t3; /**< @brief 境界点の時刻 [s] */
-  float v0, v1, v2, v3; /**< @brief 境界点の速度 [m/s] */
-  float x0, x1, x2, x3; /**< @brief 境界点の位置 [m] */
+  float jm;             /**< @brief 躍度定数 [m/s/s/s] */
+  float am;             /**< @brief 加速度定数 [m/s/s] */
+  float t0, t1, t2, t3; /**< @brief 時刻定数 [s] */
+  float v0, v1, v2, v3; /**< @brief 速度定数 [m/s] */
+  float x0, x1, x2, x3; /**< @brief 位置定数 [m] */
 };
 ```
 
@@ -144,93 +153,75 @@ protected:
 次は，移動距離などの拘束条件を満たす加減速設計クラス `AccelDesigner` を紹介します．
 
 以下のコードは，
-`accel_designer.h`
+[accel_designer.h](src/accel_designer.h)
 の抜粋です．
 
 ```cpp
 /**
- * @brief 加減速曲線を生成するクラス
+ * @brief 拘束条件を満たす曲線加減速の軌道を生成するクラス
  *
- * 引数の拘束条件に従って速度計画をし，加減速曲線を生成する
+ * - 移動距離の拘束条件を満たす曲線加速軌道を生成する
+ * - 各時刻 $t$ における躍度 $j(t)$，加速度 $a(t)$，速度 $v(t)$，位置 $x(t)$
+ * を提供する
+ * - 最大加速度 $a_{\max}$ と始点速度 $v_s$
+ * など拘束次第では目標速度に達することができない場合があるので注意する
  */
 class AccelDesigner {
 public:
   /**
    * @brief 初期化付きコンストラクタ
    *
-   * @param j_max     最大躍度の大きさ [mm/s/s/s]，正であること
-   * @param a_max     最大加速度の大きさ [mm/s/s], 正であること
-   * @param v_start   始点速度 [mm/s]
-   * @param v_sat     飽和速度の大きさ [mm/s]，正であること
-   * @param v_target  目標速度 [mm/s]
-   * @param v_end     終点速度 [mm/s]
-   * @param dist      移動距離の大きさ [mm], 非負であること
-   * @param x_start   始点位置 [mm]
-   * @param t_start   始点時刻 [t]
+   * @param j_max     最大躍度の大きさ [m/s/s/s]，正であること
+   * @param a_max     最大加速度の大きさ [m/s/s], 正であること
+   * @param v_sat     飽和速度の大きさ [m/s]，正であること
+   * @param v_start   始点速度 [m/s]
+   * @param v_target  目標速度 [m/s]
+   * @param v_end     終点速度 [m/s]
+   * @param dist      移動距離 [m]
+   * @param x_start   始点位置 [m] (オプション)
+   * @param t_start   始点時刻 [s] (オプション)
    */
-  AccelDesigner(const float j_max, const float a_max, const float v_start, const float v_sat, const float v_target, const float dist, const float x_start = 0, const float t_start = 0);
-  /**
-   * @brief 空のコンストラクタ．あとで reset() により初期化すること．
-   */
-  AccelDesigner();
-  /**
-   * @brief 引数の拘束条件から曲線を生成する．
-   * この関数によって，すべての変数が初期化される．(漏れはない)
-   *
-   * @param j_max     最大躍度の大きさ [mm/s/s/s]，正であること
-   * @param a_max     最大加速度の大きさ [mm/s/s], 正であること
-   * @param v_start   始点速度 [mm/s]
-   * @param v_sat     飽和速度の大きさ [mm/s]，正であること
-   * @param v_target  目標速度 [mm/s]
-   * @param v_end     終点速度 [mm/s]
-   * @param dist      移動距離の大きさ [mm], 非負であること
-   * @param x_start   始点位置 [mm]
-   * @param t_start   始点時刻 [t]
-   */
-  void reset(const float j_max, const float a_max, const float v_start, const float v_sat, const float v_target, const float dist, const float x_start = 0, const float t_start = 0);
+  AccelDesigner(const float j_max, const float a_max, const float v_sat,
+                const float v_start, const float v_target, const float dist,
+                const float x_start = 0, const float t_start = 0);
   /**
    * @brief 時刻 $t$ における躍度 $j$
    * @param t 時刻[s]
-   * @return j 躍度[mm/s/s/s]
+   * @return j 躍度[m/s/s/s]
    */
   float j(const float t) const;
   /**
    * @brief 時刻 $t$ における加速度 $a$
    * @param t 時刻 [s]
-   * @return a 加速度 [mm/s/s]
+   * @return a 加速度 [m/s/s]
    */
   float a(const float t) const;
   /**
    * @brief 時刻 $t$ における速度 $v$
    * @param t 時刻 [s]
-   * @return v 速度 [mm/s]
+   * @return v 速度 [m/s]
    */
   float v(const float t) const;
   /**
    * @brief 時刻 $t$ における位置 $x$
    * @param t 時刻 [s]
-   * @return x 位置 [mm]
+   * @return x 位置 [m]
    */
   float x(const float t) const;
   /**
-   * @brief 終端xx
+   * @brief 終点時刻 [s]
    */
   float t_end() const;
+  /**
+   * @brief 終点速度 [m/s]
+   */
   float v_end() const;
+  /**
+   * @brief 終点位置 [m]
+   */
   float x_end() const;
   /**
-   * @brief 端点の時刻
-   */
-  float t_0() const;
-  float t_1() const;
-  float t_2() const;
-  float t_3() const;
-  /**
-   * @brief stdoutに軌道のcsvを出力する関数．
-   */
-  void printCsv(const float t_interval = 0.001f) const;
-  /**
-   * @brief std::ofstream に軌道のcsvを出力する関数．
+   * @brief std::ostream に軌道のcsvを出力する関数．
    */
   void printCsv(std::ostream &os, const float t_interval = 0.001f) const;
   /**
@@ -238,9 +229,9 @@ public:
    */
   friend std::ostream &operator<<(std::ostream &os, const AccelDesigner &obj);
 
-private:
+protected:
   float t0, t1, t2, t3; /**< @brief 境界点の時刻 [s] */
-  float x0, x3;         /**< @brief 境界点の位置 [mm] */
+  float x0, x3;         /**< @brief 境界点の位置 [m] */
   AccelCurve ac, dc; /**< @brief 曲線加速，曲線減速オブジェクト */
 };
 ```
@@ -254,7 +245,13 @@ private:
 一番簡単な例として以下の C++コードをご覧ください．
 実行すると，標準出力に CSV が表示されます．
 
-`simple.cpp`
+```sh
+# Linux コマンド実行例
+g++ sample.cpp
+./a.out
+```
+
+[simple.cpp](src/simple.cpp):
 
 ```cpp
 #include <cstdio>
@@ -264,17 +261,15 @@ private:
 #include "accel_designer.h"
 
 int main(void) {
-  ctrl::AccelDesigner ad;
-
   // パラメータを設定
   const float j_max = 120000;
   const float a_max = 9000;
+  const float v_max = 1800;
   const float v_start = 0;
-  const float v_sat = 1800;
   const float v_target = 600;
   const float distance = 720;
   // 曲線を生成
-  ad.reset(j_max, a_max, v_start, v_sat, v_target, distance);
+  ctrl::AccelDesigner ad(j_max, a_max, v_max, v_start, v_target, distance);
   // CSV出力
   for (float t = 0; t < ad.t_end(); t += 0.001f) {
     printf("%f,%f,%f,%f,%f\n", t, ad.j(t), ad.a(t), ad.v(t), ad.x(t));
@@ -290,7 +285,15 @@ int main(void) {
 
 前回の終点の速度や位置を，次回の始点速度，位置に使っています．
 
-`continuous.cpp`:
+```sh
+# Linux コマンド実行例
+g++ continuous.cpp
+./a.out
+# MATLAB でプロット
+matlab -nodesktop -r plotout
+```
+
+[continuous.cpp](continuous.cpp):
 
 ```cpp
 #include <fstream>
@@ -300,18 +303,17 @@ int main(void) {
 
 int main(void) {
   std::ofstream of("out.csv"); //< 出力ファイル名
-  ctrl::AccelDesigner ad;
+  ctrl::AccelDesigner ad; //< 曲線加速設計器
 
-  // パラメータを設定
   const float j_max = 120000;
   const float a_max = 9000;
-  // 曲線を生成 & CSVを作成 の連続
-  ad.reset(j_max, a_max, ad.v_end(), 2400, 1200, 1080, ad.x_end(), ad.t_end());
-  ad.printCsv(of);
-  ad.reset(j_max, a_max, ad.v_end(), 2400, 600, 360, ad.x_end(), ad.t_end());
-  ad.printCsv(of);
-  ad.reset(j_max, a_max, ad.v_end(), 2400, 0, 720, ad.x_end(), ad.t_end());
-  ad.printCsv(of);
+  const float v_max = 2400;
+  ad.reset(j_max, a_max, v_max, ad.v_end(), 1200, 1080, ad.x_end(), ad.t_end()); //< 曲線の生成
+  ad.printCsv(of); //< CSVファイル出力
+  ad.reset(j_max, a_max, v_max, ad.v_end(), 600, 360, ad.x_end(), ad.t_end()); //< 曲線の生成
+  ad.printCsv(of); //< CSVファイル出力
+  ad.reset(j_max, a_max, v_max, ad.v_end(), 0, 720, ad.x_end(), ad.t_end()); //< 曲線の生成
+  ad.printCsv(of); //< CSVファイル出力
 
   return 0;
 }

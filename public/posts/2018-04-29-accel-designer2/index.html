@@ -160,8 +160,8 @@ if (!doNotTrack) {
 <ul>
 <li>任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$，位置 $x(t)$ を返す関数</li>
 </ul>
-<h3 id="関数">関数</h3>
-<p>任意の時刻$t$における各関数は，</p>
+<h3 id="基本関数">基本関数</h3>
+<p>時刻 $t$ における，躍度 $j(t)$, 加速度 $a(t)$, 速度 $v(t)$, 位置 $x(t)$ は，</p>
 <div>
 $$
 \begin{align}
@@ -208,67 +208,9 @@ $$
 $$
 </div>
 <p>と表すことができます．ただし，各定数は以下の通りです．</p>
-<h3 id="境界点の時刻">境界点の時刻</h3>
-<p>まずは，各境界点における時刻の定義です．</p>
-<p>等加速度運動となる時間 $t_m$ および加速度が変化する時間 $t_c$</p>
-<div>
-$$
-\begin{align}
-t_m &:= \frac{1}{a_m}(v_e - v_s) - t_c,\\
-t_c &:= \frac{a_m}{j_m}
-\end{align}
-$$
-</div>
-<p>に対し，</p>
-<div>
-$$
-    \left\{ \begin{array}{l}
-        \begin{array}{ll}
-            \left\{ \begin{array}{l}
-                t_0 := 0         \\
-                t_1 := t_0 + t_c \\
-                t_2 := t_1 + t_m \\
-                t_3 := t_2 + t_c
-            \end{array} \right.
-             &
-            (t_m > 0)
-            \\
-            \left\{ \begin{array}{l}
-                t_0 := 0                                   \\
-                t_1 := t_0 + \sqrt{\frac{1}{j_m}(v_e-v_s)} \\
-                t_2 := t_1                                 \\
-                t_3 := t_2 + (t_1-t_0)
-            \end{array} \right.
-             &
-            (t_m \le 0)
-        \end{array}
-    \end{array} \right.
-$$
-</div>
-<p>と表されます．$t_m$によって場合分けがあります．</p>
-<h3 id="境界点における定数">境界点における定数</h3>
-<p>次に，境界点の速度および位置の各定数は，</p>
-<div>
-$$
-    \left\{ \begin{array}{l}
-        v_0 := v_s    \\
-        v_1 := v(t_1) \\
-        v_2 := v(t_2) \\
-        v_3 := v_e
-    \end{array} \right.
-    \quad
-    \left\{ \begin{array}{l}
-        x_0 := 0      \\
-        x_1 := x(t_1) \\
-        x_2 := x(t_2) \\
-        x_3 := x_0 + \frac{1}{2}(v_0 + v_3)(t_3-t_0)
-    \end{array} \right.
-$$
-</div>
-<p>として，既出の関数を利用して求めます．</p>
-<p>こうすることで，面倒な場合分けを省略できます．</p>
-<h3 id="加速度の符号">加速度の符号</h3>
-<p>ちなみに，最大加速度 $a_m$ の符号などを適切に設定すれば，減速の場合にもそのまま使用できることに注意しましょう．つまり，</p>
+<h3 id="躍度と加速度の定数">躍度と加速度の定数</h3>
+<p>躍度定数 $j_m$,
+加速度定数 $a_m$ を以下のように定義します．</p>
 <div>
 $$
 \begin{align}
@@ -277,7 +219,102 @@ $$
 \end{align}
 $$
 </div>
-<p>のように $j_m,~a_m$ の符号を設定することで，加減速どちらでも上記の数式を使用することができます．</p>
+<p>このように符号を決定することで，減速の場合にも上記の関数をそのまま使用できるようになります．</p>
+<h3 id="その他の定数">その他の定数</h3>
+<p>等加速度運動となる時間 $t_m$ および加速度が変化する時間 $t_c$</p>
+<p>等加速度時間 $t_m$,
+$t_m&gt;0$ のときの曲線速度時間 $t_c$,
+$t_m\leq 0$ のときの曲線速度時間 $t_c'$
+を以下のように定義します．</p>
+<div>
+$$
+\begin{align}
+    t_m  & := \frac{1}{a_m}(v_e - v_s) - \frac{a_m}{j_m} \\
+    t_c  & := \frac{a_m}{j_m}                            \\
+    t_c' & := \sqrt{\frac{1}{j_m}(v_e-v_s)}
+\end{align}
+$$
+</div>
+<p>時刻定数 $t_0,~t_1,~t_2,~t_3$ は，</p>
+<div>
+$$
+\begin{align}
+    \begin{array}{ll}
+        \left\{ \begin{array}{l}
+            t_0 := 0         \\
+            t_1 := t_0 + t_c \\
+            t_2 := t_1 + t_m \\
+            t_3 := t_2 + t_c
+        \end{array} \right.
+         &
+        (t_m > 0)
+        \\
+        \left\{ \begin{array}{l}
+            t_0 := 0          \\
+            t_1 := t_0 + t_c' \\
+            t_2 := t_1        \\
+            t_3 := t_2 + t_c'
+        \end{array} \right.
+         &
+        (t_m \leq 0)
+    \end{array}
+\end{align}
+$$
+</div>
+<p>と表されます．
+$t_m$ によって場合分けがあります．</p>
+<p>速度定数 $v_0,~v_1,~v_2,~v_3$ を以下のように定義します．</p>
+<div>
+$$
+\begin{align}
+    \begin{array}{ll}
+        \left\{ \begin{array}{l}
+            v_0 := v_s                        \\
+            v_1 := v_0 + \frac{1}{2}j_m t_c^2 \\
+            v_2 := v_1 + a_m t_m              \\
+            v_3 := v_e
+        \end{array} \right.
+         &
+        (t_m > 0)
+        \\
+        \left\{ \begin{array}{l}
+            v_0 := v_s                                     \\
+            v_1 := v_0 + \frac{1}{2}\left( v_s+v_e \right) \\
+            v_2 := v_1                                     \\
+            v_3 := v_e
+        \end{array} \right.
+         &
+        (t_m \leq 0)
+    \end{array}
+\end{align}
+$$
+</div>
+<p>位置定数 $x_0,~x_1,~x_2,~x_3$ を以下のように定義します．</p>
+<div>
+$$
+\begin{align}
+    \begin{array}{ll}
+        \left\{ \begin{array}{l}
+            x_0 := 0                         \\
+            x_1 := x_0 + v_0 t_c + j_m t_c^3 \\
+            x_2 := x_1 + v_1 t_m             \\
+            x_3 := x_0 + \frac{1}{2} (v_0+v_3) (2t_c+t_m)
+        \end{array} \right.
+         &
+        (t_m > 0)
+        \\
+        \left\{ \begin{array}{l}
+            x_0 := 0                                       \\
+            x_1 := x_0 + v_1 t_c' + \frac{1}{6} j_m t_c'^3 \\
+            x_2 := x_1                                     \\
+            x_3 := x_0 + 2 v_1 t_c'
+        \end{array} \right.
+         &
+        (t_m \leq 0)
+    \end{array}
+\end{align}
+$$
+</div>
 <h2 id="導出過程">導出過程</h2>
 <p>簡単に流れを書きます．</p>
 <ol>
@@ -443,10 +480,9 @@ $$
     <li><a href="#拘束条件">拘束条件</a></li>
     <li><a href="#導出結果">導出結果</a>
       <ul>
-        <li><a href="#関数">関数</a></li>
-        <li><a href="#境界点の時刻">境界点の時刻</a></li>
-        <li><a href="#境界点における定数">境界点における定数</a></li>
-        <li><a href="#加速度の符号">加速度の符号</a></li>
+        <li><a href="#基本関数">基本関数</a></li>
+        <li><a href="#躍度と加速度の定数">躍度と加速度の定数</a></li>
+        <li><a href="#その他の定数">その他の定数</a></li>
       </ul>
     </li>
     <li><a href="#導出過程">導出過程</a></li>

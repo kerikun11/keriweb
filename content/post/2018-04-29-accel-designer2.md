@@ -59,9 +59,9 @@ thumbnail: "icon.png"
 
 - 任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$，位置 $x(t)$ を返す関数
 
-### 関数
+### 基本関数
 
-任意の時刻$t$における各関数は，
+時刻 $t$ における，躍度 $j(t)$, 加速度 $a(t)$, 速度 $v(t)$, 位置 $x(t)$ は，
 
 <div>
 $$
@@ -111,80 +111,10 @@ $$
 
 と表すことができます．ただし，各定数は以下の通りです．
 
-### 境界点の時刻
+### 躍度と加速度の定数
 
-まずは，各境界点における時刻の定義です．
-
-等加速度運動となる時間 $t_m$ および加速度が変化する時間 $t_c$
-
-<div>
-$$
-\begin{align}
-t_m &:= \frac{1}{a_m}(v_e - v_s) - t_c,\\
-t_c &:= \frac{a_m}{j_m}
-\end{align}
-$$
-</div>
-
-に対し，
-
-<div>
-$$
-    \left\{ \begin{array}{l}
-        \begin{array}{ll}
-            \left\{ \begin{array}{l}
-                t_0 := 0         \\
-                t_1 := t_0 + t_c \\
-                t_2 := t_1 + t_m \\
-                t_3 := t_2 + t_c
-            \end{array} \right.
-             &
-            (t_m > 0)
-            \\
-            \left\{ \begin{array}{l}
-                t_0 := 0                                   \\
-                t_1 := t_0 + \sqrt{\frac{1}{j_m}(v_e-v_s)} \\
-                t_2 := t_1                                 \\
-                t_3 := t_2 + (t_1-t_0)
-            \end{array} \right.
-             &
-            (t_m \le 0)
-        \end{array}
-    \end{array} \right.
-$$
-</div>
-
-と表されます．$t_m$によって場合分けがあります．
-
-### 境界点における定数
-
-次に，境界点の速度および位置の各定数は，
-
-<div>
-$$
-    \left\{ \begin{array}{l}
-        v_0 := v_s    \\
-        v_1 := v(t_1) \\
-        v_2 := v(t_2) \\
-        v_3 := v_e
-    \end{array} \right.
-    \quad
-    \left\{ \begin{array}{l}
-        x_0 := 0      \\
-        x_1 := x(t_1) \\
-        x_2 := x(t_2) \\
-        x_3 := x_0 + \frac{1}{2}(v_0 + v_3)(t_3-t_0)
-    \end{array} \right.
-$$
-</div>
-
-として，既出の関数を利用して求めます．
-
-こうすることで，面倒な場合分けを省略できます．
-
-### 加速度の符号
-
-ちなみに，最大加速度 $a_m$ の符号などを適切に設定すれば，減速の場合にもそのまま使用できることに注意しましょう．つまり，
+躍度定数 $j_m$,
+加速度定数 $a_m$ を以下のように定義します．
 
 <div>
 $$
@@ -195,7 +125,113 @@ $$
 $$
 </div>
 
-のように $j_m,~a_m$ の符号を設定することで，加減速どちらでも上記の数式を使用することができます．
+このように符号を決定することで，減速の場合にも上記の関数をそのまま使用できるようになります．
+
+### その他の定数
+
+等加速度運動となる時間 $t_m$ および加速度が変化する時間 $t_c$
+
+等加速度時間 $t_m$,
+$t_m>0$ のときの曲線速度時間 $t_c$,
+$t_m\leq 0$ のときの曲線速度時間 $t_c'$
+を以下のように定義します．
+
+<div>
+$$
+\begin{align}
+    t_m  & := \frac{1}{a_m}(v_e - v_s) - \frac{a_m}{j_m} \\
+    t_c  & := \frac{a_m}{j_m}                            \\
+    t_c' & := \sqrt{\frac{1}{j_m}(v_e-v_s)}
+\end{align}
+$$
+</div>
+
+時刻定数 $t_0,~t_1,~t_2,~t_3$ は，
+
+<div>
+$$
+\begin{align}
+    \begin{array}{ll}
+        \left\{ \begin{array}{l}
+            t_0 := 0         \\
+            t_1 := t_0 + t_c \\
+            t_2 := t_1 + t_m \\
+            t_3 := t_2 + t_c
+        \end{array} \right.
+         &
+        (t_m > 0)
+        \\
+        \left\{ \begin{array}{l}
+            t_0 := 0          \\
+            t_1 := t_0 + t_c' \\
+            t_2 := t_1        \\
+            t_3 := t_2 + t_c'
+        \end{array} \right.
+         &
+        (t_m \leq 0)
+    \end{array}
+\end{align}
+$$
+</div>
+
+と表されます．
+$t_m$ によって場合分けがあります．
+
+速度定数 $v_0,~v_1,~v_2,~v_3$ を以下のように定義します．
+
+<div>
+$$
+\begin{align}
+    \begin{array}{ll}
+        \left\{ \begin{array}{l}
+            v_0 := v_s                        \\
+            v_1 := v_0 + \frac{1}{2}j_m t_c^2 \\
+            v_2 := v_1 + a_m t_m              \\
+            v_3 := v_e
+        \end{array} \right.
+         &
+        (t_m > 0)
+        \\
+        \left\{ \begin{array}{l}
+            v_0 := v_s                                     \\
+            v_1 := v_0 + \frac{1}{2}\left( v_s+v_e \right) \\
+            v_2 := v_1                                     \\
+            v_3 := v_e
+        \end{array} \right.
+         &
+        (t_m \leq 0)
+    \end{array}
+\end{align}
+$$
+</div>
+
+位置定数 $x_0,~x_1,~x_2,~x_3$ を以下のように定義します．
+
+<div>
+$$
+\begin{align}
+    \begin{array}{ll}
+        \left\{ \begin{array}{l}
+            x_0 := 0                         \\
+            x_1 := x_0 + v_0 t_c + j_m t_c^3 \\
+            x_2 := x_1 + v_1 t_m             \\
+            x_3 := x_0 + \frac{1}{2} (v_0+v_3) (2t_c+t_m)
+        \end{array} \right.
+         &
+        (t_m > 0)
+        \\
+        \left\{ \begin{array}{l}
+            x_0 := 0                                       \\
+            x_1 := x_0 + v_1 t_c' + \frac{1}{6} j_m t_c'^3 \\
+            x_2 := x_1                                     \\
+            x_3 := x_0 + 2 v_1 t_c'
+        \end{array} \right.
+         &
+        (t_m \leq 0)
+    \end{array}
+\end{align}
+$$
+</div>
 
 ## 導出過程
 
