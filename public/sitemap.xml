@@ -12,8 +12,33 @@
   </url>
   
   <url>
+    <loc>https://kerikeri.top/categories/</loc>
+    <lastmod>2020-04-24T12:05:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/linux/</loc>
+    <lastmod>2020-04-24T12:05:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/posts/2020-04-24-manjaro-desktop-crash-fix/</loc>
+    <lastmod>2020-04-24T12:05:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/post/</loc>
+    <lastmod>2020-04-24T12:05:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kerikeri.top/tags/</loc>
-    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
+    <lastmod>2020-04-24T12:05:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/categories/%E5%82%99%E5%BF%98%E9%8C%B2/</loc>
+    <lastmod>2020-04-24T12:05:29+09:00</lastmod>
   </url>
   
   <url>
@@ -32,22 +57,12 @@
   </url>
   
   <url>
-    <loc>https://kerikeri.top/categories/</loc>
-    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kerikeri.top/tags/kerise/</loc>
     <lastmod>2020-04-15T21:53:42+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://kerikeri.top/posts/2020-04-15-kerise-v5-coming/</loc>
-    <lastmod>2020-04-15T21:53:42+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/post/</loc>
     <lastmod>2020-04-15T21:53:42+09:00</lastmod>
   </url>
   
@@ -59,11 +74,6 @@
   <url>
     <loc>https://kerikeri.top/categories/%E4%BD%9C%E5%93%81%E7%B4%B9%E4%BB%8B/</loc>
     <lastmod>2020-04-15T21:53:42+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/linux/</loc>
-    <lastmod>2020-04-10T11:13:33+09:00</lastmod>
   </url>
   
   <url>
@@ -83,11 +93,6 @@
   
   <url>
     <loc>https://kerikeri.top/posts/2020-04-07-linux-mint-19/</loc>
-    <lastmod>2020-04-07T12:33:15+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/categories/%E5%82%99%E5%BF%98%E9%8C%B2/</loc>
     <lastmod>2020-04-07T12:33:15+09:00</lastmod>
   </url>
   

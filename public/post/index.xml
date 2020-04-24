@@ -8,10 +8,19 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Wed, 15 Apr 2020 21:53:42 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2020 12:05:29 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Manjaro Linux でデスクトップがしばしばフリーズする問題の解決方法</title>
+      <link>https://kerikeri.top/posts/2020-04-24-manjaro-desktop-crash-fix/</link>
+      <pubDate>Fri, 24 Apr 2020 12:05:29 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-24-manjaro-desktop-crash-fix/</guid>
+      <description>&lt;p&gt;今回の記事は，同じような不具合を抱えている方への情報共有です．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>New KERISE v5，登場</title>
@@ -368,17 +377,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;p&gt;こんにちは．
 今回は久しぶりにサーバーの話題です．&lt;/p&gt;
 &lt;p&gt;自宅のサーバーにNextcloudを導入したので，それを紹介します．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>謹賀新年 2018</title>
-      <link>https://kerikeri.top/posts/2018-01-01-new-year-2018/</link>
-      <pubDate>Mon, 01 Jan 2018 11:54:58 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-01-01-new-year-2018/</guid>
-      <description>&lt;p&gt;新年，明けましておめでとうございます．&lt;br&gt;
-ブログ &lt;strong&gt;KERI&amp;rsquo;s Lab&lt;/strong&gt; を始めてから早2年が経ちました．&lt;br&gt;
-今年からは年賀状の代わりにブログでの挨拶とさせて頂きます．&lt;/p&gt;</description>
     </item>
     
   </channel>

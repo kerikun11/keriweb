@@ -32,6 +32,15 @@
     </item>
     
     <item>
+      <title>Manjaro Linux でデスクトップがしばしばフリーズする問題の解決方法</title>
+      <link>https://kerikeri.top/posts/2020-04-24-manjaro-desktop-crash-fix/</link>
+      <pubDate>Fri, 24 Apr 2020 12:05:29 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-24-manjaro-desktop-crash-fix/</guid>
+      <description>&lt;p&gt;今回の記事は，同じような不具合を抱えている方への情報共有です．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>マイクロマウス記事のまとめ</title>
       <link>https://kerikeri.top/works/micromouse/</link>
       <pubDate>Wed, 15 Apr 2020 22:00:00 +0900</pubDate>
@@ -362,19 +371,6 @@ Cheese主催のマイクロマウス・プチ大会
 &lt;p&gt;深圳は，中国政府指定の経済特区で，産業が活発に行われています．&lt;/p&gt;
 &lt;p&gt;特に，華強北というエリアでは，電子部品が大量に売られていて，秋葉原の中国版という感じです．&lt;/p&gt;
 &lt;p&gt;この記事では今回の深圳旅行を写真をベースに振り返ります．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>ESP32にSmartConfigでWiFi情報を伝える</title>
-      <link>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</link>
-      <pubDate>Fri, 16 Feb 2018 18:51:25 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</guid>
-      <description>&lt;h2 id=&#34;wifiのssidとパスワードをどう伝えるか問題&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
-&lt;p&gt;ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．&lt;/p&gt;
-&lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
-&lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
-&lt;p&gt;SmartConfigとは，そんな悩みをスマホで解決する機能です．&lt;/p&gt;</description>
     </item>
     
   </channel>
