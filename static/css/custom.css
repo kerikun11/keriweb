@@ -151,7 +151,7 @@ td, th {
 }
 th {
 	font-weight: 700;
-	background: rgba(180, 180, 180, 0.7);
+	background: rgba(200, 200, 200, 0.7);
 }
 tr:nth-child(even) {
 	background: rgba(220, 220, 220, 0.7);
