@@ -79,9 +79,6 @@ pygmentsCodefencesGuessSyntax = true
 [Social]
     twitter = "kerikun11"
 
-[blackfriday]
-    hrefTargetBlank = true
-
 [permalinks]
     post = "/posts/:filename/"
     work = "/works/:filename/"
