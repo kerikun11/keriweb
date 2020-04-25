@@ -7,7 +7,6 @@ tags:
   - "マイクロマウス"
   - "制御"
 thumbnail: "icon.png"
-draft: true
 ---
 
 [前回の記事](/posts/2020-04-25-slalom-trajectory-2/)の続きです．
@@ -15,6 +14,13 @@ draft: true
 今回の記事では，滑らかなスラローム軌道の C++による実装例を紹介します．
 
 <!--more-->
+
+### 滑らかなスラロームの設計 目次
+
+- [滑らかなスラロームの設計① スラローム概要](/posts/2020-04-25-slalom-trajectory-1/)
+- [滑らかなスラロームの設計② 設計方法](/posts/2020-04-25-slalom-trajectory-2/)
+- [滑らかなスラロームの設計③ C++による実装](/posts/2020-04-25-slalom-trajectory-3/)
+- [滑らかなスラロームの設計④ 生成結果](/posts/2020-04-25-slalom-trajectory-4/)
 
 ## 最新のソースコード
 

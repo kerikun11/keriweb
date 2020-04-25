@@ -8,10 +8,58 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Fri, 10 Apr 2020 11:13:33 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 14:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>滑らかなスラロームの設計④ 生成結果</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</link>
+      <pubDate>Sat, 25 Apr 2020 14:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，
+前回までに紹介してきた内容をもとに，
+&lt;a href=&#34;https://kerikeri.top/posts/2017-09-03-pattern-of-turn/&#34;&gt;マイクロマウスの走行パターン&lt;/a&gt;
+の軌道設計結果を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計③ C&#43;&#43;による実装</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</link>
+      <pubDate>Sat, 25 Apr 2020 13:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，滑らかなスラローム軌道の C++による実装例を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計② 設計方法</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</link>
+      <pubDate>Sat, 25 Apr 2020 12:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計① スラローム概要</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</link>
+      <pubDate>Sat, 25 Apr 2020 11:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;今回はマイクロマウスにおけるスラローム走行のお話です．&lt;/p&gt;
+&lt;p&gt;私が使っているスラローム走行の概要とその軌道の生成方法などを紹介します．&lt;/p&gt;
+&lt;p&gt;特にマイクロマウスを例に話を進めますが，2輪車両の軌道生成方法として汎用的に使える内容です．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linuxで画面を3分割して表示する</title>
@@ -391,42 +439,6 @@
       <guid>https://kerikeri.top/posts/2016-01-07-yamy/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;Windowsのキーボードをカスタマイズして使いやすくする。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Cygwinの使い方</title>
-      <link>https://kerikeri.top/posts/2015-12-04-cygwin/</link>
-      <pubDate>Fri, 04 Dec 2015 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2015-12-04-cygwin/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Surface Pro 3 に Ubuntu15.10を入れる(UEFI環境のデュアルブート)</title>
-      <link>https://kerikeri.top/posts/2015-11-03-surface-ubuntu/</link>
-      <pubDate>Tue, 03 Nov 2015 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2015-11-03-surface-ubuntu/</guid>
-      <description>&lt;h2 id=&#34;uefiとは&#34;&gt;UEFIとは&lt;/h2&gt;
-&lt;p&gt;　BIOSの代わりに最近のパソコンに導入されたインターフェース。BIOS特有の制約を解消したものと言える。UEFI環境でブートするには、ディスクの先頭にUEFIシステムパティションというものを置かなければならない。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi 2 Type Bでサーバー作り</title>
-      <link>https://kerikeri.top/posts/2015-10-05-raspi-server/</link>
-      <pubDate>Mon, 05 Oct 2015 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2015-10-05-raspi-server/</guid>
-      <description>&lt;h2 id=&#34;ラズパイの用意&#34;&gt;ラズパイの用意&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;ラズパイ用のOS「NOOBS」を&lt;a href=&#34;http://raspberrypi.org/downloads/&#34; target=&#34;_blank&#34;&gt;raspberrypi.org&lt;/a&gt;
-からDLして解凍する。&lt;/li&gt;
-&lt;li&gt;microSDカードをFAT32でフォーマットする。&lt;/li&gt;
-&lt;li&gt;解凍したファイルをSDカードにコピーする。&lt;/li&gt;
-&lt;li&gt;ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。&lt;/li&gt;
-&lt;/ol&gt;</description>
     </item>
     
   </channel>

@@ -8,10 +8,58 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Fri, 24 Apr 2020 12:05:29 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 14:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>滑らかなスラロームの設計④ 生成結果</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</link>
+      <pubDate>Sat, 25 Apr 2020 14:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，
+前回までに紹介してきた内容をもとに，
+&lt;a href=&#34;https://kerikeri.top/posts/2017-09-03-pattern-of-turn/&#34;&gt;マイクロマウスの走行パターン&lt;/a&gt;
+の軌道設計結果を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計③ C&#43;&#43;による実装</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</link>
+      <pubDate>Sat, 25 Apr 2020 13:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，滑らかなスラローム軌道の C++による実装例を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計② 設計方法</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</link>
+      <pubDate>Sat, 25 Apr 2020 12:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計① スラローム概要</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</link>
+      <pubDate>Sat, 25 Apr 2020 11:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;今回はマイクロマウスにおけるスラローム走行のお話です．&lt;/p&gt;
+&lt;p&gt;私が使っているスラローム走行の概要とその軌道の生成方法などを紹介します．&lt;/p&gt;
+&lt;p&gt;特にマイクロマウスを例に話を進めますが，2輪車両の軌道生成方法として汎用的に使える内容です．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Manjaro Linux でデスクトップがしばしばフリーズする問題の解決方法</title>
@@ -341,54 +389,6 @@ Cheese主催のマイクロマウス・プチ大会
 &lt;p&gt;ここで注意したのが，途中経過の如何にかかわらず，終点の位置や速度は守らなければならないということです．&lt;/p&gt;
 &lt;p&gt;今回の記事では，終点位置，終点速度や最大速度などの拘束条件から，走行途中の速度軌道を算出するアルゴリズムを紹介します．&lt;/p&gt;
 &lt;p&gt;最後にはC++での実装したクラスも簡単に紹介します．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>深圳旅行に行ってきました！</title>
-      <link>https://kerikeri.top/posts/2018-03-11-shenzhen-trip/</link>
-      <pubDate>Sun, 11 Mar 2018 22:04:14 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-03-11-shenzhen-trip/</guid>
-      <description>&lt;p&gt;先日，中国の深圳(シンセン)へ旅行に行ってきました！&lt;/p&gt;
-&lt;p&gt;深圳は，中国政府指定の経済特区で，産業が活発に行われています．&lt;/p&gt;
-&lt;p&gt;特に，華強北というエリアでは，電子部品が大量に売られていて，秋葉原の中国版という感じです．&lt;/p&gt;
-&lt;p&gt;この記事では今回の深圳旅行を写真をベースに振り返ります．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>ESP32にSmartConfigでWiFi情報を伝える</title>
-      <link>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</link>
-      <pubDate>Fri, 16 Feb 2018 18:51:25 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-02-16-esp32-smartconfig/</guid>
-      <description>&lt;h2 id=&#34;wifiのssidとパスワードをどう伝えるか問題&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
-&lt;p&gt;ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．&lt;/p&gt;
-&lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
-&lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;
-を紹介しましたが，これも割と手間でした．&lt;/p&gt;
-&lt;p&gt;SmartConfigとは，そんな悩みをスマホで解決する機能です．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>アセンブリ言語で書いた電光掲示板</title>
-      <link>https://kerikeri.top/posts/2018-02-14-pic-scroll-board-asm/</link>
-      <pubDate>Wed, 14 Feb 2018 22:02:45 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-02-14-pic-scroll-board-asm/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;今回の記事は，高校生の時に作った電光掲示板のコードの紹介です．&lt;/p&gt;
-&lt;p&gt;PICのアセンブリ言語で書かれています．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>自宅サーバーにNextcloudを導入した</title>
-      <link>https://kerikeri.top/posts/2018-02-11-nextcloud/</link>
-      <pubDate>Sun, 11 Feb 2018 14:58:18 +0900</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2018-02-11-nextcloud/</guid>
-      <description>&lt;p&gt;こんにちは．
-今回は久しぶりにサーバーの話題です．&lt;/p&gt;
-&lt;p&gt;自宅のサーバーにNextcloudを導入したので，それを紹介します．&lt;/p&gt;</description>
     </item>
     
   </channel>

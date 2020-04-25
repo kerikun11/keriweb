@@ -8,10 +8,58 @@
     <language>ja-jp</language>
     <managingEditor>kerikun11&#43;web@gmail.com (けり)</managingEditor>
     <webMaster>kerikun11&#43;web@gmail.com (けり)</webMaster>
-    <lastBuildDate>Wed, 15 Apr 2020 22:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 14:00:00 +0900</lastBuildDate>
     
 	<atom:link href="https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>滑らかなスラロームの設計④ 生成結果</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</link>
+      <pubDate>Sat, 25 Apr 2020 14:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，
+前回までに紹介してきた内容をもとに，
+&lt;a href=&#34;https://kerikeri.top/posts/2017-09-03-pattern-of-turn/&#34;&gt;マイクロマウスの走行パターン&lt;/a&gt;
+の軌道設計結果を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計③ C&#43;&#43;による実装</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</link>
+      <pubDate>Sat, 25 Apr 2020 13:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，滑らかなスラローム軌道の C++による実装例を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計② 設計方法</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</link>
+      <pubDate>Sat, 25 Apr 2020 12:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
+&lt;p&gt;今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>滑らかなスラロームの設計① スラローム概要</title>
+      <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</link>
+      <pubDate>Sat, 25 Apr 2020 11:00:00 +0900</pubDate>
+      <author>kerikun11&#43;web@gmail.com (けり)</author>
+      <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</guid>
+      <description>&lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;今回はマイクロマウスにおけるスラローム走行のお話です．&lt;/p&gt;
+&lt;p&gt;私が使っているスラローム走行の概要とその軌道の生成方法などを紹介します．&lt;/p&gt;
+&lt;p&gt;特にマイクロマウスを例に話を進めますが，2輪車両の軌道生成方法として汎用的に使える内容です．&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>マイクロマウス記事のまとめ</title>
@@ -330,63 +378,6 @@ Cheese主催のマイクロマウス・プチ大会
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;こんにちは，けりです．久々にマイクロマウスの話題です．&lt;/p&gt;
 &lt;p&gt;今回は，私のマウスで使用しているスラロームパターンを紹介します．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>U-Microコネクタの正体</title>
-      <link>https://kerikeri.top/posts/2017-07-02-u-micro-connector/</link>
-      <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-07-02-u-micro-connector/</guid>
-      <description>&lt;h2 id=&#34;u-microコネクタとは&#34;&gt;U-Microコネクタとは&lt;/h2&gt;
-&lt;p&gt;マイクロマウスでよく使われるリチウムポリマー電池「Hyperion」シリーズですが，「U-Micro」という1.27mmピッチの謎のコネクタが付属しています．それの正体がなんとなくわかったので記事にしました．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>KERISE v3 ができました！</title>
-      <link>https://kerikeri.top/posts/2017-03-28-kerisev3-coming/</link>
-      <pubDate>Tue, 28 Mar 2017 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-03-28-kerisev3-coming/</guid>
-      <description>&lt;h2 id=&#34;kerisev3&#34;&gt;KERISEv3&lt;/h2&gt;
-&lt;figure &gt;
-	
-		
-		&lt;figcaption&gt;
-			&lt;h4&gt;KERISEv3&lt;/h4&gt;
-		&lt;/figcaption&gt;
-		
-		&lt;img src=&#34;kerisev3-front-side.jpg&#34; alt=&#34;KERISEv3&#34; style=&#34;width: 240px;&#34;/&gt;
-	
-&lt;/figure&gt;
-
-&lt;h3 id=&#34;3台目のマウス&#34;&gt;3台目のマウス&lt;/h3&gt;
-&lt;p&gt;マイクロマウスを始めて8か月目になりました．けりです．&lt;br&gt;
-作っては壊しを繰り返してはや3台目になります．なぜこんなに壊れるのでしょうか&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>ハーフサイズ迷路の自作</title>
-      <link>https://kerikeri.top/posts/2017-01-13-half-maze/</link>
-      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-01-13-half-maze/</guid>
-      <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;昨年夏に始めたマイクロマウス．&lt;br&gt;
-&lt;a href=&#34;https://kerikeri.top/tags/kerisev2&#34;&gt;KERISEv2&lt;/a&gt;
-ができてついにハーフにデビューしました！&lt;br&gt;
-しかし，自宅には迷路がないので試しに自分で作ってみることにしました．&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>ハーフ迷路を走ってみました！</title>
-      <link>https://kerikeri.top/posts/2017-01-12-1st-half/</link>
-      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
-      <author>kerikun11&#43;web@gmail.com (けり)</author>
-      <guid>https://kerikeri.top/posts/2017-01-12-1st-half/</guid>
-      <description>&lt;h2 id=&#34;ハーフサイズの迷路を走ってみました&#34;&gt;ハーフサイズの迷路を走ってみました&lt;/h2&gt;
-&lt;p&gt;こんにちは，けりです．&lt;br&gt;
-KERISEv2の制御が落ち着てきたので，ついにハーフサイズの迷路で走らせてみることにしました！&lt;/p&gt;</description>
     </item>
     
   </channel>
