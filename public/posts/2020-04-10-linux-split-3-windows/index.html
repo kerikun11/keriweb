@@ -17,7 +17,8 @@
 <meta property="article:published_time" content="2020-04-10T11:13:33+09:00" />
 <meta property="article:modified_time" content="2020-04-10T11:13:33+09:00" />
 
-	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/posts/2020-04-10-linux-split-3-windows/icon.png"/><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linuxで画面を3分割して表示する"/>
 <meta name="twitter:description" content="こんにちは．けりです．
 最近，縦横比が21:9のウルトラワイドモニタを購入しました．
@@ -175,7 +176,8 @@ if (!doNotTrack) {
 </tr>
 <tr>
 <td>ウルトラワイドモニター</td>
-<td><a href="https://www.lg.com/jp/monitor/lg-34WL850-W">LG 34WL850-W</a></td>
+<td><a href="https://www.lg.com/jp/monitor/lg-34WL850-W" target="_blank">LG 34WL850-W</a>
+</td>
 <td>34 inch</td>
 <td>3440x1440</td>
 </tr>
@@ -197,31 +199,36 @@ if (!doNotTrack) {
 使いやすいものを見つけるのは結構大変でした．</p>
 <p>以下に私が試した方法を列挙します．</p>
 <ul>
-<li><a href="https://github.com/fmstrat/wintile">WinTile</a>
+<li><a href="https://github.com/fmstrat/wintile" target="_blank">WinTile</a>
+
 <ul>
 <li>GNOME Shell の拡張機能</li>
 <li>分割数を選ぶが，3分割を選ぶと2分割ができなくなる．</li>
 </ul>
 </li>
-<li><a href="https://cinnamon-spices.linuxmint.com/extensions/view/21">gTile</a>
+<li><a href="https://cinnamon-spices.linuxmint.com/extensions/view/21" target="_blank">gTile</a>
+
 <ul>
 <li>Cinnamon の拡張機能で，ショートカットキーで分割箇所を選択する</li>
 <li>とりあえず使えたが，毎回いちいち場所を選ぶのが面倒</li>
 </ul>
 </li>
-<li><a href="http://ssokolow.com/quicktile/">QuickTile</a>
+<li><a href="http://ssokolow.com/quicktile/" target="_blank">QuickTile</a>
+
 <ul>
 <li>GTKのAPIをたたくオープンソースソフトウェア</li>
 <li>結局これを採用</li>
 </ul>
 </li>
-<li><a href="https://github.com/pkkid/pygrid">PyGrid</a>
+<li><a href="https://github.com/pkkid/pygrid" target="_blank">PyGrid</a>
+
 <ul>
 <li>QuickTileの派生</li>
 <li>シンプル</li>
 </ul>
 </li>
-<li><a href="https://github.com/phillipberndt/fakexrandr#how-to">fakeXRandR</a>
+<li><a href="https://github.com/phillipberndt/fakexrandr#how-to" target="_blank">fakeXRandR</a>
+
 <ul>
 <li>仮想的にディスプレイを分割して認識させる</li>
 <li>ディスプレイを分割すると，逆に全画面表示がしづらくなる</li>
@@ -232,7 +239,8 @@ if (!doNotTrack) {
 <h2 id="最終的に使用した方法">最終的に使用した方法</h2>
 <p>いろいろ試した結果，目的の機能がそろっていたQuickTileを採用しました．</p>
 <h3 id="インストール">インストール</h3>
-<p><a href="http://ssokolow.com/quicktile/">公式ページ</a>にしたがってインストールする．</p>
+<p><a href="http://ssokolow.com/quicktile/" target="_blank">公式ページ</a>
+にしたがってインストールする．</p>
 <h3 id="ショートカットキー">ショートカットキー</h3>
 <p>ショートカットキーを以下のように設定しました．</p>
 <ul>
@@ -261,7 +269,8 @@ if (!doNotTrack) {
 <h3 id="設定ファイル">設定ファイル</h3>
 <p>QuickTile の設定ファイルは次の場所に保存されています．</p>
 <ul>
-<li><a href="quicktile.cfg">~/.config/quicktile.cfg</a></li>
+<li><a href="quicktile.cfg">~/.config/quicktile.cfg</a>
+</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[general]</span>
 <span class="na">cfg_schema</span> <span class="o">=</span> <span class="s">1</span>

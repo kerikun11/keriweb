@@ -75,7 +75,8 @@
 &lt;ul&gt;
 &lt;li&gt;コード補完&lt;/li&gt;
 &lt;li&gt;コード整形&lt;/li&gt;
-&lt;li&gt;環境に依存しにくい&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34;&gt;.latexmk&lt;/a&gt;でコンパイル&lt;/li&gt;
+&lt;li&gt;環境に依存しにくい&lt;a href=&#34;https://texwiki.texjp.org/?Latexmk&#34; target=&#34;_blank&#34;&gt;.latexmk&lt;/a&gt;
+でコンパイル&lt;/li&gt;
 &lt;li&gt;散らかりがちな生成物を &lt;code&gt;build&lt;/code&gt; ディレクトリにまとめる&lt;/li&gt;
 &lt;li&gt;TeXコードのとなりにPDFを表示&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;SyncTex&lt;/code&gt;によりTeXコードとPDFの相互ジャンプ&lt;/li&gt;
@@ -90,13 +91,17 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-12-22-platformio/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/3279&#34;&gt;rogy Advent Calendar 2018&lt;/a&gt; の
+&lt;p&gt;この記事は &lt;a href=&#34;https://adventar.org/calendars/3279&#34; target=&#34;_blank&#34;&gt;rogy Advent Calendar 2018&lt;/a&gt;
+ の
 22日目の記事です．&lt;/p&gt;
 &lt;p&gt;こんにちは．けりです．&lt;/p&gt;
 &lt;p&gt;今回は，PlatformIOという強力な&lt;strong&gt;マイコン開発環境&lt;/strong&gt;の紹介です．&lt;/p&gt;
 &lt;h3 id=&#34;platformio-とは&#34;&gt;PlatformIO とは？&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://platformio.org/&#34;&gt;PlatformIO&lt;/a&gt;とは，mbedやArduinoと似たような感じで，さまざまなボードやライブラリを統一的に開発できる開発環境です．&lt;/p&gt;
-&lt;p&gt;PlatformIO はESP32マイコンを公式にサポートしていて，&lt;a href=&#34;https://github.com/espressif/esp-idf&#34;&gt;ESP-IDF&lt;/a&gt;と&lt;a href=&#34;https://github.com/espressif/arduino-esp32&#34;&gt;Arduino Core for the ESP32&lt;/a&gt;から選んで開発することができます．&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://platformio.org/&#34; target=&#34;_blank&#34;&gt;PlatformIO&lt;/a&gt;
+とは，mbedやArduinoと似たような感じで，さまざまなボードやライブラリを統一的に開発できる開発環境です．&lt;/p&gt;
+&lt;p&gt;PlatformIO はESP32マイコンを公式にサポートしていて，&lt;a href=&#34;https://github.com/espressif/esp-idf&#34; target=&#34;_blank&#34;&gt;ESP-IDF&lt;/a&gt;
+と&lt;a href=&#34;https://github.com/espressif/arduino-esp32&#34; target=&#34;_blank&#34;&gt;Arduino Core for the ESP32&lt;/a&gt;
+から選んで開発することができます．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -109,7 +114,8 @@
 &lt;p&gt;マイクロマウスでは，User Interface (UI) のために，スピーカーを載せることが多いです．&lt;/p&gt;
 &lt;p&gt;しかしながら，小さなマウスを作るうえで，そのわずかなスペースでも惜しいものです．&lt;/p&gt;
 &lt;p&gt;今回は，既にマウスに乗っている&lt;strong&gt;モーター&lt;/strong&gt;で音を鳴らすことができたので紹介します．&lt;/p&gt;
-&lt;p&gt;偶然ですが，&lt;a href=&#34;https://kerikeri.top/posts/2018-05-03-kerise-v4-coming/&#34;&gt;KERISEv4&lt;/a&gt;には(ほとんど使われていない)&lt;strong&gt;吸引ファン&lt;/strong&gt;がついていたので，今回はそれを使ってみました．&lt;/p&gt;</description>
+&lt;p&gt;偶然ですが，&lt;a href=&#34;https://kerikeri.top/posts/2018-05-03-kerise-v4-coming/&#34;&gt;KERISEv4&lt;/a&gt;
+には(ほとんど使われていない)&lt;strong&gt;吸引ファン&lt;/strong&gt;がついていたので，今回はそれを使ってみました．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -128,7 +134,8 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer4/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer3/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer3/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
 &lt;p&gt;今回の記事では，今までに示した設計法のC++による実装例を紹介します．&lt;/p&gt;</description>
     </item>
     
@@ -139,7 +146,8 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer3/</guid>
       <description>&lt;h2 id=&#34;設計2走行距離を考慮した速度設計&#34;&gt;設計2・走行距離を考慮した速度設計&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer2/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer2/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．&lt;/p&gt;</description>
     </item>
     
@@ -150,7 +158,8 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer2/</guid>
       <description>&lt;h2 id=&#34;設計1加速曲線の設計&#34;&gt;設計1・加速曲線の設計&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer1/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer1/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，前回紹介した&lt;strong&gt;設計1&lt;/strong&gt;の曲線加速の設計について考えます．&lt;/p&gt;</description>
     </item>
     
@@ -177,7 +186,8 @@
       <description>&lt;h2 id=&#34;wifiのssidとパスワードをどう伝えるか問題&#34;&gt;WiFiのSSIDとパスワードをどう伝えるか問題&lt;/h2&gt;
 &lt;p&gt;ESP32はWiFiに接続することができますが，ソースコードにWiFiのSSIDとパスワードを書いてしまうと，後から変更できません．&lt;/p&gt;
 &lt;p&gt;さらに，ソースコードを公開するときは，SSIDとパスワードの部分をいちいち削除しなければならず，けっこう面倒です．&lt;/p&gt;
-&lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;を紹介しましたが，これも割と手間でした．&lt;/p&gt;
+&lt;p&gt;以前は&lt;a href=&#34;https://kerikeri.top/posts/2017-07-29-esp32-wifi-sd/&#34;&gt;SDカードを使ってWiFi情報を伝える方法&lt;/a&gt;
+を紹介しましたが，これも割と手間でした．&lt;/p&gt;
 &lt;p&gt;SmartConfigとは，そんな悩みをスマホで解決する機能です．&lt;/p&gt;</description>
     </item>
     
@@ -188,7 +198,8 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-12-06-introduction-to-esp32/</guid>
       <description>&lt;p&gt;こんにちは，けりです．&lt;br&gt;
-これは &lt;a href=&#34;https://adventar.org/calendars/2361&#34;&gt;rogy Advent Calender 2017&lt;/a&gt; の6日目の記事です.&lt;/p&gt;
+これは &lt;a href=&#34;https://adventar.org/calendars/2361&#34; target=&#34;_blank&#34;&gt;rogy Advent Calender 2017&lt;/a&gt;
+ の6日目の記事です.&lt;/p&gt;
 &lt;p&gt;本日は，私が愛用しているマイコン「ESP32」を紹介します．&lt;/p&gt;</description>
     </item>
     
@@ -242,7 +253,8 @@
 	
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.espressif.com/en/products/hardware/esp32/overview&#34;&gt;ESP32 Overview | Espressif Systems&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.espressif.com/en/products/hardware/esp32/overview&#34; target=&#34;_blank&#34;&gt;ESP32 Overview | Espressif Systems&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．&lt;/p&gt;</description>
     </item>
     
@@ -254,7 +266,8 @@
       <guid>https://kerikeri.top/posts/2017-06-16-esp32-preferences/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;みなさん，ESP32使ってますか？僕は使っています．その偉大さには驚くばかりです．&lt;/p&gt;
-&lt;p&gt;さて，今回紹介するのは，Arduino core for ESP32に含まれているライブラリ「&lt;a href=&#34;https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences&#34;&gt;Preferences&lt;/a&gt;」です．&lt;/p&gt;
+&lt;p&gt;さて，今回紹介するのは，Arduino core for ESP32に含まれているライブラリ「&lt;a href=&#34;https://github.com/espressif/arduino-esp32/tree/master/libraries/Preferences&#34; target=&#34;_blank&#34;&gt;Preferences&lt;/a&gt;
+」です．&lt;/p&gt;
 &lt;p&gt;ESP32で何か物を作るとき，電源を切っても保存しておきたいデータなどがあると思います．独自の形式やJSONなどでファイルに保存する方法もありますが，保存と復元の処理を実装するのはなかなか面倒です．&lt;/p&gt;
 &lt;p&gt;みんなどうせ同じようなことをするでしょうということで，ESP32ではライブラリが用意されていました．&lt;/p&gt;
 &lt;p&gt;不揮発性のフラッシュ領域を使ってデータを保存&amp;amp;復元します．&lt;/p&gt;</description>
@@ -315,7 +328,8 @@
       <guid>https://kerikeri.top/posts/2016-01-13-pic-bootloader/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&#34;pic18f27j53を使おう&#34;&gt;PIC18F27J53を使おう&lt;/h3&gt;
-&lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt; という記事を書きました。それの続きで、今回はUSBブートローダの使い方について書きたいと思います。&lt;/p&gt;
+&lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt;
+ という記事を書きました。それの続きで、今回はUSBブートローダの使い方について書きたいと思います。&lt;/p&gt;
 &lt;h3 id=&#34;ブートローダとは&#34;&gt;ブートローダとは&lt;/h3&gt;
 &lt;p&gt;ブートローダとは自分自身にプログラムを書きこむプログラムです。これを使うとPICkitなどのライタを使わなくてもプログラムの書き込みをすることができるようになります。&lt;/p&gt;
 &lt;p&gt;ただし、初回に一度だけブートローダ用のプログラムをPICkitなどで書きこむ必要があります。&lt;/p&gt;
@@ -330,7 +344,8 @@
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2016-01-10-pic-usb/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt; という記事を書きました。それの続きで、今回はUSBの使い方について書きたいと思います。&lt;/p&gt;
+&lt;p&gt;以前 &lt;a href=&#34;https://kerikeri.top/posts/2016-01-08-pic18f27j53/&#34;&gt;PIC18F27J53のすすめ&lt;/a&gt;
+ という記事を書きました。それの続きで、今回はUSBの使い方について書きたいと思います。&lt;/p&gt;
 &lt;p&gt;今回紹介する方法では、USBをUARTの代わりに使えるようにするものです。PICをPCにつなぐとCOMポートが現れます。&lt;/p&gt;
 &lt;p&gt;これならUSBシリアル変換モジュールを使う必要はなくります。&lt;/p&gt;
 &lt;figure &gt;
@@ -406,7 +421,8 @@
       <guid>https://kerikeri.top/posts/2015-10-05-raspi-server/</guid>
       <description>&lt;h2 id=&#34;ラズパイの用意&#34;&gt;ラズパイの用意&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;ラズパイ用のOS「NOOBS」を&lt;a href=&#34;http://raspberrypi.org/downloads/&#34;&gt;raspberrypi.org&lt;/a&gt;からDLして解凍する。&lt;/li&gt;
+&lt;li&gt;ラズパイ用のOS「NOOBS」を&lt;a href=&#34;http://raspberrypi.org/downloads/&#34; target=&#34;_blank&#34;&gt;raspberrypi.org&lt;/a&gt;
+からDLして解凍する。&lt;/li&gt;
 &lt;li&gt;microSDカードをFAT32でフォーマットする。&lt;/li&gt;
 &lt;li&gt;解凍したファイルをSDカードにコピーする。&lt;/li&gt;
 &lt;li&gt;ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。&lt;/li&gt;

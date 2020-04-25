@@ -9,17 +9,20 @@
 	<meta name="description" content="">
 	<meta property="og:title" content="滑らかな加速の設計③ 走行距離を考慮した速度設計" />
 <meta property="og:description" content="設計2・走行距離を考慮した速度設計
-前回の記事の続きです．
+前回の記事
+の続きです．
 この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kerikeri.top/posts/2018-04-29-accel-designer3/" />
 <meta property="article:published_time" content="2018-04-29T14:35:38+09:00" />
 <meta property="article:modified_time" content="2018-04-29T14:35:38+09:00" />
 
-	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/posts/2018-04-29-accel-designer3/icon.png"/><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="滑らかな加速の設計③ 走行距離を考慮した速度設計"/>
 <meta name="twitter:description" content="設計2・走行距離を考慮した速度設計
-前回の記事の続きです．
+前回の記事
+の続きです．
 この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．"/>
 <meta name="twitter:site" content="@kerikun11"/>
 
@@ -117,14 +120,19 @@ if (!doNotTrack) {
 </div></div>
 		</header><div class="content post__content clearfix">
 			<h2 id="設計2走行距離を考慮した速度設計">設計2・走行距離を考慮した速度設計</h2>
-<p><a href="/posts/2018-04-29-accel-designer2/">前回の記事</a>の続きです．</p>
+<p><a href="/posts/2018-04-29-accel-designer2/">前回の記事</a>
+の続きです．</p>
 <p>この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．</p>
 <h3 id="滑らかな加速の設計-目次">滑らかな加速の設計 目次</h3>
 <ul>
-<li><a href="/posts/2018-04-29-accel-designer1/">滑らかな加速の設計① 台形加速と曲線加速</a></li>
-<li><a href="/posts/2018-04-29-accel-designer2/">滑らかな加速の設計② 曲線加速の設計</a></li>
-<li><a href="/posts/2018-04-29-accel-designer3/">滑らかな加速の設計③ 走行距離を考慮した速度設計</a></li>
-<li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C++による実装例</a></li>
+<li><a href="/posts/2018-04-29-accel-designer1/">滑らかな加速の設計① 台形加速と曲線加速</a>
+</li>
+<li><a href="/posts/2018-04-29-accel-designer2/">滑らかな加速の設計② 曲線加速の設計</a>
+</li>
+<li><a href="/posts/2018-04-29-accel-designer3/">滑らかな加速の設計③ 走行距離を考慮した速度設計</a>
+</li>
+<li><a href="/posts/2018-04-29-accel-designer4/">滑らかな加速の設計④ C&#43;&#43;による実装例</a>
+</li>
 </ul>
 <h2 id="設計内容">設計内容</h2>
 <p>設計1によって，始点速度と終点速度を与えれば，それを繋ぐ曲線加速を生成できるようになりました．</p>
@@ -144,25 +152,26 @@ if (!doNotTrack) {
 <h2 id="拘束条件">拘束条件</h2>
 <p>与える情報は以下の通りです．</p>
 <ul>
-<li>最大躍度 $j_m$</li>
-<li>最大加速度 $a_{m}$</li>
+<li>最大躍度 $j_\max$</li>
+<li>最大加速度 $a_\max$</li>
 <li>始点速度 $v_{s}$</li>
 <li><strong>飽和速度</strong> $v_{a}$</li>
 <li><strong>目標速度</strong> $v_{t}$</li>
 <li><strong>走行距離</strong> $d$</li>
 </ul>
 <h3 id="設計1との違い">設計1との違い</h3>
-<p>設計1と比べて，飽和速度 $v_a$ と走行距離 $d$ が新たに加わりました．</p>
+<p>前回の設計1と比べて，飽和速度 $v_a$ と走行距離 $d$ が新たに加わりました．</p>
 <p>また，終点速度 $v_e$ という名前だった速度が目標速度 $v_t$ という名前に変わりました．</p>
 <p>というのも，走行距離 $d$ と最大加速度 $a_m$ などの拘束条件により，与えられた目標速度 $v_t$ に達することができない場合があるからです．</p>
 <p>したがって，結果的に算出される終点速度 $v_e$ は，目標速度と $v_t$ と異なる場合があるので注意します．</p>
-<h2 id="求めた式">求めた式</h2>
+<h2 id="導出結果">導出結果</h2>
 <p>設計2では，次のような式を求めました．</p>
 <ul>
 <li>走行距離などの拘束条件から終点速度 $v_e$ を求める式</li>
 <li>走行距離などの拘束条件から最大速度 $v_m$ を求める式</li>
-<li>任意の時刻 $t$ における，躍度 $j(t)$, 加速度 $a(t)$，速度 $v(t)$, 位置 $x(t)$ を返す式</li>
+<li>任意の時刻 $t$ における，躍度 $j(t)$, 加速度 $a(t)$，速度 $v(t)$, 位置 $x(t)$</li>
 </ul>
+<p>それぞれについて以下で説明します．</p>
 <h3 id="走行距離の拘束から終点速度v_eを求める式">走行距離の拘束から終点速度$v_e$を求める式</h3>
 <p>与えられた拘束条件から終点速度を求める式です．</p>
 <p>$$
@@ -213,15 +222,13 @@ v_{m2} &amp;:= \max\{v_s, v_e, v_{m1}\}
 v_{m1} &amp;:= \frac{-a_mt_c + \sqrt{a_m^2t_c^2-(v_s+v_e)a_mt_c+4a_md+2(v_s^2+v_e^2)}}{2}
 \end{align}
 $$</p>
-<h3 id="任意の時刻-t-における加速度-at速度-vt-および位置-xt">任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$ および位置 $x(t)$</h3>
+<h3 id="任意の時刻における加速度速度および位置">任意の時刻における，加速度，速度および位置</h3>
 <p>ここままで与えられた，もしくは算出した下記パラメータを用いて設計1の曲線加速を組み合わせます．</p>
 <ul>
-<li>最大加速度 $a_{m}$</li>
 <li>始点速度 $v_{s}$</li>
 <li>最大速度 $v_{m}$</li>
 <li>終点速度 $v_{e}$</li>
 <li>走行距離 $d$</li>
-<li>加速度が曲線である時間 $t_c$</li>
 </ul>
 <figure >
 	
@@ -236,20 +243,16 @@ $$</p>
 
 <p>前回の記事で設計した設計1の曲線加速に対して，</p>
 <ul>
-<li>最大加速度を$a_m$</li>
 <li>始点速度を$v_s$</li>
 <li>終点速度を$\color{red}{v_m}$</li>
-<li>加速度が曲線である時間を$t_c$</li>
 </ul>
 <p>としたものを加速曲線 $ac$，</p>
 <ul>
-<li>最大加速度を$a_m$</li>
 <li>始点速度を$\color{red}{v_m}$</li>
 <li>終点速度を$v_e$</li>
-<li>加速度が曲線である時間を$t_c$</li>
 </ul>
 <p>としたものを減速曲線 $dc$として定義します．</p>
-<p>このとき，減速曲線$dc$の方は，上図の通り$t_2$だけ時間をシフトした形で使用します．</p>
+<p>このとき，減速曲線 $dc$ の方は，上図の通り $t_2 $だけ時間をシフトした形で使用します．</p>
 <p>各境界点時刻の定義は，以下の通りです．</p>
 <p>$$
 \begin{align}
@@ -262,7 +265,6 @@ t_2 &amp;:= t_1 + \frac{d - ac.x_{end} - dc.x_{end}}{v_m}
 t_3 &amp;:= t_2 + dc.t_{end}
 \end{align}
 $$</p>
-<p>$ac.t_{end}$などの表記は，察してください．</p>
 <h2 id="導出過程">導出過程</h2>
 <h3 id="走行距離などから終点速度を求める式">走行距離などから終点速度を求める式</h3>
 <p>走行距離$d$がある程度小さいとき，与えられた拘束条件では目標速度$v_t$にたどり着けない場合があります．</p>
@@ -426,7 +428,8 @@ $$</p>
 
 <h2 id="まとめ">まとめ</h2>
 <p>本記事では，走行距離の拘束条件を満たすような曲線加速を設計しました．</p>
-<p><a href="/posts/2018-04-29-accel-designer4/">次回の記事</a>では，そのためのC++実装例を紹介します．</p>
+<p><a href="/posts/2018-04-29-accel-designer4/">次回の記事</a>
+では，そのためのC++実装例を紹介します．</p>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
@@ -577,11 +580,11 @@ $$</p>
         <li><a href="#設計1との違い">設計1との違い</a></li>
       </ul>
     </li>
-    <li><a href="#求めた式">求めた式</a>
+    <li><a href="#導出結果">導出結果</a>
       <ul>
         <li><a href="#走行距離の拘束から終点速度v_eを求める式">走行距離の拘束から終点速度$v_e$を求める式</a></li>
         <li><a href="#走行距離などから最大速度v_mを求める式">走行距離などから最大速度$v_m$を求める式</a></li>
-        <li><a href="#任意の時刻-t-における加速度-at速度-vt-および位置-xt">任意の時刻 $t$ における，加速度 $a(t)$，速度 $v(t)$ および位置 $x(t)$</a></li>
+        <li><a href="#任意の時刻における加速度速度および位置">任意の時刻における，加速度，速度および位置</a></li>
       </ul>
     </li>
     <li><a href="#導出過程">導出過程</a>

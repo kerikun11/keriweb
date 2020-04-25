@@ -120,7 +120,8 @@ if (!doNotTrack) {
 みなさん，ESP32使ってますか？</p>
 <p>今回はESP32の時刻合わせのArduinoライブラリを作ったので紹介します．</p>
 <h2 id="esp32time">ESP32Time</h2>
-<p><a href="https://github.com/kerikun11/ESP32Time">ESP32Time - Arduino Library for ESP32 Time Adjustment</a></p>
+<p><a href="https://github.com/kerikun11/ESP32Time" target="_blank">ESP32Time - Arduino Library for ESP32 Time Adjustment</a>
+</p>
 <p>こちらはArduinoのライブラリです．zipファイルをダウンロードして，Arduino IDEで読み込めば簡単に使うことができます．ライブラリを読み込むと，自動的にサンプルプログラムも追加されます．</p>
 <h2 id="ライブラリの概要">ライブラリの概要</h2>
 <ul>
@@ -133,9 +134,11 @@ if (!doNotTrack) {
 <li><code>setup()</code>内で<code>ESP32Time.begin()</code>を呼んで時刻合わせタスクを起動する</li>
 </ol>
 <h2 id="動作環境">動作環境</h2>
-<p><a href="https://github.com/espressif/arduino-esp32">Arduino core for ESP32 WiFi chip</a>環境があれば動作します．</p>
+<p><a href="https://github.com/espressif/arduino-esp32" target="_blank">Arduino core for ESP32 WiFi chip</a>
+環境があれば動作します．</p>
 <h2 id="コード">コード</h2>
-<p>最新のコードは<a href="https://github.com/kerikun11/ESP32Time">こちら</a></p>
+<p>最新のコードは<a href="https://github.com/kerikun11/ESP32Time" target="_blank">こちら</a>
+</p>
 <h3 id="esp32timeh">ESP32Time.h</h3>
 <p>ESP32Timeクラスの実体は既に定義されていますが，<code>ESP32.begin()</code>をしない限りCPUリソースを消費することはありません．</p>
 <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#pragma once

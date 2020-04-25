@@ -60,7 +60,9 @@
       <pubDate>Mon, 27 Nov 2017 12:39:52 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-11-27-result-of-hx2017-maze/</guid>
-      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;が開催されました．結果報告の記事は&lt;a href=&#34;https://kerikeri.top/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34; target=&#34;_blank&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;
+が開催されました．結果報告の記事は&lt;a href=&#34;https://kerikeri.top/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．&lt;/p&gt;
 &lt;p&gt;今回はその迷路の探索結果についてお話しします．&lt;/p&gt;</description>
     </item>
@@ -131,7 +133,8 @@
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．&lt;/p&gt;
 &lt;p&gt;この記事は，デモサイトを作るときのメモ．&lt;br&gt;
-デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;</description>
+デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -279,7 +282,8 @@ HDD：Western Digital 2TB 3.5 inch&lt;br&gt;
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;秋月やaitendoで売っているI2C液晶を使っている人は多い。しかし、ほとんどのサンプルプログラムは、I2Cの通信をwhile文などにより送信完了待ちしていて、その間に（割り込みを除く）他のプログラムが実行できない。そこで今回は、I2C液晶に表示させる内容を送信バッファに入れておけば自動で送信してくれるプログラムを書く。&lt;/p&gt;
 &lt;p&gt;秋月の液晶もaitendoの液晶も共通の液晶制御ICを使っている。その型番が「ST7032」なので、液晶のこともその名前で呼ぶ。&lt;br&gt;
-&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-06795/&#34;&gt;秋月のI2C液晶(AQM0802)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gK-06795/&#34; target=&#34;_blank&#34;&gt;秋月のI2C液晶(AQM0802)&lt;/a&gt;
+&lt;br&gt;
 &lt;figure &gt;
 	
 		

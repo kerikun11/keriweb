@@ -33,7 +33,8 @@
       <guid>https://kerikeri.top/posts/2016-03-14-killifish-light-2/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&#34;メダカの水槽の照明&#34;&gt;メダカの水槽の照明&lt;/h3&gt;
-&lt;p&gt;以前、PICで作った&lt;a href=&#34;https://kerikeri.top/posts/2015-06-04-killifish-light/&#34;&gt;メダカの水槽の照明&lt;/a&gt;(←リンク)を紹介しましたが、今回はこれをバージョンアップしました。めだかの照明がどのようなものかは以前の記事を参考にしてください。&lt;/p&gt;
+&lt;p&gt;以前、PICで作った&lt;a href=&#34;https://kerikeri.top/posts/2015-06-04-killifish-light/&#34;&gt;メダカの水槽の照明&lt;/a&gt;
+(←リンク)を紹介しましたが、今回はこれをバージョンアップしました。めだかの照明がどのようなものかは以前の記事を参考にしてください。&lt;/p&gt;
 &lt;figure &gt;
 	
 		
@@ -49,10 +50,13 @@
 &lt;p&gt;今注目のWiFiモジュールであるESP-WROOM-02を使ってWiFiに対応しました。これにより、スマートフォンなどからブラウザ経由で操作できます。&lt;/p&gt;
 &lt;p&gt;このWiFiモジュールを使った赤外線学習リモコンの記事も書きましたので合わせてご覧ください。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://kerikeri.top/posts/2015-12-30-ir-station/&#34;&gt;赤外線学習リモコン（日本語による紹介記事）&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://kerikeri.top/posts/2016-03-11-ir-station-reference/&#34;&gt;赤外線学習リモコン（英語によるリファレンス）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kerikeri.top/posts/2015-12-30-ir-station/&#34;&gt;赤外線学習リモコン（日本語による紹介記事）&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kerikeri.top/posts/2016-03-11-ir-station-reference/&#34;&gt;赤外線学習リモコン（英語によるリファレンス）&lt;/a&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34;&gt;ESP-WROOM-02 WiFiモジュール　秋月電子にて550円(2016/3/14現在)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34; target=&#34;_blank&#34;&gt;ESP-WROOM-02 WiFiモジュール　秋月電子にて550円(2016/3/14現在)&lt;/a&gt;
+&lt;/p&gt;
 &lt;figure &gt;
 	
 		

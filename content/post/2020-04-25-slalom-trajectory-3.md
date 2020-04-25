@@ -10,23 +10,35 @@ thumbnail: "icon.png"
 draft: true
 ---
 
-前回の記事の続きです．
-
-<!--more-->
+[前回の記事](/posts/2020-04-25-slalom-trajectory-2/)の続きです．
 
 今回の記事では，滑らかなスラローム軌道の C++による実装例を紹介します．
 
-## 実装
+<!--more-->
 
-以下では，各クラスの抜粋を提示します．
+## 最新のソースコード
 
-### AccelDesigner
+今回紹介するソースコードは，マイクロマウス制御モジュールの一部として
+
+- [GitHub - kerikun11/micromouse-control-module](https://github.com/kerikun11/micromouse-control-module)
+
+に公開しています．
+
+GitHub のコードが最新なので，そちらも合わせてご覧ください．
+
+## C++クラス設計
+
+以下では，スラロームの軌道生成に必要なC++クラスを簡単に紹介します．
+
+これらのコードはすべて名前空間 `ctrl` に収められています．
+
+### ctrl::AccelDesigner
 
 [以前の記事](/posts/2018-04-29-accel-designer1)で紹介した，拘束条件を満たす曲線加減速の軌道を生成するクラスです．
 
 今回はこのクラスに対して，単位 [m] を [rad] とみなして使用します．
 
-以下， [accel_designer.h](include/accel_designer.h) の抜粋:
+以下， [accel_designer.h](https://github.com/kerikun11/micromouse-control-module/blob/master/include/accel_designer.h) の抜粋:
 
 ```cpp
 /**
@@ -35,8 +47,6 @@ draft: true
  * - 移動距離の拘束条件を満たす曲線加速軌道を生成する
  * - 各時刻 $t$ における躍度 $j(t)$，加速度 $a(t)$，速度 $v(t)$，位置 $x(t)$
  * を提供する
- * - 最大加速度 $a_{\max}$ と始点速度 $v_s$
- * など拘束次第では目標速度 $v_t$ に達することができない場合があるので注意する
  */
 class AccelDesigner {
 public:
@@ -79,22 +89,6 @@ public:
    * @brief 終点時刻 [s]
    */
   float t_end() const;
-  /**
-   * @brief 終点速度 [m/s]
-   */
-  float v_end() const;
-  /**
-   * @brief 終点位置 [m]
-   */
-  float x_end() const;
-  /**
-   * @brief std::ostream に軌道のcsvを出力する関数．
-   */
-  void printCsv(std::ostream &os, const float t_interval = 0.001f) const;
-  /**
-   * @brief 情報の表示
-   */
-  friend std::ostream &operator<<(std::ostream &os, const AccelDesigner &obj);
 
 protected:
   float t0, t1, t2, t3; /**< @brief 境界点の時刻 [s] */
@@ -103,11 +97,11 @@ protected:
 };
 ```
 
-### Pose
+### ctrl::Pose
 
-平面上の位置および姿勢を表現する座標．
+平面上の位置および姿勢を表現する座標を表します．
 
-以下， [pose.h](include/pose.h) の抜粋:
+以下， [pose.h](https://github.com/kerikun11/micromouse-control-module/blob/master/include/pose.h) の抜粋:
 
 ```cpp
 /**
@@ -118,11 +112,11 @@ struct Pose {
 };
 ```
 
-### State
+### ctrl::State
 
-軌道生成などに使用する状態変数
+生成した軌道をやりとりするための状態変数です．
 
-以下， [state.h](include/state.h) の抜粋:
+以下， [state.h](https://github.com/kerikun11/micromouse-control-module/blob/master/include/state.h) の抜粋:
 
 ```cpp
 /**
@@ -136,25 +130,15 @@ struct State {
 };
 ```
 
-### Polar
+### ctrl::slalom::Shape
 
-並進と回転の座標を管理する構造体
+事前設計によって得られるスラロームの形状を管理するクラスです．
 
-以下， [polar.h](include/polar.h) の抜粋:
+事前に各ターンごとの `Shape` オブジェクトを生成することになります．
 
-```cpp
-/**
- * @brief 並進と回転の座標
- */
-struct Polar {
-  float tra; //< translation [m]
-  float rot; //< rotation [rad]
-};
-```
+コンストラクタが2つあり，生成済みのスラローム形状を代入するものと，拘束条件を与えてスラローム形状を生成するものがあります．
 
-### slalom::Shape
-
-以下， [slalom.h](include/slalom.h) の抜粋:
+以下， [slalom.h](https://github.com/kerikun11/micromouse-control-module/blob/master/include/slalom.h) の抜粋:
 
 ```cpp
 /**
@@ -216,7 +200,11 @@ public:
 
 ### slalom::Trajectory
 
-以下， [slalom.h](include/slalom.h) の抜粋:
+走行時にそのときの並進速度から軌道を生成するクラスです．
+
+コンストラクタにてスラローム形状オブジェクトを渡します．
+
+以下， [slalom.h](https://github.com/kerikun11/micromouse-control-module/blob/master/include/slalom.h) の抜粋:
 
 ```cpp
 /**
@@ -273,6 +261,88 @@ protected:
   float velocity;   /**< @brief 並進速度 */
 };
 ```
+
+## 使用例
+
+以下に基本的な使用例を示します．
+
+コードの流れを見ると，事前の形状設計と実際の走行の流れがわかると思います．
+
+より詳しい使用例は[GitHub](https://github.com/kerikun11/micromouse-control-module)をご覧ください．
+
+```cpp
+#include "slalom.h"
+#include <iostream>
+
+using namespace ctrl; //< 非推奨な書き方
+
+int main(void) {
+  /* 事前の形状設計 */
+  /* 設計パラメータを定義 */
+  const Pose pose_total = Pose(45, 45, M_PI / 2); //< 探索90度ターンを想定
+  const float y_curve = 40;
+  /* スラローム形状を作成 */
+  slalom::Shape shape(pose_total, y_curve);
+  /* 生成結果パラメータの表示 */
+  std::cout << shape << std::endl;
+
+  /* 走行時の軌道生成 */
+  slalom::Trajectory trajectory(shape); //< 軌道生成器にスラローム形状を渡す
+  /* 制御周期 */
+  const float Ts = 0.001f;
+  /* 走行する並進速度を用いて軌道の生成 */
+  const float v = 600;
+  trajectory.reset(v);
+  /* 状態変数を定義 */
+  State s;
+  /* スラローム走行 */
+  for (float t = 0; t < trajectory.getTimeCurve(); t += Ts) {
+    /* 軌道の更新 */
+    trajectory.update(s, t, Ts);
+    /* 軌道の csv 出力 */
+    std::cout << t;              //< 時刻
+    std::cout << "," << v;       //< 並進速度
+    std::cout << "," << s.dq.th; //< 角速度
+    std::cout << "," << s.q.x;   //< 位置 x
+    std::cout << "," << s.q.y;   //< 位置 y
+    std::cout << "," << s.q.th;  //< 角度
+    std::cout << std::endl;
+  }
+  return 0;
+}
+```
+
+このコードを実行すると以下のように表示されます．
+
+```s
+Slalom Shape
+        total:  (45, 45, 1.5708)
+        curve:  (40, 40, 1.5708)
+        v_ref:  241.59
+        straight_prev:  5.00001
+        straight_post:  5
+        integral error: (0, 0, 1.19209e-07)
+
+0,600,0.0288747,0.6,1.44374e-06,9.62491e-06
+0.001,600,0.115499,1.2,2.30998e-05,7.69993e-05
+0.002,600,0.259873,1.8,0.000116943,0.000259873
+0.003,600,0.461996,2.4,0.000369597,0.000615994
+--- 省略 ---
+0.111,600,0.0158959,40,39.5548,1.57079
+0.112,600,0,40,40.1548,1.5708
+```
+
+生成結果と軌道のcsvが表示されました．
+
+余談ですが，スラローム軌道を設計するときは，カーブ前後の直線の長さが正になっていることをしっかり確認しましょう．
+
+## まとめ
+
+今回の記事では，滑らかなスラローム軌道を生成するクラスを紹介しました．
+
+オブジェクト指向になっているので汎用的に使用することができると思います．
+
+[次回の記事](/posts/2020-04-25-slalom-trajectory-4/)では，実際にマイクロマウスで使うパターンの軌道生成結果を紹介します．
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});

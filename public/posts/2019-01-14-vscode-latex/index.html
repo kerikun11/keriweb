@@ -14,7 +14,8 @@
 
 コード補完
 コード整形
-環境に依存しにくい.latexmkでコンパイル
+環境に依存しにくい.latexmk
+でコンパイル
 散らかりがちな生成物を build ディレクトリにまとめる
 TeXコードのとなりにPDFを表示
 SyncTexによりTeXコードとPDFの相互ジャンプ
@@ -33,7 +34,8 @@ VSCode Vim を使ってvimキーバインド (オプション)
 
 コード補完
 コード整形
-環境に依存しにくい.latexmkでコンパイル
+環境に依存しにくい.latexmk
+でコンパイル
 散らかりがちな生成物を build ディレクトリにまとめる
 TeXコードのとなりにPDFを表示
 SyncTexによりTeXコードとPDFの相互ジャンプ
@@ -137,7 +139,8 @@ if (!doNotTrack) {
 <ul>
 <li>コード補完</li>
 <li>コード整形</li>
-<li>環境に依存しにくい<a href="https://texwiki.texjp.org/?Latexmk">.latexmk</a>でコンパイル</li>
+<li>環境に依存しにくい<a href="https://texwiki.texjp.org/?Latexmk" target="_blank">.latexmk</a>
+でコンパイル</li>
 <li>散らかりがちな生成物を <code>build</code> ディレクトリにまとめる</li>
 <li>TeXコードのとなりにPDFを表示</li>
 <li><code>SyncTex</code>によりTeXコードとPDFの相互ジャンプ</li>
@@ -147,8 +150,10 @@ if (!doNotTrack) {
 <h3 id="インストール">インストール</h3>
 <p>次のリンクにしたがってインストールしてください．</p>
 <ul>
-<li><a href="https://texwiki.texjp.org/?TeX%20Live#w628bee6">TexLive</a></li>
-<li><a href="https://code.visualstudio.com/">Microsoft Visual Studio Code</a></li>
+<li><a href="https://texwiki.texjp.org/?TeX%20Live#w628bee6" target="_blank">TexLive</a>
+</li>
+<li><a href="https://code.visualstudio.com/" target="_blank">Microsoft Visual Studio Code</a>
+</li>
 </ul>
 <h3 id="拡張機能の追加">拡張機能の追加</h3>
 <p>以下のVSCode拡張機能をインストールしましょう．</p>
@@ -210,10 +215,12 @@ if (!doNotTrack) {
 TeXファイルを編集中ときだけ適用されるようにしています．</p>
 <h3 id="latexmkrc-の追加">.latexmkrc の追加</h3>
 <p>TeXにはplatexやlualatexなど様々なコマンドがありますが，エディタのビルド設定を変更してしまうと，コマンドが違うプロジェクトごとにいちいち設定を変えなければならなくなります．</p>
-<p>それを解決するために，<a href="https://texwiki.texjp.org/?Latexmk">latexmk</a>というビルドコマンドがあります．</p>
+<p>それを解決するために，<a href="https://texwiki.texjp.org/?Latexmk" target="_blank">latexmk</a>
+というビルドコマンドがあります．</p>
 <p>texファイルと同じディレクトリに<code>.latexmkrc</code>という設定ファイルを置くと，そのファイルに書かれたビルドコマンドでビルドしてくれるので，エディタ側の設定を変更する必要がなくなります．</p>
 <p>また，コンパイル時に散らかりがちな中間生成物を <code>build</code> ディレクトリにまとめる処理も書かれています．</p>
-<p>ダウンロード: <a href=".latexmkrc">.latexmkrc</a></p>
+<p>ダウンロード: <a href=".latexmkrc">.latexmkrc</a>
+</p>
 <div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="ch">#!/usr/bin/env perl</span>
 <span class="c1"># file          .latexmkrc</span>
 <span class="c1"># author        Ryotaro Onuki</span>

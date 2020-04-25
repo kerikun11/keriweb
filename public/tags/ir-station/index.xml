@@ -22,7 +22,8 @@
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．&lt;/p&gt;
 &lt;p&gt;この記事は，デモサイトを作るときのメモ．&lt;br&gt;
-デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;</description>
+デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -34,10 +35,12 @@
       <description>&lt;h2 id=&#34;ir-stationの操作を体験できます&#34;&gt;IR-Stationの操作を体験できます！&lt;/h2&gt;
 &lt;h3 id=&#34;ir-stationとは&#34;&gt;IR-Stationとは&lt;/h3&gt;
 &lt;p&gt;IR-Stationとは，WiFi接続に対応した赤外線学習リモコンです．これがあればスマートフォンなどから家電製品をコントロールすることができます．&lt;/p&gt;
-&lt;p&gt;IR-Stationについては，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;をご覧ください．&lt;/p&gt;
+&lt;p&gt;IR-Stationについては，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;
+をご覧ください．&lt;/p&gt;
 &lt;h3 id=&#34;ir-stationのデモンストレーション&#34;&gt;IR-Stationのデモンストレーション&lt;/h3&gt;
 &lt;p&gt;IR-Stationを持っていない方でもIR-Stationの操作を体験できるように，操作画面を再現したサイトを作りました．&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://ir-station.kerikeri.top&#34;&gt;IR-Stationのデモンストレーションサイト&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;http://ir-station.kerikeri.top&#34; target=&#34;_blank&#34;&gt;IR-Stationのデモンストレーションサイト&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -48,7 +51,8 @@
       <guid>https://kerikeri.top/posts/2016-10-16-ir-station-v1.5.0/</guid>
       <description>&lt;h2 id=&#34;ir-stationがv150にアップデート&#34;&gt;IR-Stationがv1.5.0にアップデート&lt;/h2&gt;
 &lt;p&gt;この度，IR-Stationのファームウェアがv1.5.0にアップデートされ，新機能が追加されました．&lt;/p&gt;
-&lt;p&gt;IR-Stationについては，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;をご覧ください．&lt;/p&gt;</description>
+&lt;p&gt;IR-Stationについては，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;
+をご覧ください．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -59,7 +63,8 @@
       <guid>https://kerikeri.top/posts/2016-08-14-download-upload/</guid>
       <description>&lt;h2 id=&#34;ir-stationとは&#34;&gt;IR-Stationとは&lt;/h2&gt;
 &lt;p&gt;自作のWiFi接続の赤外線学習リモコンです．IR-Stationを使えば，スマホやPCから家電製品をコントロールすることができます．&lt;/p&gt;
-&lt;p&gt;詳しくは，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;をご覧ください．&lt;/p&gt;
+&lt;p&gt;詳しくは，&lt;a href=&#34;https://kerikeri.top/tags/ir-station&#34;&gt;IR-Stationについての記事一覧&lt;/a&gt;
+をご覧ください．&lt;/p&gt;
 &lt;h2 id=&#34;ir-stationの新機能&#34;&gt;IR-Stationの新機能&lt;/h2&gt;
 &lt;p&gt;夏休みになり，IR-Stationを本格的に開発しています．今回は，いくつかの新機能を紹介します．&lt;/p&gt;</description>
     </item>
@@ -104,7 +109,8 @@
       <guid>https://kerikeri.top/posts/2016-07-06-ir-station-board/</guid>
       <description>&lt;h2 id=&#34;基板が届きました&#34;&gt;基板が届きました&lt;/h2&gt;
 &lt;h3 id=&#34;思ったより早かった&#34;&gt;思ったより早かった&lt;/h3&gt;
-&lt;p&gt;基板加工サービス&lt;a href=&#34;http://www.elecrow.com/&#34;&gt;Elecrow&lt;/a&gt;に発注した基板が届きました！発送方法は一番安い&lt;code&gt;Registered Airmail&lt;/code&gt;だったのですが，なんと発注から10日で届きました！&lt;/p&gt;</description>
+&lt;p&gt;基板加工サービス&lt;a href=&#34;http://www.elecrow.com/&#34; target=&#34;_blank&#34;&gt;Elecrow&lt;/a&gt;
+に発注した基板が届きました！発送方法は一番安い&lt;code&gt;Registered Airmail&lt;/code&gt;だったのですが，なんと発注から10日で届きました！&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -127,7 +133,8 @@
 &lt;p&gt;ESP8266とはWiFi制御用マイコンです。もともと中国で流行っていました。そのマイコンを内蔵したESP-WROOM-02というWiFiモジュールが日本の技適を取得したので、日本でも人気になりました。&lt;/p&gt;
 &lt;h3 id=&#34;とにかく安い&#34;&gt;とにかく安い！&lt;/h3&gt;
 &lt;p&gt;その価格はなんと、たったの&lt;strong&gt;550円&lt;/strong&gt;です！！&lt;br&gt;
-&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34;&gt;ESP-WROOM-02&lt;/a&gt;←秋月電子などで売っています。&lt;br&gt;
+&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34; target=&#34;_blank&#34;&gt;ESP-WROOM-02&lt;/a&gt;
+←秋月電子などで売っています。&lt;br&gt;
 &lt;figure &gt;
 	&lt;a href=&#34;http://akizukidenshi.com/catalog/g/gM-09607/&#34; target=&#34;blank&#34;&gt;
 		

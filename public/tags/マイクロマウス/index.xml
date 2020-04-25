@@ -122,7 +122,8 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Wed, 18 Dec 2019 00:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-12-18-auto-recovery-micromouse/</guid>
-      <description>&lt;p&gt;この記事は，&lt;a href=&#34;https://adventar.org/calendars/4007&#34;&gt;Micro Mouse Advent Calendar&lt;/a&gt; 18日目の記事です．&lt;/p&gt;</description>
+      <description>&lt;p&gt;この記事は，&lt;a href=&#34;https://adventar.org/calendars/4007&#34; target=&#34;_blank&#34;&gt;Micro Mouse Advent Calendar&lt;/a&gt;
+ 18日目の記事です．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -132,7 +133,8 @@ Cheese主催のマイクロマウス・プチ大会
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2019-12-04-micromouse2019/</guid>
       <description>&lt;p&gt;この記事は
-&lt;a href=&#34;https://adventar.org/calendars/4126&#34;&gt;東京工業大学ロボット技術研究会(rogy) Advent Calendar 2019&lt;/a&gt;の
+&lt;a href=&#34;https://adventar.org/calendars/4126&#34; target=&#34;_blank&#34;&gt;東京工業大学ロボット技術研究会(rogy) Advent Calendar 2019&lt;/a&gt;
+の
 4日目の記事です．&lt;/p&gt;
 &lt;p&gt;こんにちは．けりです．&lt;br&gt;
 今回は，2019年12月1日(日) に行われた，&lt;br&gt;
@@ -163,7 +165,8 @@ Cheese主催のマイクロマウス・プチ大会
 &lt;p&gt;マイクロマウスでは，User Interface (UI) のために，スピーカーを載せることが多いです．&lt;/p&gt;
 &lt;p&gt;しかしながら，小さなマウスを作るうえで，そのわずかなスペースでも惜しいものです．&lt;/p&gt;
 &lt;p&gt;今回は，既にマウスに乗っている&lt;strong&gt;モーター&lt;/strong&gt;で音を鳴らすことができたので紹介します．&lt;/p&gt;
-&lt;p&gt;偶然ですが，&lt;a href=&#34;https://kerikeri.top/posts/2018-05-03-kerise-v4-coming/&#34;&gt;KERISEv4&lt;/a&gt;には(ほとんど使われていない)&lt;strong&gt;吸引ファン&lt;/strong&gt;がついていたので，今回はそれを使ってみました．&lt;/p&gt;</description>
+&lt;p&gt;偶然ですが，&lt;a href=&#34;https://kerikeri.top/posts/2018-05-03-kerise-v4-coming/&#34;&gt;KERISEv4&lt;/a&gt;
+には(ほとんど使われていない)&lt;strong&gt;吸引ファン&lt;/strong&gt;がついていたので，今回はそれを使ってみました．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -194,7 +197,8 @@ Cheese主催のマイクロマウス・プチ大会
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer4/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer3/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer3/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
 &lt;p&gt;今回の記事では，今までに示した設計法のC++による実装例を紹介します．&lt;/p&gt;</description>
     </item>
     
@@ -205,7 +209,8 @@ Cheese主催のマイクロマウス・プチ大会
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer3/</guid>
       <description>&lt;h2 id=&#34;設計2走行距離を考慮した速度設計&#34;&gt;設計2・走行距離を考慮した速度設計&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer2/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer2/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，設計1の曲線加速を組み合わせて，走行距離を考慮した速度設計について考えます．&lt;/p&gt;</description>
     </item>
     
@@ -216,7 +221,8 @@ Cheese主催のマイクロマウス・プチ大会
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2018-04-29-accel-designer2/</guid>
       <description>&lt;h2 id=&#34;設計1加速曲線の設計&#34;&gt;設計1・加速曲線の設計&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer1/&#34;&gt;前回の記事&lt;/a&gt;の続きです．&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2018-04-29-accel-designer1/&#34;&gt;前回の記事&lt;/a&gt;
+の続きです．&lt;/p&gt;
 &lt;p&gt;この記事では，前回紹介した&lt;strong&gt;設計1&lt;/strong&gt;の曲線加速の設計について考えます．&lt;/p&gt;</description>
     </item>
     
@@ -240,7 +246,9 @@ Cheese主催のマイクロマウス・プチ大会
       <pubDate>Mon, 27 Nov 2017 12:39:52 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-11-27-result-of-hx2017-maze/</guid>
-      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;が開催されました．結果報告の記事は&lt;a href=&#34;https://kerikeri.top/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;先日，&lt;a href=&#34;http://www.ntf.or.jp/mouse/micromouse2017/&#34; target=&#34;_blank&#34;&gt;全日本マイクロマウス大会2017&lt;/a&gt;
+が開催されました．結果報告の記事は&lt;a href=&#34;https://kerikeri.top/posts/2017-11-22-micromouse2017/&#34;&gt;こちら&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;ハーフサイズエキスパートクラス決勝の32x32迷路は，サイズが大きすぎて(私の知る限り)どの団体も所持しておらず，年に一回全日本大会でしか見ることができない激レア迷路となっています．&lt;/p&gt;
 &lt;p&gt;今回はその迷路の探索結果についてお話しします．&lt;/p&gt;</description>
     </item>
@@ -309,7 +317,8 @@ Cheese主催のマイクロマウス・プチ大会
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2017-09-04-matlab-trajectory/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2017-09-03-pattern-of-turn/&#34;&gt;前回&lt;/a&gt;の記事ではマイクロマウスのターンの紹介をしました．今回は，そのカーブの軌道の生成方法を紹介したいと思います．&lt;/p&gt;</description>
+&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2017-09-03-pattern-of-turn/&#34;&gt;前回&lt;/a&gt;
+の記事ではマイクロマウスのターンの紹介をしました．今回は，そのカーブの軌道の生成方法を紹介したいと思います．&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -364,7 +373,8 @@ Cheese主催のマイクロマウス・プチ大会
       <guid>https://kerikeri.top/posts/2017-01-13-half-maze/</guid>
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;昨年夏に始めたマイクロマウス．&lt;br&gt;
-&lt;a href=&#34;https://kerikeri.top/tags/kerisev2&#34;&gt;KERISEv2&lt;/a&gt;ができてついにハーフにデビューしました！&lt;br&gt;
+&lt;a href=&#34;https://kerikeri.top/tags/kerisev2&#34;&gt;KERISEv2&lt;/a&gt;
+ができてついにハーフにデビューしました！&lt;br&gt;
 しかし，自宅には迷路がないので試しに自分で作ってみることにしました．&lt;/p&gt;</description>
     </item>
     

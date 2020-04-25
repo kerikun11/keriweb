@@ -42,7 +42,8 @@
 	
 &lt;/figure&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://www.espressif.com/en/products/hardware/esp32/overview&#34;&gt;ESP32 Overview | Espressif Systems&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.espressif.com/en/products/hardware/esp32/overview&#34; target=&#34;_blank&#34;&gt;ESP32 Overview | Espressif Systems&lt;/a&gt;
+&lt;/p&gt;
 &lt;p&gt;ESP32は上海の企業であるEspressif Systemsから発売されているWiFi&amp;amp;Bluetoothモジュールです．同時にgccで開発できるマイコンでもあります．&lt;/p&gt;</description>
     </item>
     

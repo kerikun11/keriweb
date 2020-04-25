@@ -45,7 +45,8 @@
       <description>&lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;ラズパイ+Apache2+SinatraでIR-Stationのデモサイトを作る．&lt;/p&gt;
 &lt;p&gt;この記事は，デモサイトを作るときのメモ．&lt;br&gt;
-デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;&lt;/p&gt;</description>
+デモサイト紹介記事は&lt;a href=&#34;https://kerikeri.top/posts/2016-10-20-ir-station-demo/&#34;&gt;こちら&lt;/a&gt;
+&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -165,7 +166,8 @@ HDD：Western Digital 2TB 3.5 inch&lt;br&gt;
       <guid>https://kerikeri.top/posts/2015-10-05-raspi-server/</guid>
       <description>&lt;h2 id=&#34;ラズパイの用意&#34;&gt;ラズパイの用意&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;ラズパイ用のOS「NOOBS」を&lt;a href=&#34;http://raspberrypi.org/downloads/&#34;&gt;raspberrypi.org&lt;/a&gt;からDLして解凍する。&lt;/li&gt;
+&lt;li&gt;ラズパイ用のOS「NOOBS」を&lt;a href=&#34;http://raspberrypi.org/downloads/&#34; target=&#34;_blank&#34;&gt;raspberrypi.org&lt;/a&gt;
+からDLして解凍する。&lt;/li&gt;
 &lt;li&gt;microSDカードをFAT32でフォーマットする。&lt;/li&gt;
 &lt;li&gt;解凍したファイルをSDカードにコピーする。&lt;/li&gt;
 &lt;li&gt;ラズパイにSDカード、キーボード、LANケーブル（またはWiFiドングル）をつないで電源を入れる。&lt;/li&gt;

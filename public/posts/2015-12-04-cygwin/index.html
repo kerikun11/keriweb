@@ -15,7 +15,8 @@ Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベ�
 <meta property="article:published_time" content="2015-12-04T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-12-04T00:00:00+00:00" />
 
-	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/posts/2015-12-04-cygwin/icon.png"/><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cygwinの使い方"/>
 <meta name="twitter:description" content="概要
 Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。"/>
@@ -118,7 +119,8 @@ if (!doNotTrack) {
 <p>Cygwinとは仮想UNIX環境をつくるソフトである。WindowsはUNIXベースの環境ではないので、コマンドライン操作がとてもやりづらい。Cygwinを使えば、C言語をはじめとしてrubyやpythonなど様々な開発をWindows上でできる。しかも、GUIでなくCUIなのでとても軽い。</p>
 <h2 id="cygwinのインストール手順">Cygwinのインストール手順</h2>
 <ol>
-<li><a href="https://www.cygwin.com/">Cygwin.com</a>からCygwinのインストーラをダウンロードする。32bitマシン用と64bitマシン用があるので適当なほうを選ぶ。</li>
+<li><a href="https://www.cygwin.com/" target="_blank">Cygwin.com</a>
+からCygwinのインストーラをダウンロードする。32bitマシン用と64bitマシン用があるので適当なほうを選ぶ。</li>
 <li>DLしたインストーラを起動する。</li>
 <li>デフォルトの設定で次へを押す。</li>
 <li>URLを選択するところでは<code>~~~.jp</code>など、日本のURLを選ぶとダウンロードが早く終わる。</li>
@@ -343,7 +345,8 @@ $ ls /etc/passwd
 <p>一番下のほうの自分のユーザー名のところで、<code>/bin/bash</code>を<code>/bin/zsh</code>に変更する。<br>
 あとはCygwinを再起動すればデフォルトがzshellになっている。</p>
 <p>ついでに僕の<code>.zshrc</code>を書いておく。</p>
-<p><a href="https://github.com/kerikun11/dotfiles/blob/master/.zshrc">.zshrc</a></p>
+<p><a href="https://github.com/kerikun11/dotfiles/blob/master/.zshrc" target="_blank">.zshrc</a>
+</p>
 <p>シェルを起動するとsshのkeyを求められるので入力すると、2回目からは自動で入力してくれるようになってる。</p>
 		</div>
 		<footer class="post__footer">
