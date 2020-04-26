@@ -1,5 +1,5 @@
 ---
-date: "2020-04-15T22:00:00+09:00"
+date: "2020-04-25T22:00:00+09:00"
 title: "マイクロマウス記事のまとめ"
 tags:
   - "マイクロマウス"
@@ -50,6 +50,7 @@ thumbnail: "icon.jpg"
 
 - [マイクロマウスのターン一覧](/posts/2017-09-03-pattern-of-turn/)
 - [滑らかな加速の設計](/posts/2018-04-29-accel-designer1)
+- [滑らかなスラロームの設計](/posts/2020-04-25-slalom-trajectory-1/)
 - [MATLABでスラローム軌道生成](/posts/2017-09-04-matlab-trajectory/)
 
 ## 回路
