@@ -15,8 +15,7 @@ body {
 .toc_title,
 .widget__title,
 .menu__btn-title,
-.menu__link,
-.post-nav__caption
+.menu__link
 {
 	text-transform: none;
 }

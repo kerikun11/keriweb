@@ -8,7 +8,27 @@
   
   <url>
     <loc>https://kerikeri.top/works/</loc>
-    <lastmod>2017-08-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/</loc>
+    <lastmod>2020-04-25T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/work/</loc>
+    <lastmod>2020-04-25T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
+    <lastmod>2020-04-25T22:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kerikeri.top/works/micromouse/</loc>
+    <lastmod>2020-04-25T22:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -18,16 +38,6 @@
   
   <url>
     <loc>https://kerikeri.top/post/</loc>
-    <lastmod>2020-04-25T14:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/</loc>
-    <lastmod>2020-04-25T14:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%83%9E%E3%82%A6%E3%82%B9/</loc>
     <lastmod>2020-04-25T14:00:00+09:00</lastmod>
   </url>
   
@@ -74,16 +84,6 @@
   <url>
     <loc>https://kerikeri.top/categories/%E5%82%99%E5%BF%98%E9%8C%B2/</loc>
     <lastmod>2020-04-24T12:05:29+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/work/</loc>
-    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/works/micromouse/</loc>
-    <lastmod>2020-04-15T22:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -272,6 +272,11 @@
   </url>
   
   <url>
+    <loc>https://kerikeri.top/</loc>
+    <lastmod>2018-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kerikeri.top/posts/2018-04-29-accel-designer4/</loc>
     <lastmod>2018-04-29T15:35:38+09:00</lastmod>
   </url>
@@ -429,11 +434,6 @@
   <url>
     <loc>https://kerikeri.top/posts/2017-08-18-esp32-sip-board/</loc>
     <lastmod>2017-08-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kerikeri.top/</loc>
-    <lastmod>2017-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
