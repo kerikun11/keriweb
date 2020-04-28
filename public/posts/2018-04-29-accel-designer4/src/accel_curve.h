@@ -2,7 +2,7 @@
  * @file accel_curve.h
  * @author Ryotaro Onuki (kerikun11+github@gmail.com)
  * @ref https://kerikeri.top/posts/2018-04-29-accel-designer4/
- * @brief 躍度0次，加速度1次，速度2次，位置3次関数により，滑らかな加速を実現する
+ * @brief 躍度0次，加速度1次，速度2次，位置3次関数により，なめらかな加速を実現する
  * @date 2020-04-19
  */
 #pragma once
@@ -55,7 +55,7 @@ namespace ctrl {
  * @brief 加速曲線を生成するクラス
  *
  * - 引数の拘束に従って加速曲線を生成する
- * - 始点速度と終点速度を滑らかにつなぐ
+ * - 始点速度と終点速度をなめらかにつなぐ
  * - 移動距離の拘束はない
  * - 始点速度および終点速度は，正でも負でも可
  */

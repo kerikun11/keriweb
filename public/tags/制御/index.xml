@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>滑らかなスラロームの設計④ 生成結果</title>
+      <title>なめらかなスラロームの設計④ 生成結果</title>
       <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-4/</link>
       <pubDate>Sat, 25 Apr 2020 14:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
@@ -28,29 +28,29 @@
     </item>
     
     <item>
-      <title>滑らかなスラロームの設計③ C&#43;&#43;による実装</title>
+      <title>なめらかなスラロームの設計③ C&#43;&#43;による実装</title>
       <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</link>
       <pubDate>Sat, 25 Apr 2020 13:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-3/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/&#34;&gt;前回の記事&lt;/a&gt;
 の続きです．&lt;/p&gt;
-&lt;p&gt;今回の記事では，滑らかなスラローム軌道の C++による実装例を紹介します．&lt;/p&gt;</description>
+&lt;p&gt;今回の記事では，なめらかなスラローム軌道の C++による実装例を紹介します．&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>滑らかなスラロームの設計② 設計方法</title>
+      <title>なめらかなスラロームの設計② 設計方法</title>
       <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</link>
       <pubDate>Sat, 25 Apr 2020 12:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
       <guid>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/&#34;&gt;前回の記事&lt;/a&gt;
 の続きです．&lt;/p&gt;
-&lt;p&gt;今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．&lt;/p&gt;</description>
+&lt;p&gt;今回の記事では，なめらかなスラローム軌道の具体的な設計方法を紹介します．&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>滑らかなスラロームの設計① スラローム概要</title>
+      <title>なめらかなスラロームの設計① スラローム概要</title>
       <link>https://kerikeri.top/posts/2020-04-25-slalom-trajectory-1/</link>
       <pubDate>Sat, 25 Apr 2020 11:00:00 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
@@ -62,7 +62,7 @@
     </item>
     
     <item>
-      <title>滑らかな加速の設計④ C&#43;&#43;による実装例</title>
+      <title>なめらかな加速の設計④ C&#43;&#43;による実装例</title>
       <link>https://kerikeri.top/posts/2018-04-29-accel-designer4/</link>
       <pubDate>Sun, 29 Apr 2018 15:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
@@ -74,7 +74,7 @@
     </item>
     
     <item>
-      <title>滑らかな加速の設計③ 走行距離を考慮した速度設計</title>
+      <title>なめらかな加速の設計③ 走行距離を考慮した速度設計</title>
       <link>https://kerikeri.top/posts/2018-04-29-accel-designer3/</link>
       <pubDate>Sun, 29 Apr 2018 14:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
@@ -86,7 +86,7 @@
     </item>
     
     <item>
-      <title>滑らかな加速の設計② 曲線加速の設計</title>
+      <title>なめらかな加速の設計② 曲線加速の設計</title>
       <link>https://kerikeri.top/posts/2018-04-29-accel-designer2/</link>
       <pubDate>Sun, 29 Apr 2018 13:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>
@@ -98,7 +98,7 @@
     </item>
     
     <item>
-      <title>滑らかな加速の設計① 台形加速と曲線加速</title>
+      <title>なめらかな加速の設計① 台形加速と曲線加速</title>
       <link>https://kerikeri.top/posts/2018-04-29-accel-designer1/</link>
       <pubDate>Sun, 29 Apr 2018 12:35:38 +0900</pubDate>
       <author>kerikun11&#43;web@gmail.com (けり)</author>

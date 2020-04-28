@@ -49,8 +49,8 @@ thumbnail: "icon.jpg"
 ## 制御
 
 - [マイクロマウスのターン一覧](/posts/2017-09-03-pattern-of-turn/)
-- [滑らかな加速の設計](/posts/2018-04-29-accel-designer1)
-- [滑らかなスラロームの設計](/posts/2020-04-25-slalom-trajectory-1/)
+- [なめらかな加速の設計](/posts/2018-04-29-accel-designer1)
+- [なめらかなスラロームの設計](/posts/2020-04-25-slalom-trajectory-1/)
 - [MATLABでスラローム軌道生成](/posts/2017-09-04-matlab-trajectory/)
 
 ## 回路

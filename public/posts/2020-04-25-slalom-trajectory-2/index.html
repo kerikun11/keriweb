@@ -4,23 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>滑らかなスラロームの設計② 設計方法 - KERI&#39;s Lab</title>
+	<title>なめらかなスラロームの設計② 設計方法 - KERI&#39;s Lab</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	<meta property="og:title" content="滑らかなスラロームの設計② 設計方法" />
+	<meta property="og:title" content="なめらかなスラロームの設計② 設計方法" />
 <meta property="og:description" content="前回の記事
 の続きです．
-今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．" />
+今回の記事では，なめらかなスラローム軌道の具体的な設計方法を紹介します．" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/" /><meta property="og:image" content="https://kerikeri.top/posts/2020-04-25-slalom-trajectory-2/icon.png"/>
 <meta property="article:published_time" content="2020-04-25T12:00:00+09:00" />
 <meta property="article:modified_time" content="2020-04-25T12:00:00+09:00" />
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="滑らかなスラロームの設計② 設計方法"/>
+<meta name="twitter:title" content="なめらかなスラロームの設計② 設計方法"/>
 <meta name="twitter:description" content="前回の記事
 の続きです．
-今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．"/>
+今回の記事では，なめらかなスラローム軌道の具体的な設計方法を紹介します．"/>
 <meta name="twitter:site" content="@kerikun11"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -105,9 +105,9 @@ if (!doNotTrack) {
 	<article class="post">
 		<header class="post__header">
 			<figure class="post__thumbnail">
-				<img src="icon.png" alt="滑らかなスラロームの設計② 設計方法">
+				<img src="icon.png" alt="なめらかなスラロームの設計② 設計方法">
 			</figure>
-			<h1 class="post__title">滑らかなスラロームの設計② 設計方法</h1>
+			<h1 class="post__title">なめらかなスラロームの設計② 設計方法</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-04-25T12:00:00&#43;09:00">2020-04-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/%E8%AA%AC%E6%98%8E%E8%A8%98%E4%BA%8B/" rel="category">説明記事</a>
@@ -118,16 +118,16 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<p><a href="/posts/2020-04-25-slalom-trajectory-1/">前回の記事</a>
 の続きです．</p>
-<p>今回の記事では，滑らかなスラローム軌道の具体的な設計方法を紹介します．</p>
-<h3 id="滑らかなスラロームの設計-目次">滑らかなスラロームの設計 目次</h3>
+<p>今回の記事では，なめらかなスラローム軌道の具体的な設計方法を紹介します．</p>
+<h3 id="なめらかなスラロームの設計-目次">なめらかなスラロームの設計 目次</h3>
 <ul>
-<li><a href="/posts/2020-04-25-slalom-trajectory-1/">滑らかなスラロームの設計① スラローム概要</a>
+<li><a href="/posts/2020-04-25-slalom-trajectory-1/">なめらかなスラロームの設計① スラローム概要</a>
 </li>
-<li><a href="/posts/2020-04-25-slalom-trajectory-2/">滑らかなスラロームの設計② 設計方法</a>
+<li><a href="/posts/2020-04-25-slalom-trajectory-2/">なめらかなスラロームの設計② 設計方法</a>
 </li>
-<li><a href="/posts/2020-04-25-slalom-trajectory-3/">滑らかなスラロームの設計③ C&#43;&#43;による実装</a>
+<li><a href="/posts/2020-04-25-slalom-trajectory-3/">なめらかなスラロームの設計③ C&#43;&#43;による実装</a>
 </li>
-<li><a href="/posts/2020-04-25-slalom-trajectory-4/">滑らかなスラロームの設計④ 生成結果</a>
+<li><a href="/posts/2020-04-25-slalom-trajectory-4/">なめらかなスラロームの設計④ 生成結果</a>
 </li>
 </ul>
 <h2 id="手順の概要">手順の概要</h2>
@@ -282,15 +282,15 @@ if (!doNotTrack) {
 <p><img src="curve_t.svg" alt="角速度分布"></p>
 <h3 id="導出手順">導出手順</h3>
 <ol>
-<li>積分結果が移動角度 $\theta_\mathrm{end}$ となる滑らかな<strong>角速度分布</strong>関数 $\omega_\mathrm{ref}(t)$ を求める</li>
+<li>積分結果が移動角度 $\theta_\mathrm{end}$ となるなめらかな<strong>角速度分布</strong>関数 $\omega_\mathrm{ref}(t)$ を求める</li>
 <li>位置 $(x,y)$ の数値積分によって<strong>カーブの終点位置</strong>を求める</li>
 <li>カーブの終点位置が目標位置 $(x_\mathrm{curve},y_\mathrm{curve})$ になるような基準並進速度 $v_\mathrm{ref}$ を求める</li>
 <li>前後の直線を含めた移動距離が $(x_\mathrm{end},y_\mathrm{end})$ と一致するようにカーブ前後の直線の長さを求める</li>
 </ol>
 <p>それぞれの手順について，以下で説明していきます．</p>
-<h3 id="滑らかな角速度の設計">滑らかな角速度の設計</h3>
-<p>過去に紹介した<a href="/posts/2018-04-29-accel-designer1">滑らかな加速の設計方法</a>
-を利用して，滑らかな角速度の関数 $\omega(t)$ を求めます．</p>
+<h3 id="なめらかな角速度の設計">なめらかな角速度の設計</h3>
+<p>過去に紹介した<a href="/posts/2018-04-29-accel-designer1">なめらかな加速の設計方法</a>
+を利用して，なめらかな角速度の関数 $\omega(t)$ を求めます．</p>
 <p>具体的には，参考記事の変数を以下のように割り当てて，各関数を入手します．</p>
 <table>
 <thead>
@@ -365,7 +365,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>参考記事では並進速度の曲線加速について述べられているので，それを回転の角速度に変換して考えています．</p>
-<p>この表のように設定することで以下のような滑らかな角速度軌道が得られます．</p>
+<p>この表のように設定することで以下のようななめらかな角速度軌道が得られます．</p>
 <h3 id="数値積分">数値積分</h3>
 <p>上記の方法で角度の関数 $\theta_\mathrm{ref}(t),~0\leq t \leq t_\mathrm{ref}$ が得られました．</p>
 <p>この軌道を並進速度 $v$ で走行した場合，各時刻 $t$ における位置 $(x, y)$ は以下のように表されます．</p>
@@ -467,7 +467,7 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
 <p>その方法については，<a href="http://idken.net/posts/2018-11-07-trajectory_tracking1/" target="_blank">こちら</a>
 の記事が参考になります．</p>
 <h2 id="入出力情報のまとめ">入出力情報のまとめ</h2>
-<p>上記までが滑らかなスラローム軌道の設計方法です．</p>
+<p>上記までがなめらかなスラローム軌道の設計方法です．</p>
 <p>ここで，本設計で与える情報と得られる情報をまとめると，次のようになります．</p>
 <h3 id="設計時に与える情報">設計時に与える情報</h3>
 <ul>
@@ -502,7 +502,7 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
 </li>
 </ul>
 <h2 id="まとめ">まとめ</h2>
-<p>今回の記事では，滑らかなスラローム軌道の具体的な設計方法について述べました．</p>
+<p>今回の記事では，なめらかなスラローム軌道の具体的な設計方法について述べました．</p>
 <p><a href="/posts/2020-04-25-slalom-trajectory-3/">次回の記事</a>
 では，C++による実装例を紹介します．</p>
 <script type="text/x-mathjax-config">
@@ -555,13 +555,13 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
 	<div class="pager__item pager__item--prev">
 		<a class="pager__link" href="/posts/2020-04-25-slalom-trajectory-1/" rel="prev">
 			<span class="pager__subtitle">«&thinsp;Previous</span>
-			<p class="pager__title">滑らかなスラロームの設計① スラローム概要</p>
+			<p class="pager__title">なめらかなスラロームの設計① スラローム概要</p>
 		</a>
 	</div>
 	<div class="pager__item pager__item--next">
 		<a class="pager__link" href="/posts/2020-04-25-slalom-trajectory-3/" rel="next">
 			<span class="pager__subtitle">Next&thinsp;»</span>
-			<p class="pager__title">滑らかなスラロームの設計③ C&#43;&#43;による実装</p>
+			<p class="pager__title">なめらかなスラロームの設計③ C&#43;&#43;による実装</p>
 		</a>
 	</div>
 </nav>
@@ -647,7 +647,7 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
   <ul>
     <li>
       <ul>
-        <li><a href="#滑らかなスラロームの設計-目次">滑らかなスラロームの設計 目次</a></li>
+        <li><a href="#なめらかなスラロームの設計-目次">なめらかなスラロームの設計 目次</a></li>
       </ul>
     </li>
     <li><a href="#手順の概要">手順の概要</a>
@@ -662,7 +662,7 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
         <li><a href="#事前設計時に与える情報">事前設計時に与える情報</a></li>
         <li><a href="#事前設計時に得られる情報">事前設計時に得られる情報</a></li>
         <li><a href="#導出手順">導出手順</a></li>
-        <li><a href="#滑らかな角速度の設計">滑らかな角速度の設計</a></li>
+        <li><a href="#なめらかな角速度の設計">なめらかな角速度の設計</a></li>
         <li><a href="#数値積分">数値積分</a></li>
         <li><a href="#基準並進速度を求める">基準並進速度を求める</a></li>
         <li><a href="#前後の直線の長さを求める">前後の直線の長さを求める</a></li>
@@ -693,10 +693,10 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
 	<h4 class="widget__title">Spotlight Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-1/">滑らかなスラロームの設計① スラローム概要</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-1/">なめらかなスラロームの設計① スラローム概要</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2019-12-04-micromouse2019/">全日本マイクロマウス2019の結果報告</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2019-01-14-vscode-latex/">VSCodeでTeXを書こう</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2018-04-29-accel-designer1/">滑らかな加速の設計① 台形加速と曲線加速</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2018-04-29-accel-designer1/">なめらかな加速の設計① 台形加速と曲線加速</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2017-09-03-pattern-of-turn/">マイクロマウスのターン一覧</a></li>
 		</ul>
 	</div>
@@ -705,10 +705,10 @@ $(x,y) = (x_\mathrm{curve},y_\mathrm{curve})$ となり，求めていた軌道�
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-4/">滑らかなスラロームの設計④ 生成結果</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-3/">滑らかなスラロームの設計③ C&#43;&#43;による実装</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-2/">滑らかなスラロームの設計② 設計方法</a></li>
-			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-1/">滑らかなスラロームの設計① スラローム概要</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-4/">なめらかなスラロームの設計④ 生成結果</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-3/">なめらかなスラロームの設計③ C&#43;&#43;による実装</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-2/">なめらかなスラロームの設計② 設計方法</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-25-slalom-trajectory-1/">なめらかなスラロームの設計① スラローム概要</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/2020-04-24-manjaro-desktop-crash-fix/">Manjaro Linux でデスクトップがしばしばフリーズする問題の解決方法</a></li>
 		</ul>
 	</div>
